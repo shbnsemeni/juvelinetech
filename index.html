@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JuveLineTech — Technology Solutions</title>
+    <meta name="description" content="JuveLineTech: Website design, Web & mobile app development, Software systems, IT infrastructure, and Cybersecurity solutions in Dar es Salaam, Tanzania.">
+    <meta name="keywords" content="juvelinetech, web design tanzania, software development, mobile apps, IT solutions dar es salaam">
+    <meta name="theme-color" content="#059669">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #1F2937;
+            background: #F0FDF4;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #059669 0%, #10B981 40%, #34D399 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.08) 0%, transparent 50%);
+            animation: heroGlow 8s ease-in-out infinite alternate;
+        }
+        @keyframes heroGlow {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-5%, 5%); }
+        }
+        .hero-content { position: relative; z-index: 1; }
+        .logo-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            font-size: 72px;
+            letter-spacing: -4px;
+            color: #fff;
+            display: inline-block;
+            margin-bottom: 8px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        .logo-text .j { color: #fff; }
+        .logo-text .t { color: #FCD34D; }
+        .hero-tagline {
+            font-size: 18px;
+            color: rgba(255,255,255,0.9);
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            margin-bottom: 28px;
+        }
+        .hero h1 {
+            font-size: clamp(28px, 5vw, 52px);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+        .hero p {
+            font-size: clamp(15px, 2vw, 18px);
+            color: rgba(255,255,255,0.85);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+        .btn-primary {
+            display: inline-block;
+            padding: 14px 40px;
+            background: #fff;
+            color: #059669;
+            font-weight: 700;
+            font-size: 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.2); }
+        .btn-outline {
+            display: inline-block;
+            padding: 13px 36px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            border: 2px solid rgba(255,255,255,0.4);
+            margin-left: 12px;
+            transition: all 0.3s ease;
+        }
+        .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+
+        /* ===== NAV ===== */
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            transition: all 0.4s ease;
+        }
+        .nav.scrolled { background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); box-shadow: 0 2px 20px rgba(0,0,0,0.08); padding: 10px 0; }
+        .nav .container { display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo {
+            font-weight: 900;
+            font-size: 22px;
+            letter-spacing: -1px;
+            text-decoration: none;
+            color: #1F2937;
+        }
+        .nav-logo .j { color: #059669; }
+        .nav-logo .t { color: #D4A843; }
+        .nav.scrolled .nav-logo { color: #1F2937; }
+        .nav-links { display: flex; gap: 28px; align-items: center; }
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.85);
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav.scrolled .nav-links a { color: #4B5563; }
+        .nav-links a:hover { color: #10B981; }
+        .nav.scrolled .nav-links a:hover { color: #059669; }
+        .nav-cta {
+            padding: 8px 20px;
+            background: #fff;
+            color: #059669 !important;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 13px;
+        }
+        .nav.scrolled .nav-cta { background: #059669; color: #fff !important; }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+        .hamburger span { width: 24px; height: 2.5px; background: rgba(255,255,255,0.9); border-radius: 2px; transition: all 0.3s; }
+        .nav.scrolled .hamburger span { background: #1F2937; }
+
+        /* ===== SECTIONS ===== */
+        section { padding: 80px 0; }
+        .section-tag {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #10B981;
+            margin-bottom: 8px;
+        }
+        .section-title {
+            font-size: clamp(26px, 4vw, 38px);
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 44px;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, #10B981, #FCD34D);
+            margin-top: 10px;
+            border-radius: 3px;
+        }
+
+        /* ===== SERVICES ===== */
+        #services { background: #fff; }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            padding: 28px 24px;
+            border-radius: 16px;
+            background: #F0FDF4;
+            border: 1px solid #D1FAE5;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+        .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(16,185,129,0.12); }
+        .service-card .icon {
+            width: 48px; height: 48px;
+            background: linear-gradient(135deg, #059669, #10B981);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        .service-card h3 { font-size: 17px; font-weight: 700; color: #1F2937; margin-bottom: 8px; }
+        .service-card p { font-size: 14px; color: #6B7280; line-height: 1.7; }
+        .service-card .skills { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+        .service-card .skills span {
+            font-size: 11px;
+            padding: 4px 12px;
+            background: #fff;
+            border-radius: 20px;
+            color: #059669;
+            font-weight: 500;
+            border: 1px solid #D1FAE5;
+        }
+
+        /* ===== PORTFOLIO ===== */
+        #portfolio { background: #F0FDF4; }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .portfolio-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #E5E7EB;
+            transition: all 0.3s ease;
+        }
+        .portfolio-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+        .portfolio-card .thumb {
+            height: 200px;
+            background: linear-gradient(135deg, #059669, #34D399);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: rgba(255,255,255,0.3);
+            font-weight: 900;
+        }
+        .portfolio-card .body { padding: 24px; }
+        .portfolio-card .body h3 { font-size: 18px; font-weight: 700; color: #1F2937; margin-bottom: 6px; }
+        .portfolio-card .body p { font-size: 14px; color: #6B7280; margin-bottom: 12px; line-height: 1.7; }
+        .portfolio-card .body .tech {
+            display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px;
+        }
+        .portfolio-card .body .tech span {
+            font-size: 11px; padding: 3px 10px; background: #F0FDF4;
+            border-radius: 12px; color: #059669; font-weight: 500;
+        }
+        .portfolio-card .body a {
+            color: #10B981; font-weight: 600; font-size: 14px; text-decoration: none;
+        }
+        .portfolio-card .body a:hover { text-decoration: underline; }
+
+        /* ===== ABOUT ===== */
+        #about { background: #fff; }
+        .about-wrap { display: flex; gap: 60px; align-items: center; flex-wrap: wrap; }
+        .about-text { flex: 1; min-width: 280px; }
+        .about-text p { font-size: 15px; color: #6B7280; line-height: 1.8; margin-bottom: 16px; }
+        .about-text strong { color: #1F2937; }
+        .about-stats { display: flex; gap: 40px; margin-top: 28px; }
+        .about-stats div { text-align: center; }
+        .about-stats .num { font-size: 32px; font-weight: 800; color: #059669; }
+        .about-stats .label { font-size: 13px; color: #6B7280; }
+
+        /* ===== CONTACT ===== */
+        #contact { background: #F0FDF4; }
+        .contact-wrap { display: flex; gap: 40px; flex-wrap: wrap; }
+        .contact-info { flex: 1; min-width: 260px; }
+        .contact-info .item { display: flex; gap: 14px; margin-bottom: 20px; }
+        .contact-info .item .ic {
+            width: 44px; height: 44px; background: #10B981; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px; color: #fff; flex-shrink: 0;
+        }
+        .contact-info .item h4 { font-size: 14px; font-weight: 600; color: #1F2937; }
+        .contact-info .item p { font-size: 14px; color: #6B7280; }
+        .contact-form { flex: 1; min-width: 300px; }
+        .contact-form input, .contact-form textarea {
+            width: 100%; padding: 14px 16px; border: 1px solid #D1FAE5;
+            border-radius: 10px; font-size: 14px; font-family: inherit;
+            color: #1F2937; background: #fff; margin-bottom: 14px;
+            transition: border-color 0.3s;
+        }
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none; border-color: #10B981; box-shadow: 0 0 0 3px rgba(16,185,129,0.1);
+        }
+        .contact-form textarea { height: 120px; resize: vertical; }
+        .contact-form button {
+            padding: 14px 32px; background: linear-gradient(135deg, #059669, #10B981);
+            color: #fff; border: none; border-radius: 10px; font-size: 15px;
+            font-weight: 600; cursor: pointer; transition: all 0.3s;
+        }
+        .contact-form button:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(16,185,129,0.3); }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #065F46; color: rgba(255,255,255,0.7); padding: 48px 0 32px;
+        }
+        footer .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 32px; }
+        footer .brand { max-width: 280px; }
+        footer .brand .logo-text-sm {
+            font-weight: 900; font-size: 28px; letter-spacing: -2px;
+        }
+        footer .brand .logo-text-sm .j { color: #fff; }
+        footer .brand .logo-text-sm .t { color: #FCD34D; }
+        footer .brand p { font-size: 13px; line-height: 1.7; margin-top: 8px; }
+        footer .links h4 { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+        footer .links a {
+            display: block; color: rgba(255,255,255,0.6); text-decoration: none;
+            font-size: 13px; margin-bottom: 6px; transition: color 0.3s;
+        }
+        footer .links a:hover { color: #FCD34D; }
+        .copyright {
+            text-align: center; padding-top: 28px; margin-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px;
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* ===== MOBILE MENU ===== */
+        .mobile-menu {
+            position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
+            background: #fff; z-index: 2000; padding: 80px 28px 28px;
+            transition: right 0.4s ease; box-shadow: -4px 0 30px rgba(0,0,0,0.1);
+        }
+        .mobile-menu.open { right: 0; }
+        .mobile-menu a {
+            display: block; padding: 12px 0; font-size: 16px; font-weight: 500;
+            color: #1F2937; text-decoration: none; border-bottom: 1px solid #F3F4F6;
+        }
+        .mobile-menu a:hover { color: #10B981; }
+        .mobile-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.4); z-index: 1999; opacity: 0;
+            pointer-events: none; transition: opacity 0.4s;
+        }
+        .mobile-overlay.show { opacity: 1; pointer-events: auto; }
+        .close-menu {
+            position: absolute; top: 20px; right: 20px;
+            background: none; border: none; font-size: 28px; color: #9CA3AF; cursor: pointer;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .hero { min-height: 90vh; }
+            .btn-outline { margin-left: 0; margin-top: 12px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .about-wrap { flex-direction: column; gap: 30px; }
+            .about-stats { justify-content: space-around; }
+            .contact-wrap { flex-direction: column; }
+            footer .container { flex-direction: column; gap: 24px; }
+        }
+        @media (max-width: 480px) {
+            section { padding: 48px 0; }
+            .hero-buttons { display: flex; flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Mobile Overlay -->
+    <div class="mobile-overlay" id="overlay" onclick="closeMenu()"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-menu" onclick="closeMenu()">✕</button>
+        <a href="#services" onclick="closeMenu()">Services</a>
+        <a href="#portfolio" onclick="closeMenu()">Portfolio</a>
+        <a href="#about" onclick="closeMenu()">About</a>
+        <a href="#contact" onclick="closeMenu()">Contact</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="container">
+            <a href="#" class="nav-logo"><span class="j">J</span><span class="t">t</span></a>
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#contact" class="nav-cta">Get a Quote</a>
+            </div>
+            <button class="hamburger" onclick="openMenu()">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="logo-text"><span class="j">J</span><span class="t">t</span></div>
+            <div class="hero-tagline">JUVELINETECH</div>
+            <h1>Technology Solutions<br>That Drive Your Business Forward</h1>
+            <p>From web &amp; mobile apps to enterprise systems and IT infrastructure — we build technology that works for you.</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn-primary">Explore Services</a>
+                <a href="#contact" class="btn-outline">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+        <div class="container">
+            <div class="section-tag">What We Do</div>
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+
+                <div class="service-card">
+                    <div class="icon">🌐</div>
+                    <h3>Web &amp; Mobile Development</h3>
+                    <p>Modern websites, web applications, and native mobile apps for Android &amp; iOS.</p>
+                    <div class="skills">
+                        <span>Website Design</span>
+                        <span>Web Apps</span>
+                        <span>Android</span>
+                        <span>iOS</span>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">⚙️</div>
+                    <h3>Software Systems</h3>
+                    <p>Custom software including school &amp; hospital management, inventory, POS, and more.</p>
+                    <div class="skills">
+                        <span>School Mgmt</span>
+                        <span>Hospital Mgmt</span>
+                        <span>Inventory</span>
+                        <span>POS</span>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">🛡️</div>
+                    <h3>IT Infrastructure &amp; Security</h3>
+                    <p>Hardware repair, network setup, data recovery, and cybersecurity solutions.</p>
+                    <div class="skills">
+                        <span>Hardware Repair</span>
+                        <span>Network Setup</span>
+                        <span>Data Recovery</span>
+                        <span>Cybersecurity</span>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">🔗</div>
+                    <h3>Consulting &amp; Integration</h3>
+                    <p>IT consulting, system integration, automation tools, API development &amp; legacy migration.</p>
+                    <div class="skills">
+                        <span>IT Consulting</span>
+                        <span>API Dev</span>
+                        <span>Automation</span>
+                        <span>Legacy Migration</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="section-tag">Our Work</div>
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="portfolio-grid">
+
+                <div class="portfolio-card">
+                    <div class="thumb">🛒</div>
+                    <div class="body">
+                        <h3>Matete Online Store</h3>
+                        <p>Full e-commerce platform for electronics in Tanzania. Features: product catalog, cart, checkout, payments, admin panel, push notifications.</p>
+                        <div class="tech">
+                            <span>Django</span>
+                            <span>Tailwind CSS</span>
+                            <span>PostgreSQL</span>
+                            <span>REST API</span>
+                        </div>
+                        <a href="https://mateteonlinestore.com" target="_blank">Visit Website →</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="thumb">📱</div>
+                    <div class="body">
+                        <h3>Mobile App — Matete Store</h3>
+                        <p>Native Android app wrapping the Matete Online Store website with splash screen, push notifications, and full-screen immersive experience.</p>
+                        <div class="tech">
+                            <span>Capacitor</span>
+                            <span>Android</span>
+                            <span>PWA</span>
+                        </div>
+                        <a href="#" style="color:#9CA3AF;">Coming soon to Play Store</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="thumb">🔧</div>
+                    <div class="body">
+                        <h3>Your Project Here</h3>
+                        <p>Let's build something great together. Contact us to discuss your idea and get a free quote.</p>
+                        <div class="tech">
+                            <span>You Dream It</span>
+                            <span>We Build It</span>
+                        </div>
+                        <a href="#contact">Start a Project →</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <div class="container">
+            <div class="section-tag">Who We Are</div>
+            <h2 class="section-title">About JuveLineTech</h2>
+            <div class="about-wrap">
+                <div class="about-text">
+                    <p>JuveLineTech is a technology company based in <strong>Chanika, Dar es Salaam</strong>, dedicated to providing innovative digital solutions for businesses and organizations across Tanzania.</p>
+                    <p>We specialize in <strong>web development, mobile applications, custom software systems, IT infrastructure, and cybersecurity</strong>. Our team combines technical expertise with a deep understanding of local business needs to deliver solutions that make a real impact.</p>
+                    <p>Whether you need a simple business website, a complex enterprise system, or IT consulting — we have the skills and experience to bring your vision to life.</p>
+                    <div class="about-stats">
+                        <div><div class="num">20+</div><div class="label">Projects</div></div>
+                        <div><div class="num">5+</div><div class="label">Technologies</div></div>
+                        <div><div class="num">3+</div><div class="label">Years Exp</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-tag">Get In Touch</div>
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-wrap">
+                <div class="contact-info">
+                    <div class="item">
+                        <div class="ic">📞</div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p><a href="tel:+255782341709" style="color:#6B7280;text-decoration:none;">0782 341 709</a></p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="ic">✉️</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:shbnsemeni@gmail.com" style="color:#6B7280;text-decoration:none;">shbnsemeni@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="ic">📍</div>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Chanika, Dar es Salaam, Tanzania</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" action="https://formsubmit.co/shbnsemeni@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="JuveLineTech - New Inquiry">
+                    <input type="hidden" name="_next" value="https://juvelinetech.com/thank-you.html">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="text" name="subject" placeholder="Subject">
+                    <textarea name="message" placeholder="Tell us about your project..." required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="brand">
+                <div class="logo-text-sm"><span class="j">J</span><span class="t">t</span></div>
+                <p>Technology solutions that drive your business forward. Based in Chanika, Dar es Salaam.</p>
+            </div>
+            <div class="links">
+                <h4>Quick Links</h4>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="links">
+                <h4>Services</h4>
+                <a href="#services">Web Development</a>
+                <a href="#services">Mobile Apps</a>
+                <a href="#services">Software Systems</a>
+                <a href="#services">IT Infrastructure</a>
+            </div>
+            <div class="links">
+                <h4>Contact</h4>
+                <a href="tel:+255782341709">0782 341 709</a>
+                <a href="mailto:shbnsemeni@gmail.com">shbnsemeni@gmail.com</a>
+                <a>Chanika, Dar es Salaam</a>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 JuveLineTech. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Nav scroll
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        // Mobile menu
+        function openMenu() {
+            document.getElementById('mobileMenu').classList.add('open');
+            document.getElementById('overlay').classList.add('show');
+        }
+        function closeMenu() {
+            document.getElementById('mobileMenu').classList.remove('open');
+            document.getElementById('overlay').classList.remove('show');
+        }
+
+        // Smooth scroll offset for fixed nav
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                const id = a.getAttribute('href');
+                if (id === '#') return;
+                const el = document.querySelector(id);
+                if (el) {
+                    e.preventDefault();
+                    const offset = 70;
+                    window.scrollTo({ top: el.offsetTop - offset, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
