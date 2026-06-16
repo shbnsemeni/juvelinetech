@@ -59,6 +59,13 @@
         footer .links a { display: block; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; margin-bottom: 5px; }
         .copyright { text-align: center; padding-top: 24px; margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px; }
         @media (max-width: 768px) { .nav-links a { margin-left: 12px; font-size: 12px; } .lesson { padding: 20px; } footer .container { flex-direction: column; } }
+        /* Language Toggle */
+        .lang-toggle { display: flex; gap: 8px; justify-content: center; margin: 20px 0; }
+        .lang-btn { padding: 8px 24px; border: 2px solid #D1D5DB; border-radius: 50px; background: #fff; color: #4B5563; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-family: inherit; }
+        .lang-btn:hover { border-color: #059669; color: #059669; }
+        .lang-btn.active { background: #059669; color: #fff; border-color: #059669; }
+        body.lang-en .sw-text { display: none; }
+        body.lang-en .en-text .lang-label { display: none; }
     </style>
 </head>
 <body>
@@ -78,6 +85,11 @@
         <h1>🌐 HTML &amp; CSS</h1>
         <p>Jifunze kuunda websites kuanzia mwanzo. HTML ni mifupa, CSS ni ngozi na mavazi. Course hii inakufundisha zote mbili.</p>
         <div class="meta">English / Kiswahili • Beginner to Intermediate • Text + Code Examples</div>
+    </div>
+
+    <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="sw"><span class="flag">🇹🇿</span>Kiswahili</button>
+        <button class="lang-btn" data-lang="en"><span class="flag">🇬🇧</span>English</button>
     </div>
 
     <div class="container">
@@ -542,5 +554,33 @@ p {
         <div class="copyright">&copy; 2026 JuveLineTech. All rights reserved.</div>
     </footer>
 
+<script>
+(function() {
+    document.querySelectorAll('p').forEach(function(p) {
+        if (p.innerHTML.indexOf('🇹🇿') !== -1) p.classList.add('sw-text');
+        if (p.innerHTML.indexOf('🇬🇧') !== -1) {
+            p.classList.add('en-text');
+        }
+    });
+    document.querySelectorAll('.en-text .sw').forEach(function(el) {
+        el.classList.add('lang-label');
+    });
+    var lang = localStorage.getItem('jltLang') || 'sw';
+    setLang(lang);
+    document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            setLang(this.dataset.lang);
+        });
+    });
+    function setLang(l) {
+        document.body.classList.remove('lang-sw', 'lang-en');
+        document.body.classList.add('lang-' + l);
+        localStorage.setItem('jltLang', l);
+        document.querySelectorAll('.lang-btn').forEach(function(b) {
+            b.classList.toggle('active', b.dataset.lang === l);
+        });
+    }
+})();
+</script>
 </body>
 </html>
