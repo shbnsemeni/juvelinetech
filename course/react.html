@@ -699,22 +699,6 @@ function ContactManager() {
 
 <script>
 (function() {
-    document.querySelectorAll('p').forEach(function(p) {
-        if (p.innerHTML.indexOf('🇹🇿') !== -1) p.classList.add('sw-text');
-        if (p.innerHTML.indexOf('🇬🇧') !== -1) {
-            p.classList.add('en-text');
-        }
-    });
-    document.querySelectorAll('.en-text .sw').forEach(function(el) {
-        el.classList.add('lang-label');
-    });
-    var lang = localStorage.getItem('jltLang') || 'sw';
-    setLang(lang);
-    document.querySelectorAll('.lang-btn').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            setLang(this.dataset.lang);
-        });
-    });
     function setLang(l) {
         document.body.classList.remove('lang-sw', 'lang-en');
         document.body.classList.add('lang-' + l);
@@ -723,6 +707,26 @@ function ContactManager() {
             b.classList.toggle('active', b.dataset.lang === l);
         });
     }
+    document.querySelectorAll('.lesson p').forEach(function(p) {
+        var spans = p.querySelectorAll('.sw');
+        for (var i = 0; i < spans.length; i++) {
+            var txt = spans[i].textContent;
+            if (txt.indexOf('Kiswahili') !== -1) {
+                p.classList.add('sw-text');
+            }
+            if (txt.indexOf('English') !== -1) {
+                p.classList.add('en-text');
+                spans[i].classList.add('lang-label');
+            }
+        }
+    });
+    var lang = localStorage.getItem('jltLang') || 'sw';
+    setLang(lang);
+    document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            setLang(this.dataset.lang);
+        });
+    });
 })();
 </script>
 </body>
