@@ -259,6 +259,53 @@
         }
         .portfolio-card .body a:hover { text-decoration: underline; }
 
+        /* ===== COURSES ===== */
+        #courses { background: #fff; }
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .course-card {
+            padding: 28px 24px;
+            border-radius: 16px;
+            background: #F0FDF4;
+            border: 1px solid #D1FAE5;
+            transition: all 0.3s ease;
+        }
+        .course-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(16,185,129,0.12); }
+        .course-card .icon {
+            width: 48px; height: 48px;
+            background: linear-gradient(135deg, #059669, #10B981);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px; color: #fff; margin-bottom: 16px;
+        }
+        .course-card h3 { font-size: 17px; font-weight: 700; color: #1F2937; margin-bottom: 6px; }
+        .course-card p { font-size: 14px; color: #6B7280; line-height: 1.7; margin-bottom: 10px; }
+        .course-card .topics {
+            display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 14px;
+        }
+        .course-card .topics span {
+            font-size: 11px; padding: 3px 10px; background: #fff;
+            border-radius: 12px; color: #059669; font-weight: 500; border: 1px solid #D1FAE5;
+        }
+        .course-card .btn-course {
+            display: inline-block; padding: 8px 20px; background: #10B981;
+            color: #fff; border-radius: 50px; font-size: 13px; font-weight: 600;
+            text-decoration: none; transition: background 0.3s;
+        }
+        .course-card .btn-course:hover { background: #059669; }
+        .courses-more {
+            text-align: center; margin-top: 32px;
+        }
+        .courses-more a {
+            display: inline-block; padding: 12px 32px; background: transparent;
+            color: #10B981; border: 2px solid #10B981; border-radius: 50px;
+            font-weight: 600; font-size: 14px; text-decoration: none; transition: all 0.3s;
+        }
+        .courses-more a:hover { background: #10B981; color: #fff; }
+
         /* ===== ABOUT ===== */
         #about { background: #fff; }
         .about-wrap { display: flex; gap: 60px; align-items: center; flex-wrap: wrap; }
@@ -376,6 +423,7 @@
         <button class="close-menu" onclick="closeMenu()">✕</button>
         <a href="#services" onclick="closeMenu()">Services</a>
         <a href="#portfolio" onclick="closeMenu()">Portfolio</a>
+        <a href="courses.html" onclick="closeMenu()">Courses</a>
         <a href="#about" onclick="closeMenu()">About</a>
         <a href="#contact" onclick="closeMenu()">Contact</a>
     </div>
@@ -387,6 +435,7 @@
             <div class="nav-links">
                 <a href="#services">Services</a>
                 <a href="#portfolio">Portfolio</a>
+                <a href="courses.html">Courses</a>
                 <a href="#about">About</a>
                 <a href="#contact">Contact</a>
                 <a href="#contact" class="nav-cta">Get a Quote</a>
@@ -519,6 +568,63 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses -->
+    <section id="courses">
+        <div class="container">
+            <div class="section-tag">Learn With Us</div>
+            <h2 class="section-title">Our Courses</h2>
+            <p style="text-align:center;color:#6B7280;font-size:15px;margin-bottom:36px;max-width:600px;margin-left:auto;margin-right:auto;">
+                Jifunze technology na programming kutoka mwanzo. Courses zetu zinaelezea kwa lugha rahisi na mifano halisi.
+            </p>
+            <div class="course-grid">
+
+                <div class="course-card">
+                    <div class="icon">💻</div>
+                    <h3>Tech Tips</h3>
+                    <p>Computer basics, troubleshooting, security, na internet skills kwa wanaoanza.</p>
+                    <div class="topics"><span>Hardware</span><span>Software</span><span>Security</span><span>Internet</span></div>
+                    <a href="course/tech-tips.html" class="btn-course">Start Learning →</a>
+                </div>
+
+                <div class="course-card">
+                    <div class="icon">🐍</div>
+                    <h3>Python</h3>
+                    <p>Jifunze Python kutoka mwanzo — variables loops functions hadi simple projects.</p>
+                    <div class="topics"><span>Basics</span><span>Data Types</span><span>Functions</span><span>Projects</span></div>
+                    <a href="course/python.html" class="btn-course">Start Learning →</a>
+                </div>
+
+                <div class="course-card">
+                    <div class="icon">🌐</div>
+                    <h3>HTML &amp; CSS</h3>
+                    <p>Unda websites za kuvutia — structure, styling, responsive design, na zaidi.</p>
+                    <div class="topics"><span>HTML5</span><span>CSS3</span><span>Flexbox</span><span>Grid</span></div>
+                    <a href="course/html-css.html" class="btn-course">Start Learning →</a>
+                </div>
+
+                <div class="course-card">
+                    <div class="icon">⚡</div>
+                    <h3>JavaScript</h3>
+                    <p>Pata uwezo wa kuunda web applications interactive na dynamic.</p>
+                    <div class="topics"><span>DOM</span><span>ES6+</span><span>Events</span><span>APIs</span></div>
+                    <a href="course/javascript.html" class="btn-course">Start Learning →</a>
+                </div>
+
+                <div class="course-card">
+                    <div class="icon">⚛️</div>
+                    <h3>React</h3>
+                    <p>Modern app development — components, state, hooks, na building real apps.</p>
+                    <div class="topics"><span>JSX</span><span>Components</span><span>State</span><span>Hooks</span></div>
+                    <a href="course/react.html" class="btn-course">Start Learning →</a>
+                </div>
+
+            </div>
+            <div class="courses-more">
+                <a href="courses.html">View All Courses →</a>
             </div>
         </div>
     </section>

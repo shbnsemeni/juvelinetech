@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses — JuveLineTech</title>
+    <meta name="description" content="Jifunze programming, web development, computer tech tips, Python, JavaScript, HTML, CSS, na React. Courses kwa Kiswahili na English.">
+    <meta name="theme-color" content="#059669">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #1F2937; background: #F0FDF4; line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        .nav {
+            background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08); padding: 12px 0;
+            position: sticky; top: 0; z-index: 1000;
+        }
+        .nav .container { display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo { font-weight: 900; font-size: 22px; letter-spacing: -1px; text-decoration: none; color: #1F2937; }
+        .nav-logo .j { color: #059669; }
+        .nav-logo .t { color: #D4A843; }
+        .nav-links { display: flex; gap: 24px; align-items: center; }
+        .nav-links a { text-decoration: none; color: #4B5563; font-size: 13px; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: #059669; }
+        .nav-cta { padding: 8px 20px; background: #059669; color: #fff !important; border-radius: 50px; font-weight: 700; font-size: 13px; }
+        .nav-cta:hover { background: #047857; }
+
+        .hero {
+            background: linear-gradient(135deg, #059669, #10B981);
+            padding: 60px 20px; text-align: center; color: #fff;
+        }
+        .hero h1 { font-size: clamp(28px, 4vw, 42px); font-weight: 800; margin-bottom: 10px; }
+        .hero p { font-size: 16px; color: rgba(255,255,255,0.85); max-width: 600px; margin: 0 auto; }
+
+        .section { padding: 60px 0; }
+        .section-title { font-size: 28px; font-weight: 700; margin-bottom: 36px; color: #1F2937; }
+
+        .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+        .course-card {
+            background: #fff; border-radius: 16px; padding: 32px 28px;
+            border: 1px solid #E5E7EB; transition: all 0.3s ease;
+        }
+        .course-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(16,185,129,0.1); }
+        .course-card .icon {
+            width: 52px; height: 52px; background: linear-gradient(135deg, #059669, #10B981);
+            border-radius: 14px; display: flex; align-items: center; justify-content: center;
+            font-size: 26px; color: #fff; margin-bottom: 16px;
+        }
+        .course-card h3 { font-size: 20px; font-weight: 700; color: #1F2937; margin-bottom: 8px; }
+        .course-card .lang { font-size: 12px; color: #10B981; font-weight: 600; margin-bottom: 10px; }
+        .course-card p { font-size: 14px; color: #6B7280; line-height: 1.7; margin-bottom: 12px; }
+        .course-card .topics { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+        .course-card .topics span {
+            font-size: 11px; padding: 4px 12px; background: #F0FDF4;
+            border-radius: 20px; color: #059669; font-weight: 500;
+        }
+        .course-card .btn-course {
+            display: inline-block; padding: 10px 24px; background: #10B981;
+            color: #fff; border-radius: 50px; font-size: 14px; font-weight: 600;
+            text-decoration: none; transition: background 0.3s;
+        }
+        .course-card .btn-course:hover { background: #059669; }
+
+        footer { background: #065F46; color: rgba(255,255,255,0.7); padding: 40px 0 24px; margin-top: 60px; }
+        footer .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px; }
+        footer .brand { max-width: 260px; }
+        footer .brand .logo-sm { font-weight: 900; font-size: 24px; letter-spacing: -2px; }
+        footer .brand .logo-sm .j { color: #fff; }
+        footer .brand .logo-sm .t { color: #FCD34D; }
+        footer .brand p { font-size: 13px; line-height: 1.7; margin-top: 6px; }
+        footer .links h4 { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 10px; }
+        footer .links a { display: block; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; margin-bottom: 5px; }
+        footer .links a:hover { color: #FCD34D; }
+        .copyright { text-align: center; padding-top: 24px; margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px; color: rgba(255,255,255,0.4); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .course-grid { grid-template-columns: 1fr; }
+            footer .container { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="container">
+            <a href="index.html" class="nav-logo"><span class="j">J</span><span class="t">t</span></a>
+            <div class="nav-links">
+                <a href="index.html#services">Services</a>
+                <a href="index.html#portfolio">Portfolio</a>
+                <a href="courses.html"><strong style="color:#059669;">Courses</strong></a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="index.html#contact" class="nav-cta">Get a Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>📚 Our Courses</h1>
+        <p>Jifunze technology na programming kutoka mwanzo. Courses zetu zimeandikwa kwa lugha rahisi — English na Kiswahili — na mifano halisi ya code.</p>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <div class="course-grid">
+
+                <div class="course-card">
+                    <div class="icon">💻</div>
+                    <div class="lang">English / Kiswahili</div>
+                    <h3>Computer Tech Tips</h3>
+                    <p>Fundamentals za computers — hardware, software, Internet security, troubleshooting, na zaidi. Inafaa kwa wanaoanza kabisa.</p>
+                    <div class="topics">
+                        <span>Hardware</span><span>Software</span><span>OS</span><span>Security</span>
+                        <span>Internet</span><span>Troubleshoot</span><span>Cloud</span>
+                    </div>
+                    <a href="course/tech-tips.html" class="btn-course">Start Learning →</a>
+                </div>
+
+                <div class="course-card">
+                    <div class="icon">🐍</div>
+                    <div class="lang">English / Kiswahili</div>
+                    <h3>Python Programming</h3>
+                    <p>Kutoka zero hadi kuandika Python programs. Variables, loops, functions, file handling, na mini projects.</p>
+                    <div class="topics">
+                        <span>Variables</span><span>Loops</span><span>Functions</span><span>Lists</span>
+                        <span>OOP</span><span>Modules</span><span>Projects</span>
+                    </div>
+                    <a href="course/python.html" class="btn-course">Start Learning →</a>
+                </div>
+
+                <div class="course-card">
+                    <div class="icon">🌐</div>
+                    <div class="lang">English / Kiswahili</div>
+                    <h3>HTML &amp; CSS</h3>
+                    <p>Jenga websites za kuvutia. Unajifunza HTML structure, CSS styling, responsive design, Flexbox na Grid.</p>
+                    <div class="topics">
+                        <span>HTML5</span><span>CSS3</span><span>Flexbox</span><span>Grid</span>
+                        <span>Responsive</span><span>Forms</span><span>Project</span>
+                    </div>
+                    <a href="course/html-css.html" class="btn-course">Start Learning →</a>
+                </div>
+
+                <div class="course-card">
+                    <div class="icon">⚡</div>
+                    <div class="lang">English / Kiswahili</div>
+                    <h3>JavaScript</h3>
+                    <p>Fanya websites kuwa interactive. DOM manipulation, events, ES6+, na kufanya kazi na APIs.</p>
+                    <div class="topics">
+                        <span>Variables</span><span>Functions</span><span>DOM</span><span>Events</span>
+                        <span>ES6+</span><span>APIs</span><span>Projects</span>
+                    </div>
+                    <a href="course/javascript.html" class="btn-course">Start Learning →</a>
+                </div>
+
+                <div class="course-card">
+                    <div class="icon">⚛️</div>
+                    <div class="lang">English / Kiswahili</div>
+                    <h3>React</h3>
+                    <p>Modern frontend framework. Components, JSX, state management, hooks, na kujenga real-world applications.</p>
+                    <div class="topics">
+                        <span>JSX</span><span>Components</span><span>Props</span><span>State</span>
+                        <span>Hooks</span><span>Router</span><span>Project</span>
+                    </div>
+                    <a href="course/react.html" class="btn-course">Start Learning →</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="brand">
+                <div class="logo-sm"><span class="j">J</span><span class="t">t</span></div>
+                <p>Technology solutions that drive your business forward.</p>
+            </div>
+            <div class="links">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#portfolio">Portfolio</a>
+                <a href="courses.html">Courses</a>
+            </div>
+            <div class="links">
+                <h4>Courses</h4>
+                <a href="course/python.html">Python</a>
+                <a href="course/html-css.html">HTML &amp; CSS</a>
+                <a href="course/javascript.html">JavaScript</a>
+                <a href="course/react.html">React</a>
+            </div>
+            <div class="links">
+                <h4>Contact</h4>
+                <a href="tel:+255782341709">0782 341 709</a>
+                <a href="mailto:shbnsemeni@gmail.com">shbnsemeni@gmail.com</a>
+                <a>Chanika, Dar es Salaam</a>
+            </div>
+        </div>
+        <div class="copyright">&copy; 2026 JuveLineTech. All rights reserved.</div>
+    </footer>
+
+</body>
+</html>

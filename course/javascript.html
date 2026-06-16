@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript — JuveLineTech Courses</title>
+    <meta name="description" content="Jifunze JavaScript kutoka mwanzo. Variables, DOM, events, fetch API, na projects. Course ya JuveLineTech kwa Kiswahili na English.">
+    <meta name="theme-color" content="#059669">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #1F2937; background: #F0FDF4; line-height: 1.8; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        .nav { background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); box-shadow: 0 2px 20px rgba(0,0,0,0.08); padding: 12px 0; position: sticky; top: 0; z-index: 1000; }
+        .nav .container { display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo { font-weight: 900; font-size: 22px; letter-spacing: -1px; text-decoration: none; color: #1F2937; }
+        .nav-logo .j { color: #059669; } .nav-logo .t { color: #D4A843; }
+        .nav-links a { text-decoration: none; color: #4B5563; font-size: 13px; font-weight: 500; margin-left: 20px; }
+        .nav-links a:hover { color: #059669; }
+        .hero { background: linear-gradient(135deg, #2563EB, #3B82F6); padding: 50px 20px; text-align: center; color: #fff; }
+        .hero h1 { font-size: clamp(26px, 4vw, 38px); font-weight: 800; }
+        .hero p { font-size: 16px; color: rgba(255,255,255,0.85); max-width: 700px; margin: 10px auto 0; }
+        .hero .meta { font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 8px; }
+        .toc { background: #fff; border-radius: 16px; padding: 28px 32px; margin: 32px 0; border: 1px solid #DBEAFE; }
+        .toc h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #2563EB; }
+        .toc ol { padding-left: 20px; }
+        .lesson { background: #fff; border-radius: 16px; padding: 32px; margin-bottom: 24px; border: 1px solid #E5E7EB; }
+        .lesson h2 { font-size: 24px; font-weight: 700; color: #2563EB; margin-bottom: 6px; }
+        .lesson .sub { font-size: 14px; color: #6B7280; margin-bottom: 16px; font-style: italic; }
+        .lesson h3 { font-size: 18px; font-weight: 700; color: #1F2937; margin: 20px 0 8px; }
+        .lesson p { font-size: 15px; color: #4B5563; margin-bottom: 12px; }
+        .lesson ul, .lesson ol { padding-left: 20px; margin-bottom: 12px; }
+        .lesson li { font-size: 14px; color: #4B5563; margin-bottom: 6px; }
+        .lesson .note { background: #DBEAFE; border-left: 4px solid #3B82F6; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 14px; color: #1E40AF; }
+        .lesson .tip { background: #F0FDF4; border-left: 4px solid #10B981; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 14px; color: #065F46; }
+        .lesson code { background: #F3F4F6; padding: 2px 8px; border-radius: 4px; font-size: 13px; color: #DC2626; font-family: monospace; }
+        .lesson pre { background: #1F2937; color: #D1FAE5; padding: 16px 20px; border-radius: 10px; overflow-x: auto; margin: 12px 0; font-size: 13px; line-height: 1.6; font-family: monospace; }
+        .toc ol li { margin-bottom: 6px; font-size: 14px; }
+        .toc ol li a { color: #1F2937; text-decoration: none; }
+        .toc ol li a:hover { color: #2563EB; }
+        .back-link { display: inline-block; margin: 24px 0; padding: 10px 24px; background: #3B82F6; color: #fff; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 14px; }
+        .back-link:hover { background: #2563EB; }
+        footer { background: #065F46; color: rgba(255,255,255,0.7); padding: 40px 0 24px; margin-top: 48px; }
+        footer .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px; }
+        footer .brand { font-weight: 900; font-size: 20px; letter-spacing: -2px; }
+        footer .brand .j { color: #fff; } footer .brand .t { color: #FCD34D; }
+        footer .links h4 { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 10px; }
+        footer .links a { display: block; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; margin-bottom: 5px; }
+        .copyright { text-align: center; padding-top: 24px; margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px; }
+        @media (max-width: 768px) { .nav-links a { margin-left: 12px; font-size: 12px; } .lesson { padding: 20px; } footer .container { flex-direction: column; } }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="container">
+            <a href="../index.html" class="nav-logo"><span class="j">J</span><span class="t">t</span></a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../courses.html">Courses</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>⚡ JavaScript</h1>
+        <p>Jifunze JavaScript kutoka mwanzo — lugha inayofanya websites kuwa hai. DOM manipulation, events, API calls, na projects halisi.</p>
+        <div class="meta">English / Kiswahili • Beginner to Intermediate • Text + Code Examples</div>
+    </div>
+
+    <div class="container">
+
+        <div class="toc">
+            <h3>📋 Yaliyomo — Table of Contents</h3>
+            <ol>
+                <li><a href="#lesson1">JavaScript ni nini? / What is JavaScript?</a></li>
+                <li><a href="#lesson2">Kuweka na Kuendesha JS / Setup na Console</a></li>
+                <li><a href="#lesson3">Variables (let, const, var)</a></li>
+                <li><a href="#lesson4">Data Types na Operators</a></li>
+                <li><a href="#lesson5">Strings na Template Literals</a></li>
+                <li><a href="#lesson6">Conditionals (if/else, switch)</a></li>
+                <li><a href="#lesson7">Loops (for, while, forEach)</a></li>
+                <li><a href="#lesson8">Functions na Arrow Functions</a></li>
+                <li><a href="#lesson9">Arrays na Object (Orodha na Vitu)</a></li>
+                <li><a href="#lesson10">DOM Manipulation — Kubadilisha Ukurasa</a></li>
+                <li><a href="#lesson11">Events — Vitendo vya Mtumiaji</a></li>
+                <li><a href="#lesson12">ES6+ Features</a></li>
+                <li><a href="#lesson13">Fetch API na JSON</a></li>
+                <li><a href="#lesson14">Simple Projects</a></li>
+            </ol>
+        </div>
+
+        <!-- Lesson 1 -->
+        <div class="lesson" id="lesson1">
+            <h2>1. JavaScript ni nini? / What is JavaScript?</h2>
+            <p class="sub">Lugha inayofanya websites kuwa interactive</p>
+            <p><span class="sw">🇹🇿 Kiswahili:</span> JavaScript (JS) ni lugha ya programming inayoendesha kwenye browser ya mtumiaji. Inafanya tovuti kuwa hai — popups, animations, form validation, na mabadiliko ya yaliyomo kwenye ukurasa bila ku-update.</p>
+            <p><span class="sw">🇬🇧 English:</span> JavaScript (JS) is a programming language that runs in the user's browser. It makes websites interactive — popups, animations, form validation, and real-time content updates.</p>
+            <div class="note"><strong>💡 Note:</strong> JavaScript na Java ni lugha tofauti kabisa! Usichanganye.</div>
+        </div>
+
+        <!-- Lesson 2 -->
+        <div class="lesson" id="lesson2">
+            <h2>2. Kuweka na Kuendesha JS</h2>
+            <p class="sub">Setup na Console</p>
+
+            <h3>Njia za Kuweka JS kwenye HTML</h3>
+            <pre><span class="comment">&lt;!-- Internal script --&gt;</span>
+<span class="tag">&lt;script&gt;</span>
+    alert("Habari! Hii ni JavaScript!");
+<span class="tag">&lt;/script&gt;</span>
+
+<span class="comment">&lt;!-- External script (njia bora) --&gt;</span>
+<span class="tag">&lt;script</span> <span class="attr">src</span>=<span class="val">"script.js"</span><span class="tag">&gt;&lt;/script&gt;</span>
+
+<span class="comment">&lt;!-- Kwenye browser console (F12) --&gt;</span>
+<span class="comment">// Andika moja kwa moja kwenye Console tab</span>
+console.log("Habari duniani!");</pre>
+
+            <h3>Console yako ya Kwanza</h3>
+            <pre>// Fungua browser, bonyeza F12, nenda Console
+console.log("Habari! Hii ni console.log");
+console.warn("Hii ni onyo / warning");
+console.error("Hii ni error");
+console.table(["Juma", "Aisha", "Baraka"]);  // Orodha kwa umbo la jedwali</pre>
+            <div class="tip"><strong>⚡ Tip:</strong> Console ni rafiki yako! Tumia <code>console.log()</code> kuona thamani za variables unapotengeneza code.</div>
+        </div>
+
+        <!-- Lesson 3 -->
+        <div class="lesson" id="lesson3">
+            <h2>3. Variables (let, const, var)</h2>
+            <p class="sub">Kuhifadhi data kwenye JS</p>
+
+            <pre>// let — inaweza kubadilishwa (recommended)
+let jina = "Juma";
+jina = "Aisha";  // Sawa — inaweza kubadilishwa
+console.log(jina);  // Aisha
+
+// const — haiwezi kubadilishwa (recommended kwa fixed values)
+const umri = 25;
+// umri = 30;  // Hii itatoa ERROR!
+
+// var — njia ya zamani, epuka kuitumia
+var jina_la_zamani = "Baraka";</pre>
+
+            <div class="note"><strong>💡 Note:</strong> Tumia <code>const</code> kwa thamani zisizobadilika. Tumia <code>let</code> kwa thamani zinazobadilika. Usitumie <code>var</code> isipokuwa unajua unachofanya.</div>
+
+            <h3>Naming Conventions</h3>
+            <pre>// camelCase — ndiyo standard kwenye JS
+let jinaLangu = "Juma";
+let umriWaMwanafunzi = 25;
+const TAREHE_KUZALIWA = "2000-01-01";  // Constants za kweli mara nyingi UPPERCASE</pre>
+        </div>
+
+        <!-- Lesson 4 -->
+        <div class="lesson" id="lesson4">
+            <h2>4. Data Types na Operators</h2>
+            <p class="sub">Aina za data na shughuli</p>
+
+            <h3>Aina za Data / Data Types</h3>
+            <pre>// String — maneno
+let jina = "Juma";
+
+// Number — namba (int na float zote)
+let umri = 25;
+let urefu = 1.75;
+
+// Boolean — True/False
+let niMwanafunzi = true;
+
+// Undefined — variable bila thamani
+let kitu;  // undefined
+
+// Null — kitu tupu (intentional)
+let chochote = null;
+
+// Object — kitu changamano
+let mtu = { jina: "Juma", umri: 25 };
+
+// Array — orodha
+let majina = ["Juma", "Aisha"];</pre>
+
+            <h3>Operators</h3>
+            <pre>// Hesabu
+let x = 10, y = 3;
+console.log(x + y);  // 13
+console.log(x - y);  // 7
+console.log(x * y);  // 30
+console.log(x / y);  // 3.333...
+console.log(x % y);  // 1
+console.log(x ** y); // 1000
+
+// Comparison
+console.log(10 == "10");   // True (inalinganisha thamani tu)
+console.log(10 === "10");  // False (inalinganisha thamani NA aina)
+console.log(10 !== "10");  // True
+console.log(x > 5);        // True
+
+// Logical
+console.log(true && false);  // False
+console.log(true || false);  // True
+console.log(!true);          // False</pre>
+            <div class="tip"><strong>⚡ Tip:</strong> Tumia <code>===</code> na <code>!==</code> daima — inaepuka matatizo ya aina za data!</div>
+        </div>
+
+        <!-- Lesson 5 -->
+        <div class="lesson" id="lesson5">
+            <h2>5. Strings na Template Literals</h2>
+            <p class="sub">Kufanya kazi na maandishi</p>
+
+            <pre>// String methods
+let text = "JavaScript ni nzuri!";
+console.log(text.length);          // 20
+console.log(text.toUpperCase());   // JAVASCRIPT NI NZURI!
+console.log(text.toLowerCase());   // javascript ni nzuri!
+console.log(text.indexOf("nzuri")); // 14
+console.log(text.includes("JS"));  // False
+console.log(text.slice(0, 10));    // JavaScript
+
+// Template Literals (backticks `...`)
+let jina = "Juma";
+let umri = 25;
+let salamu = `Habari, jina langu ni ${jina}, nina miaka ${umri}`;
+console.log(salamu);
+
+// Multiline strings
+let aya = `
+Huu ni mstari wa kwanza.
+Huu ni mstari wa pili.
+Na huu ni wa tatu.
+`;
+console.log(aya);</pre>
+        </div>
+
+        <!-- Lesson 6 -->
+        <div class="lesson" id="lesson6">
+            <h2>6. Conditionals (if/else, switch)</h2>
+            <p class="sub">Kufanya maamuzi</p>
+
+            <pre>// if/else if/else
+let alama = 85;
+let daraja;
+
+if (alama >= 80) {
+    daraja = "A";
+} else if (alama >= 70) {
+    daraja = "B";
+} else if (alama >= 60) {
+    daraja = "C";
+} else {
+    daraja = "F";
+}
+console.log(`Daraja: ${daraja}`);
+
+// Ternary operator (njia fupi)
+let umri = 18;
+let uwezo = umri >= 18 ? "Unaweza kupiga kura" : "Bado mdogo";
+console.log(uwezo);
+
+// Switch statement
+let siku = "Jumatatu";
+switch(siku) {
+    case "Jumatatu":
+        console.log("Siku ya kwanza ya wiki");
+        break;
+    case "Ijumaa":
+        console.log("Karibu wikendi!");
+        break;
+    default:
+        console.log("Siku nyingine");
+}</pre>
+        </div>
+
+        <!-- Lesson 7 -->
+        <div class="lesson" id="lesson7">
+            <h2>7. Loops (for, while, forEach)</h2>
+            <p class="sub">Kurudia code mara kwa mara</p>
+
+            <pre>// For loop
+for (let i = 0; i < 5; i++) {
+    console.log(`Namba: ${i}`);  // 0, 1, 2, 3, 4
+}
+
+// While loop
+let count = 0;
+while (count < 3) {
+    console.log(`Count: ${count}`);
+    count++;
+}
+
+// forEach (kwenye arrays)
+let majina = ["Juma", "Aisha", "Baraka"];
+majina.forEach(function(jina, index) {
+    console.log(`${index}: ${jina}`);
+});
+
+// for...of (ES6)
+for (let jina of majina) {
+    console.log(jina);
+}
+
+// for...in (kwenye objects)
+let mtu = { jina: "Juma", umri: 25 };
+for (let key in mtu) {
+    console.log(`${key}: ${mtu[key]}`);
+}</pre>
+        </div>
+
+        <!-- Lesson 8 -->
+        <div class="lesson" id="lesson8">
+            <h2>8. Functions na Arrow Functions</h2>
+            <p class="sub">Panga code yako kwa vitendakazi</p>
+
+            <pre>// Function declaration (njia ya kawaida)
+function salamu(jina) {
+    return `Habari ${jina}!`;
+}
+console.log(salamu("Juma"));
+
+// Function expression
+const ongeza = function(a, b) {
+    return a + b;
+};
+
+// Arrow function (ES6) — njia fupi na ya kisasa
+const panda = (a, b) => a * b;  // return moja kwa moja
+console.log(panda(4, 5));  // 20
+
+// Arrow function yenye body
+const hesabu = (a, b) => {
+    let matokeo = a + b;
+    return `Jumla ni ${matokeo}`;
+};
+
+// Default parameters
+const salamuKwaJina = (jina = "Rafiki") => `Habari ${jina}!`;
+console.log(salamuKwaJina());       // Habari Rafiki!
+console.log(salamuKwaJina("Juma")); // Habari Juma!</pre>
+            <div class="tip"><strong>⚡ Tip:</strong> Arrow functions ni fupi na hazina <code>this</code> yao wenyewe — hii inasaidia kwenye callbacks na event handlers.</div>
+        </div>
+
+        <!-- Lesson 9 -->
+        <div class="lesson" id="lesson9">
+            <h2>9. Arrays na Object</h2>
+            <p class="sub">Orodha na Vitu</p>
+
+            <pre>// Arrays — orodha
+let mafuta = ["Ndizi", "Maembe", "Machungwa"];
+console.log(mafuta[0]);        // Ndizi
+console.log(mafuta.length);    // 3
+
+// Array methods muhimu
+mafuta.push("Papai");          // Ongeza mwishoni
+mafuta.pop();                  // Ondoa la mwisho
+mafuta.unshift("Nanasi");      // Ongeza mwanzoni
+mafuta.shift();                // Ondoa la kwanza
+console.log(mafuta.indexOf("Maembe"));  // 1
+console.log(mafuta.includes("Ndizi"));  // true
+
+// Array map, filter, reduce (muhimu sana!)
+let namba = [1, 2, 3, 4, 5];
+
+let maraMbili = namba.map(n => n * 2);
+console.log(maraMbili);  // [2, 4, 6, 8, 10]
+
+let kubwaKulikoTatu = namba.filter(n => n > 3);
+console.log(kubwaKulikoTatu);  // [4, 5]
+
+let jumla = namba.reduce((acc, n) => acc + n, 0);
+console.log(jumla);  // 15
+
+// Objects — vitu
+let mwanafunzi = {
+    jina: "Juma",
+    umri: 25,
+    masomo: ["Math", "Physics"],
+    anasoma: true,
+    salamu: function() {
+        return `Habari, mimi ni ${this.jina}`;
+    }
+};
+
+console.log(mwanafunzi.jina);         // Juma
+console.log(mwanafunzi["umri"]);      // 25
+console.log(mwanafunzi.salamu());     // Habari, mimi ni Juma</pre>
+        </div>
+
+        <!-- Lesson 10 -->
+        <div class="lesson" id="lesson10">
+            <h2>10. DOM Manipulation</h2>
+            <p class="sub">Kubadilisha Ukurasa kwa JavaScript</p>
+
+            <p><span class="sw">🇹🇿 Kiswahili:</span> DOM (Document Object Model) inawakilisha ukurasa wako wa HTML kama vitu ambavyo JS inaweza kubadilisha.</p>
+
+            <h3>Kupata Elements</h3>
+            <pre>// Kupata elements
+let header = document.getElementById("header");
+let vitu = document.getElementsByClassName("kitu");
+let vituVote = document.querySelectorAll(".kitu");
+let kituMoja = document.querySelector(".kitu");  // Ya kwanza tu
+
+// Kubadilisha content
+header.textContent = "Maandishi mapya!";
+header.innerHTML = "HTML <strong>mpya</strong>";
+
+// Kubadilisha style
+header.style.color = "blue";
+header.style.backgroundColor = "#f0f0f0";
+header.classList.add("active");
+header.classList.remove("hidden");
+header.classList.toggle("visible");  // Ongeza/ondoa</pre>
+
+            <h3>Kuunda na Kuondoa Elements</h3>
+            <pre>// Kuunda element mpya
+let kipya = document.createElement("div");
+kipya.textContent = "Hii ni element mpya";
+kipya.className = "kitu-kipya";
+document.body.appendChild(kipya);
+
+// Kuondoa
+let yaKuondoa = document.getElementById("ya-kuondoa");
+yaKuondoa.remove();</pre>
+            <div class="note"><strong>💡 Note:</strong> <code>querySelector</code> inatumia CSS selectors — inaweza kutumia <code>.class</code>, <code>#id</code>, <code>element</code>, n.k.</div>
+        </div>
+
+        <!-- Lesson 11 -->
+        <div class="lesson" id="lesson11">
+            <h2>11. Events — Vitendo vya Mtumiaji</h2>
+            <p class="sub">React kwa vitendo vya mtumiaji</p>
+
+            <pre>// Click event
+let kitufe = document.getElementById("kitufe");
+kitufe.addEventListener("click", function() {
+    alert("Umebonyeza kitufe!");
+});
+
+// Event object
+kitufe.addEventListener("click", (event) => {
+    console.log(event.target);   // Element iliyobonyezwa
+    console.log(event.type);     // "click"
+});
+
+// Aina za events
+element.addEventListener("mouseover", () => {});
+element.addEventListener("mouseout", () => {});
+element.addEventListener("keydown", (e) => {
+    console.log(e.key);  // Herufi iliyobonyezwa
+});
+element.addEventListener("submit", (e) => {
+    e.preventDefault();  // Zuia form kusubmit kwa kawaida
+});
+
+// Input events
+let input = document.getElementById("jina");
+input.addEventListener("input", (e) => {
+    console.log(e.target.value);  // Thamani kwa kila herufi
+});</pre>
+            <div class="tip"><strong>⚡ Tip:</strong> <code>e.preventDefault()</code> inazuia tabia ya default (k.m. form kusubmit au link kufungua). <code>e.stopPropagation()</code> inazuia event kuenenda kwa elements za juu.</div>
+        </div>
+
+        <!-- Lesson 12 -->
+        <div class="lesson" id="lesson12">
+            <h2>12. ES6+ Features</h2>
+            <p class="sub">Vipengele vya kisasa vya JavaScript</p>
+
+            <pre>// Destructuring
+// Array
+let [a, b] = [10, 20];
+console.log(a, b);  // 10 20
+
+// Object
+let mtu = { jina: "Juma", umri: 25 };
+let { jina, umri } = mtu;
+console.log(jina, umri);
+
+// Spread operator
+let arr1 = [1, 2, 3];
+let arr2 = [4, 5, 6];
+let pamoja = [...arr1, ...arr2];
+console.log(pamoja);  // [1, 2, 3, 4, 5, 6]
+
+let obj1 = { a: 1, b: 2 };
+let obj2 = { c: 3, ...obj1 };
+console.log(obj2);  // { c: 3, a: 1, b: 2 }
+
+// Rest parameters
+function jumlaVote(...namba) {
+    return namba.reduce((acc, n) => acc + n, 0);
+}
+console.log(jumlaVote(1, 2, 3, 4));  // 10</pre>
+        </div>
+
+        <!-- Lesson 13 -->
+        <div class="lesson" id="lesson13">
+            <h2>13. Fetch API na JSON</h2>
+            <p class="sub">Kupata data kutoka mtandaoni</p>
+
+            <pre>// Fetch API — kupata data kutoka server
+fetch("https://api.github.com/users/shbnsemeni")
+    .then(response => response.json())  // Badilisha JSON kuwa JS object
+    .then(data => {
+        console.log(data);
+        console.log(`Jina: ${data.login}`);
+        console.log(`Followers: ${data.followers}`);
+    })
+    .catch(error => {
+        console.error("Kuna tatizo:", error);
+    });
+
+// Async/await (njia ya kisasa)
+async function getUserData() {
+    try {
+        let response = await fetch("https://api.github.com/users/shbnsemeni");
+        let data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error("Tatizo:", error);
+    }
+}
+
+getUserData();
+
+// JSON — JavaScript Object Notation
+// Kubadilisha object kuwa JSON
+let mtu = { jina: "Juma", umri: 25 };
+let jsonString = JSON.stringify(mtu);
+console.log(jsonString);  // '{"jina":"Juma","umri":25}'
+
+// Kubadilisha JSON kuwa object
+let kutokaJSON = JSON.parse(jsonString);
+console.log(kutokaJSON.jina);  // Juma</pre>
+            <div class="note"><strong>💡 Note:</strong> API (Application Programming Interface) inaruhusu mifumo miwili kuwasiliana. Fetch ni njia ya kuomba data kutoka kwa API.</div>
+        </div>
+
+        <!-- Lesson 14 -->
+        <div class="lesson" id="lesson14">
+            <h2>14. Simple Projects / Miradi Midogo</h2>
+            <p class="sub">Weka maarifa yako kwenye majaribio</p>
+
+            <h3>Project 1: Color Changer</h3>
+            <pre><span class="tag">&lt;button</span> <span class="attr">id</span>=<span class="val">"badilishaRangi"</span><span class="tag">&gt;</span>Badilisha Rangi<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;script&gt;</span>
+    const kitufe = document.getElementById("badilishaRangi");
+    kitufe.addEventListener("click", () => {
+        document.body.style.backgroundColor =
+            "#" + Math.floor(Math.random() * 16777215).toString(16);
+    });
+<span class="tag">&lt;/script&gt;</span></pre>
+
+            <h3>Project 2: Todo List</h3>
+            <pre><span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span> <span class="attr">id</span>=<span class="val">"taskInput"</span> <span class="attr">placeholder</span>=<span class="val">"Task mpya..."</span><span class="tag">&gt;</span>
+<span class="tag">&lt;button</span> <span class="attr">id</span>=<span class="val">"ongezaTask"</span><span class="tag">&gt;</span>Ongeza<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;ul</span> <span class="attr">id</span>=<span class="val">"taskList"</span><span class="tag">&gt;&lt;/ul&gt;</span>
+<span class="tag">&lt;script&gt;</span>
+    const input = document.getElementById("taskInput");
+    const kitufe = document.getElementById("ongezaTask");
+    const orodha = document.getElementById("taskList");
+
+    kitufe.addEventListener("click", () => {
+        if (input.value.trim() === "") return;
+        let li = document.createElement("li");
+        li.textContent = input.value;
+        li.addEventListener("click", () => li.remove());
+        orodha.appendChild(li);
+        input.value = "";
+    });
+<span class="tag">&lt;/script&gt;</span></pre>
+
+            <h3>Project 3: Simple Calculator</h3>
+            <pre><span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"number"</span> <span class="attr">id</span>=<span class="val">"num1"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"number"</span> <span class="attr">id</span>=<span class="val">"num2"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;button</span> <span class="attr">onclick</span>=<span class="val">"hesabu('+')"</span><span class="tag">&gt;</span>+<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;button</span> <span class="attr">onclick</span>=<span class="val">"hesabu('-')"</span><span class="tag">&gt;</span>-<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;p</span> <span class="attr">id</span>=<span class="val">"matokeo"</span><span class="tag">&gt;&lt;/p&gt;</span>
+<span class="tag">&lt;script&gt;</span>
+    function hesabu(op) {
+        let a = parseFloat(document.getElementById("num1").value);
+        let b = parseFloat(document.getElementById("num2").value);
+        let matokeo;
+        if (op === "+") matokeo = a + b;
+        else if (op === "-") matokeo = a - b;
+        document.getElementById("matokeo").textContent = `Matokeo: ${matokeo}`;
+    }
+<span class="tag">&lt;/script&gt;</span></pre>
+
+            <div class="tip"><strong>⚡ Next Steps:</strong> Endelea kwenye React course kujifunza kuunda modern web applications kwa JavaScript framework maarufu!</div>
+        </div>
+
+        <a href="../courses.html" class="back-link">← Back to All Courses</a>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="brand"><span class="j">J</span><span class="t">t</span> JuveLineTech</div>
+            <div class="links">
+                <h4>Courses</h4>
+                <a href="tech-tips.html">Tech Tips</a>
+                <a href="python.html">Python</a>
+                <a href="html-css.html">HTML &amp; CSS</a>
+                <a href="react.html">React</a>
+            </div>
+            <div class="links">
+                <h4>Contact</h4>
+                <a href="tel:+255782341709">0782 341 709</a>
+                <a href="mailto:shbnsemeni@gmail.com">shbnsemeni@gmail.com</a>
+            </div>
+        </div>
+        <div class="copyright">&copy; 2026 JuveLineTech. All rights reserved.</div>
+    </footer>
+
+</body>
+</html>

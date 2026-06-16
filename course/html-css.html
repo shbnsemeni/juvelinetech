@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML &amp; CSS — JuveLineTech Courses</title>
+    <meta name="description" content="Jifunze HTML na CSS kutoka mwanzo. Unda websites nzuri kwa ujuzi wa kubuni na kupanga. Course ya JuveLineTech kwa Kiswahili na English.">
+    <meta name="theme-color" content="#059669">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #1F2937; background: #F0FDF4; line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        .nav { background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); box-shadow: 0 2px 20px rgba(0,0,0,0.08); padding: 12px 0; position: sticky; top: 0; z-index: 1000; }
+        .nav .container { display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo { font-weight: 900; font-size: 22px; letter-spacing: -1px; text-decoration: none; color: #1F2937; }
+        .nav-logo .j { color: #059669; } .nav-logo .t { color: #D4A843; }
+        .nav-links a { text-decoration: none; color: #4B5563; font-size: 13px; font-weight: 500; margin-left: 20px; }
+        .nav-links a:hover { color: #059669; }
+        .hero { background: linear-gradient(135deg, #D97706, #F59E0B); padding: 50px 20px; text-align: center; color: #fff; }
+        .hero h1 { font-size: clamp(26px, 4vw, 38px); font-weight: 800; }
+        .hero p { font-size: 16px; color: rgba(255,255,255,0.85); max-width: 700px; margin: 10px auto 0; }
+        .hero .meta { font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 8px; }
+        .toc { background: #fff; border-radius: 16px; padding: 28px 32px; margin: 32px 0; border: 1px solid #FEF3C7; }
+        .toc h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #D97706; }
+        .toc ol { padding-left: 20px; }
+        .lesson { background: #fff; border-radius: 16px; padding: 32px; margin-bottom: 24px; border: 1px solid #E5E7EB; }
+        .lesson h2 { font-size: 24px; font-weight: 700; color: #D97706; margin-bottom: 6px; }
+        .lesson .sub { font-size: 14px; color: #6B7280; margin-bottom: 16px; font-style: italic; }
+        .lesson h3 { font-size: 18px; font-weight: 700; color: #1F2937; margin: 20px 0 8px; }
+        .lesson p { font-size: 15px; color: #4B5563; margin-bottom: 12px; }
+        .lesson ul, .lesson ol { padding-left: 20px; margin-bottom: 12px; }
+        .lesson li { font-size: 14px; color: #4B5563; margin-bottom: 6px; }
+        .lesson .note { background: #FFFBEB; border-left: 4px solid #F59E0B; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 14px; color: #92400E; }
+        .lesson .tip { background: #F0FDF4; border-left: 4px solid #10B981; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 14px; color: #065F46; }
+        .lesson code { background: #F3F4F6; padding: 2px 8px; border-radius: 4px; font-size: 13px; color: #DC2626; font-family: monospace; }
+        .lesson pre { background: #1F2937; color: #D1FAE5; padding: 16px 20px; border-radius: 10px; overflow-x: auto; margin: 12px 0; font-size: 13px; line-height: 1.6; font-family: monospace; }
+        .lesson .tag { color: #F59E0B; }
+        .lesson .attr { color: #93C5FD; }
+        .lesson .val { color: #86EFAC; }
+        .lesson .demo { background: #F9FAFB; border: 2px dashed #D1D5DB; padding: 20px; border-radius: 10px; margin: 12px 0; }
+        .toc ol li { margin-bottom: 6px; font-size: 14px; }
+        .toc ol li a { color: #1F2937; text-decoration: none; }
+        .toc ol li a:hover { color: #D97706; }
+        .back-link { display: inline-block; margin: 24px 0; padding: 10px 24px; background: #F59E0B; color: #fff; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 14px; }
+        .back-link:hover { background: #D97706; }
+        footer { background: #065F46; color: rgba(255,255,255,0.7); padding: 40px 0 24px; margin-top: 48px; }
+        footer .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px; }
+        footer .brand { font-weight: 900; font-size: 20px; letter-spacing: -2px; }
+        footer .brand .j { color: #fff; } footer .brand .t { color: #FCD34D; }
+        footer .links h4 { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 10px; }
+        footer .links a { display: block; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; margin-bottom: 5px; }
+        .copyright { text-align: center; padding-top: 24px; margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px; }
+        @media (max-width: 768px) { .nav-links a { margin-left: 12px; font-size: 12px; } .lesson { padding: 20px; } footer .container { flex-direction: column; } }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="container">
+            <a href="../index.html" class="nav-logo"><span class="j">J</span><span class="t">t</span></a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../courses.html">Courses</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>🌐 HTML &amp; CSS</h1>
+        <p>Jifunze kuunda websites kuanzia mwanzo. HTML ni mifupa, CSS ni ngozi na mavazi. Course hii inakufundisha zote mbili.</p>
+        <div class="meta">English / Kiswahili • Beginner to Intermediate • Text + Code Examples</div>
+    </div>
+
+    <div class="container">
+
+        <div class="toc">
+            <h3>📋 Yaliyomo — Table of Contents</h3>
+            <ol>
+                <li><a href="#lesson1">Internet na Webpages — Mtandao na Kurasa za Tovuti</a></li>
+                <li><a href="#lesson2">HTML Basics — Muundo wa Msingi</a></li>
+                <li><a href="#lesson3">Text Elements — Vipengele vya Maandishi</a></li>
+                <li><a href="#lesson4">Links na Images — Viungo na Picha</a></li>
+                <li><a href="#lesson5">Lists na Tables — Orodha na Majedwali</a></li>
+                <li><a href="#lesson6">Forms na Input — Fomu na Mapokezi ya Data</a></li>
+                <li><a href="#lesson7">CSS Basics — Mtindo na Rangi</a></li>
+                <li><a href="#lesson8">Box Model na Layout — Sanduku na Mpangilio</a></li>
+                <li><a href="#lesson9">Flexbox — Mpangilio Nyumbufu</a></li>
+                <li><a href="#lesson10">CSS Grid — Gridi ya CSS</a></li>
+                <li><a href="#lesson11">Responsive Design — Tovuti Inayojirekebisha</a></li>
+                <li><a href="#lesson12">CSS Transitions na Animations</a></li>
+                <li><a href="#lesson13">Project: Personal Portfolio Page</a></li>
+            </ol>
+        </div>
+
+        <!-- Lesson 1 -->
+        <div class="lesson" id="lesson1">
+            <h2>1. Internet na Webpages</h2>
+            <p class="sub">Mtandao na Kurasa za Tovuti</p>
+            <p><span class="sw">🇹🇿 Kiswahili:</span> Internet ni mtandao wa kompyuta zote duniani. Web page ni hati inayoonyeshwa kwenye browser kama Chrome au Safari. HTML (HyperText Markup Language) ndiyo lugha inayotumiwa kuunda web pages. CSS (Cascading Style Sheets) inapamba na kupanga HTML.</p>
+            <p><span class="sw">🇬🇧 English:</span> The internet is a global network of computers. A web page is a document displayed in a browser. HTML is the language used to create web pages, and CSS styles them.</p>
+            <div class="note"><strong>💡 Analogia:</strong> HTML ni mifupa ya mtu, CSS ni ngozi, nguo na mapambo. JavaScript (tutajifunza baadaye) ni misuli — inafanya mambo kusogea.</div>
+        </div>
+
+        <!-- Lesson 2 -->
+        <div class="lesson" id="lesson2">
+            <h2>2. HTML Basics — Muundo wa Msingi</h2>
+            <p class="sub">Kila webpage inahitaji mfumo huu</p>
+            <pre><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html</span> <span class="attr">lang</span>=<span class="val">"sw"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+    <span class="tag">&lt;meta</span> <span class="attr">charset</span>=<span class="val">"UTF-8"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;title&gt;</span>Ukurasa Wangu<span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+    <span class="tag">&lt;h1&gt;</span>Habari Dunia!<span class="tag">&lt;/h1&gt;</span>
+    <span class="tag">&lt;p&gt;</span>Huu ndio ukurasa wangu wa kwanza.<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></pre>
+            <ul>
+                <li><code>&lt;!DOCTYPE html&gt;</code> — inaiambia browser hii ni HTML5</li>
+                <li><code>&lt;html&gt;</code> — mzizi wa hati yote</li>
+                <li><code>&lt;head&gt;</code> — meta data (jina, description, styles)</li>
+                <li><code>&lt;body&gt;</code> — content inayoonekana</li>
+                <li>Vipengele vingi vina tag ya kufungua na kufunga: <code>&lt;tagname&gt;...&lt;/tagname&gt;</code></li>
+            </ul>
+        </div>
+
+        <!-- Lesson 3 -->
+        <div class="lesson" id="lesson3">
+            <h2>3. Text Elements — Vipengele vya Maandishi</h2>
+            <p class="sub">Headers, paragraphs, formatting</p>
+            <pre><span class="tag">&lt;h1&gt;</span>Kichwa Kikubwa<span class="tag">&lt;/h1&gt;</span>
+<span class="tag">&lt;h2&gt;</span>Kichwa cha Pili<span class="tag">&lt;/h2&gt;</span>
+<span class="tag">&lt;h3&gt;</span>Kichwa cha Tatu<span class="tag">&lt;/h3&gt;</span>
+<span class="tag">&lt;p&gt;</span>Hii ni aya ya maandishi. Inaweza kuwa na maneno mengi.<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;p&gt;</span><span class="tag">&lt;strong&gt;</span>Maandishi mazito<span class="tag">&lt;/strong&gt;</span> na <span class="tag">&lt;em&gt;</span>maandishi ya italiki<span class="tag">&lt;/em&gt;</span>.<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;br&gt;</span> <span class="comment">&lt;!-- Mstari mpya (line break) --&gt;</span>
+<span class="tag">&lt;hr&gt;</span> <span class="comment">&lt;!-- Mstari wa kugawanya (horizontal rule) --&gt;</span></pre>
+            <div class="note"><strong>💡 Note:</strong> <code>h1</code> hadi <code>h6</code> ni vichwa. <code>h1</code> ndio kikubwa zaidi. Tumia <code>&lt;h1&gt;</code> mara moja tu kwa kila ukurasa (SEO).</div>
+        </div>
+
+        <!-- Lesson 4 -->
+        <div class="lesson" id="lesson4">
+            <h2>4. Links na Images — Viungo na Picha</h2>
+            <p class="sub">Kuunganisha kurasa na kuonyesha picha</p>
+            <h3>Links / Viungo</h3>
+            <pre><span class="comment">&lt;!-- Link kwa ukurasa mwingine --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"https://google.com"</span><span class="tag">&gt;</span>Nenda Google<span class="tag">&lt;/a&gt;</span>
+
+<span class="comment">&lt;!-- Link kwa ukurasa wako mwenyewe --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"about.html"</span><span class="tag">&gt;</span>Kuhusu Sisi<span class="tag">&lt;/a&gt;</span>
+
+<span class="comment">&lt;!-- Link kwa email --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"mailto:shbnsemeni@gmail.com"</span><span class="tag">&gt;</span>Tuma Email<span class="tag">&lt;/a&gt;</span>
+
+<span class="comment">&lt;!-- Link kwa simu --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"tel:+255782341709"</span><span class="tag">&gt;</span>Piga Simu<span class="tag">&lt;/a&gt;</span>
+
+<span class="comment">&lt;!-- Link kwa sehemu ya ukurasa --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"#sehemu"</span><span class="tag">&gt;</span>Nenda Sehemu<span class="tag">&lt;/a&gt;</span></pre>
+
+            <h3>Images / Picha</h3>
+            <pre><span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"picha.jpg"</span> <span class="attr">alt</span>=<span class="val">"Maelezo ya picha"</span> <span class="attr">width</span>=<span class="val">"300"</span><span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- Picha kutoka mtandaoni --&gt;</span>
+<span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"https://example.com/picha.jpg"</span> <span class="attr">alt</span>=<span class="val">"Picha online"</span> <span class="attr">loading</span>=<span class="val">"lazy"</span><span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- Figure na caption --&gt;</span>
+<span class="tag">&lt;figure&gt;</span>
+    <span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"banner.jpg"</span> <span class="attr">alt</span>=<span class="val">"Banner"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;figcaption&gt;</span>Hii ni banner yetu<span class="tag">&lt;/figcaption&gt;</span>
+<span class="tag">&lt;/figure&gt;</span></pre>
+            <div class="tip"><strong>⚡ Tip:</strong> <code>alt</code> ni maelezo kwa ajili ya screen readers (upatikanaji) na search engines. Weka daima!</div>
+        </div>
+
+        <!-- Lesson 5 -->
+        <div class="lesson" id="lesson5">
+            <h2>5. Lists na Tables — Orodha na Majedwali</h2>
+            <p class="sub">Kupanga data kwa mpangilio</p>
+
+            <h3>Orodha Zisizo na Mpangilio (Unordered List)</h3>
+            <pre><span class="tag">&lt;ul&gt;</span>
+    <span class="tag">&lt;li&gt;</span>Maziwa<span class="tag">&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;</span>Mkate<span class="tag">&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;</span>Sukari<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ul&gt;</span></pre>
+
+            <h3>Orodha Iliyopangwa (Ordered List)</h3>
+            <pre><span class="tag">&lt;ol&gt;</span>
+    <span class="tag">&lt;li&gt;</span>Amka<span class="tag">&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;</span>Oga<span class="tag">&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;</span>Kula<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ol&gt;</span></pre>
+
+            <h3>Jedwali (Table)</h3>
+            <pre><span class="tag">&lt;table&gt;</span>
+    <span class="tag">&lt;thead&gt;</span>
+        <span class="tag">&lt;tr&gt;</span>
+            <span class="tag">&lt;th&gt;</span>Jina<span class="tag">&lt;/th&gt;</span>
+            <span class="tag">&lt;th&gt;</span>Umri<span class="tag">&lt;/th&gt;</span>
+        <span class="tag">&lt;/tr&gt;</span>
+    <span class="tag">&lt;/thead&gt;</span>
+    <span class="tag">&lt;tbody&gt;</span>
+        <span class="tag">&lt;tr&gt;</span>
+            <span class="tag">&lt;td&gt;</span>Juma<span class="tag">&lt;/td&gt;</span>
+            <span class="tag">&lt;td&gt;</span>25<span class="tag">&lt;/td&gt;</span>
+        <span class="tag">&lt;/tr&gt;</span>
+    <span class="tag">&lt;/tbody&gt;</span>
+<span class="tag">&lt;/table&gt;</span></pre>
+        </div>
+
+        <!-- Lesson 6 -->
+        <div class="lesson" id="lesson6">
+            <h2>6. Forms na Input — Fomu na Mapokezi ya Data</h2>
+            <p class="sub">Kukusanya taarifa kutoka kwa wageni wako</p>
+            <pre><span class="tag">&lt;form</span> <span class="attr">action</span>=<span class="val">"thank-you.html"</span> <span class="attr">method</span>=<span class="val">"POST"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="val">"jina"</span><span class="tag">&gt;</span>Jina lako:<span class="tag">&lt;/label&gt;</span>
+    <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span> <span class="attr">id</span>=<span class="val">"jina"</span> <span class="attr">name</span>=<span class="val">"jina"</span> <span class="attr">required</span><span class="tag">&gt;</span>
+
+    <span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="val">"email"</span><span class="tag">&gt;</span>Email:<span class="tag">&lt;/label&gt;</span>
+    <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"email"</span> <span class="attr">id</span>=<span class="val">"email"</span> <span class="attr">name</span>=<span class="val">"email"</span><span class="tag">&gt;</span>
+
+    <span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="val">"ujumbe"</span><span class="tag">&gt;</span>Ujumbe:<span class="tag">&lt;/label&gt;</span>
+    <span class="tag">&lt;textarea</span> <span class="attr">id</span>=<span class="val">"ujumbe"</span> <span class="attr">rows</span>=<span class="val">"4"</span><span class="tag">&gt;&lt;/textarea&gt;</span>
+
+    <span class="tag">&lt;button</span> <span class="attr">type</span>=<span class="val">"submit"</span><span class="tag">&gt;</span>Tuma<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/form&gt;</span></pre>
+            <div class="note"><strong>💡 Input types muhimu:</strong> <code>text</code>, <code>email</code>, <code>password</code>, <code>number</code>, <code>tel</code>, <code>url</code>, <code>file</code>, <code>checkbox</code>, <code>radio</code>, <code>date</code>, <code>color</code>.</div>
+        </div>
+
+        <!-- Lesson 7 -->
+        <div class="lesson" id="lesson7">
+            <h2>7. CSS Basics — Mtindo na Rangi</h2>
+            <p class="sub">Kupamba HTML yako</p>
+
+            <p><span class="sw">🇹🇿 Kiswahili:</span> CSS inaweza kuwekwa kwa njia tatu: inline (ndani ya element), internal (ndani ya <code>&lt;style&gt;</code> kwenye head), au external (faili tofauti <code>.css</code>).</p>
+
+            <pre><span class="comment">&lt;!-- External CSS (njia bora) --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"styles.css"</span><span class="tag">&gt;</span></pre>
+
+            <h3>CSS Syntax</h3>
+            <pre>h1 {
+    color: #D97706;
+    font-size: 36px;
+    text-align: center;
+}
+
+p {
+    color: #4B5563;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.special {
+    background-color: #FFFBEB;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+#header {
+    background: linear-gradient(135deg, #D97706, #F59E0B);
+    padding: 40px;
+}</pre>
+            <ul>
+                <li><code>element</code> — inalenga tag zote za aina hiyo</li>
+                <li><code>.class</code> — inalenga elements zenye class hiyo (tumia mara nyingi)</li>
+                <li><code>#id</code> — inalenga element moja yenye id hiyo (tumia mara moja)</li>
+            </ul>
+            <div class="tip"><strong>⚡ Tip:</strong> Rangi unaweza kutumia: jina (<code>red</code>), hex (<code>#FF5733</code>), rgb (<code>rgb(255, 87, 51)</code>), au hsl (<code>hsl(9, 100%, 60%)</code>).</div>
+        </div>
+
+        <!-- Lesson 8 -->
+        <div class="lesson" id="lesson8">
+            <h2>8. Box Model na Layout</h2>
+            <p class="sub">Sanduku na Mpangilio</p>
+
+            <p>Kila element kwenye HTML ni sanduku. CSS Box Model ina sehemu 4:</p>
+            <ul>
+                <li><strong>Content</strong> — yaliyomo (maandishi, picha)</li>
+                <li><strong>Padding</strong> — nafasi kati ya content na border</li>
+                <li><strong>Border</strong> — mstari wa kuzunguka</li>
+                <li><strong>Margin</strong> — nafasi kati ya element hii na element nyingine</li>
+            </ul>
+            <pre>.sanduku {
+    width: 300px;
+    padding: 20px;        /* Nafasi ndani */
+    border: 2px solid #D97706;
+    margin: 16px;         /* Nafasi nje */
+    border-radius: 12px;  /* Pembe za mviringo */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}</pre>
+            <div class="note"><strong>💡 Note:</strong> <code>box-sizing: border-box;</code> inafanya padding na border zihesabiwe kwenye upana wa jumla. Tumia daima!</div>
+        </div>
+
+        <!-- Lesson 9 -->
+        <div class="lesson" id="lesson9">
+            <h2>9. Flexbox — Mpangilio Nyumbufu</h2>
+            <p class="sub">Panga vitu kwenye mstari au safu kwa urahisi</p>
+            <pre>.container {
+    display: flex;
+    justify-content: space-between;  /* space-around, center, flex-start, flex-end */
+    align-items: center;             /* flex-start, flex-end, stretch */
+    gap: 16px;                       /* nafasi kati ya vitu */
+    flex-wrap: wrap;                 /* kuruhusu vitu kuvunjika mstari */
+}
+
+.item {
+    flex: 1;                         /* kila item inachukua nafasi sawa */
+    min-width: 250px;
+    padding: 20px;
+    background: #FFFBEB;
+    border-radius: 12px;
+}</pre>
+            <div class="demo" style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+                <div style="flex:1;min-width:100px;background:#FFFBEB;padding:12px;border-radius:8px;text-align:center;">Kitu 1</div>
+                <div style="flex:1;min-width:100px;background:#FEF3C7;padding:12px;border-radius:8px;text-align:center;">Kitu 2</div>
+                <div style="flex:1;min-width:100px;background:#FDE68A;padding:12px;border-radius:8px;text-align:center;">Kitu 3</div>
+            </div>
+            <div class="tip"><strong>⚡ Tip:</strong> Flexbox ni bora kwa layout za mwelekeo mmoja (safu au mstari). Kwa grid tata, tumia CSS Grid.</div>
+        </div>
+
+        <!-- Lesson 10 -->
+        <div class="lesson" id="lesson10">
+            <h2>10. CSS Grid — Gridi ya CSS</h2>
+            <p class="sub">Mpangilio wa safu na nguzo</p>
+            <pre>.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* nguzo 3 za ukubwa sawa */
+    gap: 20px;
+}
+
+.grid-item {
+    background: #FFFBEB;
+    padding: 24px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+/* Responsive grid */
+.grid-responsive {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+}</pre>
+            <div class="note"><strong>💡 Note:</strong> <code>1fr</code> ni sehemu moja ya nafasi iliyobaki. <code>repeat(3, 1fr)</code> ni sawa na <code>1fr 1fr 1fr</code>.</div>
+        </div>
+
+        <!-- Lesson 11 -->
+        <div class="lesson" id="lesson11">
+            <h2>11. Responsive Design — Tovuti Inayojirekebisha</h2>
+            <p class="sub">Tengeneza tovuti inayoonekana vizuri kwa simu, kompyuta, na kila kifaa</p>
+
+            <p><span class="sw">🇹🇿 Kiswahili:</span> Responsive design inamaanisha tovuti yako inajirekebisha kulingana na ukubwa wa skrini ya mtumiaji.</p>
+
+            <h3>Media Queries</h3>
+            <pre>/ * CSS kwa simu za mkononi * /
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;  /* Ficha navigation kwenye simu */
+    }
+
+    .grid {
+        grid-template-columns: 1fr;  /* Grid ya safu moja kwenye simu */
+    }
+
+    body {
+        font-size: 14px;
+    }
+}
+
+/ * CSS kwa skrini kubwa * /
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1200px;
+    }
+}</pre>
+
+            <h3>Mobile-First Approach</h3>
+            <pre>/ * Andika kwanza kwa simu, kisha ongeza kwa skrini kubwa * /
+.mtindo {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    .mtindo {
+        font-size: 16px;  /* Skrini kubwa zaidi */
+    }
+}</pre>
+            <div class="tip"><strong>⚡ Tip:</strong> Tumia relative units (<code>em</code>, <code>rem</code>, <code>%</code>, <code>vw</code>, <code>vh</code>) badala ya pixels kwa font size na spacing inayobadilika.</div>
+        </div>
+
+        <!-- Lesson 12 -->
+        <div class="lesson" id="lesson12">
+            <h2>12. CSS Transitions na Animations</h2>
+            <p class="sub">Ongeza uhai kwenye tovuti yako</p>
+
+            <h3>Transitions</h3>
+            <pre>.kitufe {
+    background: #F59E0B;
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;  /* Badiliko la laini */
+}
+
+.kitufe:hover {
+    background: #D97706;
+    transform: scale(1.05);  /* Kitufe kinakua kidogo */
+}</pre>
+
+            <h3>Keyframe Animations</h3>
+            <pre>@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animated {
+    animation: bounce 1s infinite;
+}</pre>
+            <div class="note"><strong>💡 Note:</strong> <code>transition</code> ni kwa mabadiliko rahisi (hover, focus). <code>animation</code> ni kwa miondoko changamano inayojiendesha.</div>
+        </div>
+
+        <!-- Lesson 13 -->
+        <div class="lesson" id="lesson13">
+            <h2>13. Project: Personal Portfolio Page</h2>
+            <p class="sub">Tengeneza portfolio yako mwenyewe</p>
+
+            <pre><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html</span> <span class="attr">lang</span>=<span class="val">"sw"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+    <span class="tag">&lt;meta</span> <span class="attr">charset</span>=<span class="val">"UTF-8"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;meta</span> <span class="attr">name</span>=<span class="val">"viewport"</span> <span class="attr">content</span>=<span class="val">"width=device-width, initial-scale=1.0"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;title&gt;</span>Portfolio Yangu<span class="tag">&lt;/title&gt;</span>
+    <span class="tag">&lt;style&gt;</span>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #1F2937; background: #F9FAFB; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        nav { background: #1F2937; color: #fff; padding: 16px 0; }
+        nav .container { display: flex; justify-content: space-between; align-items: center; }
+        nav a { color: #fff; text-decoration: none; margin-left: 16px; }
+        .hero { padding: 80px 0; text-align: center; }
+        .hero h1 { font-size: 48px; color: #D97706; }
+        .skills { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .skills span { background: #FFFBEB; padding: 8px 16px; border-radius: 50px; font-size: 14px; }
+        .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 40px 0; }
+        .card { background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        footer { background: #1F2937; color: #fff; text-align: center; padding: 24px 0; margin-top: 40px; }
+        @media (max-width: 768px) {
+            nav .container { flex-direction: column; gap: 8px; }
+            .hero h1 { font-size: 32px; }
+        }
+    <span class="tag">&lt;/style&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+    <span class="tag">&lt;nav&gt;</span>
+        <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"container"</span><span class="tag">&gt;</span>
+            <span class="tag">&lt;strong&gt;</span>Juma<span class="tag">&lt;/strong&gt;</span>
+            <span class="tag">&lt;div&gt;</span>
+                <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"#"</span><span class="tag">&gt;</span>Home<span class="tag">&lt;/a&gt;</span>
+                <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"#"</span><span class="tag">&gt;</span>Projects<span class="tag">&lt;/a&gt;</span>
+                <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"#"</span><span class="tag">&gt;</span>Contact<span class="tag">&lt;/a&gt;</span>
+            <span class="tag">&lt;/div&gt;</span>
+        <span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;/nav&gt;</span>
+
+    <span class="tag">&lt;section</span> <span class="attr">class</span>=<span class="val">"hero"</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"container"</span><span class="tag">&gt;</span>
+            <span class="tag">&lt;h1&gt;</span>Habari, mimi ni Juma!<span class="tag">&lt;/h1&gt;</span>
+            <span class="tag">&lt;p&gt;</span>Ni web developer kutoka Tanzania. Ninaunda websites nzuri na zinazofanya kazi.<span class="tag">&lt;/p&gt;</span>
+            <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"skills"</span><span class="tag">&gt;</span>
+                <span class="tag">&lt;span&gt;</span>HTML<span class="tag">&lt;/span&gt;</span>
+                <span class="tag">&lt;span&gt;</span>CSS<span class="tag">&lt;/span&gt;</span>
+                <span class="tag">&lt;span&gt;</span>JavaScript<span class="tag">&lt;/span&gt;</span>
+                <span class="tag">&lt;span&gt;</span>Python<span class="tag">&lt;/span&gt;</span>
+            <span class="tag">&lt;/div&gt;</span>
+        <span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;/section&gt;</span>
+
+    <span class="tag">&lt;section</span> <span class="attr">class</span>=<span class="val">"container"</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;h2&gt;</span>Miradi Yangu<span class="tag">&lt;/h2&gt;</span>
+        <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"projects"</span><span class="tag">&gt;</span>
+            <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"card"</span><span class="tag">&gt;</span>
+                <span class="tag">&lt;h3&gt;</span>Project 1<span class="tag">&lt;/h3&gt;</span>
+                <span class="tag">&lt;p&gt;</span>Maelezo ya project yako ya kwanza.<span class="tag">&lt;/p&gt;</span>
+            <span class="tag">&lt;/div&gt;</span>
+            <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"card"</span><span class="tag">&gt;</span>
+                <span class="tag">&lt;h3&gt;</span>Project 2<span class="tag">&lt;/h3&gt;</span>
+                <span class="tag">&lt;p&gt;</span>Maelezo ya project yako ya pili.<span class="tag">&lt;/p&gt;</span>
+            <span class="tag">&lt;/div&gt;</span>
+            <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"card"</span><span class="tag">&gt;</span>
+                <span class="tag">&lt;h3&gt;</span>Project 3<span class="tag">&lt;/h3&gt;</span>
+                <span class="tag">&lt;p&gt;</span>Maelezo ya project yako ya tatu.<span class="tag">&lt;/p&gt;</span>
+            <span class="tag">&lt;/div&gt;</span>
+        <span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;/section&gt;</span>
+
+    <span class="tag">&lt;footer&gt;</span>
+        <span class="tag">&lt;p&gt;</span>&copy; 2026 Juma. Haki zote zimehifadhiwa.<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;/footer&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></pre>
+
+            <div class="tip"><strong>⚡ Next Steps:</strong> Jaribu kubadilisha rangi, font, mpangilio. Ongeza picha zako. Kisha endelea kwenye JavaScript course kuongeza interactivity!</div>
+        </div>
+
+        <a href="../courses.html" class="back-link">← Back to All Courses</a>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="brand"><span class="j">J</span><span class="t">t</span> JuveLineTech</div>
+            <div class="links">
+                <h4>Courses</h4>
+                <a href="tech-tips.html">Tech Tips</a>
+                <a href="python.html">Python</a>
+                <a href="javascript.html">JavaScript</a>
+                <a href="react.html">React</a>
+            </div>
+            <div class="links">
+                <h4>Contact</h4>
+                <a href="tel:+255782341709">0782 341 709</a>
+                <a href="mailto:shbnsemeni@gmail.com">shbnsemeni@gmail.com</a>
+            </div>
+        </div>
+        <div class="copyright">&copy; 2026 JuveLineTech. All rights reserved.</div>
+    </footer>
+
+</body>
+</html>
