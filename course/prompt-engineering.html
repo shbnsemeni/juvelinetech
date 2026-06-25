@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html class="dark" lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Prompt Engineering — JuveLineTech Courses</title>
-<meta name="description" content="Jifunze Prompt Engineering kutoka mwanzo. ChatGPT, Claude, Gemini — jifunze kuandika prompts bora zinazotoa matokeo mazuri. Course ya JuveLineTech kwa Kiswahili na English.">
-<meta name="theme-color" content="#0a1628">
+<title>Prompt Engineering � JuveLineTech Courses</title>
+<meta name="description" content="Jifunze Prompt Engineering kutoka mwanzo. ChatGPT, Claude, Gemini � jifunze kuandika prompts bora zinazotoa matokeo mazuri. Course ya JuveLineTech kwa Kiswahili na English.">
+<meta name="theme-color" content="#0c0c0f">
 <meta name="google-adsense-account" content="ca-pub-3977547213503078">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -16,7 +16,7 @@ tailwind.config = {
   darkMode: "class",
   theme: {
     extend: {
-      colors: { "surface": "#101415","surface-dim": "#101415","surface-bright": "#363a3b","surface-container-lowest": "#0b0f10","surface-container-low": "#191c1e","surface-container": "#1d2022","surface-container-high": "#272a2c","surface-container-highest": "#323537","on-surface": "#e0e3e5","on-surface-variant": "#c5c6cd","background": "#101415","on-background": "#e0e3e5","primary": "#bbc7df","primary-container": "#0a1628","on-primary": "#253144","on-primary-container": "#758096","secondary": "#a2e7ff","secondary-container": "#00d2fd","on-secondary": "#003642","on-secondary-container": "#005669","tertiary": "#ffb59d","tertiary-container": "#2f0800","on-tertiary": "#5d1900","on-tertiary-container": "#dc521d","error": "#ffb4ab","surface-variant": "#323537","outline": "#8f9097","outline-variant": "#45474c","surface-glass": "rgba(10, 22, 40, 0.7)","border-glass": "rgba(255, 255, 255, 0.1)","accent-green": "#10B981","warning-yellow": "#FCD34D" },
+      colors: { "surface": "#101415","surface-dim": "#101415","surface-bright": "#363a3b","surface-container-lowest": "#0b0f10","surface-container-low": "#191c1e","surface-container": "#1d2022","surface-container-high": "#272a2c","surface-container-highest": "#323537","on-surface": "#e0e3e5","on-surface-variant": "#c5c6cd","background": "#101415","on-background": "#e0e3e5","primary": "#bbc7df","primary-container": "#0c0c0f","on-primary": "#253144","on-primary-container": "#758096","primary-hover": "#fbbf24","secondary": "#fbbf24","secondary-container": "#f59e0b","on-secondary": "#1c1917","on-secondary-container": "#78350f","tertiary": "#2dd4bf","tertiary-container": "#134e4a","on-tertiary": "#042f2e","on-tertiary-container": "#0d9488","error": "#ffb4ab","surface-variant": "#323537","outline": "#8f9097","outline-variant": "#45474c","surface-glass": "rgba(12, 12, 15, 0.85)","border-glass": "rgba(255, 255, 255, 0.1)","accent-green": "#10B981","warning-yellow": "#FCD34D" },
       borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", "2xl": "1rem", full: "9999px" },
       spacing: { "margin-mobile": "1rem", "margin-desktop": "5rem", "container-max": "1280px", gutter: "1.5rem" },
       fontFamily: { "body-lg": ["Inter"], "body-md": ["Inter"], "headline-xl": ["Inter"], "headline-lg": ["Inter"], "headline-md": ["Inter"], "label-md": ["Inter"] },
@@ -28,36 +28,36 @@ tailwind.config = {
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { background-color: #101415; color: #e0e3e5; overflow-x: hidden; font-family: Inter, sans-serif; line-height: 1.8; -webkit-font-smoothing: antialiased; }
-  .glass-card { background: rgba(10, 22, 40, 0.7); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-  .glass-card:hover { transform: translateY(-4px) scale(1.02); border-color: #a2e7ff; box-shadow: 0 0 20px rgba(162, 231, 255, 0.2); }
+  .glass-card { background: rgba(12, 12, 15, 0.7); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+  .glass-card:hover { transform: translateY(-4px) scale(1.02); border-color: #fbbf24; box-shadow: 0 0 20px rgba(251, 191, 36, 0.2); }
   .btn-glow { position: relative; display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; border-radius: 9999px; font-size: 14px; font-weight: 600; letter-spacing: 0.05em; text-decoration: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); overflow: hidden; border: none; cursor: pointer; }
-  .btn-glow:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 0 40px rgba(0, 210, 253, 0.5), 0 0 80px rgba(0, 210, 253, 0.2); }
+  .btn-glow:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 0 40px rgba(251, 191, 36, 0.5), 0 0 80px rgba(251, 191, 36, 0.2); }
   .btn-glow:active { transform: translateY(0) scale(0.97); }
   .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
   .nav-blur { backdrop-filter: blur(20px); }
 .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
   .toc { border-radius: 16px; padding: 20px 24px; margin: 32px 0; }
-  .toc h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #a2e7ff; }
+  .toc h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #fbbf24; }
   .toc ol { padding-left: 20px; }
   .toc ol li { margin-bottom: 6px; font-size: 14px; }
   .toc ol li a { color: #c5c6cd; text-decoration: none; }
-  .toc ol li a:hover { color: #a2e7ff; }
+  .toc ol li a:hover { color: #fbbf24; }
   .lesson { border-radius: 16px; padding: 20px; margin-bottom: 24px; }
-  .lesson h2 { font-size: 18px; font-weight: 700; color: #a2e7ff; margin-bottom: 6px; }
+  .lesson h2 { font-size: 18px; font-weight: 700; color: #fbbf24; margin-bottom: 6px; }
   .lesson .sub { font-size: 14px; color: #6B7280; margin-bottom: 16px; font-style: italic; }
   .lesson h3 { font-size: 15px; font-weight: 700; color: #e0e3e5; margin: 20px 0 8px; }
   .lesson p { font-size: 13px; color: #c5c6cd; margin-bottom: 12px; }
   .lesson ul, .lesson ol { padding-left: 20px; margin-bottom: 12px; }
   .lesson li { font-size: 12px; color: #c5c6cd; margin-bottom: 6px; }
-  .lesson .note { background: rgba(10, 22, 40, 0.5); border-left: 4px solid #a2e7ff; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 14px; color: #c5c6cd; }
-  .lesson .tip { background: rgba(47, 8, 0, 0.3); border-left: 4px solid #ffb59d; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 14px; color: #ffb59d; }
-  .lesson code { background: rgba(255,255,255,0.08); padding: 2px 8px; border-radius: 4px; font-size: 13px; color: #ffb59d; font-family: monospace; }
-  .lesson pre { background: #0a1628; color: #c5c6cd; padding: 16px 20px; border-radius: 10px; overflow-x: auto; margin: 12px 0; font-size: 13px; line-height: 1.6; font-family: monospace; border: 1px solid rgba(255,255,255,0.06); }
-  .lesson .sw { color: #a2e7ff; font-weight: 600; }
+  .lesson .note { background: rgba(12, 12, 15, 0.5); border-left: 4px solid #fbbf24; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 14px; color: #c5c6cd; }
+  .lesson .tip { background: rgba(15, 78, 65, 0.3); border-left: 4px solid #2dd4bf; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 14px; color: #2dd4bf; }
+  .lesson code { background: rgba(255,255,255,0.08); padding: 2px 8px; border-radius: 4px; font-size: 13px; color: #2dd4bf; font-family: monospace; }
+  .lesson pre { background: #0c0c0f; color: #c5c6cd; padding: 16px 20px; border-radius: 10px; overflow-x: auto; margin: 12px 0; font-size: 13px; line-height: 1.6; font-family: monospace; border: 1px solid rgba(255,255,255,0.06); }
+  .lesson .sw { color: #fbbf24; font-weight: 600; }
   .lang-toggle { display: flex; gap: 8px; justify-content: center; margin: 20px 0; }
-  .lang-btn { padding: 8px 24px; border: 1px solid rgba(255,255,255,0.15); border-radius: 50px; background: rgba(10, 22, 40, 0.5); color: #c5c6cd; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-family: inherit; backdrop-filter: blur(10px); }
-  .lang-btn:hover { border-color: #a2e7ff; color: #a2e7ff; }
-  .lang-btn.active { background: rgba(0, 210, 253, 0.2); color: #a2e7ff; border-color: #a2e7ff; }
+  .lang-btn { padding: 8px 24px; border: 1px solid rgba(255,255,255,0.15); border-radius: 50px; background: rgba(12, 12, 15, 0.5); color: #c5c6cd; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-family: inherit; backdrop-filter: blur(10px); }
+  .lang-btn:hover { border-color: #fbbf24; color: #fbbf24; }
+  .lang-btn.active { background: rgba(251, 191, 36, 0.2); color: #fbbf24; border-color: #fbbf24; }
   body.lang-en .sw-text { display: none; }
   body.lang-en .en-text .lang-label { display: none; }
   @media (max-width: 768px) { .lesson { padding: 20px; } }
@@ -77,35 +77,35 @@ tailwind.config = {
 </header>
 
 <main class="pt-20">
-  <section class="relative min-h-[30vh] flex items-center justify-center overflow-hidden" style="background: radial-gradient(circle at 30% 50%, rgba(0,210,253,0.1) 0%, transparent 50%), radial-gradient(circle at 70% 50%, rgba(220,82,29,0.08) 0%, transparent 50%);">
+  <section class="relative min-h-[30vh] flex items-center justify-center overflow-hidden" style="background: radial-gradient(circle at 30% 50%, rgba(251,191,36,0.1) 0%, transparent 50%), radial-gradient(circle at 70% 50%, rgba(45,212,191,0.08) 0%, transparent 50%);">
     <div class="relative z-10 text-center px-margin-mobile max-w-3xl mx-auto py-16">
-      <div class="text-5xl mb-4 opacity-80">ðŸ¤–</div>
+      <div class="text-5xl mb-4 opacity-80">🤖</div>
       <h1 class="font-headline-lg text-on-surface mb-3">Prompt Engineering</h1>
       <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto mb-3">Jifunze kuandika prompts bora kwa ChatGPT, Claude, Gemini na AI zingine. Pata matokeo sahihi kila mara kwa ujuzi wa prompt engineering.</p>
-      <p class="text-sm text-on-surface-variant/60">English / Kiswahili • Beginner to Intermediate • Text + Examples</p>
+      <p class="text-sm text-on-surface-variant/60">English / Kiswahili � Beginner to Intermediate � Text + Examples</p>
     </div>
   </section>
 
 <div class="lang-toggle">
-    <button class="lang-btn active" data-lang="sw"><span class="flag">🇹🇿</span> Kiswahili</button>
-    <button class="lang-btn" data-lang="en"><span class="flag">🇬🇧</span> English</button>
+    <button class="lang-btn active" data-lang="sw"><span class="flag">????</span> Kiswahili</button>
+    <button class="lang-btn" data-lang="en"><span class="flag">????</span> English</button>
   </div>
 
 <div class="container">
 
 <div class="toc">
-            <h3>📋 Yaliyomo — Table of Contents</h3>
+            <h3>?? Yaliyomo � Table of Contents</h3>
             <ol>
                 <li><a href="#lesson1">Prompt Engineering ni nini? / What is Prompt Engineering?</a></li>
                 <li><a href="#lesson2">AI Models Unazofanya Kazi Nazo / AI Models You Work With</a></li>
                 <li><a href="#lesson3">Elements za Prompt Bora / Elements of a Good Prompt</a></li>
-                <li><a href="#lesson4">Role Prompting — Mpe AI Jukumu</a></li>
-                <li><a href="#lesson5">Chain-of-Thought — Fanya AI Ifikirie Hatua kwa Hatua</a></li>
-                <li><a href="#lesson6">Few-Shot Prompting — Toa Mifano</a></li>
-                <li><a href="#lesson7">Format na Structure — Panga Matokeo</a></li>
-                <li><a href="#lesson8">Iterative Prompting — Bomoa na Boresha</a></li>
+                <li><a href="#lesson4">Role Prompting � Mpe AI Jukumu</a></li>
+                <li><a href="#lesson5">Chain-of-Thought � Fanya AI Ifikirie Hatua kwa Hatua</a></li>
+                <li><a href="#lesson6">Few-Shot Prompting � Toa Mifano</a></li>
+                <li><a href="#lesson7">Format na Structure � Panga Matokeo</a></li>
+                <li><a href="#lesson8">Iterative Prompting � Bomoa na Boresha</a></li>
                 <li><a href="#lesson9">Makangawa ya Kuepuka / Common Mistakes</a></li>
-                <li><a href="#lesson10">Miradi / Projects — Prompts za Kila Siku</a></li>
+                <li><a href="#lesson10">Miradi / Projects � Prompts za Kila Siku</a></li>
             </ol>
         </div>
 
@@ -113,25 +113,25 @@ tailwind.config = {
         <div class="lesson" id="lesson1">
             <h2>1. Prompt Engineering ni nini? / What is Prompt Engineering?</h2>
             <p class="sub">Sanaa ya kumwambia AI hasa unachotaka</p>
-            <p><span class="sw">🇹🇿 Kiswahili:</span> Prompt Engineering ni ujuzi wa kuandika maagizo (prompts) kwa AI kama ChatGPT, Claude, au Gemini ili kupata matokeo sahihi. Kama vile unavyomwambia mtu kazi hasa unayotaka ifanywe — ndivyo unavyomwambia AI.</p>
-            <p><span class="sw">🇬🇧 English:</span> Prompt Engineering is the skill of writing instructions (prompts) for AI models like ChatGPT, Claude, or Gemini to get accurate results. It's like telling someone exactly what you want done.</p>
-            <div class="note"><strong>💡 Kwa nini ni muhimu?</strong> AI ina uwezo mkubwa, lakini matokeo yake yanategemea jinsi ulivyounda prompt yako. Prompt mbaya = jibu lisilo sahihi. Prompt nzuri = jibu la usahani.</div>
+            <p><span class="sw">???? Kiswahili:</span> Prompt Engineering ni ujuzi wa kuandika maagizo (prompts) kwa AI kama ChatGPT, Claude, au Gemini ili kupata matokeo sahihi. Kama vile unavyomwambia mtu kazi hasa unayotaka ifanywe � ndivyo unavyomwambia AI.</p>
+            <p><span class="sw">???? English:</span> Prompt Engineering is the skill of writing instructions (prompts) for AI models like ChatGPT, Claude, or Gemini to get accurate results. It's like telling someone exactly what you want done.</p>
+            <div class="note"><strong>?? Kwa nini ni muhimu?</strong> AI ina uwezo mkubwa, lakini matokeo yake yanategemea jinsi ulivyounda prompt yako. Prompt mbaya = jibu lisilo sahihi. Prompt nzuri = jibu la usahani.</div>
         </div>
 
         <!-- Lesson 2 -->
         <div class="lesson" id="lesson2">
             <h2>2. AI Models Unazofanya Kazi Nazo</h2>
             <p class="sub">AI Models You Work With</p>
-            <p><span class="sw">🇹🇿 Kiswahili:</span> Kuna AI models nyingi, lakini maarufu zaidi ni:</p>
+            <p><span class="sw">???? Kiswahili:</span> Kuna AI models nyingi, lakini maarufu zaidi ni:</p>
             <ul>
-                <li><strong>ChatGPT (OpenAI)</strong> — GPT-4, GPT-4o — anayejulikana sana, ana uwezo wa kuandika, kusoma code, kuchambua data</li>
-                <li><strong>Claude (Anthropic)</strong> — Ana uwezo mkubwa wa kuelewa context ndefu na kutoa maelezo ya kina</li>
-                <li><strong>Gemini (Google)</strong> — Anajua kufanya kazi na picha, video, na maandishi pamoja</li>
-                <li><strong>DeepSeek</strong> — Chinese model, nafuu na hodari kwa code</li>
-                <li><strong>Meta AI (Llama)</strong> — Open source, unaweza kuendesha mwenyewe</li>
+                <li><strong>ChatGPT (OpenAI)</strong> � GPT-4, GPT-4o � anayejulikana sana, ana uwezo wa kuandika, kusoma code, kuchambua data</li>
+                <li><strong>Claude (Anthropic)</strong> � Ana uwezo mkubwa wa kuelewa context ndefu na kutoa maelezo ya kina</li>
+                <li><strong>Gemini (Google)</strong> � Anajua kufanya kazi na picha, video, na maandishi pamoja</li>
+                <li><strong>DeepSeek</strong> � Chinese model, nafuu na hodari kwa code</li>
+                <li><strong>Meta AI (Llama)</strong> � Open source, unaweza kuendesha mwenyewe</li>
             </ul>
-            <p><span class="sw">🇬🇧 English:</span> There are many AI models, but the most well-known are ChatGPT, Claude, Gemini, DeepSeek, and Meta AI (Llama). Each has unique strengths.</p>
-            <div class="tip"><strong>⚡ Tip:</strong> Kila model ina "personality" yake. Jaribu prompt moja kwenye models tofauti — utaona tofauti kubwa katika jinsi wanavyojibu!</div>
+            <p><span class="sw">???? English:</span> There are many AI models, but the most well-known are ChatGPT, Claude, Gemini, DeepSeek, and Meta AI (Llama). Each has unique strengths.</p>
+            <div class="tip"><strong>? Tip:</strong> Kila model ina "personality" yake. Jaribu prompt moja kwenye models tofauti � utaona tofauti kubwa katika jinsi wanavyojibu!</div>
         </div>
 
         <!-- Lesson 3 -->
@@ -140,20 +140,20 @@ tailwind.config = {
             <p class="sub">Vipengele vya maagizo mazuri</p>
             <p>Kila prompt bora ina vipengele hivi vitano (5):</p>
 
-            <h3>1. Task — Kazi hasa unayotaka ifanywe</h3>
+            <h3>1. Task � Kazi hasa unayotaka ifanywe</h3>
             <div class="prompt">"Andika barua pepe ya kumtaka mteja alipe bili yake."</div>
             <p>Hii ni sahihi, lakini bado haitoshi. Ongeza zaidi.</p>
 
-            <h3>2. Context — Mazingira au historia</h3>
+            <h3>2. Context � Mazingira au historia</h3>
             <div class="prompt">"Mteja ametumia huduma yetu ya website design kwa miezi 3 na bado hajalipa. Tuma barua pepe ya kumkumbusha kwa adabu."</div>
 
-            <h3>3. Format — Umbo la matokeo</h3>
+            <h3>3. Format � Umbo la matokeo</h3>
             <div class="prompt">"Andika katika muundo wa barua pepe rasmi: Kichwa cha barua, mwili, na hitimisho."</div>
 
-            <h3>4. Tone — Mtindo wa lugha</h3>
+            <h3>4. Tone � Mtindo wa lugha</h3>
             <div class="prompt">"Tumia lugha ya heshima na adabu. Usiwe mkali. Mwelekeo wa kirafiki lakini rasmi."</div>
 
-            <h3>5. Constraints — Vizuizi / Mipaka</h3>
+            <h3>5. Constraints � Vizuizi / Mipaka</h3>
             <div class="prompt">"Maneno yasiwe zaidi ya 150. Hakuna viambatisho."</div>
 
             <h3>Mfano Kamili</h3>
@@ -169,14 +169,14 @@ ya Kiswahili. Barua iwe na:
 - Shukrani
 Maneno yasiwe zaidi ya 120.</pre>
 
-            <div class="note"><strong>💡 Note:</strong> Kadri unavyotoa maelezo mengi, ndivyo AI inavyoelewa vizuri zaidi unachotaka. Usiwe mfupi sana!</div>
+            <div class="note"><strong>?? Note:</strong> Kadri unavyotoa maelezo mengi, ndivyo AI inavyoelewa vizuri zaidi unachotaka. Usiwe mfupi sana!</div>
         </div>
 
         <!-- Lesson 4 -->
         <div class="lesson" id="lesson4">
-            <h2>4. Role Prompting — Mpe AI Jukumu</h2>
+            <h2>4. Role Prompting � Mpe AI Jukumu</h2>
             <p class="sub">Tell AI who it is</p>
-            <p><span class="sw">🇹🇿 Kiswahili:</span> Mbinu hii inampa AI "identity" au jukumu kabla ya kumwomba afanye kazi. Matokeo yanakuwa bora zaidi kwa sababu AI inajua anakuwa nani.</p>
+            <p><span class="sw">???? Kiswahili:</span> Mbinu hii inampa AI "identity" au jukumu kabla ya kumwomba afanye kazi. Matokeo yanakuwa bora zaidi kwa sababu AI inajua anakuwa nani.</p>
 
             <h3>Mifano</h3>
             <div class="prompt">"Wewe ni mwalimu wa Python kwa wanaoanza. Eleza loops kwa mtoto wa darasa la 7."</div>
@@ -185,20 +185,20 @@ Maneno yasiwe zaidi ya 120.</pre>
             <div class="prompt">"Wewe ni mtaalamu wa marketing. Nisaidie kuandika post 3 za Instagram kuhusu course yangu ya Python."</div>
 
             <h3>Kwa nini inafanya kazi?</h3>
-            <p>AI ina mafunzo kutoka kwa wataalamu wengi. Ukimpa jukumu, inajua ni "akili" gani kutumia — ya mwalimu, mwanasheria, au mwandishi.</p>
+            <p>AI ina mafunzo kutoka kwa wataalamu wengi. Ukimpa jukumu, inajua ni "akili" gani kutumia � ya mwalimu, mwanasheria, au mwandishi.</p>
 
-            <div class="tip"><strong>⚡ Tip:</strong> Unaweza kuongeza zaidi: "Wewe ni mwalimu anayependa kutumia mifano ya maisha halisi na ana subira."</div>
+            <div class="tip"><strong>? Tip:</strong> Unaweza kuongeza zaidi: "Wewe ni mwalimu anayependa kutumia mifano ya maisha halisi na ana subira."</div>
         </div>
 
         <!-- Lesson 5 -->
         <div class="lesson" id="lesson5">
-            <h2>5. Chain-of-Thought — Fanya AI Ifikirie Hatua kwa Hatua</h2>
+            <h2>5. Chain-of-Thought � Fanya AI Ifikirie Hatua kwa Hatua</h2>
             <p class="sub">Step-by-step thinking</p>
-            <p><span class="sw">🇹🇿 Kiswahili:</span> Badala ya kuuliza swali moja kwa moja, mwambie AI afikirie hatua kwa hatua. Hii inapunguza makosa sana, hasa kwa hesabu, logic, na mipango.</p>
+            <p><span class="sw">???? Kiswahili:</span> Badala ya kuuliza swali moja kwa moja, mwambie AI afikirie hatua kwa hatua. Hii inapunguza makosa sana, hasa kwa hesabu, logic, na mipango.</p>
 
             <h3>Bila Chain-of-Thought:</h3>
             <div class="prompt">"Ikiwa Juma ana miaka 25 na Aisha ana miaka 18, na Baraka ana miaka 30, ni nani mzee zaidi?"</div>
-            <p>AI itajibu moja kwa moja — lakini ikose kwa maswali magumu.</p>
+            <p>AI itajibu moja kwa moja � lakini ikose kwa maswali magumu.</p>
 
             <h3>Kwa Chain-of-Thought:</h3>
             <div class="prompt">"Tafadhali fikiria hatua kwa hatua:
@@ -221,14 +221,14 @@ Fikiria hatua kwa hatua:
 2. Toa jumla kutoka kwa 50,000
 3. Nipe matokeo</pre>
 
-            <div class="note"><strong>💡 Note:</strong> Unaweza kutumia maneno kama "Fikiria hatua kwa hatua" au "Let's think step by step" — hii inajulikana kama zero-shot chain-of-thought.</div>
+            <div class="note"><strong>?? Note:</strong> Unaweza kutumia maneno kama "Fikiria hatua kwa hatua" au "Let's think step by step" � hii inajulikana kama zero-shot chain-of-thought.</div>
         </div>
 
         <!-- Lesson 6 -->
         <div class="lesson" id="lesson6">
-            <h2>6. Few-Shot Prompting — Toa Mifano</h2>
+            <h2>6. Few-Shot Prompting � Toa Mifano</h2>
             <p class="sub">Give examples of what you want</p>
-            <p><span class="sw">🇹🇿 Kiswahili:</span> Mbinu hii unampa AI mifano 1-3 ya kile unachotaka kabla ya kumuuliza afanye. Hii inamsaidia kuelewa muundo na mtindo unaotaka.</p>
+            <p><span class="sw">???? Kiswahili:</span> Mbinu hii unampa AI mifano 1-3 ya kile unachotaka kabla ya kumuuliza afanye. Hii inamsaidia kuelewa muundo na mtindo unaotaka.</p>
 
             <h3>Mfano</h3>
             <pre>Nataka uweke maneno haya kwenye sentensi. Fuata muundo huu:
@@ -250,14 +250,14 @@ Sentensi:</pre>
             <h3>Kwa nini inafanya kazi?</h3>
             <p>AI inajifunza kutoka kwa mifano. Ukitoa mifano inayofanana na unachotaka, AI inaelewa mtindo, muundo, na ubora unaotaka.</p>
 
-            <div class="tip"><strong>⚡ Tip:</strong> Mfano mmoja mzuri unaweza kutosha (one-shot). Lakini mifano 2-3 (few-shot) inatoa matokeo bora zaidi. Usizidi 5 isipokuwa una sababu maalum.</div>
+            <div class="tip"><strong>? Tip:</strong> Mfano mmoja mzuri unaweza kutosha (one-shot). Lakini mifano 2-3 (few-shot) inatoa matokeo bora zaidi. Usizidi 5 isipokuwa una sababu maalum.</div>
         </div>
 
         <!-- Lesson 7 -->
         <div class="lesson" id="lesson7">
-            <h2>7. Format na Structure — Panga Matokeo</h2>
+            <h2>7. Format na Structure � Panga Matokeo</h2>
             <p class="sub">Specify output format</p>
-            <p><span class="sw">🇹🇿 Kiswahili:</span> Unaweza kumwambia AI atoe matokeo katika muundo maalum — hii inafanya matokeo kuwa rahisi kusoma na kutumia.</p>
+            <p><span class="sw">???? Kiswahili:</span> Unaweza kumwambia AI atoe matokeo katika muundo maalum � hii inafanya matokeo kuwa rahisi kusoma na kutumia.</p>
 
             <h3>Muundo wa Jedwali</h3>
             <div class="prompt">"Orodhesha wakuu 5 wa Tanzania na kipindi chao cha uongozi kwa muundo wa jedwali: | Na. | Jina | Kuanza | Kuisha |"</div>
@@ -288,14 +288,14 @@ Sentensi:</pre>
 ## Hitimisho
 (aya 1)</pre>
 
-            <div class="note"><strong>💡 Note:</strong> Kwa prompt engineering, format ni muhimu kama content. Unaweza kusema: "Jibu kwa lugha rahisi kama unamwelezea rafiki yako."</div>
+            <div class="note"><strong>?? Note:</strong> Kwa prompt engineering, format ni muhimu kama content. Unaweza kusema: "Jibu kwa lugha rahisi kama unamwelezea rafiki yako."</div>
         </div>
 
         <!-- Lesson 8 -->
         <div class="lesson" id="lesson8">
-            <h2>8. Iterative Prompting — Bomoa na Boresha</h2>
+            <h2>8. Iterative Prompting � Bomoa na Boresha</h2>
             <p class="sub">Keep refining until perfect</p>
-            <p><span class="sw">🇹🇿 Kiswahili:</span> Mara chache sana utapata jibu kamili mara ya kwanza. Prompt Engineering ni mchakato wa kujaribu na kuboresha.</p>
+            <p><span class="sw">???? Kiswahili:</span> Mara chache sana utapata jibu kamili mara ya kwanza. Prompt Engineering ni mchakato wa kujaribu na kuboresha.</p>
 
             <h3>Mchakato</h3>
             <pre>Hatua 1: Andika prompt, pata jibu.
@@ -314,7 +314,7 @@ Hatua 5: Rudia mpaka upate unachotaka.</pre>
             <p><strong>Mara ya tatu:</strong> "Andika barua pepe ya kumkaribisha mteja mpya aliyejiandikisha kwenye course yetu ya Python. Tumia Kiswahili. Mtindo wa kirafiki lakini rasmi. Taja jina la course, bei, na muda wa course. Malizia kwa kumualika ajiunge na WhatsApp group."</p>
             <p>Matokeo: Sasa umepata unachotaka!</p>
 
-            <div class="tip"><strong>⚡ Tip:</strong> Usikubali jibu la kwanza. Boresha prompt yako mara 2-5 mpaka upate ubora unaotaka. Hii ndio tofauti kati ya mtumiaji wa kawaida na prompt engineer.</div>
+            <div class="tip"><strong>? Tip:</strong> Usikubali jibu la kwanza. Boresha prompt yako mara 2-5 mpaka upate ubora unaotaka. Hii ndio tofauti kati ya mtumiaji wa kawaida na prompt engineer.</div>
         </div>
 
         <!-- Lesson 9 -->
@@ -323,12 +323,12 @@ Hatua 5: Rudia mpaka upate unachotaka.</pre>
             <p class="sub">Mambo ya kujiepusha nayo</p>
 
             <h3>1. Prompt fupi sana</h3>
-            <p>❌ "Andika kuhusu AI." → Jibu la jumla lisilo na maana.</p>
-            <p>✅ "Andika makala ya maneno 300 kuhusu matumizi ya AI katika kilimo Tanzania."</p>
+            <p>? "Andika kuhusu AI." ? Jibu la jumla lisilo na maana.</p>
+            <p>? "Andika makala ya maneno 300 kuhusu matumizi ya AI katika kilimo Tanzania."</p>
 
             <h3>2. Kutoa maelekezo yanayopingana</h3>
-            <p>❌ "Andika barua rasmi lakini iwe ya kirafiki." — Hizi ni tofauti.</p>
-            <p>✅ "Andika barua nusu-rasmi — heshima lakini si ngumu sana."</p>
+            <p>? "Andika barua rasmi lakini iwe ya kirafiki." � Hizi ni tofauti.</p>
+            <p>? "Andika barua nusu-rasmi � heshima lakini si ngumu sana."</p>
 
             <h3>3. Kusahau kutaja lugha</h3>
             <p>AI inajibu kwa lugha uliyoandika prompt. Kama unataka Kiswahili, andika kwa Kiswahili au sema wazi.</p>
@@ -337,18 +337,18 @@ Hatua 5: Rudia mpaka upate unachotaka.</pre>
             <p>AI inaweza kukosea (hallucination). Angalia ukweli wa majibu, hasa kwa namba, tarehe, na sheria.</p>
 
             <h3>5. Kutotaja mipaka (constraints)</h3>
-            <p>❌ "Andika muhtasari." → Si wazi urefu gani.</p>
-            <p>✅ "Andika muhtasari wa sentensi 3 tu."</p>
+            <p>? "Andika muhtasari." ? Si wazi urefu gani.</p>
+            <p>? "Andika muhtasari wa sentensi 3 tu."</p>
 
-            <div class="note"><strong>💡 Rule of Thumb:</strong> Ikiwa jibu si zuri, pinga prompt yako. Prompt engineering ni kujaribu na kujaribu tena.</div>
+            <div class="note"><strong>?? Rule of Thumb:</strong> Ikiwa jibu si zuri, pinga prompt yako. Prompt engineering ni kujaribu na kujaribu tena.</div>
         </div>
 
         <!-- Lesson 10 -->
         <div class="lesson" id="lesson10">
-            <h2>10. Miradi / Projects — Prompts za Kila Siku</h2>
+            <h2>10. Miradi / Projects � Prompts za Kila Siku</h2>
             <p class="sub">Matumizi halisi ya prompt engineering</p>
 
-            <h3>Project 1: Content Creator — Post za Social Media</h3>
+            <h3>Project 1: Content Creator � Post za Social Media</h3>
             <pre>Wewe ni social media manager. Nina course ya Python programming
 nayouza kwa Tsh 15,000. Nisaidie kuandika:
 
@@ -359,7 +359,7 @@ nayouza kwa Tsh 15,000. Nisaidie kuandika:
 Lengo: Kuwavutia wale wanaotaka kujifunza programming lakini
 wanadhani ni vigumu. Tumia Kiswahili. Mtindo wa kirafiki.</pre>
 
-            <h3>Project 2: Study Assistant — Maswali na Majibu</h3>
+            <h3>Project 2: Study Assistant � Maswali na Majibu</h3>
             <pre>Wewe ni mwalimu wa History Tanzania. Unda maswali 5 ya
 kujaribu uelewa wa mwanafunzi kuhusu "Ukoloni Tanzania".
 
@@ -371,7 +371,7 @@ Kila swali liwe na:
 
 Toa mwishoni alama (5/5, 4/5 nk) na maoni.</pre>
 
-            <h3>Project 3: Business Letter — Barua ya Biashara</h3>
+            <h3>Project 3: Business Letter � Barua ya Biashara</h3>
             <pre>Nina biashara ya kufundisha programming. Nataka kutuma
 proposal kwa shule ya sekondari Dar es Salaam.
 
@@ -385,7 +385,7 @@ Andika barua rasmi inayoeleza:
 Lugha: Kiswahili rasmi. Mwisho: Tuma kwa shbnsemeni@gmail.com
 au piga 0782 341 709.</pre>
 
-            <h3>Project 4: Code Assistant — Msaada wa Programming</h3>
+            <h3>Project 4: Code Assistant � Msaada wa Programming</h3>
             <pre>Wewe ni mprogramu mwenye uzoefu wa miaka 10. Ninaandika
 program ya kuhesabu gharama za usafirishaji Tanzania.
 
@@ -399,7 +399,7 @@ gari/motorbike)
 Nisaidie kuandika Python code kwa ajili ya hii.
 Ongeza maelezo (comments) kwa Kiswahili.</pre>
 
-            <div class="tip"><strong>⚡ Next Steps:</strong> Endelea kufanya mazoezi! Jaribu kutumia AI kwa kazi zako za kila siku — barua, maelezo ya kazi, research, coding. Kadri unavyofanya mazoezi, ndivyo unavyozidi kuwa hodari.</div>
+            <div class="tip"><strong>? Next Steps:</strong> Endelea kufanya mazoezi! Jaribu kutumia AI kwa kazi zako za kila siku � barua, maelezo ya kazi, research, coding. Kadri unavyofanya mazoezi, ndivyo unavyozidi kuwa hodari.</div>
         </div>
 
   </div>

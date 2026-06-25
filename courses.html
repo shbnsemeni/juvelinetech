@@ -5,7 +5,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Courses — JuveLineTech</title>
 <meta name="description" content="Jifunze programming, web development, computer tech tips, Python, JavaScript, HTML, CSS, na React. Courses kwa Kiswahili na English.">
-<meta name="theme-color" content="#0a1628">
+<meta name="theme-color" content="#0c0c0f">
 <meta name="google-adsense-account" content="ca-pub-3977547213503078">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -17,7 +17,7 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        "surface": "#101415","surface-dim": "#101415","surface-bright": "#363a3b","surface-container-lowest": "#0b0f10","surface-container-low": "#191c1e","surface-container": "#1d2022","surface-container-high": "#272a2c","surface-container-highest": "#323537","on-surface": "#e0e3e5","on-surface-variant": "#c5c6cd","background": "#101415","on-background": "#e0e3e5","primary": "#bbc7df","primary-container": "#0a1628","on-primary": "#253144","on-primary-container": "#758096","secondary": "#a2e7ff","secondary-container": "#00d2fd","on-secondary": "#003642","on-secondary-container": "#005669","tertiary": "#ffb59d","tertiary-container": "#2f0800","on-tertiary": "#5d1900","on-tertiary-container": "#dc521d","error": "#ffb4ab","surface-variant": "#323537","outline": "#8f9097","outline-variant": "#45474c","surface-glass": "rgba(10, 22, 40, 0.7)","border-glass": "rgba(255, 255, 255, 0.1)","accent-green": "#10B981","warning-yellow": "#FCD34D"
+        "surface": "#101415","surface-dim": "#101415","surface-bright": "#363a3b","surface-container-lowest": "#0b0f10","surface-container-low": "#191c1e","surface-container": "#1d2022","surface-container-high": "#272a2c","surface-container-highest": "#323537","on-surface": "#e0e3e5","on-surface-variant": "#c5c6cd","background": "#101415","on-background": "#e0e3e5","primary": "#bbc7df","primary-container": "#0a1628","on-primary": "#253144","on-primary-container": "#758096","primary-hover": "#fbbf24","secondary": "#fbbf24","secondary-container": "#f59e0b","on-secondary": "#1c1917","on-secondary-container": "#78350f","tertiary": "#2dd4bf","tertiary-container": "#134e4a","on-tertiary": "#042f2e","on-tertiary-container": "#0d9488","error": "#ffb4ab","surface-variant": "#323537","outline": "#8f9097","outline-variant": "#45474c","surface-glass": "rgba(12, 12, 15, 0.85)","border-glass": "rgba(255, 255, 255, 0.1)","accent-green": "#10B981","warning-yellow": "#FCD34D"
       },
       borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", "2xl": "1rem", full: "9999px" },
       spacing: { "margin-mobile": "1rem", "margin-desktop": "5rem", "container-max": "1280px", gutter: "1.5rem" },
@@ -45,8 +45,8 @@ tailwind.config = {
   }
   .glass-card:hover {
     transform: translateY(-6px) scale(1.02);
-    border-color: #a2e7ff;
-    box-shadow: 0 0 30px rgba(162, 231, 255, 0.25);
+    border-color: #fbbf24;
+    box-shadow: 0 0 30px rgba(251, 191, 36, 0.25);
   }
   .glass-card-static {
     background: rgba(10, 22, 40, 0.7);
@@ -81,11 +81,11 @@ tailwind.config = {
   }
   .btn-glow:hover {
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 0 40px rgba(0, 210, 253, 0.5), 0 0 80px rgba(0, 210, 253, 0.2);
+    box-shadow: 0 0 40px rgba(251, 191, 36, 0.5), 0 0 80px rgba(251, 191, 36, 0.2);
   }
   .btn-glow:active { transform: translateY(0) scale(0.97); }
   .btn-glow-orange:hover {
-    box-shadow: 0 0 40px rgba(255, 181, 157, 0.5), 0 0 80px rgba(255, 181, 157, 0.2);
+    box-shadow: 0 0 40px rgba(45, 212, 191, 0.5), 0 0 80px rgba(45, 212, 191, 0.2);
   }
   .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
   .reveal.active { opacity: 1; transform: translateY(0); }
@@ -114,7 +114,7 @@ tailwind.config = {
 
 <main class="pt-20">
   <section class="relative min-h-[40vh] flex items-center justify-center overflow-hidden gradient-mesh">
-    <div class="absolute inset-0 opacity-30" style="background: radial-gradient(circle at 30% 50%, rgba(0,210,253,0.1) 0%, transparent 50%), radial-gradient(circle at 70% 50%, rgba(220,82,29,0.08) 0%, transparent 50%);"></div>
+    <div class="absolute inset-0 opacity-30" style="background: radial-gradient(circle at 30% 50%, rgba(251,191,36,0.1) 0%, transparent 50%), radial-gradient(circle at 70% 50%, rgba(45,212,191,0.08) 0%, transparent 50%);"></div>
     <div class="relative z-10 text-center px-margin-mobile max-w-3xl mx-auto py-12">
       <h1 class="font-headline-lg text-on-surface mb-3">Our Courses</h1>
       <p class="font-body-md text-body-md text-on-surface-variant max-w-xl mx-auto">Jifunze technology na programming kutoka mwanzo. Courses zetu zimeandikwa kwa lugha rahisi — English na Kiswahili — na mifano halisi ya code.</p>

@@ -1,11 +1,11 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html class="dark" lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>JavaScript â€” JuveLineTech Courses</title>
+<title>JavaScript — JuveLineTech Courses</title>
 <meta name="description" content="Jifunze JavaScript kutoka mwanzo. Variables, DOM, events, fetch API, na projects. Course ya JuveLineTech kwa Kiswahili na English.">
-<meta name="theme-color" content="#0a1628">
+<meta name="theme-color" content="#0c0c0f">
 <meta name="google-adsense-account" content="ca-pub-3977547213503078">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -16,7 +16,7 @@ tailwind.config = {
   darkMode: "class",
   theme: {
     extend: {
-      colors: { "surface": "#101415","surface-dim": "#101415","surface-bright": "#363a3b","surface-container-lowest": "#0b0f10","surface-container-low": "#191c1e","surface-container": "#1d2022","surface-container-high": "#272a2c","surface-container-highest": "#323537","on-surface": "#e0e3e5","on-surface-variant": "#c5c6cd","background": "#101415","on-background": "#e0e3e5","primary": "#bbc7df","primary-container": "#0a1628","on-primary": "#253144","on-primary-container": "#758096","secondary": "#a2e7ff","secondary-container": "#00d2fd","on-secondary": "#003642","on-secondary-container": "#005669","tertiary": "#ffb59d","tertiary-container": "#2f0800","on-tertiary": "#5d1900","on-tertiary-container": "#dc521d","error": "#ffb4ab","surface-variant": "#323537","outline": "#8f9097","outline-variant": "#45474c","surface-glass": "rgba(10, 22, 40, 0.7)","border-glass": "rgba(255, 255, 255, 0.1)","accent-green": "#10B981","warning-yellow": "#FCD34D" },
+      colors: { "surface": "#101415","surface-dim": "#101415","surface-bright": "#363a3b","surface-container-lowest": "#0b0f10","surface-container-low": "#191c1e","surface-container": "#1d2022","surface-container-high": "#272a2c","surface-container-highest": "#323537","on-surface": "#e0e3e5","on-surface-variant": "#c5c6cd","background": "#101415","on-background": "#e0e3e5","primary": "#bbc7df","primary-container": "#0c0c0f","on-primary": "#253144","on-primary-container": "#758096","primary-hover": "#fbbf24","secondary": "#fbbf24","secondary-container": "#f59e0b","on-secondary": "#1c1917","on-secondary-container": "#78350f","tertiary": "#2dd4bf","tertiary-container": "#134e4a","on-tertiary": "#042f2e","on-tertiary-container": "#0d9488","error": "#ffb4ab","surface-variant": "#323537","outline": "#8f9097","outline-variant": "#45474c","surface-glass": "rgba(12, 12, 15, 0.85)","border-glass": "rgba(255, 255, 255, 0.1)","accent-green": "#10B981","warning-yellow": "#FCD34D" },
       borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", "2xl": "1rem", full: "9999px" },
       spacing: { "margin-mobile": "1rem", "margin-desktop": "5rem", "container-max": "1280px", gutter: "1.5rem" },
       fontFamily: { "body-lg": ["Inter"], "body-md": ["Inter"], "headline-xl": ["Inter"], "headline-lg": ["Inter"], "headline-md": ["Inter"], "label-md": ["Inter"] },
@@ -28,36 +28,36 @@ tailwind.config = {
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { background-color: #101415; color: #e0e3e5; overflow-x: hidden; font-family: Inter, sans-serif; line-height: 1.8; -webkit-font-smoothing: antialiased; }
-  .glass-card { background: rgba(10, 22, 40, 0.7); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-  .glass-card:hover { transform: translateY(-4px) scale(1.02); border-color: #a2e7ff; box-shadow: 0 0 20px rgba(162, 231, 255, 0.2); }
+  .glass-card { background: rgba(12, 12, 15, 0.7); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+  .glass-card:hover { transform: translateY(-4px) scale(1.02); border-color: #fbbf24; box-shadow: 0 0 20px rgba(251, 191, 36, 0.2); }
   .btn-glow { position: relative; display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; border-radius: 9999px; font-size: 14px; font-weight: 600; letter-spacing: 0.05em; text-decoration: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); overflow: hidden; border: none; cursor: pointer; }
-  .btn-glow:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 0 40px rgba(0, 210, 253, 0.5), 0 0 80px rgba(0, 210, 253, 0.2); }
+  .btn-glow:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 0 40px rgba(251, 191, 36, 0.5), 0 0 80px rgba(251, 191, 36, 0.2); }
   .btn-glow:active { transform: translateY(0) scale(0.97); }
   .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
   .nav-blur { backdrop-filter: blur(20px); }
 .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
   .toc { border-radius: 16px; padding: 20px 24px; margin: 32px 0; }
-  .toc h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #a2e7ff; }
+  .toc h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #fbbf24; }
   .toc ol { padding-left: 20px; }
   .toc ol li { margin-bottom: 6px; font-size: 14px; }
   .toc ol li a { color: #c5c6cd; text-decoration: none; }
-  .toc ol li a:hover { color: #a2e7ff; }
+  .toc ol li a:hover { color: #fbbf24; }
   .lesson { border-radius: 16px; padding: 20px; margin-bottom: 24px; }
-  .lesson h2 { font-size: 18px; font-weight: 700; color: #a2e7ff; margin-bottom: 6px; }
+  .lesson h2 { font-size: 18px; font-weight: 700; color: #fbbf24; margin-bottom: 6px; }
   .lesson .sub { font-size: 14px; color: #6B7280; margin-bottom: 16px; font-style: italic; }
   .lesson h3 { font-size: 15px; font-weight: 700; color: #e0e3e5; margin: 20px 0 8px; }
   .lesson p { font-size: 13px; color: #c5c6cd; margin-bottom: 12px; }
   .lesson ul, .lesson ol { padding-left: 20px; margin-bottom: 12px; }
   .lesson li { font-size: 12px; color: #c5c6cd; margin-bottom: 6px; }
-  .lesson .note { background: rgba(10, 22, 40, 0.5); border-left: 4px solid #a2e7ff; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 14px; color: #c5c6cd; }
-  .lesson .tip { background: rgba(47, 8, 0, 0.3); border-left: 4px solid #ffb59d; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 14px; color: #ffb59d; }
-  .lesson code { background: rgba(255,255,255,0.08); padding: 2px 8px; border-radius: 4px; font-size: 13px; color: #ffb59d; font-family: monospace; }
-  .lesson pre { background: #0a1628; color: #c5c6cd; padding: 16px 20px; border-radius: 10px; overflow-x: auto; margin: 12px 0; font-size: 13px; line-height: 1.6; font-family: monospace; border: 1px solid rgba(255,255,255,0.06); }
-  .lesson .sw { color: #a2e7ff; font-weight: 600; }
+  .lesson .note { background: rgba(12, 12, 15, 0.5); border-left: 4px solid #fbbf24; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 14px; color: #c5c6cd; }
+  .lesson .tip { background: rgba(15, 78, 65, 0.3); border-left: 4px solid #2dd4bf; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 14px; color: #2dd4bf; }
+  .lesson code { background: rgba(255,255,255,0.08); padding: 2px 8px; border-radius: 4px; font-size: 13px; color: #2dd4bf; font-family: monospace; }
+  .lesson pre { background: #0c0c0f; color: #c5c6cd; padding: 16px 20px; border-radius: 10px; overflow-x: auto; margin: 12px 0; font-size: 13px; line-height: 1.6; font-family: monospace; border: 1px solid rgba(255,255,255,0.06); }
+  .lesson .sw { color: #fbbf24; font-weight: 600; }
   .lang-toggle { display: flex; gap: 8px; justify-content: center; margin: 20px 0; }
-  .lang-btn { padding: 8px 24px; border: 1px solid rgba(255,255,255,0.15); border-radius: 50px; background: rgba(10, 22, 40, 0.5); color: #c5c6cd; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-family: inherit; backdrop-filter: blur(10px); }
-  .lang-btn:hover { border-color: #a2e7ff; color: #a2e7ff; }
-  .lang-btn.active { background: rgba(0, 210, 253, 0.2); color: #a2e7ff; border-color: #a2e7ff; }
+  .lang-btn { padding: 8px 24px; border: 1px solid rgba(255,255,255,0.15); border-radius: 50px; background: rgba(12, 12, 15, 0.5); color: #c5c6cd; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-family: inherit; backdrop-filter: blur(10px); }
+  .lang-btn:hover { border-color: #fbbf24; color: #fbbf24; }
+  .lang-btn.active { background: rgba(251, 191, 36, 0.2); color: #fbbf24; border-color: #fbbf24; }
   body.lang-en .sw-text { display: none; }
   body.lang-en .en-text .lang-label { display: none; }
   @media (max-width: 768px) { .lesson { padding: 20px; } }
@@ -77,24 +77,24 @@ tailwind.config = {
 </header>
 
 <main class="pt-20">
-  <section class="relative min-h-[30vh] flex items-center justify-center overflow-hidden" style="background: radial-gradient(circle at 30% 50%, rgba(0,210,253,0.1) 0%, transparent 50%), radial-gradient(circle at 70% 50%, rgba(220,82,29,0.08) 0%, transparent 50%);">
+  <section class="relative min-h-[30vh] flex items-center justify-center overflow-hidden" style="background: radial-gradient(circle at 30% 50%, rgba(251,191,36,0.1) 0%, transparent 50%), radial-gradient(circle at 70% 50%, rgba(45,212,191,0.08) 0%, transparent 50%);">
     <div class="relative z-10 text-center px-margin-mobile max-w-3xl mx-auto py-16">
-      <div class="text-5xl mb-4 opacity-80">Ã¢Å¡Â¡</div>
+      <div class="text-5xl mb-4 opacity-80">âš¡</div>
       <h1 class="font-headline-lg text-on-surface mb-3">JavaScript</h1>
-      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto mb-3">Jifunze JavaScript kutoka mwanzo â€” lugha inayofanya websites kuwa hai. DOM manipulation, events, API calls, na projects halisi.</p>
-      <p class="text-sm text-on-surface-variant/60">English / Kiswahili â€¢ Beginner to Intermediate â€¢ Text + Code Examples</p>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto mb-3">Jifunze JavaScript kutoka mwanzo — lugha inayofanya websites kuwa hai. DOM manipulation, events, API calls, na projects halisi.</p>
+      <p class="text-sm text-on-surface-variant/60">English / Kiswahili • Beginner to Intermediate • Text + Code Examples</p>
     </div>
   </section>
 
 <div class="lang-toggle">
-    <button class="lang-btn active" data-lang="sw"><span class="flag">ðŸ‡¹ðŸ‡¿</span> Kiswahili</button>
-    <button class="lang-btn" data-lang="en"><span class="flag">ðŸ‡¬ðŸ‡§</span> English</button>
+    <button class="lang-btn active" data-lang="sw"><span class="flag">????</span> Kiswahili</button>
+    <button class="lang-btn" data-lang="en"><span class="flag">????</span> English</button>
   </div>
 
 <div class="container">
 
 <div class="toc">
-            <h3>ðŸ“‹ Yaliyomo â€” Table of Contents</h3>
+            <h3>?? Yaliyomo — Table of Contents</h3>
             <ol>
                 <li><a href="#lesson1">JavaScript ni nini? / What is JavaScript?</a></li>
                 <li><a href="#lesson2">Kuweka na Kuendesha JS / Setup na Console</a></li>
@@ -105,8 +105,8 @@ tailwind.config = {
                 <li><a href="#lesson7">Loops (for, while, forEach)</a></li>
                 <li><a href="#lesson8">Functions na Arrow Functions</a></li>
                 <li><a href="#lesson9">Arrays na Object (Orodha na Vitu)</a></li>
-                <li><a href="#lesson10">DOM Manipulation â€” Kubadilisha Ukurasa</a></li>
-                <li><a href="#lesson11">Events â€” Vitendo vya Mtumiaji</a></li>
+                <li><a href="#lesson10">DOM Manipulation — Kubadilisha Ukurasa</a></li>
+                <li><a href="#lesson11">Events — Vitendo vya Mtumiaji</a></li>
                 <li><a href="#lesson12">ES6+ Features</a></li>
                 <li><a href="#lesson13">Fetch API na JSON</a></li>
                 <li><a href="#lesson14">Simple Projects</a></li>
@@ -117,9 +117,9 @@ tailwind.config = {
         <div class="lesson" id="lesson1">
             <h2>1. JavaScript ni nini? / What is JavaScript?</h2>
             <p class="sub">Lugha inayofanya websites kuwa interactive</p>
-            <p><span class="sw">ðŸ‡¹ðŸ‡¿ Kiswahili:</span> JavaScript (JS) ni lugha ya programming inayoendesha kwenye browser ya mtumiaji. Inafanya tovuti kuwa hai â€” popups, animations, form validation, na mabadiliko ya yaliyomo kwenye ukurasa bila ku-update.</p>
-            <p><span class="sw">ðŸ‡¬ðŸ‡§ English:</span> JavaScript (JS) is a programming language that runs in the user's browser. It makes websites interactive â€” popups, animations, form validation, and real-time content updates.</p>
-            <div class="note"><strong>ðŸ’¡ Note:</strong> JavaScript na Java ni lugha tofauti kabisa! Usichanganye.</div>
+            <p><span class="sw">???? Kiswahili:</span> JavaScript (JS) ni lugha ya programming inayoendesha kwenye browser ya mtumiaji. Inafanya tovuti kuwa hai — popups, animations, form validation, na mabadiliko ya yaliyomo kwenye ukurasa bila ku-update.</p>
+            <p><span class="sw">???? English:</span> JavaScript (JS) is a programming language that runs in the user's browser. It makes websites interactive — popups, animations, form validation, and real-time content updates.</p>
+            <div class="note"><strong>?? Note:</strong> JavaScript na Java ni lugha tofauti kabisa! Usichanganye.</div>
         </div>
 
         <!-- Lesson 2 -->
@@ -146,7 +146,7 @@ console.log("Habari! Hii ni console.log");
 console.warn("Hii ni onyo / warning");
 console.error("Hii ni error");
 console.table(["Juma", "Aisha", "Baraka"]);  // Orodha kwa umbo la jedwali</pre>
-            <div class="tip"><strong>âš¡ Tip:</strong> Console ni rafiki yako! Tumia <code>console.log()</code> kuona thamani za variables unapotengeneza code.</div>
+            <div class="tip"><strong>? Tip:</strong> Console ni rafiki yako! Tumia <code>console.log()</code> kuona thamani za variables unapotengeneza code.</div>
         </div>
 
         <!-- Lesson 3 -->
@@ -154,22 +154,22 @@ console.table(["Juma", "Aisha", "Baraka"]);  // Orodha kwa umbo la jedwali</pre>
             <h2>3. Variables (let, const, var)</h2>
             <p class="sub">Kuhifadhi data kwenye JS</p>
 
-            <pre>// let â€” inaweza kubadilishwa (recommended)
+            <pre>// let — inaweza kubadilishwa (recommended)
 let jina = "Juma";
-jina = "Aisha";  // Sawa â€” inaweza kubadilishwa
+jina = "Aisha";  // Sawa — inaweza kubadilishwa
 console.log(jina);  // Aisha
 
-// const â€” haiwezi kubadilishwa (recommended kwa fixed values)
+// const — haiwezi kubadilishwa (recommended kwa fixed values)
 const umri = 25;
 // umri = 30;  // Hii itatoa ERROR!
 
-// var â€” njia ya zamani, epuka kuitumia
+// var — njia ya zamani, epuka kuitumia
 var jina_la_zamani = "Baraka";</pre>
 
-            <div class="note"><strong>ðŸ’¡ Note:</strong> Tumia <code>const</code> kwa thamani zisizobadilika. Tumia <code>let</code> kwa thamani zinazobadilika. Usitumie <code>var</code> isipokuwa unajua unachofanya.</div>
+            <div class="note"><strong>?? Note:</strong> Tumia <code>const</code> kwa thamani zisizobadilika. Tumia <code>let</code> kwa thamani zinazobadilika. Usitumie <code>var</code> isipokuwa unajua unachofanya.</div>
 
             <h3>Naming Conventions</h3>
-            <pre>// camelCase â€” ndiyo standard kwenye JS
+            <pre>// camelCase — ndiyo standard kwenye JS
 let jinaLangu = "Juma";
 let umriWaMwanafunzi = 25;
 const TAREHE_KUZALIWA = "2000-01-01";  // Constants za kweli mara nyingi UPPERCASE</pre>
@@ -181,26 +181,26 @@ const TAREHE_KUZALIWA = "2000-01-01";  // Constants za kweli mara nyingi UPPERCA
             <p class="sub">Aina za data na shughuli</p>
 
             <h3>Aina za Data / Data Types</h3>
-            <pre>// String â€” maneno
+            <pre>// String — maneno
 let jina = "Juma";
 
-// Number â€” namba (int na float zote)
+// Number — namba (int na float zote)
 let umri = 25;
 let urefu = 1.75;
 
-// Boolean â€” True/False
+// Boolean — True/False
 let niMwanafunzi = true;
 
-// Undefined â€” variable bila thamani
+// Undefined — variable bila thamani
 let kitu;  // undefined
 
-// Null â€” kitu tupu (intentional)
+// Null — kitu tupu (intentional)
 let chochote = null;
 
-// Object â€” kitu changamano
+// Object — kitu changamano
 let mtu = { jina: "Juma", umri: 25 };
 
-// Array â€” orodha
+// Array — orodha
 let majina = ["Juma", "Aisha"];</pre>
 
             <h3>Operators</h3>
@@ -223,7 +223,7 @@ console.log(x > 5);        // True
 console.log(true && false);  // False
 console.log(true || false);  // True
 console.log(!true);          // False</pre>
-            <div class="tip"><strong>âš¡ Tip:</strong> Tumia <code>===</code> na <code>!==</code> daima â€” inaepuka matatizo ya aina za data!</div>
+            <div class="tip"><strong>? Tip:</strong> Tumia <code>===</code> na <code>!==</code> daima — inaepuka matatizo ya aina za data!</div>
         </div>
 
         <!-- Lesson 5 -->
@@ -345,7 +345,7 @@ const ongeza = function(a, b) {
     return a + b;
 };
 
-// Arrow function (ES6) â€” njia fupi na ya kisasa
+// Arrow function (ES6) — njia fupi na ya kisasa
 const panda = (a, b) => a * b;  // return moja kwa moja
 console.log(panda(4, 5));  // 20
 
@@ -359,7 +359,7 @@ const hesabu = (a, b) => {
 const salamuKwaJina = (jina = "Rafiki") => `Habari ${jina}!`;
 console.log(salamuKwaJina());       // Habari Rafiki!
 console.log(salamuKwaJina("Juma")); // Habari Juma!</pre>
-            <div class="tip"><strong>âš¡ Tip:</strong> Arrow functions ni fupi na hazina <code>this</code> yao wenyewe â€” hii inasaidia kwenye callbacks na event handlers.</div>
+            <div class="tip"><strong>? Tip:</strong> Arrow functions ni fupi na hazina <code>this</code> yao wenyewe — hii inasaidia kwenye callbacks na event handlers.</div>
         </div>
 
         <!-- Lesson 9 -->
@@ -367,7 +367,7 @@ console.log(salamuKwaJina("Juma")); // Habari Juma!</pre>
             <h2>9. Arrays na Object</h2>
             <p class="sub">Orodha na Vitu</p>
 
-            <pre>// Arrays â€” orodha
+            <pre>// Arrays — orodha
 let mafuta = ["Ndizi", "Maembe", "Machungwa"];
 console.log(mafuta[0]);        // Ndizi
 console.log(mafuta.length);    // 3
@@ -392,7 +392,7 @@ console.log(kubwaKulikoTatu);  // [4, 5]
 let jumla = namba.reduce((acc, n) => acc + n, 0);
 console.log(jumla);  // 15
 
-// Objects â€” vitu
+// Objects — vitu
 let mwanafunzi = {
     jina: "Juma",
     umri: 25,
@@ -413,7 +413,7 @@ console.log(mwanafunzi.salamu());     // Habari, mimi ni Juma</pre>
             <h2>10. DOM Manipulation</h2>
             <p class="sub">Kubadilisha Ukurasa kwa JavaScript</p>
 
-            <p><span class="sw">ðŸ‡¹ðŸ‡¿ Kiswahili:</span> DOM (Document Object Model) inawakilisha ukurasa wako wa HTML kama vitu ambavyo JS inaweza kubadilisha.</p>
+            <p><span class="sw">???? Kiswahili:</span> DOM (Document Object Model) inawakilisha ukurasa wako wa HTML kama vitu ambavyo JS inaweza kubadilisha.</p>
 
             <h3>Kupata Elements</h3>
             <pre>// Kupata elements
@@ -443,12 +443,12 @@ document.body.appendChild(kipya);
 // Kuondoa
 let yaKuondoa = document.getElementById("ya-kuondoa");
 yaKuondoa.remove();</pre>
-            <div class="note"><strong>ðŸ’¡ Note:</strong> <code>querySelector</code> inatumia CSS selectors â€” inaweza kutumia <code>.class</code>, <code>#id</code>, <code>element</code>, n.k.</div>
+            <div class="note"><strong>?? Note:</strong> <code>querySelector</code> inatumia CSS selectors — inaweza kutumia <code>.class</code>, <code>#id</code>, <code>element</code>, n.k.</div>
         </div>
 
         <!-- Lesson 11 -->
         <div class="lesson" id="lesson11">
-            <h2>11. Events â€” Vitendo vya Mtumiaji</h2>
+            <h2>11. Events — Vitendo vya Mtumiaji</h2>
             <p class="sub">React kwa vitendo vya mtumiaji</p>
 
             <pre>// Click event
@@ -478,7 +478,7 @@ let input = document.getElementById("jina");
 input.addEventListener("input", (e) => {
     console.log(e.target.value);  // Thamani kwa kila herufi
 });</pre>
-            <div class="tip"><strong>âš¡ Tip:</strong> <code>e.preventDefault()</code> inazuia tabia ya default (k.m. form kusubmit au link kufungua). <code>e.stopPropagation()</code> inazuia event kuenenda kwa elements za juu.</div>
+            <div class="tip"><strong>? Tip:</strong> <code>e.preventDefault()</code> inazuia tabia ya default (k.m. form kusubmit au link kufungua). <code>e.stopPropagation()</code> inazuia event kuenenda kwa elements za juu.</div>
         </div>
 
         <!-- Lesson 12 -->
@@ -518,7 +518,7 @@ console.log(jumlaVote(1, 2, 3, 4));  // 10</pre>
             <h2>13. Fetch API na JSON</h2>
             <p class="sub">Kupata data kutoka mtandaoni</p>
 
-            <pre>// Fetch API â€” kupata data kutoka server
+            <pre>// Fetch API — kupata data kutoka server
 fetch("https://api.github.com/users/shbnsemeni")
     .then(response => response.json())  // Badilisha JSON kuwa JS object
     .then(data => {
@@ -543,7 +543,7 @@ async function getUserData() {
 
 getUserData();
 
-// JSON â€” JavaScript Object Notation
+// JSON — JavaScript Object Notation
 // Kubadilisha object kuwa JSON
 let mtu = { jina: "Juma", umri: 25 };
 let jsonString = JSON.stringify(mtu);
@@ -552,7 +552,7 @@ console.log(jsonString);  // '{"jina":"Juma","umri":25}'
 // Kubadilisha JSON kuwa object
 let kutokaJSON = JSON.parse(jsonString);
 console.log(kutokaJSON.jina);  // Juma</pre>
-            <div class="note"><strong>ðŸ’¡ Note:</strong> API (Application Programming Interface) inaruhusu mifumo miwili kuwasiliana. Fetch ni njia ya kuomba data kutoka kwa API.</div>
+            <div class="note"><strong>?? Note:</strong> API (Application Programming Interface) inaruhusu mifumo miwili kuwasiliana. Fetch ni njia ya kuomba data kutoka kwa API.</div>
         </div>
 
         <!-- Lesson 14 -->
@@ -606,7 +606,7 @@ console.log(kutokaJSON.jina);  // Juma</pre>
     }
 <span class="tag">&lt;/script&gt;</span></pre>
 
-            <div class="tip"><strong>âš¡ Next Steps:</strong> Endelea kwenye React course kujifunza kuunda modern web applications kwa JavaScript framework maarufu!</div>
+            <div class="tip"><strong>? Next Steps:</strong> Endelea kwenye React course kujifunza kuunda modern web applications kwa JavaScript framework maarufu!</div>
         </div>
 
   </div>
