@@ -79,13 +79,13 @@ tailwind.config = {
         "label-md": ["Inter"]
       },
       fontSize: {
-        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
-        "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
-        "headline-xl": ["48px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "800" }],
-        "headline-xl-mobile": ["32px", { lineHeight: "1.2", fontWeight: "800" }],
-        "headline-lg": ["32px", { lineHeight: "1.2", fontWeight: "700" }],
-        "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "700" }],
-        "label-md": ["14px", { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "600" }]
+        "body-lg": ["15px", { lineHeight: "1.5", fontWeight: "400" }],
+        "body-md": ["14px", { lineHeight: "1.4", fontWeight: "400" }],
+        "headline-xl": ["36px", { lineHeight: "1.15", letterSpacing: "-0.02em", fontWeight: "800" }],
+        "headline-xl-mobile": ["24px", { lineHeight: "1.2", fontWeight: "800" }],
+        "headline-lg": ["24px", { lineHeight: "1.25", fontWeight: "700" }],
+        "headline-md": ["18px", { lineHeight: "1.3", fontWeight: "700" }],
+        "label-md": ["11px", { lineHeight: "1", letterSpacing: "0.08em", fontWeight: "600" }]
       }
     }
   }
@@ -211,8 +211,9 @@ tailwind.config = {
 
   /* Smaller headings on mobile for cleaner look */
   @media (max-width: 768px) {
-    h1.font-headline-xl-mobile { font-size: 28px !important; }
-    .btn-glow { padding: 12px 24px; font-size: 13px; }
+    .btn-glow { padding: 10px 20px; font-size: 12px; }
+    section { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+    .glass-card { padding: 1.25rem !important; }
   }
 </style>
 </head>
@@ -263,10 +264,10 @@ tailwind.config = {
     <div class="absolute inset-0 gradient-mesh z-[2]"></div>
     <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full py-20 relative z-20">
       <div class="max-w-3xl reveal active">
-        <h1 class="font-headline-xl-mobile md:font-headline-xl text-on-surface mb-6" style="text-shadow: 0 0 10px rgba(162, 231, 255, 0.3);">
+        <h1 class="font-headline-xl-mobile md:font-headline-xl text-on-surface mb-4" style="text-shadow: 0 0 10px rgba(162, 231, 255, 0.3);">
           Technology Solutions That <span class="text-secondary">Drive Your Business Forward</span>
         </h1>
-        <p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl">
+        <p class="font-body-lg text-body-lg text-on-surface-variant mb-6 max-w-xl">
           From web &amp; mobile apps to enterprise systems and IT infrastructure — we build technology that works for you.
         </p>
         <div class="flex flex-wrap gap-4">
@@ -311,28 +312,28 @@ tailwind.config = {
     </div>
   </section>
 
-  <section id="services" class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto reveal">
-    <div class="text-center mb-16">
-      <h2 class="font-headline-lg text-on-surface mb-4">Our Services</h2>
-      <div class="w-20 h-1 bg-secondary mx-auto rounded-full"></div>
+  <section id="services" class="py-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto reveal">
+    <div class="text-center mb-12">
+      <h2 class="font-headline-lg text-on-surface mb-3">Our Services</h2>
+      <div class="w-16 h-1 bg-secondary mx-auto rounded-full"></div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
-      <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+      <div class="glass-card p-6 rounded-2xl flex flex-col items-start gap-3">
         <div class="mockup-img bg-gradient-to-br from-secondary/30 to-secondary/10 text-secondary">devices</div>
         <h3 class="font-headline-md text-on-surface">Web &amp; Mobile</h3>
         <p class="text-on-surface-variant">Modern websites, web applications, and native mobile apps for Android &amp; iOS.</p>
       </div>
-      <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+      <div class="glass-card p-6 rounded-2xl flex flex-col items-start gap-3">
         <div class="mockup-img bg-gradient-to-br from-tertiary/30 to-tertiary/10 text-tertiary">settings_applications</div>
         <h3 class="font-headline-md text-on-surface">Software Systems</h3>
         <p class="text-on-surface-variant">Custom software including school &amp; hospital management, inventory, POS, and more.</p>
       </div>
-      <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+      <div class="glass-card p-6 rounded-2xl flex flex-col items-start gap-3">
         <div class="mockup-img bg-gradient-to-br from-secondary/30 to-secondary/10 text-secondary">dns</div>
         <h3 class="font-headline-md text-on-surface">IT Infrastructure</h3>
         <p class="text-on-surface-variant">Hardware repair, network setup, data recovery, and cybersecurity solutions.</p>
       </div>
-      <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+      <div class="glass-card p-6 rounded-2xl flex flex-col items-start gap-3">
         <div class="mockup-img bg-gradient-to-br from-tertiary/30 to-tertiary/10 text-tertiary">lightbulb</div>
         <h3 class="font-headline-md text-on-surface">Consulting</h3>
         <p class="text-on-surface-variant">IT consulting, system integration, automation tools, API development &amp; legacy migration.</p>
@@ -340,14 +341,14 @@ tailwind.config = {
     </div>
   </section>
 
-  <section id="design" class="py-24 bg-surface-container reveal">
+  <section id="design" class="py-16 bg-surface-container reveal">
     <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="font-headline-lg text-on-surface mb-4">Creative &amp; Marketing</h2>
-        <div class="w-20 h-1 bg-tertiary mx-auto rounded-full"></div>
+      <div class="text-center mb-12">
+        <h2 class="font-headline-lg text-on-surface mb-3">Creative &amp; Marketing</h2>
+        <div class="w-16 h-1 bg-tertiary mx-auto rounded-full"></div>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
-        <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-start gap-3">
           <div class="mockup-img bg-gradient-to-br from-secondary/30 to-secondary/10 text-secondary">draw</div>
           <h3 class="font-headline-md text-on-surface">Logo Creation</h3>
           <p class="text-on-surface-variant">Professional logo design and brand identity creation. Custom typography, color palettes, and vector designs.</p>
@@ -358,7 +359,7 @@ tailwind.config = {
             <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Vector Art</span>
           </div>
         </div>
-        <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-start gap-3">
           <div class="mockup-img bg-gradient-to-br from-tertiary/30 to-tertiary/10 text-tertiary">post_add</div>
           <h3 class="font-headline-md text-on-surface">Posters Creation</h3>
           <p class="text-on-surface-variant">Eye-catching posters, flyers, banners, and social media graphics to capture attention.</p>
@@ -369,7 +370,7 @@ tailwind.config = {
             <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Print Design</span>
           </div>
         </div>
-        <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-start gap-3">
           <div class="mockup-img bg-gradient-to-br from-secondary/30 to-secondary/10 text-secondary">photo_camera</div>
           <h3 class="font-headline-md text-on-surface">Photo Editing</h3>
           <p class="text-on-surface-variant">Professional photo retouching, background removal, color correction, and image restoration.</p>
@@ -380,7 +381,7 @@ tailwind.config = {
             <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Restoration</span>
           </div>
         </div>
-        <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-start gap-3">
           <div class="mockup-img bg-gradient-to-br from-tertiary/30 to-tertiary/10 text-tertiary">videocam</div>
           <h3 class="font-headline-md text-on-surface">Video Editing</h3>
           <p class="text-on-surface-variant">Engaging video content for promotions, social media, events, and commercials.</p>
@@ -391,7 +392,7 @@ tailwind.config = {
             <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Montage</span>
           </div>
         </div>
-        <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-start gap-3">
           <div class="mockup-img bg-gradient-to-br from-secondary/30 to-secondary/10 text-secondary">animation</div>
           <h3 class="font-headline-md text-on-surface">Motion Graphics</h3>
           <p class="text-on-surface-variant">Animated intros, explainer videos, kinetic typography, and 2D motion graphics.</p>
@@ -402,7 +403,7 @@ tailwind.config = {
             <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Kinetic Type</span>
           </div>
         </div>
-        <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-start gap-3">
           <div class="mockup-img bg-gradient-to-br from-tertiary/30 to-tertiary/10 text-tertiary">travel_explore</div>
           <h3 class="font-headline-md text-on-surface">SEO</h3>
           <p class="text-on-surface-variant">Search engine optimization to improve your website's visibility on Google.</p>
@@ -417,10 +418,10 @@ tailwind.config = {
     </div>
   </section>
 
-  <section id="portfolio" class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto reveal">
-    <div class="text-center mb-16">
-      <h2 class="font-headline-lg text-on-surface mb-4">Featured Projects</h2>
-      <div class="w-20 h-1 bg-secondary mx-auto rounded-full"></div>
+  <section id="portfolio" class="py-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto reveal">
+    <div class="text-center mb-12">
+      <h2 class="font-headline-lg text-on-surface mb-3">Featured Projects</h2>
+      <div class="w-16 h-1 bg-secondary mx-auto rounded-full"></div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
       <div class="group relative overflow-hidden rounded-2xl glass-card">
@@ -473,14 +474,14 @@ tailwind.config = {
     </div>
   </section>
 
-  <section id="courses" class="py-24 bg-surface-container reveal">
+  <section id="courses" class="py-16 bg-surface-container reveal">
     <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="font-headline-lg text-on-surface mb-4">Our Courses</h2>
+      <div class="text-center mb-12">
+        <h2 class="font-headline-lg text-on-surface mb-3">Our Courses</h2>
         <p class="font-body-md text-body-md text-on-surface-variant max-w-xl mx-auto">Jifunze technology na programming kutoka mwanzo. Courses zetu zinaelezea kwa lugha rahisi na mifano halisi.</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
-        <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-start gap-3">
           <div class="mockup-img bg-gradient-to-br from-secondary/30 to-secondary/10 text-secondary">tips_and_updates</div>
           <h3 class="font-headline-md text-on-surface">Tech Tips</h3>
           <p class="text-on-surface-variant">Computer basics, troubleshooting, security, na internet skills kwa wanaoanza.</p>
@@ -492,7 +493,7 @@ tailwind.config = {
           </div>
           <a class="btn-glow primary bg-secondary-container text-on-secondary-container text-sm mt-3" href="course/tech-tips.html">Start Learning</a>
         </div>
-        <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-start gap-3">
           <div class="mockup-img bg-gradient-to-br from-tertiary/30 to-tertiary/10 text-tertiary">code</div>
           <h3 class="font-headline-md text-on-surface">Python</h3>
           <p class="text-on-surface-variant">Jifunze Python kutoka mwanzo — variables loops functions hadi simple projects.</p>
@@ -504,7 +505,7 @@ tailwind.config = {
           </div>
           <a class="btn-glow primary bg-secondary-container text-on-secondary-container text-sm mt-3" href="course/python.html">Start Learning</a>
         </div>
-        <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-start gap-3">
           <div class="mockup-img bg-gradient-to-br from-secondary/30 to-secondary/10 text-secondary">language</div>
           <h3 class="font-headline-md text-on-surface">HTML &amp; CSS</h3>
           <p class="text-on-surface-variant">Unda websites za kuvutia — structure, styling, responsive design, na zaidi.</p>
@@ -516,7 +517,7 @@ tailwind.config = {
           </div>
           <a class="btn-glow primary bg-secondary-container text-on-secondary-container text-sm mt-3" href="course/html-css.html">Start Learning</a>
         </div>
-        <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-start gap-3">
           <div class="mockup-img bg-gradient-to-br from-tertiary/30 to-tertiary/10 text-tertiary">javascript</div>
           <h3 class="font-headline-md text-on-surface">JavaScript</h3>
           <p class="text-on-surface-variant">Pata uwezo wa kuunda web applications interactive na dynamic.</p>
@@ -528,7 +529,7 @@ tailwind.config = {
           </div>
           <a class="btn-glow primary bg-secondary-container text-on-secondary-container text-sm mt-3" href="course/javascript.html">Start Learning</a>
         </div>
-        <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-start gap-3">
           <div class="mockup-img bg-gradient-to-br from-secondary/30 to-secondary/10 text-secondary">view_quilt</div>
           <h3 class="font-headline-md text-on-surface">React</h3>
           <p class="text-on-surface-variant">Modern app development — components, state, hooks, na building real apps.</p>
@@ -540,7 +541,7 @@ tailwind.config = {
           </div>
           <a class="btn-glow primary bg-secondary-container text-on-secondary-container text-sm mt-3" href="course/react.html">Start Learning</a>
         </div>
-        <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+        <div class="glass-card p-6 rounded-2xl flex flex-col items-start gap-3">
           <div class="mockup-img bg-gradient-to-br from-tertiary/30 to-tertiary/10 text-tertiary">auto_awesome</div>
           <h3 class="font-headline-md text-on-surface">Prompt Engineering</h3>
           <p class="text-on-surface-variant">Jifunze kuandika prompts bora kwa AI kama ChatGPT, Claude, na Gemini.</p>
@@ -559,16 +560,16 @@ tailwind.config = {
     </div>
   </section>
 
-  <section id="about" class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto reveal">
-    <div class="text-center mb-16">
-      <h2 class="font-headline-lg text-on-surface mb-4">About JuveLineTech</h2>
-      <div class="w-20 h-1 bg-secondary mx-auto rounded-full"></div>
+  <section id="about" class="py-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto reveal">
+    <div class="text-center mb-12">
+      <h2 class="font-headline-lg text-on-surface mb-3">About JuveLineTech</h2>
+      <div class="w-16 h-1 bg-secondary mx-auto rounded-full"></div>
     </div>
     <div class="max-w-3xl mx-auto text-center">
-      <p class="font-body-lg text-body-lg text-on-surface-variant mb-6">JuveLineTech is a technology company based in <strong class="text-on-surface">Chanika, Dar es Salaam</strong>, dedicated to providing innovative digital solutions for businesses and organizations across Tanzania.</p>
-      <p class="font-body-md text-body-md text-on-surface-variant mb-6">We specialize in <strong class="text-secondary">web development, mobile applications, custom software systems, IT infrastructure, and cybersecurity</strong>. Our team combines technical expertise with a deep understanding of local business needs to deliver solutions that make a real impact.</p>
-      <p class="font-body-md text-body-md text-on-surface-variant mb-10">Whether you need a simple business website, a complex enterprise system, or IT consulting — we have the skills and experience to bring your vision to life.</p>
-      <div class="flex justify-center gap-16">
+      <p class="font-body-lg text-body-lg text-on-surface-variant mb-4">JuveLineTech is a technology company based in <strong class="text-on-surface">Chanika, Dar es Salaam</strong>, dedicated to providing innovative digital solutions for businesses and organizations across Tanzania.</p>
+      <p class="font-body-md text-body-md text-on-surface-variant mb-4">We specialize in <strong class="text-secondary">web development, mobile applications, custom software systems, IT infrastructure, and cybersecurity</strong>. Our team combines technical expertise with a deep understanding of local business needs to deliver solutions that make a real impact.</p>
+      <p class="font-body-md text-body-md text-on-surface-variant mb-6">Whether you need a simple business website, a complex enterprise system, or IT consulting — we have the skills and experience to bring your vision to life.</p>
+      <div class="flex justify-center gap-12">
         <div>
           <div class="font-headline-lg text-secondary">20+</div>
           <div class="font-label-md text-on-surface-variant uppercase tracking-widest">Projects</div>
@@ -585,14 +586,14 @@ tailwind.config = {
     </div>
   </section>
 
-  <section id="contact" class="py-24 bg-surface-container reveal">
+  <section id="contact" class="py-16 bg-surface-container reveal">
     <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="font-headline-lg text-on-surface mb-4">Contact Us</h2>
-        <div class="w-20 h-1 bg-tertiary mx-auto rounded-full"></div>
+      <div class="text-center mb-12">
+        <h2 class="font-headline-lg text-on-surface mb-3">Contact Us</h2>
+        <div class="w-16 h-1 bg-tertiary mx-auto rounded-full"></div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-        <div class="space-y-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div class="space-y-6">
           <div class="flex items-start gap-4">
             <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
               <span class="material-symbols-outlined text-secondary">phone</span>
@@ -634,14 +635,14 @@ tailwind.config = {
     </div>
   </section>
 
-  <section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto reveal">
-    <div class="bg-gradient-to-br from-primary-container to-surface-dim rounded-[2rem] p-12 md:p-20 text-center relative overflow-hidden border border-border-glass luminous-shadow">
+  <section class="py-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto reveal">
+    <div class="bg-gradient-to-br from-primary-container to-surface-dim rounded-[2rem] p-10 md:p-16 text-center relative overflow-hidden border border-border-glass luminous-shadow">
       <div class="absolute inset-0 opacity-10">
         <div class="absolute -top-24 -left-24 w-96 h-96 bg-on-tertiary-container rounded-full blur-3xl"></div>
         <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-secondary-container rounded-full blur-3xl"></div>
       </div>
-      <h2 class="font-headline-xl-mobile md:font-headline-xl text-on-surface mb-6 relative z-10">Ready to Build Something Great?</h2>
-      <p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-2xl mx-auto relative z-10">Let's collaborate to bring your vision to life with world-class engineering and innovative design.</p>
+      <h2 class="font-headline-xl-mobile md:font-headline-xl text-on-surface mb-4 relative z-10">Ready to Build Something Great?</h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-2xl mx-auto relative z-10">Let's collaborate to bring your vision to life with world-class engineering and innovative design.</p>
       <a class="btn-glow tertiary bg-on-tertiary-container text-white shadow-xl shadow-on-tertiary-container/40" href="#contact">Contact Us Today</a>
     </div>
   </section>
