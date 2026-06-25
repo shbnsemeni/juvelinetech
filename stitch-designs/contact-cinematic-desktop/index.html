@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact Us | JuveLineTech</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#323537",
+                    "surface-container-high": "#272a2c",
+                    "on-primary-fixed-variant": "#3c475b",
+                    "inverse-primary": "#535f74",
+                    "on-primary-fixed": "#101c2e",
+                    "accent-green": "#10B981",
+                    "surface-container-low": "#191c1e",
+                    "surface": "#101415",
+                    "primary-fixed-dim": "#bbc7df",
+                    "on-secondary-container": "#005669",
+                    "on-tertiary": "#5d1900",
+                    "tertiary-fixed": "#ffdbd0",
+                    "on-error-container": "#ffdad6",
+                    "outline-variant": "#45474c",
+                    "on-surface-variant": "#c5c6cd",
+                    "tertiary-container": "#2f0800",
+                    "error-container": "#93000a",
+                    "surface-tint": "#bbc7df",
+                    "secondary-fixed": "#b4ebff",
+                    "surface-bright": "#363a3b",
+                    "primary-fixed": "#d7e3fc",
+                    "on-tertiary-container": "#dc521d",
+                    "surface-container": "#1d2022",
+                    "on-primary": "#253144",
+                    "inverse-surface": "#e0e3e5",
+                    "surface-container-lowest": "#0b0f10",
+                    "primary-container": "#0a1628",
+                    "on-background": "#e0e3e5",
+                    "surface-container-highest": "#323537",
+                    "surface-dim": "#101415",
+                    "on-secondary-fixed-variant": "#004e5f",
+                    "secondary-container": "#00d2fd",
+                    "on-primary-container": "#758096",
+                    "error": "#ffb4ab",
+                    "tertiary": "#ffb59d",
+                    "on-error": "#690005",
+                    "on-tertiary-fixed": "#390c00",
+                    "on-surface": "#e0e3e5",
+                    "inverse-on-surface": "#2d3133",
+                    "border-glass": "rgba(255, 255, 255, 0.1)",
+                    "tertiary-fixed-dim": "#ffb59d",
+                    "secondary": "#a2e7ff",
+                    "background": "#101415",
+                    "outline": "#8f9097",
+                    "secondary-fixed-dim": "#3cd7ff",
+                    "on-secondary": "#003642",
+                    "surface-glass": "rgba(10, 22, 40, 0.7)",
+                    "primary": "#bbc7df",
+                    "on-tertiary-fixed-variant": "#832600",
+                    "warning-yellow": "#FCD34D",
+                    "on-secondary-fixed": "#001f27"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "1rem",
+                    "container-max": "1280px",
+                    "margin-desktop": "5rem",
+                    "gutter": "1.5rem"
+            },
+            "fontFamily": {
+                    "label-md": ["Inter"],
+                    "headline-xl-mobile": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-xl": ["Inter"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-xl-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(10, 22, 40, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: #a2e7ff;
+            box-shadow: 0 0 20px rgba(162, 231, 255, 0.2);
+            transform: translateY(-4px) scale(1.01);
+        }
+        .glow-input:focus {
+            outline: none;
+            border-color: #a2e7ff;
+            box-shadow: 0 0 15px rgba(162, 231, 255, 0.3);
+        }
+        .mesh-bg {
+            background-image: radial-gradient(at 0% 0%, rgba(162, 231, 255, 0.05) 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, rgba(255, 181, 157, 0.05) 0px, transparent 50%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .faq-item.active .faq-content {
+            max-height: 200px;
+        }
+        .faq-item.active .chevron {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-secondary selection:text-on-secondary">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 h-20 bg-surface-glass backdrop-blur-xl border-b border-border-glass shadow-md shadow-secondary/10">
+<div class="max-w-container-max mx-auto px-margin-desktop h-full flex justify-between items-center">
+<div class="text-headline-md font-headline-md text-secondary tracking-tighter">JuveLineTech</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Innovations</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Services</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Projects</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Insights</a>
+<a class="font-label-md text-label-md text-secondary border-b-2 border-secondary pb-1" href="#">Contact</a>
+</nav>
+<button class="bg-secondary text-on-secondary px-6 py-2 rounded-full font-label-md text-label-md hover:scale-105 active:scale-95 transition-all">
+                Get Started
+            </button>
+</div>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[614px] flex items-center justify-center overflow-hidden">
+
+<div class="relative z-10 text-center px-margin-mobile">
+<h1 class="font-headline-xl text-headline-xl md:text-[64px] mb-6 tracking-tight">
+                    Get In <span class="text-secondary">Touch</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                    Let's architect the next generation of Tanzanian technology. Our engineering teams are ready to transform your vision into scalable reality.
+                </p>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-background to-transparent"></div>
+</section>
+<!-- Contact Content Grid -->
+<section class="max-w-container-max mx-auto px-margin-desktop py-24 mesh-bg">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- Contact Info (Left Column) -->
+<div class="lg:col-span-5 space-y-8">
+<div class="glass-card p-8 rounded-xl">
+<div class="flex items-start gap-6 mb-8">
+<div class="bg-secondary/10 p-4 rounded-lg">
+<span class="material-symbols-outlined text-secondary text-3xl">location_on</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md mb-2">Office Address</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                                    JuveLine Innovation Center<br/>
+                                    Chanika District, Plot 442<br/>
+                                    Dar es Salaam, Tanzania
+                                </p>
+</div>
+</div>
+<div class="flex items-start gap-6 mb-8">
+<div class="bg-secondary/10 p-4 rounded-lg">
+<span class="material-symbols-outlined text-secondary text-3xl">mail</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md mb-2">Email Us</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                                    contact@juvelinetech.com<br/>
+                                    support@juvelinetech.com
+                                </p>
+</div>
+</div>
+<div class="flex items-start gap-6">
+<div class="bg-secondary/10 p-4 rounded-lg">
+<span class="material-symbols-outlined text-secondary text-3xl">call</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md mb-2">Phone</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                                    +255 700 000 000<br/>
+                                    Mon-Fri, 9:00 AM - 6:00 PM
+                                </p>
+</div>
+</div>
+</div>
+<!-- Map Integration (Visual Placeholder) -->
+<div class="w-full h-64 rounded-xl overflow-hidden glass-card">
+<div class="w-full h-full bg-cover bg-center opacity-70 grayscale contrast-125 saturate-50 hover:grayscale-0 transition-all duration-700" data-location="Dar es Salaam" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBkI7yewpl3M_xBIbtLFJzm9X5vHnIdSuzjWElFO_5A8spPtxDpxyNrXVW8HDuHuLKIPWxLE2xJtPMXrLwaVsVWKBMPirDu5B_0WjxK8dFK3YGxm_NqIVJs8Vu1h0M6ZjKD34jBkX5hNSLNcL1xrHVB6PmEBysGc-3vAW75QyKiQ0oEInFY9YcXQ57UQIvCr71OSja4b2HaB-rVdk-EuU-a_CuhKMuwqJRmzQzS6F6Xao1B4NRhTCEzJheJOYvEcMtdoih-Ib0tg7xz')"></div>
+</div>
+</div>
+<!-- Form Section (Right Column) -->
+<div class="lg:col-span-7">
+<div class="glass-card p-10 rounded-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary/5 blur-[80px]"></div>
+<form class="space-y-6 relative z-10" id="contactForm">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Full Name</label>
+<input class="w-full bg-surface-container-lowest border border-border-glass rounded-lg px-4 py-3 text-on-surface glow-input font-body-md" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Email Address</label>
+<input class="w-full bg-surface-container-lowest border border-border-glass rounded-lg px-4 py-3 text-on-surface glow-input font-body-md" placeholder="john@company.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Project Scope</label>
+<select class="w-full bg-surface-container-lowest border border-border-glass rounded-lg px-4 py-3 text-on-surface glow-input font-body-md">
+<option>Cloud Infrastructure</option>
+<option>AI &amp; Machine Learning</option>
+<option>Bespoke Software</option>
+<option>Cybersecurity Audit</option>
+<option>Other Enquiry</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Your Message</label>
+<textarea class="w-full bg-surface-container-lowest border border-border-glass rounded-lg px-4 py-3 text-on-surface glow-input font-body-md" placeholder="How can we help your business thrive?" rows="5"></textarea>
+</div>
+<button class="w-full bg-secondary text-on-secondary font-headline-md text-headline-md py-4 rounded-lg hover:shadow-[0_0_30px_rgba(162,231,255,0.4)] transition-all flex items-center justify-center gap-3" type="submit">
+                                Send Message
+                                <span class="material-symbols-outlined">send</span>
+</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="bg-surface-container-lowest py-24">
+<div class="max-w-3xl mx-auto px-margin-desktop">
+<h2 class="font-headline-xl text-headline-xl text-center mb-16">Frequently Asked <span class="text-secondary">Questions</span></h2>
+<div class="space-y-4">
+<!-- FAQ 1 -->
+<div class="faq-item glass-card rounded-xl">
+<button class="w-full flex items-center justify-between p-6 text-left" onclick="toggleFaq(this)">
+<span class="font-headline-md text-headline-md text-on-surface">What kind of technology stacks do you specialize in?</span>
+<span class="material-symbols-outlined text-secondary chevron transition-transform">expand_more</span>
+</button>
+<div class="faq-content px-6 pb-6">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                                We utilize industry-leading technologies including Rust, Python (AI/ML), Kubernetes for orchestration, and cutting-edge React/Next.js frameworks for frontend engineering. Our stacks are chosen for performance, security, and scalability.
+                            </p>
+</div>
+</div>
+<!-- FAQ 2 -->
+<div class="faq-item glass-card rounded-xl">
+<button class="w-full flex items-center justify-between p-6 text-left" onclick="toggleFaq(this)">
+<span class="font-headline-md text-headline-md text-on-surface">How does your pricing model work?</span>
+<span class="material-symbols-outlined text-secondary chevron transition-transform">expand_more</span>
+</button>
+<div class="faq-content px-6 pb-6">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                                Pricing is tailored to project complexity and duration. We offer both fixed-price agreements for well-defined deliverables and agile time-and-materials models for evolving high-growth projects.
+                            </p>
+</div>
+</div>
+<!-- FAQ 3 -->
+<div class="faq-item glass-card rounded-xl">
+<button class="w-full flex items-center justify-between p-6 text-left" onclick="toggleFaq(this)">
+<span class="font-headline-md text-headline-md text-on-surface">Do you provide ongoing support after project completion?</span>
+<span class="material-symbols-outlined text-secondary chevron transition-transform">expand_more</span>
+</button>
+<div class="faq-content px-6 pb-6">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                                Yes, we offer comprehensive Maintenance and Support (M&amp;S) tiers to ensure your systems remain secure, updated, and optimized as your user base grows.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full rounded-t-xl border-t border-border-glass bg-surface-container-lowest">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter py-16 px-margin-desktop max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="text-headline-md font-headline-md text-on-surface mb-6">JuveLineTech</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Engineering the digital frontier from the heart of Dar es Salaam.</p>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-secondary mb-6">Hub</h4>
+<ul class="space-y-4 font-body-md text-body-md text-on-surface-variant">
+<li><a class="hover:text-tertiary transition-colors" href="#">Innovations</a></li>
+<li><a class="hover:text-tertiary transition-colors" href="#">Project Portfolio</a></li>
+<li><a class="hover:text-tertiary transition-colors" href="#">Tech Hub, Posta</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-secondary mb-6">Company</h4>
+<ul class="space-y-4 font-body-md text-body-md text-on-surface-variant">
+<li><a class="hover:text-tertiary transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-tertiary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-tertiary transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-secondary mb-6">Connect</h4>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center hover:bg-secondary/20 transition-all text-secondary" href="#">
+<span class="material-symbols-outlined text-lg">public</span>
+</a>
+<a class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center hover:bg-secondary/20 transition-all text-secondary" href="#">
+<span class="material-symbols-outlined text-lg">terminal</span>
+</a>
+<a class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center hover:bg-secondary/20 transition-all text-secondary" href="#">
+<span class="material-symbols-outlined text-lg">alternate_email</span>
+</a>
+</div>
+<p class="mt-6 font-body-md text-body-md text-on-surface-variant">+255 700 000 000</p>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop py-8 border-t border-border-glass text-center font-body-md text-body-md text-on-surface-variant/60">
+            © 2024 JuveLineTech. Engineering the Future in Dar es Salaam.
+        </div>
+</footer>
+<script>
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Close all items
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+            
+            // Toggle the clicked one
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+
+        // Form interaction
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalContent = btn.innerHTML;
+            
+            btn.innerHTML = 'Sending...';
+            btn.disabled = true;
+            btn.classList.add('opacity-50');
+
+            setTimeout(() => {
+                btn.innerHTML = 'Message Sent! <span class="material-symbols-outlined">check_circle</span>';
+                btn.classList.remove('bg-secondary');
+                btn.classList.add('bg-accent-green');
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalContent;
+                    btn.classList.remove('bg-accent-green', 'opacity-50');
+                    btn.classList.add('bg-secondary');
+                    btn.disabled = false;
+                    e.target.reset();
+                }, 3000);
+            }, 1500);
+        });
+
+        // Simple parallax effect for shader background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const shader = document.querySelector('webgl-shader');
+            if (shader) {
+                shader.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body></html>

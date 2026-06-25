@@ -486,7 +486,13 @@ tailwind.config = {
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
         <div class="glass-card p-6 rounded-2xl flex flex-col items-start gap-3">
-          <div class="mockup-img bg-gradient-to-br from-secondary/30 to-secondary/10 text-secondary">tips_and_updates</div>
+          <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-secondary/30 to-secondary/10">
+            <svg class="w-6 h-6 text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+              <line x1="8" y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
           <h3 class="font-headline-md text-on-surface">Tech Tips</h3>
           <p class="text-on-surface-variant">Computer basics, troubleshooting, security, na internet skills kwa wanaoanza.</p>
           <div class="flex flex-wrap gap-2 mt-auto pt-4">
@@ -498,7 +504,9 @@ tailwind.config = {
           <a class="btn-glow primary bg-secondary-container text-on-secondary-container text-sm mt-3" href="course/tech-tips.html">Start Learning</a>
         </div>
         <div class="glass-card p-6 rounded-2xl flex flex-col items-start gap-3">
-          <div class="mockup-img bg-gradient-to-br from-tertiary/30 to-tertiary/10 text-tertiary">code</div>
+          <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-tertiary/30 to-tertiary/10">
+            <img class="w-6 h-6 object-contain" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+          </div>
           <h3 class="font-headline-md text-on-surface">Python</h3>
           <p class="text-on-surface-variant">Jifunze Python kutoka mwanzo — variables loops functions hadi simple projects.</p>
           <div class="flex flex-wrap gap-2 mt-auto pt-4">
@@ -510,7 +518,9 @@ tailwind.config = {
           <a class="btn-glow primary bg-secondary-container text-on-secondary-container text-sm mt-3" href="course/python.html">Start Learning</a>
         </div>
         <div class="glass-card p-6 rounded-2xl flex flex-col items-start gap-3">
-          <div class="mockup-img bg-gradient-to-br from-secondary/30 to-secondary/10 text-secondary">language</div>
+          <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-secondary/30 to-secondary/10">
+            <img class="w-6 h-6 object-contain" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML & CSS">
+          </div>
           <h3 class="font-headline-md text-on-surface">HTML &amp; CSS</h3>
           <p class="text-on-surface-variant">Unda websites za kuvutia — structure, styling, responsive design, na zaidi.</p>
           <div class="flex flex-wrap gap-2 mt-auto pt-4">
@@ -522,7 +532,9 @@ tailwind.config = {
           <a class="btn-glow primary bg-secondary-container text-on-secondary-container text-sm mt-3" href="course/html-css.html">Start Learning</a>
         </div>
         <div class="glass-card p-6 rounded-2xl flex flex-col items-start gap-3">
-          <div class="mockup-img bg-gradient-to-br from-tertiary/30 to-tertiary/10 text-tertiary">javascript</div>
+          <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-tertiary/30 to-tertiary/10">
+            <img class="w-6 h-6 object-contain" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+          </div>
           <h3 class="font-headline-md text-on-surface">JavaScript</h3>
           <p class="text-on-surface-variant">Pata uwezo wa kuunda web applications interactive na dynamic.</p>
           <div class="flex flex-wrap gap-2 mt-auto pt-4">
@@ -534,7 +546,9 @@ tailwind.config = {
           <a class="btn-glow primary bg-secondary-container text-on-secondary-container text-sm mt-3" href="course/javascript.html">Start Learning</a>
         </div>
         <div class="glass-card p-6 rounded-2xl flex flex-col items-start gap-3">
-          <div class="mockup-img bg-gradient-to-br from-secondary/30 to-secondary/10 text-secondary">view_quilt</div>
+          <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-secondary/30 to-secondary/10">
+            <img class="w-6 h-6 object-contain" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+          </div>
           <h3 class="font-headline-md text-on-surface">React</h3>
           <p class="text-on-surface-variant">Modern app development — components, state, hooks, na building real apps.</p>
           <div class="flex flex-wrap gap-2 mt-auto pt-4">
@@ -546,7 +560,14 @@ tailwind.config = {
           <a class="btn-glow primary bg-secondary-container text-on-secondary-container text-sm mt-3" href="course/react.html">Start Learning</a>
         </div>
         <div class="glass-card p-6 rounded-2xl flex flex-col items-start gap-3">
-          <div class="mockup-img bg-gradient-to-br from-tertiary/30 to-tertiary/10 text-tertiary">auto_awesome</div>
+          <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-tertiary/30 to-tertiary/10">
+            <svg class="w-6 h-6 text-tertiary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a4 4 0 0 1 4 4c0 1.5-.8 2.8-2 3.5V11a2 2 0 0 1-2 2h0a2 2 0 0 1-2-2V9.5C7.8 8.8 7 7.5 7 6a4 4 0 0 1 4-4h1z"/>
+              <path d="M12 17v3"/>
+              <path d="M8 21h8"/>
+              <path d="M18.4 14.6a9 9 0 1 0-12.8 0"/>
+            </svg>
+          </div>
           <h3 class="font-headline-md text-on-surface">Prompt Engineering</h3>
           <p class="text-on-surface-variant">Jifunze kuandika prompts bora kwa AI kama ChatGPT, Claude, na Gemini.</p>
           <div class="flex flex-wrap gap-2 mt-auto pt-4">

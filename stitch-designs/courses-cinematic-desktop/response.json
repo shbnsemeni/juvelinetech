@@ -1,0 +1,28 @@
+﻿{
+    "id":  11,
+    "jsonrpc":  "2.0",
+    "result":  {
+                   "content":  [
+                                   {
+                                       "text":  "{\"name\":\"projects/15150786710518750075/screens/b707471297514f77b3f90d7dc02100f3\",\"title\":\"Courses - Cinematic Tech (Desktop)\",\"screenshot\":{\"name\":\"projects/15150786710518750075/files/c3cc829f095a48bc9211703943b7c84c\",\"downloadUrl\":\"https://lh3.googleusercontent.com/aida/AP1WRLuRH_RYYyzmvHQal6OTmwRv1Hi5bn4czFAYg5IdByfzedvhgsH-WpCLqjyDysh_3a13l9azKV-Aijlu2LItjG7tIBe62B82dMdQqTS5rZPpBkTMZzw15XRTViuS93Q9difZwOeRT4E-BbURoXgWBVoj2CD1bMy-U29pSMsu6WpJhu89wCjXaE7p5b3HXtu-okiHKR22gQob9QKg66p3hgBoxB5IswHOKKCFQhhlYayYqixtYJC6rBQTv9k\"},\"htmlCode\":{\"name\":\"projects/15150786710518750075/files/519ecfba8070440babd08bf602a86fe8\",\"downloadUrl\":\"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sX2VjOGQ5NzdlZDI5MjRlZWJhMTE1YmMyMTEyMGEwY2FlEgsSBxCTz8ymhwgYAZIBJAoKcHJvamVjdF9pZBIWQhQxNTE1MDc4NjcxMDUxODc1MDA3NQ\u0026filename=\u0026opi=89354086\",\"mimeType\":\"text/html\"},\"width\":\"2560\",\"height\":\"5706\",\"deviceType\":\"DESKTOP\"}",
+                                       "type":  "text"
+                                   }
+                               ],
+                   "structuredContent":  {
+                                             "deviceType":  "DESKTOP",
+                                             "height":  "5706",
+                                             "htmlCode":  {
+                                                              "downloadUrl":  "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sX2VjOGQ5NzdlZDI5MjRlZWJhMTE1YmMyMTEyMGEwY2FlEgsSBxCTz8ymhwgYAZIBJAoKcHJvamVjdF9pZBIWQhQxNTE1MDc4NjcxMDUxODc1MDA3NQ\u0026filename=\u0026opi=89354086",
+                                                              "mimeType":  "text/html",
+                                                              "name":  "projects/15150786710518750075/files/519ecfba8070440babd08bf602a86fe8"
+                                                          },
+                                             "name":  "projects/15150786710518750075/screens/b707471297514f77b3f90d7dc02100f3",
+                                             "screenshot":  {
+                                                                "downloadUrl":  "https://lh3.googleusercontent.com/aida/AP1WRLuRH_RYYyzmvHQal6OTmwRv1Hi5bn4czFAYg5IdByfzedvhgsH-WpCLqjyDysh_3a13l9azKV-Aijlu2LItjG7tIBe62B82dMdQqTS5rZPpBkTMZzw15XRTViuS93Q9difZwOeRT4E-BbURoXgWBVoj2CD1bMy-U29pSMsu6WpJhu89wCjXaE7p5b3HXtu-okiHKR22gQob9QKg66p3hgBoxB5IswHOKKCFQhhlYayYqixtYJC6rBQTv9k",
+                                                                "name":  "projects/15150786710518750075/files/c3cc829f095a48bc9211703943b7c84c"
+                                                            },
+                                             "title":  "Courses - Cinematic Tech (Desktop)",
+                                             "width":  "2560"
+                                         }
+               }
+}

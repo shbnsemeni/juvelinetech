@@ -1,0 +1,28 @@
+﻿{
+    "id":  12,
+    "jsonrpc":  "2.0",
+    "result":  {
+                   "content":  [
+                                   {
+                                       "text":  "{\"name\":\"projects/15150786710518750075/screens/c7e58dea43f94b5d925a6de459ee9493\",\"title\":\"Services - JuveLineTech\",\"screenshot\":{\"name\":\"projects/15150786710518750075/files/564fd5c668b64807b51a1e166a2f6043\",\"downloadUrl\":\"https://lh3.googleusercontent.com/aida/AP1WRLtYXpFkOGg-ZdWHz2uHaEzQrPcD_1HHZZ8TxMfmhOVeGWD-iOT49BRGfpGxF7SUdm5f47zVofWPcUxizd5LN5tJdZQgxJ8y_JdxlYPFANWnu5m2LuGe9-Qa65tk-UpahvWWPj-uqN2wCzMn-nuYo_VgGgrGj5K9ZiTSzdDSeK__0hMhqebrCub-d46U28v3WzMh13mKftGg35IDGvFh6P_uUieV1vN3RmzH3eSEUX1x-7rpHgZKtVKMDgjw\"},\"htmlCode\":{\"name\":\"projects/15150786710518750075/files/990f75b59bd84ee6a20a285fc54b17a9\",\"downloadUrl\":\"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzA2ZjJkYTMzNDQzNzQ0NDdhMjMyNTY5YzYyOGU5MDMxEgsSBxCTz8ymhwgYAZIBJAoKcHJvamVjdF9pZBIWQhQxNTE1MDc4NjcxMDUxODc1MDA3NQ\u0026filename=\u0026opi=89354086\",\"mimeType\":\"text/html\"},\"width\":\"780\",\"height\":\"12788\",\"deviceType\":\"MOBILE\"}",
+                                       "type":  "text"
+                                   }
+                               ],
+                   "structuredContent":  {
+                                             "deviceType":  "MOBILE",
+                                             "height":  "12788",
+                                             "htmlCode":  {
+                                                              "downloadUrl":  "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzA2ZjJkYTMzNDQzNzQ0NDdhMjMyNTY5YzYyOGU5MDMxEgsSBxCTz8ymhwgYAZIBJAoKcHJvamVjdF9pZBIWQhQxNTE1MDc4NjcxMDUxODc1MDA3NQ\u0026filename=\u0026opi=89354086",
+                                                              "mimeType":  "text/html",
+                                                              "name":  "projects/15150786710518750075/files/990f75b59bd84ee6a20a285fc54b17a9"
+                                                          },
+                                             "name":  "projects/15150786710518750075/screens/c7e58dea43f94b5d925a6de459ee9493",
+                                             "screenshot":  {
+                                                                "downloadUrl":  "https://lh3.googleusercontent.com/aida/AP1WRLtYXpFkOGg-ZdWHz2uHaEzQrPcD_1HHZZ8TxMfmhOVeGWD-iOT49BRGfpGxF7SUdm5f47zVofWPcUxizd5LN5tJdZQgxJ8y_JdxlYPFANWnu5m2LuGe9-Qa65tk-UpahvWWPj-uqN2wCzMn-nuYo_VgGgrGj5K9ZiTSzdDSeK__0hMhqebrCub-d46U28v3WzMh13mKftGg35IDGvFh6P_uUieV1vN3RmzH3eSEUX1x-7rpHgZKtVKMDgjw",
+                                                                "name":  "projects/15150786710518750075/files/564fd5c668b64807b51a1e166a2f6043"
+                                                            },
+                                             "title":  "Services - JuveLineTech",
+                                             "width":  "780"
+                                         }
+               }
+}

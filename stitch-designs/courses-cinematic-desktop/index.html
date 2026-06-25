@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Courses | JuveLineTech</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#323537",
+                    "surface-container-high": "#272a2c",
+                    "on-primary-fixed-variant": "#3c475b",
+                    "inverse-primary": "#535f74",
+                    "on-primary-fixed": "#101c2e",
+                    "accent-green": "#10B981",
+                    "surface-container-low": "#191c1e",
+                    "surface": "#101415",
+                    "primary-fixed-dim": "#bbc7df",
+                    "on-secondary-container": "#005669",
+                    "on-tertiary": "#5d1900",
+                    "tertiary-fixed": "#ffdbd0",
+                    "on-error-container": "#ffdad6",
+                    "outline-variant": "#45474c",
+                    "on-surface-variant": "#c5c6cd",
+                    "tertiary-container": "#2f0800",
+                    "error-container": "#93000a",
+                    "surface-tint": "#bbc7df",
+                    "secondary-fixed": "#b4ebff",
+                    "surface-bright": "#363a3b",
+                    "primary-fixed": "#d7e3fc",
+                    "on-tertiary-container": "#dc521d",
+                    "surface-container": "#1d2022",
+                    "on-primary": "#253144",
+                    "inverse-surface": "#e0e3e5",
+                    "surface-container-lowest": "#0b0f10",
+                    "primary-container": "#0a1628",
+                    "on-background": "#e0e3e5",
+                    "surface-container-highest": "#323537",
+                    "surface-dim": "#101415",
+                    "on-secondary-fixed-variant": "#004e5f",
+                    "secondary-container": "#00d2fd",
+                    "on-primary-container": "#758096",
+                    "error": "#ffb4ab",
+                    "tertiary": "#ffb59d",
+                    "on-error": "#690005",
+                    "on-tertiary-fixed": "#390c00",
+                    "on-surface": "#e0e3e5",
+                    "inverse-on-surface": "#2d3133",
+                    "border-glass": "rgba(255, 255, 255, 0.1)",
+                    "tertiary-fixed-dim": "#ffb59d",
+                    "secondary": "#a2e7ff",
+                    "background": "#101415",
+                    "outline": "#8f9097",
+                    "secondary-fixed-dim": "#3cd7ff",
+                    "on-secondary": "#003642",
+                    "surface-glass": "rgba(10, 22, 40, 0.7)",
+                    "primary": "#bbc7df",
+                    "on-tertiary-fixed-variant": "#832600",
+                    "warning-yellow": "#FCD34D",
+                    "on-secondary-fixed": "#001f27"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "1rem",
+                    "container-max": "1280px",
+                    "margin-desktop": "5rem",
+                    "gutter": "1.5rem"
+            },
+            "fontFamily": {
+                    "label-md": ["Inter"],
+                    "headline-xl-mobile": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-xl": ["Inter"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-xl-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #101415;
+            color: #e0e3e5;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(10, 22, 40, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: #a2e7ff;
+            box-shadow: 0 0 30px rgba(162, 231, 255, 0.15);
+        }
+
+        .glow-cyan {
+            box-shadow: 0 0 20px rgba(162, 231, 255, 0.2);
+        }
+
+        .animated-mesh {
+            background: radial-gradient(circle at 50% 50%, rgba(0, 210, 253, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 100% 0%, rgba(220, 82, 29, 0.05) 0%, transparent 40%);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #a2e7ff 0%, #d7e3fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md selection:bg-secondary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface-glass backdrop-blur-xl border-b border-border-glass shadow-md shadow-secondary/10">
+<div class="sticky top-0 z-50 flex justify-between items-center h-20 px-margin-desktop max-w-container-max mx-auto">
+<div class="text-headline-md font-headline-md text-secondary tracking-tighter">
+                JuveLineTech
+            </div>
+<div class="hidden md:flex items-center space-gap-8 gap-x-8">
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md" href="#">Innovations</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md" href="#">Services</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md" href="#">Projects</a>
+<a class="text-secondary border-b-2 border-secondary pb-1 font-label-md text-label-md" href="#">Insights</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md" href="#">Contact</a>
+</div>
+<button class="bg-secondary text-on-secondary px-6 py-2 rounded-lg font-label-md text-label-md hover:bg-secondary-fixed-dim active:scale-95 transition-all">
+                Get Started
+            </button>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[716px] flex items-center justify-center overflow-hidden px-margin-mobile md:px-margin-desktop">
+
+<div class="relative z-10 text-center max-w-4xl mx-auto">
+<div class="inline-flex items-center px-4 py-2 rounded-full glass-card mb-6 border-secondary/20">
+<span class="w-2 h-2 rounded-full bg-accent-green mr-3 animate-pulse"></span>
+<span class="font-label-md text-label-md text-secondary">ADMISSION OPEN 2024</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl md:text-6xl text-gradient mb-6">
+                    Learn With Us
+                </h1>
+<p class="font-headline-md text-headline-md text-on-surface-variant mb-8 max-w-2xl mx-auto italic">
+                    "Jifunze technology na programming kutoka mwanzo."
+                </p>
+<div class="flex flex-col md:flex-row items-center justify-center gap-4">
+<button class="w-full md:w-auto bg-secondary text-on-secondary px-8 py-4 rounded-xl font-headline-md text-headline-md glow-cyan hover:scale-105 transition-transform">
+                        Explore Courses
+                    </button>
+<button class="w-full md:w-auto border-2 border-secondary text-secondary px-8 py-4 rounded-xl font-headline-md text-headline-md hover:bg-secondary/10 transition-colors">
+                        Join Community
+                    </button>
+</div>
+</div>
+<!-- Geometric Texture Overlay -->
+<div class="absolute inset-0 pointer-events-none opacity-10 animated-mesh"></div>
+</section>
+<!-- Course Grid Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div class="max-w-xl">
+<h2 class="font-headline-xl text-headline-xl text-on-surface mb-4">Curriculum</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Master the digital landscape with courses designed for the future of Tanzanian tech engineering.</p>
+</div>
+<div class="flex gap-2">
+<button class="p-3 rounded-full border border-border-glass hover:bg-secondary/10 text-secondary transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+<button class="p-3 rounded-full border border-border-glass hover:bg-secondary/10 text-secondary transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Tech Tips -->
+<div class="glass-card p-8 rounded-3xl flex flex-col group">
+<div class="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center mb-6 group-hover:bg-secondary/20 transition-colors">
+<span class="material-symbols-outlined text-secondary text-4xl">lightbulb</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-3">Tech Tips</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow">
+                        Quick, actionable insights and workflow optimizations for modern developers. Stay ahead with weekly efficiency hacks.
+                    </p>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-label-md text-label-md text-accent-green">Beginner Friendly</span>
+<button class="text-secondary flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+<span class="font-label-md text-label-md">Start Learning</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Python -->
+<div class="glass-card p-8 rounded-3xl flex flex-col group">
+<div class="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center mb-6 group-hover:bg-secondary/20 transition-colors">
+<span class="material-symbols-outlined text-secondary text-4xl">terminal</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-3">Python Mastery</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow">
+                        From variables to data science. Learn the most versatile language used in AI, automation, and backend systems.
+                    </p>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-label-md text-label-md text-secondary">Popular</span>
+<button class="text-secondary flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+<span class="font-label-md text-label-md">Start Learning</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- HTML & CSS -->
+<div class="glass-card p-8 rounded-3xl flex flex-col group">
+<div class="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center mb-6 group-hover:bg-secondary/20 transition-colors">
+<span class="material-symbols-outlined text-secondary text-4xl">html</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-3">HTML &amp; CSS</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow">
+                        The foundation of the web. Build responsive, high-performance user interfaces using modern Flexbox and Grid layouts.
+                    </p>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-label-md text-label-md text-on-primary-container">Core Skill</span>
+<button class="text-secondary flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+<span class="font-label-md text-label-md">Start Learning</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- JavaScript -->
+<div class="glass-card p-8 rounded-3xl flex flex-col group">
+<div class="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center mb-6 group-hover:bg-secondary/20 transition-colors">
+<span class="material-symbols-outlined text-secondary text-4xl">javascript</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-3">JavaScript Pro</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow">
+                        Bring your sites to life. Master DOM manipulation, ES6+ features, and asynchronous programming for dynamic apps.
+                    </p>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-label-md text-label-md text-warning-yellow">In Demand</span>
+<button class="text-secondary flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+<span class="font-label-md text-label-md">Start Learning</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- React -->
+<div class="glass-card p-8 rounded-3xl flex flex-col group border-secondary/30 border-2">
+<div class="w-16 h-16 rounded-2xl bg-secondary/20 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-secondary text-4xl">cyclone</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-3">React.js Advanced</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow">
+                        Build scalable component-based architectures. Deep dive into Hooks, Context API, and state management strategies.
+                    </p>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-label-md text-label-md text-secondary">Expert Level</span>
+<button class="text-secondary flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+<span class="font-label-md text-label-md">Start Learning</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Prompt Engineering -->
+<div class="glass-card p-8 rounded-3xl flex flex-col group bg-primary-container/20">
+<div class="w-16 h-16 rounded-2xl bg-tertiary-container/30 flex items-center justify-center mb-6 group-hover:bg-tertiary-container/50 transition-colors">
+<span class="material-symbols-outlined text-on-tertiary-container text-4xl">psychology</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-3 text-on-tertiary-container">Prompt Engineering</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow">
+                        Unlock the power of Generative AI. Learn to craft perfect prompts for LLMs to boost your coding productivity by 10x.
+                    </p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full bg-secondary/40 border-2 border-background"></div>
+<div class="w-8 h-8 rounded-full bg-tertiary/40 border-2 border-background"></div>
+</div>
+<button class="text-on-tertiary-container flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+<span class="font-label-md text-label-md font-bold">New Course</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Call to Action -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<div class="lg:col-span-8 glass-card p-12 rounded-[2rem] flex flex-col justify-center relative overflow-hidden">
+<div class="absolute -right-20 -top-20 w-80 h-80 bg-secondary/10 rounded-full blur-[100px]"></div>
+<h2 class="font-headline-xl text-headline-xl text-on-surface mb-6 relative z-10">Why JuveLineTech Academy?</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-secondary">verified_user</span>
+<div>
+<h4 class="font-label-md text-label-md text-secondary mb-1">Industry Certified</h4>
+<p class="text-on-surface-variant">Curriculum aligned with Dar es Salaam tech hub demands.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-secondary">hub</span>
+<div>
+<h4 class="font-label-md text-label-md text-secondary mb-1">Project Based</h4>
+<p class="text-on-surface-variant">Don't just watch. Build real products while you learn.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4 bg-secondary text-on-secondary p-12 rounded-[2rem] flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-6xl mb-6" style="font-variation-settings: 'FILL' 1;">groups</span>
+<h3 class="font-headline-md text-headline-md mb-4">500+ Active Students</h3>
+<p class="mb-8 opacity-90">Join the growing community of Tanzanian tech pioneers.</p>
+<button class="w-full bg-on-secondary text-secondary font-bold py-4 rounded-xl hover:bg-on-secondary/80 transition-colors">
+                        Join Discord
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-border-glass rounded-t-xl">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter py-16 px-margin-desktop max-w-container-max mx-auto font-body-md text-body-md">
+<div class="col-span-1 md:col-span-1">
+<div class="text-headline-md font-headline-md text-on-surface mb-6">JuveLineTech</div>
+<p class="text-on-surface-variant opacity-80 mb-6">
+                    Engineering the future of innovation across East Africa through world-class technical education.
+                </p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-secondary">Location</h4>
+<p class="text-on-surface-variant">Tech Hub, Posta</p>
+<p class="text-on-surface-variant">+255 700 000 000</p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-secondary">Company</h4>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Careers</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Insights</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Projects</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-secondary">Legal</h4>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+<div class="text-center py-8 border-t border-border-glass opacity-60 text-sm">
+            © 2024 JuveLineTech. Engineering the Future in Dar es Salaam.
+        </div>
+</footer>
+<!-- FAB -->
+<button class="fixed bottom-8 right-8 w-16 h-16 bg-[#dc521d] text-white rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(220,82,29,0.5)] hover:scale-110 active:scale-95 transition-all z-[100] group">
+<span class="material-symbols-outlined text-3xl">chat</span>
+<span class="absolute right-20 bg-surface-container-high text-on-surface px-4 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">Talk to Advisor</span>
+</button>
+<script>
+        // Micro-interactions for glass cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+                
+                // Dynamic subtle glow following mouse
+                card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(162, 231, 255, 0.05), rgba(10, 22, 40, 0.7))`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.background = `rgba(10, 22, 40, 0.7)`;
+            });
+        });
+
+        // Smooth scroll reveal observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.glass-card').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+    </script>
+</body></html>

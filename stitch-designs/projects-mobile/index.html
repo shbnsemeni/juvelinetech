@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Projects | JUVELINETECH</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#ffb59d",
+                    "surface-bright": "#363a3b",
+                    "on-surface-variant": "#c5c6cd",
+                    "on-surface": "#e0e3e5",
+                    "on-secondary-container": "#005669",
+                    "accent-green": "#10B981",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-container": "#2f0800",
+                    "surface-container-highest": "#323537",
+                    "surface-container-high": "#272a2c",
+                    "primary": "#bbc7df",
+                    "outline-variant": "#45474c",
+                    "on-primary-fixed": "#101c2e",
+                    "surface-glass": "rgba(10, 22, 40, 0.7)",
+                    "on-primary-fixed-variant": "#3c475b",
+                    "surface-container-low": "#191c1e",
+                    "inverse-surface": "#e0e3e5",
+                    "on-tertiary": "#5d1900",
+                    "surface-tint": "#bbc7df",
+                    "error": "#ffb4ab",
+                    "surface-dim": "#101415",
+                    "warning-yellow": "#FCD34D",
+                    "on-secondary-fixed-variant": "#004e5f",
+                    "inverse-primary": "#535f74",
+                    "on-primary": "#253144",
+                    "on-background": "#e0e3e5",
+                    "inverse-on-surface": "#2d3133",
+                    "on-secondary": "#003642",
+                    "tertiary-fixed": "#ffdbd0",
+                    "tertiary-fixed-dim": "#ffb59d",
+                    "on-tertiary-container": "#dc521d",
+                    "secondary-fixed": "#b4ebff",
+                    "on-tertiary-fixed": "#390c00",
+                    "surface": "#101415",
+                    "outline": "#8f9097",
+                    "error-container": "#93000a",
+                    "secondary": "#a2e7ff",
+                    "secondary-fixed-dim": "#3cd7ff",
+                    "surface-variant": "#323537",
+                    "primary-fixed-dim": "#bbc7df",
+                    "background": "#101415",
+                    "border-glass": "rgba(255, 255, 255, 0.1)",
+                    "surface-container": "#1d2022",
+                    "surface-container-lowest": "#0b0f10",
+                    "on-tertiary-fixed-variant": "#832600",
+                    "primary-container": "#0a1628",
+                    "primary-fixed": "#d7e3fc",
+                    "secondary-container": "#00d2fd",
+                    "on-primary-container": "#758096",
+                    "on-secondary-fixed": "#001f27",
+                    "on-error": "#690005"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "5rem",
+                    "margin-mobile": "1rem",
+                    "container-max": "1280px",
+                    "gutter": "1.5rem"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-xl-mobile": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "label-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-xl-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #101415;
+            color: #e0e3e5;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(10, 22, 40, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            border-color: #a2e7ff;
+            box-shadow: 0 0 20px rgba(162, 231, 255, 0.15);
+        }
+
+        .glow-accent {
+            position: relative;
+        }
+
+        .glow-accent::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            background: linear-gradient(45deg, #a2e7ff, transparent, #ffb59d);
+            z-index: -1;
+            border-radius: inherit;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .glow-accent:hover::after {
+            opacity: 0.5;
+        }
+
+        .filter-btn-active {
+            background-color: #00d2fd !important;
+            color: #001f27 !important;
+        }
+
+        .mesh-gradient {
+            background: radial-gradient(at 0% 0%, rgba(162, 231, 255, 0.05) 0px, transparent 50%),
+                        radial-gradient(at 100% 100%, rgba(255, 181, 157, 0.05) 0px, transparent 50%);
+        }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="mesh-gradient min-h-screen font-body-md text-body-md">
+<!-- Top Navigation Shell -->
+<header class="fixed top-0 w-full z-50 backdrop-blur-md bg-surface-glass border-b border-border-glass shadow-sm h-20">
+<nav class="flex items-center justify-between px-margin-mobile h-full max-w-container-max mx-auto md:px-margin-desktop">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary text-2xl">menu</span>
+<a class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg font-extrabold tracking-tighter text-on-surface" href="#">JUVELINETECH</a>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-secondary transition-all font-label-md text-label-md" href="#">Services</a>
+<a class="text-secondary font-bold font-label-md text-label-md" href="#">Projects</a>
+<a class="text-on-surface-variant hover:text-secondary transition-all font-label-md text-label-md" href="#">Courses</a>
+<a class="text-on-surface-variant hover:text-secondary transition-all font-label-md text-label-md" href="#">About</a>
+<a class="text-on-surface-variant hover:text-secondary transition-all font-label-md text-label-md" href="#">Contact</a>
+</div>
+<button class="bg-secondary-container text-on-secondary-fixed px-6 py-2.5 rounded-full font-label-md text-label-md hover:opacity-90 transition-opacity">
+                Quote
+            </button>
+</nav>
+</header>
+<main class="pt-32 pb-24">
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-16 text-center md:text-left">
+<div class="inline-block px-4 py-1.5 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md mb-6 border border-border-glass">
+                PORTFOLIO
+            </div>
+<h1 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface mb-4">Our Work</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                Real solutions for real businesses. We blend Tanzanian creativity with global engineering standards to deliver high-performance digital experiences.
+            </p>
+</section>
+<!-- Filters Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-12">
+<div class="flex flex-wrap items-center gap-3">
+<button class="filter-btn-active px-6 py-2 rounded-xl font-label-md text-label-md border border-border-glass transition-all">All</button>
+<button class="bg-surface-container hover:bg-surface-container-high px-6 py-2 rounded-xl text-on-surface-variant font-label-md text-label-md border border-border-glass transition-all">Web</button>
+<button class="bg-surface-container hover:bg-surface-container-high px-6 py-2 rounded-xl text-on-surface-variant font-label-md text-label-md border border-border-glass transition-all">Mobile</button>
+<button class="bg-surface-container hover:bg-surface-container-high px-6 py-2 rounded-xl text-on-surface-variant font-label-md text-label-md border border-border-glass transition-all">Software</button>
+<button class="bg-surface-container hover:bg-surface-container-high px-6 py-2 rounded-xl text-on-surface-variant font-label-md text-label-md border border-border-glass transition-all">Design</button>
+</div>
+</section>
+<!-- Projects Grid -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Project 1: Matete Online Store (Feature Card) -->
+<article class="md:col-span-12 glass-card rounded-3xl overflow-hidden group">
+<div class="flex flex-col lg:flex-row h-full">
+<div class="lg:w-7/12 p-8 md:p-12 flex flex-col justify-center">
+<div class="flex gap-2 mb-6">
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-md text-[12px] font-bold tracking-wider">DJANGO</span>
+<span class="bg-secondary/10 text-secondary px-3 py-1 rounded-md text-[12px] font-bold tracking-wider">TAILWIND</span>
+<span class="bg-tertiary/10 text-tertiary px-3 py-1 rounded-md text-[12px] font-bold tracking-wider">E-COMMERCE</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Matete Online Store</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 max-w-lg">
+                                A comprehensive multi-vendor marketplace designed specifically for the Tanzanian retail landscape. Featuring real-time inventory sync, secure payment gateways integration, and a mobile-first responsive frontend.
+                            </p>
+<div class="flex items-center gap-6">
+<a class="flex items-center gap-2 text-secondary font-label-md text-label-md group/link" href="#">
+                                    Visit Website 
+                                    <span class="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+<div class="w-px h-6 bg-border-glass"></div>
+<span class="text-on-surface-variant font-label-md text-label-md">Live Platform</span>
+</div>
+</div>
+<div class="lg:w-5/12 bg-surface-container-high relative min-h-[350px] overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-secondary/10 to-transparent z-10"></div>
+<img class="absolute top-12 left-12 w-[120%] h-auto shadow-2xl rounded-tl-2xl transform rotate-1 group-hover:rotate-0 transition-transform duration-500" data-alt="A professional and sleek e-commerce website mockup displayed on a modern desktop screen. The UI features a clean layout with high-quality product images of Tanzanian crafts and electronics, a vibrant blue and white color palette, and a minimalist navigation bar. The lighting is soft and professional, highlighting the depth of the glass-morphic interface elements. The overall aesthetic is clean, corporate, and high-tech." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYQa3AgppC-3z6FPJ2IjDb5GqlbDOSGuyPn-Q8u4feoazSZ3tw_5F95bkdxR1fAnZ2FF4wnKl4Hsx_8IbRZVzhbXfxIXvZe6sy3KylqWQATDI9NHCSTaMwOKYzmaOEMRgCi4bEo4RHUnrFbABggm3ppqeVi6xAz0RtpCv_BFh3t6n9EzkNrcwQi8tplpop0qudoQx4IVJcHB8GBmF_Y7zCoiJfDdXHLpCejEhve2naO8fpew80lZXWeULQ_aFPl6Xogar46Brt0jcv"/>
+</div>
+</div>
+</article>
+<!-- Project 2: Matete Mobile App -->
+<article class="md:col-span-7 glass-card rounded-3xl overflow-hidden group">
+<div class="p-8 md:p-12 flex flex-col h-full">
+<div class="flex items-center justify-between mb-8">
+<div class="w-12 h-12 rounded-xl bg-tertiary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary">smartphone</span>
+</div>
+<span class="bg-warning-yellow/10 text-warning-yellow px-4 py-1.5 rounded-full text-xs font-bold tracking-widest border border-warning-yellow/20">COMING SOON</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4">Matete Mobile App</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                            A native Android experience providing seamless access to the Matete ecosystem. Built for performance on mid-range devices, prioritizing low-data usage and offline capabilities for a reliable shopping journey anywhere in the region.
+                        </p>
+<div class="mt-auto relative rounded-2xl overflow-hidden border border-border-glass aspect-video">
+<img class="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700" data-alt="A high-end Android mobile app mockup showcasing a shopping interface with smooth transitions and vibrant product cards. The screen shows a clean dashboard with a search bar, categories for 'Tech' and 'Fashion', and a notification center. The design utilizes deep navy backgrounds with cyan and orange accents, emphasizing a premium dark mode aesthetic. The phone frame is minimalist and sleek." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnYwLVTeQRFT7RVhlrpM8FRbBQsjIZkKv0H7Zg9I8wrmR9cLbkAvKv_jr1ahwWUVn9oGNmYTOAqXxf-AUsHmcyDP2qRflhgPMnSgbICulmjEDTY2mebhTD3ZZFhJ0puQKCLUsbuzhqqk4pfeqi0gSxFXQbKNTtlkxR-GjDh3nC7CxRpVn_PeTet7e1G03ewpkddSqvImnbVNGsoj8XWy9pG_meFqQor6MWKlNBrzW0XhPWlITieNjD7l0l0PwYVEDP11vm6d4v8wos"/>
+</div>
+</div>
+</article>
+<!-- Project 3: Your Project Here (CTA) -->
+<article class="md:col-span-5 glass-card rounded-3xl p-8 md:p-12 flex flex-col items-center justify-center text-center border-dashed border-2 border-outline-variant hover:border-secondary group cursor-pointer">
+<div class="w-20 h-20 rounded-full bg-surface-container flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary text-4xl" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4">Your Project Here</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-10 max-w-xs">
+                        Ready to bring your digital vision to life? Let's collaborate and build something extraordinary together.
+                    </p>
+<button class="w-full py-4 rounded-2xl bg-tertiary text-on-tertiary font-bold tracking-wide hover:opacity-90 transition-opacity shadow-[0_0_20px_rgba(255,181,157,0.3)]">
+                        Start a Project
+                    </button>
+</article>
+</div>
+</section>
+</main>
+<!-- Footer Shell -->
+<footer class="w-full py-12 bg-surface-container-lowest border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile max-w-container-max mx-auto md:px-margin-desktop">
+<div class="md:col-span-4 mb-8 md:mb-0">
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface mb-6">JUVELINETECH</h3>
+<p class="text-on-surface-variant max-w-xs mb-6">
+                    Pioneering digital excellence and engineering robust solutions for the East African market and beyond.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined">mail</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined">alternate_email</span>
+</a>
+</div>
+</div>
+<div class="md:col-span-2">
+<h4 class="text-on-surface font-bold mb-6">Explore</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-secondary transition-all" href="#">Services</a></li>
+<li><a class="text-secondary transition-all" href="#">Projects</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-all" href="#">Courses</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-all" href="#">About</a></li>
+</ul>
+</div>
+<div class="md:col-span-2">
+<h4 class="text-on-surface font-bold mb-6">Support</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-secondary transition-all" href="#">Contact</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-all" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-all" href="#">Terms of Use</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary transition-all" href="#">FAQ</a></li>
+</ul>
+</div>
+<div class="md:col-span-4">
+<h4 class="text-on-surface font-bold mb-6">Newsletter</h4>
+<p class="text-on-surface-variant mb-4">Stay updated with our latest releases and tech insights.</p>
+<div class="flex gap-2">
+<input class="bg-surface-container border-outline-variant rounded-xl flex-grow text-on-surface px-4 focus:ring-secondary focus:border-secondary border" placeholder="Email address" type="email"/>
+<button class="bg-secondary text-on-secondary px-4 py-2 rounded-xl font-bold">Join</button>
+</div>
+</div>
+<div class="md:col-span-12 border-t border-outline-variant pt-8 mt-12 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-on-surface-variant text-sm">© 2024 JuveLineTech. All rights reserved.</p>
+<p class="text-on-surface-variant text-sm flex items-center gap-1">
+                    Made with <span class="material-symbols-outlined text-red-500 text-sm" style="font-variation-settings: 'FILL' 1;">favorite</span> in Tanzania
+                </p>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for filter buttons
+        const filterBtns = document.querySelectorAll('button.bg-surface-container, button.filter-btn-active');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('filter-btn-active');
+                    b.classList.add('bg-surface-container', 'text-on-surface-variant');
+                });
+                btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+                btn.classList.add('filter-btn-active');
+            });
+        });
+
+        // Simple scroll reveal for cards
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease-out';
+            observer.observe(card);
+        });
+    </script>
+</body></html>

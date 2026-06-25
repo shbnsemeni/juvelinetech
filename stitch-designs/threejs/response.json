@@ -1,0 +1,26 @@
+﻿{
+    "id":  4,
+    "jsonrpc":  "2.0",
+    "result":  {
+                   "content":  [
+                                   {
+                                       "text":  "{\"name\":\"projects/15150786710518750075/screens/2223b258e412416796b02fb28d35b808\",\"title\":\"Three.js\",\"screenshot\":{},\"htmlCode\":{\"name\":\"projects/15150786710518750075/files/fa4a96507b664b1cb3bf0a07acde5444\",\"downloadUrl\":\"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sX2YxNjc3NjU5MGFkYTRjY2ZiNjM0N2VlYTY4OTRjYmQwEgsSBxCTz8ymhwgYAZIBJAoKcHJvamVjdF9pZBIWQhQxNTE1MDc4NjcxMDUxODc1MDA3NQ\u0026filename=\u0026opi=89354086\",\"mimeType\":\"text/html\"},\"width\":\"512\",\"height\":\"512\"}",
+                                       "type":  "text"
+                                   }
+                               ],
+                   "structuredContent":  {
+                                             "height":  "512",
+                                             "htmlCode":  {
+                                                              "downloadUrl":  "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sX2YxNjc3NjU5MGFkYTRjY2ZiNjM0N2VlYTY4OTRjYmQwEgsSBxCTz8ymhwgYAZIBJAoKcHJvamVjdF9pZBIWQhQxNTE1MDc4NjcxMDUxODc1MDA3NQ\u0026filename=\u0026opi=89354086",
+                                                              "mimeType":  "text/html",
+                                                              "name":  "projects/15150786710518750075/files/fa4a96507b664b1cb3bf0a07acde5444"
+                                                          },
+                                             "name":  "projects/15150786710518750075/screens/2223b258e412416796b02fb28d35b808",
+                                             "screenshot":  {
+
+                                                            },
+                                             "title":  "Three.js",
+                                             "width":  "512"
+                                         }
+               }
+}

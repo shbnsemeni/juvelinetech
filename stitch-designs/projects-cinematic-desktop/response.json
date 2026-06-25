@@ -1,0 +1,28 @@
+﻿{
+    "id":  8,
+    "jsonrpc":  "2.0",
+    "result":  {
+                   "content":  [
+                                   {
+                                       "text":  "{\"name\":\"projects/15150786710518750075/screens/5909666de90f48d89a24c942ec569833\",\"title\":\"Projects - Cinematic Tech (Desktop)\",\"screenshot\":{\"name\":\"projects/15150786710518750075/files/332c9c09e00f47ac90fbbc1664a9a38c\",\"downloadUrl\":\"https://lh3.googleusercontent.com/aida/AP1WRLvj8r_cAoQ26ciMTzvS1B9bNJ2mRuksUJYVtfZcZRbxKNzV7XyLm47UUt4_gLkquV7UuIe3vwBGbDCV_r4o9PDYpQ8tCPx5pFH4YCfNKFbfON-TZiIBDCbtcoCsRxf54salFurjUeTIDvA4aYCDrol5vElZrF9h4O9g_oP31jeQWSQb8YMUe1QuJT3zfprBeQw9DxCWlQbySVkQ8aw1TJQbqSVg6n5YaIOm42cMaDcxqHBSmLko-yIS55At\"},\"htmlCode\":{\"name\":\"projects/15150786710518750075/files/a22972682beb4842867797fee7c79849\",\"downloadUrl\":\"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sX2QxN2FkZjQyZWJjNzQ1ZTk5MGE5Nzc5NWI5ODA0ODVjEgsSBxCTz8ymhwgYAZIBJAoKcHJvamVjdF9pZBIWQhQxNTE1MDc4NjcxMDUxODc1MDA3NQ\u0026filename=\u0026opi=89354086\",\"mimeType\":\"text/html\"},\"width\":\"2560\",\"height\":\"5332\",\"deviceType\":\"DESKTOP\"}",
+                                       "type":  "text"
+                                   }
+                               ],
+                   "structuredContent":  {
+                                             "deviceType":  "DESKTOP",
+                                             "height":  "5332",
+                                             "htmlCode":  {
+                                                              "downloadUrl":  "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sX2QxN2FkZjQyZWJjNzQ1ZTk5MGE5Nzc5NWI5ODA0ODVjEgsSBxCTz8ymhwgYAZIBJAoKcHJvamVjdF9pZBIWQhQxNTE1MDc4NjcxMDUxODc1MDA3NQ\u0026filename=\u0026opi=89354086",
+                                                              "mimeType":  "text/html",
+                                                              "name":  "projects/15150786710518750075/files/a22972682beb4842867797fee7c79849"
+                                                          },
+                                             "name":  "projects/15150786710518750075/screens/5909666de90f48d89a24c942ec569833",
+                                             "screenshot":  {
+                                                                "downloadUrl":  "https://lh3.googleusercontent.com/aida/AP1WRLvj8r_cAoQ26ciMTzvS1B9bNJ2mRuksUJYVtfZcZRbxKNzV7XyLm47UUt4_gLkquV7UuIe3vwBGbDCV_r4o9PDYpQ8tCPx5pFH4YCfNKFbfON-TZiIBDCbtcoCsRxf54salFurjUeTIDvA4aYCDrol5vElZrF9h4O9g_oP31jeQWSQb8YMUe1QuJT3zfprBeQw9DxCWlQbySVkQ8aw1TJQbqSVg6n5YaIOm42cMaDcxqHBSmLko-yIS55At",
+                                                                "name":  "projects/15150786710518750075/files/332c9c09e00f47ac90fbbc1664a9a38c"
+                                                            },
+                                             "title":  "Projects - Cinematic Tech (Desktop)",
+                                             "width":  "2560"
+                                         }
+               }
+}

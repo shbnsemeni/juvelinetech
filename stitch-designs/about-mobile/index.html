@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Us | JUVELINETECH</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "tertiary": "#ffb59d",
+                "surface-bright": "#363a3b",
+                "on-surface-variant": "#c5c6cd",
+                "on-surface": "#e0e3e5",
+                "on-secondary-container": "#005669",
+                "accent-green": "#10B981",
+                "on-error-container": "#ffdad6",
+                "tertiary-container": "#2f0800",
+                "surface-container-highest": "#323537",
+                "surface-container-high": "#272a2c",
+                "primary": "#bbc7df",
+                "outline-variant": "#45474c",
+                "on-primary-fixed": "#101c2e",
+                "surface-glass": "rgba(10, 22, 40, 0.7)",
+                "on-primary-fixed-variant": "#3c475b",
+                "surface-container-low": "#191c1e",
+                "inverse-surface": "#e0e3e5",
+                "on-tertiary": "#5d1900",
+                "surface-tint": "#bbc7df",
+                "error": "#ffb4ab",
+                "surface-dim": "#101415",
+                "warning-yellow": "#FCD34D",
+                "on-secondary-fixed-variant": "#004e5f",
+                "inverse-primary": "#535f74",
+                "on-primary": "#253144",
+                "on-background": "#e0e3e5",
+                "inverse-on-surface": "#2d3133",
+                "on-secondary": "#003642",
+                "tertiary-fixed": "#ffdbd0",
+                "tertiary-fixed-dim": "#ffb59d",
+                "on-tertiary-container": "#dc521d",
+                "secondary-fixed": "#b4ebff",
+                "on-tertiary-fixed": "#390c00",
+                "surface": "#101415",
+                "outline": "#8f9097",
+                "error-container": "#93000a",
+                "secondary": "#a2e7ff",
+                "secondary-fixed-dim": "#3cd7ff",
+                "surface-variant": "#323537",
+                "primary-fixed-dim": "#bbc7df",
+                "background": "#101415",
+                "border-glass": "rgba(255, 255, 255, 0.1)",
+                "surface-container": "#1d2022",
+                "surface-container-lowest": "#0b0f10",
+                "on-tertiary-fixed-variant": "#832600",
+                "primary-container": "#0a1628",
+                "primary-fixed": "#d7e3fc",
+                "secondary-container": "#00d2fd",
+                "on-primary-container": "#758096",
+                "on-secondary-fixed": "#001f27",
+                "on-error": "#690005"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+              },
+              "spacing": {
+                "margin-desktop": "5rem",
+                "margin-mobile": "1rem",
+                "container-max": "1280px",
+                "gutter": "1.5rem"
+              },
+              "fontFamily": {
+                "body-lg": ["Inter"],
+                "headline-md": ["Inter"],
+                "headline-lg": ["Inter"],
+                "headline-xl-mobile": ["Inter"],
+                "body-md": ["Inter"],
+                "headline-xl": ["Inter"],
+                "label-md": ["Inter"]
+              },
+              "fontSize": {
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                "headline-xl-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "800"}],
+                "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .glass-card {
+            background: rgba(10, 22, 40, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            transform: translateY(-4px) scale(1.02);
+            border-color: #a2e7ff;
+            box-shadow: 0 10px 30px -10px rgba(162, 231, 255, 0.3);
+        }
+        .glow-cyan {
+            box-shadow: 0 0 20px rgba(162, 231, 255, 0.15);
+        }
+        body {
+            background-color: #101415;
+            color: #e0e3e5;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 backdrop-blur-md bg-surface-glass border-b border-border-glass shadow-sm h-20">
+<div class="flex items-center justify-between px-margin-mobile md:px-margin-desktop h-full max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary text-3xl">menu</span>
+<span class="font-headline-lg-mobile md:font-headline-lg font-extrabold tracking-tighter text-on-surface">JUVELINETECH</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Services</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Projects</a>
+<a class="font-label-md text-label-md text-secondary font-bold" href="#">About</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Contact</a>
+</nav>
+<button class="bg-secondary text-on-secondary font-label-md text-label-md px-6 py-2.5 rounded-full hover:opacity-90 transition-all uppercase tracking-widest">
+                Quote
+            </button>
+</div>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[530px] flex items-center overflow-hidden py-24 px-margin-mobile md:px-margin-desktop">
+
+<div class="relative z-10 max-w-container-max mx-auto w-full">
+<div class="max-w-3xl">
+<span class="inline-block px-4 py-1.5 rounded-full bg-secondary-container/20 border border-secondary/30 text-secondary font-label-md text-label-md mb-6 uppercase tracking-widest">About Us</span>
+<h1 class="font-headline-xl text-headline-xl mb-6 leading-tight">Who We Are</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                        Innovative digital solutions for Tanzanian businesses. We bridge the gap between local challenges and global technological excellence from our core in Dar es Salaam.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="py-16 bg-surface-container-low border-y border-border-glass">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter text-center">
+<div>
+<div class="font-headline-xl text-headline-xl text-secondary mb-2">20+</div>
+<div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Projects Delivered</div>
+</div>
+<div>
+<div class="font-headline-xl text-headline-xl text-secondary mb-2">5+</div>
+<div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Core Technologies</div>
+</div>
+<div>
+<div class="font-headline-xl text-headline-xl text-secondary mb-2">100%</div>
+<div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Client Satisfaction</div>
+</div>
+<div>
+<div class="font-headline-xl text-headline-xl text-secondary mb-2">24/7</div>
+<div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Dedicated Support</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Story Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="relative h-[500px] rounded-3xl overflow-hidden glass-card">
+<div class="w-full h-full bg-cover bg-center" data-alt="A modern tech headquarters located in the Chanika district of Dar es Salaam, Tanzania. The architectural design features sleek glass walls reflecting the bright African sun, surrounded by lush tropical landscaping. Inside the large windows, a vibrant team of professionals is visible working in a minimalist, high-tech workspace with neon cyan accents and modern furniture. The atmosphere is professional yet energetic, capturing the essence of digital innovation in East Africa." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD1yTjDkdwLwKz81ECbb2PSmbaT_sLyYrl8yubbuTstd3EXfaQa2Wo9dzTvHWbRu3si9by8i70Dxce9BBi594N96boyOjqOrCU1avZb8-wmD5GXvvqsrTrxk4KOs1NPwo4rZicqUb5QXWmJAB2sh-lAcx67syhp0RPMeksBDHT6AV1yRwlvwtdFe5mTqNbEMBkiaIU50-owqujNnNXqeLKcIp0S_kfH8HbMxUXhx03yDfJO8i28gcbp-mENbxwgIlgvrUpReU0XbZF-')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+<div class="absolute bottom-8 left-8">
+<p class="font-headline-md text-headline-md text-on-surface">Chanika, Dar es Salaam</p>
+<p class="font-label-md text-label-md text-secondary">Our Creative Hub</p>
+</div>
+</div>
+<div>
+<h2 class="font-headline-lg text-headline-lg mb-8">Our Journey in Chanika</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                        JUVELINETECH was founded with a singular focus: to redefine the technological landscape of Tanzania. Nestled in the growing district of Chanika, Dar es Salaam, we have built a sanctuary for creativity and code.
+                    </p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                        Our team understands the local market nuances better than anyone, allowing us to build tools that don't just work—they thrive in the Tanzanian business ecosystem. We are more than a tech firm; we are architects of digital transformation.
+                    </p>
+<div class="flex gap-4">
+<div class="p-4 rounded-xl glass-card flex-1">
+<span class="material-symbols-outlined text-secondary text-4xl mb-4">location_on</span>
+<h3 class="font-label-md text-label-md mb-2">Location</h3>
+<p class="text-xs text-on-surface-variant">Strategically placed in the heart of Chanika's digital surge.</p>
+</div>
+<div class="p-4 rounded-xl glass-card flex-1">
+<span class="material-symbols-outlined text-secondary text-4xl mb-4">groups</span>
+<h3 class="font-label-md text-label-md mb-2">Community</h3>
+<p class="text-xs text-on-surface-variant">Committed to nurturing local Tanzanian tech talent.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Mission & Vision -->
+<section class="py-24 bg-surface-container-highest/30">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Mission -->
+<div class="glass-card p-12 rounded-[2rem] relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary/10 blur-3xl group-hover:bg-secondary/20 transition-all"></div>
+<span class="material-symbols-outlined text-secondary text-6xl mb-8" data-weight="fill">rocket_launch</span>
+<h3 class="font-headline-lg text-headline-lg mb-6">Our Mission</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                            Empower Tanzanian businesses by delivering bespoke, scalable, and secure digital architectures that compete on a global scale.
+                        </p>
+</div>
+<!-- Vision -->
+<div class="glass-card p-12 rounded-[2rem] relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-tertiary/10 blur-3xl group-hover:bg-tertiary/20 transition-all"></div>
+<span class="material-symbols-outlined text-tertiary text-6xl mb-8" data-weight="fill">visibility</span>
+<h3 class="font-headline-lg text-headline-lg mb-6">Our Vision</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                            To become the most trusted tech partner in East Africa, recognized for our integrity, innovation, and impact on local commerce.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Team Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg mb-4">Meet the Experts</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Our diverse team of professionals brings together years of experience in software engineering, UI/UX design, and business strategy.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Founder -->
+<div class="glass-card rounded-2xl overflow-hidden group">
+<div class="h-80 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A professional portrait of a Tanzanian male founder in his late 30s. He is wearing a modern charcoal suit with a crisp white shirt, standing in a brightly lit office with glass partitions. His expression is confident and visionary. The lighting is soft and cinematic, with subtle cyan rim lighting reflecting the JUVELINETECH brand colors. High-resolution corporate photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBE_Pc6sV2A5Y0pqg3KNHhI6Rip19CaVW7DJ76ZA7iK_kIztR4dBG-RsC6bo0kFmhP6wwk1ku9BfioX36J6EKKrQJaH4-U7n_Ncwpq6ucaceZzSyMaFQZX-V_p2uQW3y1JboxcO_EgiaP38Q-g2qTkQNlaqo7NX0zLvufD0fSuhUtq5CIN7Wv-dbyTYgqxLvq-_T7aSA7GbmVSJK6HNgW0jXSrbGFQobIaSVodCp-X7LCJBUjLzma0Qx7O4WiiMe9gLmr4uKoZj6Q7Z"/>
+</div>
+<div class="p-6 text-center">
+<h4 class="font-headline-md text-headline-md text-on-surface">Juma V.</h4>
+<p class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-4">Founder &amp; CEO</p>
+<div class="flex justify-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary">share</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary">mail</span>
+</div>
+</div>
+</div>
+<!-- Creative Director -->
+<div class="glass-card rounded-2xl overflow-hidden group">
+<div class="h-80 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A portrait of a female creative director of African descent, stylishly dressed in a modern tech-casual outfit. She has a warm, professional smile and is holding a tablet showing a vibrant UI design. Behind her, a blurred digital studio environment with large monitors and design sketches on the wall. The color palette is dominated by deep blues and vibrant cyan accents, emphasizing creativity and technological mastery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB30z_pdEOfH6EYzkXlQi1GERJFMMKmZJCG4nYlBChfh_TD6X9_rX90Wdyz4ZKUTVmbuFb4d1sKkp1M2YKhYz2n8PCu9dPPXf2wM-c8zZnK-bEzxvwaSOGPV-fm1ind2KuLu4hP3VK2PWgONPESFXiBf6gPDwP09OFtZXo1XbjMBpHGtwUaUkyqsUql8c9GN0haldYewCjvU3oaU1IuV25i-AEnZSvge9s2oqpwwO_ta2tOrN2C9E_XIO7v6Pr7y9olRBCiJLmtnFZG"/>
+</div>
+<div class="p-6 text-center">
+<h4 class="font-headline-md text-headline-md text-on-surface">Lina N.</h4>
+<p class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-4">Creative Director</p>
+<div class="flex justify-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary">share</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary">mail</span>
+</div>
+</div>
+</div>
+<!-- CTO -->
+<div class="glass-card rounded-2xl overflow-hidden group">
+<div class="h-80 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A close-up portrait of a male lead software engineer, early 30s, looking focused and sharp. He is in a dimly lit server room or high-tech lab with glowing blue LED server lights in the background. The aesthetic is futuristic and high-end, focusing on expertise and technical precision. The image uses a shallow depth of field, with sharp focus on the subject's face and a professional, trustworthy expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaJZsD_Ymad-6W_zt9c7LVVWTwdWPvQbpDb-F1u_78LDOmVZeZrSthF8GN1IYJeWzVToeejJyxwgqv4410By-YV3-zTmX1X2go-l3hXq9y25TkZFlqujXOylZpIXQK95pEzlgdzfxpEgt6XvvW1faffPgIXiSKKi-5latgD37mOwVvYwnnQyVk01HwlSsvanAYRx-tr_vs1AsQAoEpcLpg2jqJ5XtCqLqGsVx3vGByJQtRPYcPuw6_uom3_hVXOUzr6x9bl7TnJh52"/>
+</div>
+<div class="p-6 text-center">
+<h4 class="font-headline-md text-headline-md text-on-surface">Amani T.</h4>
+<p class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-4">Lead Developer</p>
+<div class="flex justify-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary">share</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary">mail</span>
+</div>
+</div>
+</div>
+<!-- Strategist -->
+<div class="glass-card rounded-2xl overflow-hidden group">
+<div class="h-80 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A portrait of a professional business strategist, a Tanzanian woman in a sophisticated royal blue blazer. She is standing in front of a window overlooking a blurred Dar es Salaam cityscape at twilight. The lighting is elegant and soft, with the city lights creating a beautiful bokeh effect. She conveys intelligence and strategic depth, reflecting the professional and trustworthy vibe of the tech company." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_7ICZmULt8uSxcdMXmB9NApAWA7niFDib4BenuAG4t96YdgLRDH6TMoG5LYrlYdSee5q4sY8Un0NgYFO0Ho8i1K_dXtBtMNE_DuVKORqi9LOotJz1sSu6XrqLB5IQjHO3S7birtYmdZ-3NYfTOWyL5ePhq-LsL9-8ACXlxOVcBDBIgP1_ViF4PzxIC3hcupHqPBArsyEu3_zB4zzyh26OEPtfqzILQbQrtiugYnrnzXAAr44x--7idRIyN8HFzvNz0maRcwocOdSi"/>
+</div>
+<div class="p-6 text-center">
+<h4 class="font-headline-md text-headline-md text-on-surface">Sarah K.</h4>
+<p class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-4">Business Strategist</p>
+<div class="flex justify-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary">share</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary">mail</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto">
+<div class="bg-primary-container rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-full opacity-10">
+
+</div>
+<div class="relative z-10">
+<h2 class="font-headline-lg text-headline-lg mb-8">Ready to start your digital journey?</h2>
+<div class="flex flex-col md:flex-row justify-center gap-6">
+<button class="bg-secondary text-on-secondary px-10 py-4 rounded-full font-label-md text-label-md uppercase tracking-widest hover:scale-105 transition-transform">Get a Free Quote</button>
+<button class="border-2 border-secondary text-secondary px-10 py-4 rounded-full font-label-md text-label-md uppercase tracking-widest hover:bg-secondary/10 transition-colors">View Our Portfolio</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-surface-container-lowest border-t border-outline-variant mt-20">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="md:col-span-4">
+<div class="font-headline-md text-headline-md font-bold text-on-surface mb-4">JUVELINETECH</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Innovative digital solutions for the next generation of Tanzanian enterprises.</p>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-secondary hover:text-on-secondary transition-all cursor-pointer">
+<span class="material-symbols-outlined text-sm">public</span>
+</div>
+<div class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-secondary hover:text-on-secondary transition-all cursor-pointer">
+<span class="material-symbols-outlined text-sm">alternate_email</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-2">
+<h4 class="font-label-md text-label-md text-on-surface uppercase mb-6 tracking-widest">Company</h4>
+<ul class="space-y-4 font-body-md text-body-md text-on-surface-variant">
+<li><a class="hover:text-secondary transition-all" href="#">About</a></li>
+<li><a class="hover:text-secondary transition-all" href="#">Projects</a></li>
+<li><a class="hover:text-secondary transition-all" href="#">Services</a></li>
+<li><a class="hover:text-secondary transition-all" href="#">Contact</a></li>
+</ul>
+</div>
+<div class="md:col-span-3">
+<h4 class="font-label-md text-label-md text-on-surface uppercase mb-6 tracking-widest">Contact Us</h4>
+<ul class="space-y-4 font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary">location_on</span> Chanika, Dar es Salaam</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary">mail</span> hello@juvelinetech.co.tz</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary">call</span> +255 700 000 000</li>
+</ul>
+</div>
+<div class="md:col-span-3">
+<h4 class="font-label-md text-label-md text-on-surface uppercase mb-6 tracking-widest">Newsletter</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Stay updated with our latest tech insights.</p>
+<div class="relative">
+<input class="w-full bg-surface-container border border-outline-variant rounded-full py-3 px-6 text-on-surface focus:border-secondary focus:ring-0 outline-none" placeholder="Email address" type="email"/>
+<button class="absolute right-1 top-1 bg-secondary text-on-secondary w-10 h-10 rounded-full flex items-center justify-center hover:opacity-90">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="md:col-span-12 border-t border-outline-variant pt-8 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 JuveLineTech. All rights reserved.</p>
+<div class="flex gap-8 font-label-md text-label-md text-on-surface-variant">
+<a class="hover:text-secondary" href="#">Privacy Policy</a>
+<a class="hover:text-secondary" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- FAB -->
+<button class="fixed bottom-8 right-8 w-16 h-16 bg-tertiary text-on-tertiary rounded-full shadow-[0_10px_30px_-5px_rgba(255,181,157,0.5)] z-40 flex items-center justify-center hover:scale-110 transition-transform active:scale-95 group">
+<span class="material-symbols-outlined text-3xl group-hover:rotate-12 transition-transform">chat_bubble</span>
+</button>
+<script>
+        // Micro-interactions and parallax scroll effect
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.glass-card');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const isHovered = (e.clientX > rect.left && e.clientX < rect.right && e.clientY > rect.top && e.clientY < rect.bottom);
+                
+                if (isHovered) {
+                    const rotateX = (y - 0.5) * 10;
+                    const rotateY = (x - 0.5) * -10;
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px) scale(1.02)`;
+                }
+            });
+        });
+
+        // Sticky header transition
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('bg-surface-dim/95');
+                header.classList.remove('bg-surface-glass');
+            } else {
+                header.classList.add('bg-surface-glass');
+                header.classList.remove('bg-surface-dim/95');
+            }
+        });
+    </script>
+</body></html>
