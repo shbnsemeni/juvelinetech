@@ -218,6 +218,41 @@
             border: 1px solid #D1FAE5;
         }
 
+        /* ===== DESIGN & MARKETING ===== */
+        #design { background: #F0FDF4; }
+        .design-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+        .design-card {
+            padding: 28px 24px;
+            border-radius: 16px;
+            background: #fff;
+            border: 1px solid #E5E7EB;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+        .design-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(16,185,129,0.12); }
+        .design-card .icon {
+            width: 48px; height: 48px;
+            background: linear-gradient(135deg, #059669, #10B981);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        .design-card h3 { font-size: 17px; font-weight: 700; color: #1F2937; margin-bottom: 8px; }
+        .design-card p { font-size: 14px; color: #6B7280; line-height: 1.7; }
+        .design-card .skills { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+        .design-card .skills span {
+            font-size: 11px; padding: 4px 12px; background: #F0FDF4;
+            border-radius: 20px; color: #059669; font-weight: 500; border: 1px solid #D1FAE5;
+        }
+
         /* ===== PORTFOLIO ===== */
         #portfolio { background: #F0FDF4; }
         .portfolio-grid {
@@ -374,7 +409,9 @@
     <div class="mobile-menu" id="mobileMenu">
         <button class="close-menu" onclick="closeMenu()">✕</button>
         <a href="#services" onclick="closeMenu()">Services</a>
+        <a href="#design" onclick="closeMenu()">Design</a>
         <a href="#portfolio" onclick="closeMenu()">Portfolio</a>
+        <a href="courses.html" onclick="closeMenu()">Courses</a>
         <a href="#about" onclick="closeMenu()">About</a>
         <a href="#contact" onclick="closeMenu()">Contact</a>
     </div>
@@ -385,7 +422,9 @@
             <a href="#" class="nav-logo"><span class="j">J</span><span class="t">t</span></a>
             <div class="nav-links">
                 <a href="#services">Services</a>
+                <a href="#design">Design</a>
                 <a href="#portfolio">Portfolio</a>
+                <a href="courses.html">Courses</a>
                 <a href="#about">About</a>
                 <a href="#contact">Contact</a>
                 <a href="#contact" class="nav-cta">Get a Quote</a>
@@ -462,6 +501,89 @@
                         <span>API Dev</span>
                         <span>Automation</span>
                         <span>Legacy Migration</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Design & Marketing -->
+    <section id="design">
+        <div class="container">
+            <div class="section-tag">Design &amp; Marketing</div>
+            <h2 class="section-title">Creative &amp; Marketing Services</h2>
+            <div class="design-grid">
+
+                <div class="design-card">
+                    <div class="icon">🎨</div>
+                    <h3>Logo Creation</h3>
+                    <p>Professional logo design and brand identity creation that makes your business stand out. Custom typography, color palettes, and vector designs.</p>
+                    <div class="skills">
+                        <span>Brand Identity</span>
+                        <span>Custom Logos</span>
+                        <span>Typography</span>
+                        <span>Vector Art</span>
+                    </div>
+                </div>
+
+                <div class="design-card">
+                    <div class="icon">🖼️</div>
+                    <h3>Posters Creation</h3>
+                    <p>Eye-catching posters, flyers, banners, and social media graphics designed to capture attention and communicate your message effectively.</p>
+                    <div class="skills">
+                        <span>Flyers</span>
+                        <span>Banners</span>
+                        <span>Social Media</span>
+                        <span>Print Design</span>
+                    </div>
+                </div>
+
+                <div class="design-card">
+                    <div class="icon">📸</div>
+                    <h3>Photo Editing</h3>
+                    <p>Professional photo retouching, background removal, color correction, and image restoration to make your photos look their best.</p>
+                    <div class="skills">
+                        <span>Retouching</span>
+                        <span>BG Removal</span>
+                        <span>Color Grading</span>
+                        <span>Restoration</span>
+                    </div>
+                </div>
+
+                <div class="design-card">
+                    <div class="icon">🎬</div>
+                    <h3>Video Editing</h3>
+                    <p>Engaging video content for promotions, social media, events, and commercials. From raw footage to polished final cut.</p>
+                    <div class="skills">
+                        <span>Promo Videos</span>
+                        <span>Social Media</span>
+                        <span>Commercials</span>
+                        <span>Montage</span>
+                    </div>
+                </div>
+
+                <div class="design-card">
+                    <div class="icon">✨</div>
+                    <h3>Motion Graphics</h3>
+                    <p>Animated intros, explainer videos, kinetic typography, and 2D motion graphics that bring your brand stories to life.</p>
+                    <div class="skills">
+                        <span>Animated Intros</span>
+                        <span>Explainer Videos</span>
+                        <span>2D Animation</span>
+                        <span>Kinetic Type</span>
+                    </div>
+                </div>
+
+                <div class="design-card">
+                    <div class="icon">📈</div>
+                    <h3>SEO</h3>
+                    <p>Search engine optimization to improve your website's visibility on Google. Keyword research, on-page optimization, and technical SEO.</p>
+                    <div class="skills">
+                        <span>Keyword Research</span>
+                        <span>On-Page SEO</span>
+                        <span>Technical SEO</span>
+                        <span>Local SEO</span>
                     </div>
                 </div>
 
@@ -594,6 +716,8 @@
             <div class="links">
                 <h4>Quick Links</h4>
                 <a href="#services">Services</a>
+                <a href="#design">Design</a>
+                <a href="courses.html">Courses</a>
                 <a href="#portfolio">Portfolio</a>
                 <a href="#about">About</a>
                 <a href="#contact">Contact</a>
