@@ -134,6 +134,58 @@ tailwind.config = {
     background: radial-gradient(circle at 0% 0%, rgba(0, 210, 253, 0.15) 0%, transparent 50%),
                 radial-gradient(circle at 100% 100%, rgba(220, 82, 29, 0.1) 0%, transparent 50%);
   }
+
+  /* Cinematic button glow */
+  .btn-glow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    position: relative;
+  }
+  .btn-glow:hover {
+    transform: translateY(-3px) scale(1.05);
+  }
+  .btn-glow:active {
+    transform: translateY(0) scale(0.97);
+  }
+  .btn-glow.primary:hover {
+    box-shadow: 0 0 40px rgba(0, 210, 253, 0.5), 0 0 80px rgba(0, 210, 253, 0.2);
+  }
+  .btn-glow.secondary:hover {
+    box-shadow: 0 0 40px rgba(162, 231, 255, 0.4), 0 0 80px rgba(162, 231, 255, 0.1);
+  }
+  .btn-glow.tertiary:hover {
+    box-shadow: 0 0 40px rgba(220, 82, 29, 0.4), 0 0 80px rgba(220, 82, 29, 0.1);
+  }
+
+  /* Mockup image placeholders (replacing material icons) */
+  .mockup-img {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-size: 26px;
+    font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 40;
+  }
+  .mockup-img.sm { width: 44px; height: 44px; font-size: 20px; border-radius: 10px; }
+  .mockup-img.lg { width: 72px; height: 72px; font-size: 34px; border-radius: 16px; }
+  .mockup-img.pf { width: 100%; height: 100%; min-height: 160px; border-radius: 0; font-size: 56px; }
+
+  /* Mobile menu */
   .mobile-menu {
     position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
     z-index: 2000; padding: 80px 28px 28px;
@@ -156,6 +208,12 @@ tailwind.config = {
   .mobile-overlay.show { opacity: 1; pointer-events: auto; }
   .nav-blur { backdrop-filter: blur(20px); }
   html { scroll-behavior: smooth; }
+
+  /* Smaller headings on mobile for cleaner look */
+  @media (max-width: 768px) {
+    h1.font-headline-xl-mobile { font-size: 28px !important; }
+    .btn-glow { padding: 12px 24px; font-size: 13px; }
+  }
 </style>
 </head>
 <body class="font-body-md text-body-md">
@@ -181,7 +239,7 @@ tailwind.config = {
       <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="courses.html">Courses</a>
       <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#about">About</a>
       <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#contact">Contact</a>
-      <a class="bg-secondary-container text-on-secondary-container px-6 py-2 rounded-full font-label-md hover:scale-105 active:scale-95 transition-all" href="#contact">Quote</a>
+      <a class="btn-glow primary bg-secondary-container text-on-secondary-container px-6 py-2 text-xs" href="#contact">Quote</a>
     </div>
     <button class="md:hidden flex flex-col gap-1.5 bg-transparent border-none cursor-pointer p-1" onclick="openMenu()">
       <span class="block w-6 h-0.5 bg-on-surface rounded"></span>
@@ -192,8 +250,18 @@ tailwind.config = {
 </header>
 
 <main class="pt-20">
-  <section class="relative min-h-screen flex items-center overflow-hidden gradient-mesh">
-    <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full py-20">
+  <section class="relative min-h-screen flex items-center overflow-hidden">
+    <!-- Shader background -->
+    <div class="absolute inset-0 w-full h-full opacity-40 z-0">
+      <canvas id="shader-canvas-hero" style="display:block;width:100%;height:100%"></canvas>
+    </div>
+    <!-- Three.js background -->
+    <div class="absolute inset-0 z-10 pointer-events-none opacity-30">
+      <div id="threejs-container-hero" style="width:100%;height:100%"></div>
+    </div>
+    <!-- Gradient fallback -->
+    <div class="absolute inset-0 gradient-mesh z-[2]"></div>
+    <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full py-20 relative z-20">
       <div class="max-w-3xl reveal active">
         <h1 class="font-headline-xl-mobile md:font-headline-xl text-on-surface mb-6" style="text-shadow: 0 0 10px rgba(162, 231, 255, 0.3);">
           Technology Solutions That <span class="text-secondary">Drive Your Business Forward</span>
@@ -202,17 +270,17 @@ tailwind.config = {
           From web &amp; mobile apps to enterprise systems and IT infrastructure — we build technology that works for you.
         </p>
         <div class="flex flex-wrap gap-4">
-          <a href="#services" class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-full font-label-md hover:scale-105 active:scale-95 transition-all inline-flex items-center gap-2">
+          <a href="#services" class="btn-glow primary bg-secondary-container text-on-secondary-container">
+            <span class="material-symbols-outlined text-sm">explore</span>
             Explore Services
-            <span class="material-symbols-outlined">arrow_forward</span>
           </a>
-          <a href="#contact" class="border-2 border-secondary text-secondary px-8 py-4 rounded-full font-label-md hover:bg-secondary/10 transition-all inline-flex items-center gap-2">
+          <a href="#contact" class="btn-glow secondary border-2 border-secondary text-secondary">
             Contact Us
           </a>
         </div>
       </div>
     </div>
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 floating hidden md:block">
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 floating hidden md:block z-20">
       <span class="material-symbols-outlined text-secondary text-4xl">keyboard_double_arrow_down</span>
     </div>
   </section>
@@ -220,27 +288,21 @@ tailwind.config = {
   <section class="bg-surface-container-low py-12 border-y border-outline-variant/30">
     <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
       <div class="flex items-center gap-6 justify-center">
-        <div class="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center">
-          <span class="material-symbols-outlined text-secondary text-3xl">terminal</span>
-        </div>
+        <div class="mockup-img lg bg-gradient-to-br from-secondary/30 to-secondary/10 text-secondary">terminal</div>
         <div>
           <div class="font-headline-lg text-on-surface">20+</div>
           <div class="font-label-md text-on-surface-variant uppercase tracking-widest">Projects</div>
         </div>
       </div>
       <div class="flex items-center gap-6 justify-center">
-        <div class="w-16 h-16 rounded-full bg-tertiary/10 flex items-center justify-center">
-          <span class="material-symbols-outlined text-tertiary text-3xl">layers</span>
-        </div>
+        <div class="mockup-img lg bg-gradient-to-br from-tertiary/30 to-tertiary/10 text-tertiary">layers</div>
         <div>
           <div class="font-headline-lg text-on-surface">5+</div>
           <div class="font-label-md text-on-surface-variant uppercase tracking-widest">Technologies</div>
         </div>
       </div>
       <div class="flex items-center gap-6 justify-center">
-        <div class="w-16 h-16 rounded-full bg-accent-green/10 flex items-center justify-center">
-          <span class="material-symbols-outlined text-accent-green text-3xl">workspace_premium</span>
-        </div>
+        <div class="mockup-img lg bg-gradient-to-br from-accent-green/30 to-accent-green/10 text-accent-green">workspace_premium</div>
         <div>
           <div class="font-headline-lg text-on-surface">3+</div>
           <div class="font-label-md text-on-surface-variant uppercase tracking-widest">Years Exp</div>
@@ -256,30 +318,22 @@ tailwind.config = {
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
       <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
-        <div class="p-3 bg-secondary/10 rounded-lg">
-          <span class="material-symbols-outlined text-secondary text-3xl">devices</span>
-        </div>
+        <div class="mockup-img bg-gradient-to-br from-secondary/30 to-secondary/10 text-secondary">devices</div>
         <h3 class="font-headline-md text-on-surface">Web &amp; Mobile</h3>
         <p class="text-on-surface-variant">Modern websites, web applications, and native mobile apps for Android &amp; iOS.</p>
       </div>
       <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
-        <div class="p-3 bg-tertiary/10 rounded-lg">
-          <span class="material-symbols-outlined text-tertiary text-3xl">settings_applications</span>
-        </div>
+        <div class="mockup-img bg-gradient-to-br from-tertiary/30 to-tertiary/10 text-tertiary">settings_applications</div>
         <h3 class="font-headline-md text-on-surface">Software Systems</h3>
         <p class="text-on-surface-variant">Custom software including school &amp; hospital management, inventory, POS, and more.</p>
       </div>
       <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
-        <div class="p-3 bg-secondary/10 rounded-lg">
-          <span class="material-symbols-outlined text-secondary text-3xl">dns</span>
-        </div>
+        <div class="mockup-img bg-gradient-to-br from-secondary/30 to-secondary/10 text-secondary">dns</div>
         <h3 class="font-headline-md text-on-surface">IT Infrastructure</h3>
         <p class="text-on-surface-variant">Hardware repair, network setup, data recovery, and cybersecurity solutions.</p>
       </div>
       <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
-        <div class="p-3 bg-tertiary/10 rounded-lg">
-          <span class="material-symbols-outlined text-tertiary text-3xl">lightbulb</span>
-        </div>
+        <div class="mockup-img bg-gradient-to-br from-tertiary/30 to-tertiary/10 text-tertiary">lightbulb</div>
         <h3 class="font-headline-md text-on-surface">Consulting</h3>
         <p class="text-on-surface-variant">IT consulting, system integration, automation tools, API development &amp; legacy migration.</p>
       </div>
@@ -294,9 +348,7 @@ tailwind.config = {
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
         <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
-          <div class="p-3 bg-secondary/10 rounded-lg">
-            <span class="material-symbols-outlined text-secondary text-3xl">draw</span>
-          </div>
+          <div class="mockup-img bg-gradient-to-br from-secondary/30 to-secondary/10 text-secondary">draw</div>
           <h3 class="font-headline-md text-on-surface">Logo Creation</h3>
           <p class="text-on-surface-variant">Professional logo design and brand identity creation. Custom typography, color palettes, and vector designs.</p>
           <div class="flex flex-wrap gap-2 mt-2">
@@ -307,9 +359,7 @@ tailwind.config = {
           </div>
         </div>
         <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
-          <div class="p-3 bg-tertiary/10 rounded-lg">
-            <span class="material-symbols-outlined text-tertiary text-3xl">post_add</span>
-          </div>
+          <div class="mockup-img bg-gradient-to-br from-tertiary/30 to-tertiary/10 text-tertiary">post_add</div>
           <h3 class="font-headline-md text-on-surface">Posters Creation</h3>
           <p class="text-on-surface-variant">Eye-catching posters, flyers, banners, and social media graphics to capture attention.</p>
           <div class="flex flex-wrap gap-2 mt-2">
@@ -320,9 +370,7 @@ tailwind.config = {
           </div>
         </div>
         <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
-          <div class="p-3 bg-secondary/10 rounded-lg">
-            <span class="material-symbols-outlined text-secondary text-3xl">photo_camera</span>
-          </div>
+          <div class="mockup-img bg-gradient-to-br from-secondary/30 to-secondary/10 text-secondary">photo_camera</div>
           <h3 class="font-headline-md text-on-surface">Photo Editing</h3>
           <p class="text-on-surface-variant">Professional photo retouching, background removal, color correction, and image restoration.</p>
           <div class="flex flex-wrap gap-2 mt-2">
@@ -333,9 +381,7 @@ tailwind.config = {
           </div>
         </div>
         <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
-          <div class="p-3 bg-tertiary/10 rounded-lg">
-            <span class="material-symbols-outlined text-tertiary text-3xl">videocam</span>
-          </div>
+          <div class="mockup-img bg-gradient-to-br from-tertiary/30 to-tertiary/10 text-tertiary">videocam</div>
           <h3 class="font-headline-md text-on-surface">Video Editing</h3>
           <p class="text-on-surface-variant">Engaging video content for promotions, social media, events, and commercials.</p>
           <div class="flex flex-wrap gap-2 mt-2">
@@ -346,9 +392,7 @@ tailwind.config = {
           </div>
         </div>
         <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
-          <div class="p-3 bg-secondary/10 rounded-lg">
-            <span class="material-symbols-outlined text-secondary text-3xl">animation</span>
-          </div>
+          <div class="mockup-img bg-gradient-to-br from-secondary/30 to-secondary/10 text-secondary">animation</div>
           <h3 class="font-headline-md text-on-surface">Motion Graphics</h3>
           <p class="text-on-surface-variant">Animated intros, explainer videos, kinetic typography, and 2D motion graphics.</p>
           <div class="flex flex-wrap gap-2 mt-2">
@@ -359,9 +403,7 @@ tailwind.config = {
           </div>
         </div>
         <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
-          <div class="p-3 bg-tertiary/10 rounded-lg">
-            <span class="material-symbols-outlined text-tertiary text-3xl">travel_explore</span>
-          </div>
+          <div class="mockup-img bg-gradient-to-br from-tertiary/30 to-tertiary/10 text-tertiary">travel_explore</div>
           <h3 class="font-headline-md text-on-surface">SEO</h3>
           <p class="text-on-surface-variant">Search engine optimization to improve your website's visibility on Google.</p>
           <div class="flex flex-wrap gap-2 mt-2">
@@ -382,8 +424,8 @@ tailwind.config = {
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
       <div class="group relative overflow-hidden rounded-2xl glass-card">
-        <div class="aspect-video relative overflow-hidden bg-primary-container flex items-center justify-center">
-          <span class="material-symbols-outlined text-secondary/40 text-7xl">storefront</span>
+        <div class="aspect-video relative overflow-hidden bg-gradient-to-br from-secondary/20 to-primary-container flex items-center justify-center">
+          <div class="mockup-img pf bg-gradient-to-br from-secondary/20 to-transparent text-secondary/50">storefront</div>
         </div>
         <div class="p-6">
           <span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-label-md mb-3 inline-block">Web Platform</span>
@@ -394,12 +436,12 @@ tailwind.config = {
             <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Tailwind CSS</span>
             <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">PostgreSQL</span>
           </div>
-          <a class="text-secondary font-label-md flex items-center gap-1 hover:underline" href="https://mateteonlinestore.com" target="_blank">Visit Website <span class="material-symbols-outlined text-sm">open_in_new</span></a>
+          <a class="btn-glow secondary text-secondary border border-secondary text-xs mt-2" href="https://mateteonlinestore.com" target="_blank">Visit Website <span class="material-symbols-outlined text-sm">open_in_new</span></a>
         </div>
       </div>
       <div class="group relative overflow-hidden rounded-2xl glass-card">
-        <div class="aspect-video relative overflow-hidden bg-primary-container flex items-center justify-center">
-          <span class="material-symbols-outlined text-tertiary/40 text-7xl">smartphone</span>
+        <div class="aspect-video relative overflow-hidden bg-gradient-to-br from-tertiary/20 to-primary-container flex items-center justify-center">
+          <div class="mockup-img pf bg-gradient-to-br from-tertiary/20 to-transparent text-tertiary/50">smartphone</div>
         </div>
         <div class="p-6">
           <span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-xs font-label-md mb-3 inline-block">Mobile App</span>
@@ -414,8 +456,8 @@ tailwind.config = {
         </div>
       </div>
       <div class="group relative overflow-hidden rounded-2xl glass-card">
-        <div class="aspect-video relative overflow-hidden bg-primary-container flex items-center justify-center">
-          <span class="material-symbols-outlined text-secondary/40 text-7xl">rocket_launch</span>
+        <div class="aspect-video relative overflow-hidden bg-gradient-to-br from-secondary/20 to-primary-container flex items-center justify-center">
+          <div class="mockup-img pf bg-gradient-to-br from-secondary/20 to-transparent text-secondary/50">rocket_launch</div>
         </div>
         <div class="p-6">
           <span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-label-md mb-3 inline-block">Your Idea</span>
@@ -425,7 +467,7 @@ tailwind.config = {
             <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">You Dream It</span>
             <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">We Build It</span>
           </div>
-          <a class="text-secondary font-label-md flex items-center gap-1 hover:underline" href="#contact">Start a Project <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+          <a class="btn-glow secondary text-secondary border border-secondary text-xs mt-2" href="#contact">Start a Project <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
         </div>
       </div>
     </div>
@@ -439,9 +481,7 @@ tailwind.config = {
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
         <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
-          <div class="p-3 bg-secondary/10 rounded-lg">
-            <span class="material-symbols-outlined text-secondary text-3xl">tips_and_updates</span>
-          </div>
+          <div class="mockup-img bg-gradient-to-br from-secondary/30 to-secondary/10 text-secondary">tips_and_updates</div>
           <h3 class="font-headline-md text-on-surface">Tech Tips</h3>
           <p class="text-on-surface-variant">Computer basics, troubleshooting, security, na internet skills kwa wanaoanza.</p>
           <div class="flex flex-wrap gap-2 mt-auto pt-4">
@@ -450,12 +490,10 @@ tailwind.config = {
             <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Security</span>
             <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Internet</span>
           </div>
-          <a class="bg-secondary-container text-on-secondary-container px-5 py-2.5 rounded-full font-label-md hover:scale-105 active:scale-95 transition-all text-sm mt-3 inline-block" href="course/tech-tips.html">Start Learning</a>
+          <a class="btn-glow primary bg-secondary-container text-on-secondary-container text-sm mt-3" href="course/tech-tips.html">Start Learning</a>
         </div>
         <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
-          <div class="p-3 bg-tertiary/10 rounded-lg">
-            <span class="material-symbols-outlined text-tertiary text-3xl">code</span>
-          </div>
+          <div class="mockup-img bg-gradient-to-br from-tertiary/30 to-tertiary/10 text-tertiary">code</div>
           <h3 class="font-headline-md text-on-surface">Python</h3>
           <p class="text-on-surface-variant">Jifunze Python kutoka mwanzo — variables loops functions hadi simple projects.</p>
           <div class="flex flex-wrap gap-2 mt-auto pt-4">
@@ -464,12 +502,10 @@ tailwind.config = {
             <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Functions</span>
             <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Projects</span>
           </div>
-          <a class="bg-secondary-container text-on-secondary-container px-5 py-2.5 rounded-full font-label-md hover:scale-105 active:scale-95 transition-all text-sm mt-3 inline-block" href="course/python.html">Start Learning</a>
+          <a class="btn-glow primary bg-secondary-container text-on-secondary-container text-sm mt-3" href="course/python.html">Start Learning</a>
         </div>
         <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
-          <div class="p-3 bg-secondary/10 rounded-lg">
-            <span class="material-symbols-outlined text-secondary text-3xl">language</span>
-          </div>
+          <div class="mockup-img bg-gradient-to-br from-secondary/30 to-secondary/10 text-secondary">language</div>
           <h3 class="font-headline-md text-on-surface">HTML &amp; CSS</h3>
           <p class="text-on-surface-variant">Unda websites za kuvutia — structure, styling, responsive design, na zaidi.</p>
           <div class="flex flex-wrap gap-2 mt-auto pt-4">
@@ -478,12 +514,10 @@ tailwind.config = {
             <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Flexbox</span>
             <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Grid</span>
           </div>
-          <a class="bg-secondary-container text-on-secondary-container px-5 py-2.5 rounded-full font-label-md hover:scale-105 active:scale-95 transition-all text-sm mt-3 inline-block" href="course/html-css.html">Start Learning</a>
+          <a class="btn-glow primary bg-secondary-container text-on-secondary-container text-sm mt-3" href="course/html-css.html">Start Learning</a>
         </div>
         <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
-          <div class="p-3 bg-tertiary/10 rounded-lg">
-            <span class="material-symbols-outlined text-tertiary text-3xl">javascript</span>
-          </div>
+          <div class="mockup-img bg-gradient-to-br from-tertiary/30 to-tertiary/10 text-tertiary">javascript</div>
           <h3 class="font-headline-md text-on-surface">JavaScript</h3>
           <p class="text-on-surface-variant">Pata uwezo wa kuunda web applications interactive na dynamic.</p>
           <div class="flex flex-wrap gap-2 mt-auto pt-4">
@@ -492,12 +526,10 @@ tailwind.config = {
             <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Events</span>
             <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">APIs</span>
           </div>
-          <a class="bg-secondary-container text-on-secondary-container px-5 py-2.5 rounded-full font-label-md hover:scale-105 active:scale-95 transition-all text-sm mt-3 inline-block" href="course/javascript.html">Start Learning</a>
+          <a class="btn-glow primary bg-secondary-container text-on-secondary-container text-sm mt-3" href="course/javascript.html">Start Learning</a>
         </div>
         <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
-          <div class="p-3 bg-secondary/10 rounded-lg">
-            <span class="material-symbols-outlined text-secondary text-3xl">view_quilt</span>
-          </div>
+          <div class="mockup-img bg-gradient-to-br from-secondary/30 to-secondary/10 text-secondary">view_quilt</div>
           <h3 class="font-headline-md text-on-surface">React</h3>
           <p class="text-on-surface-variant">Modern app development — components, state, hooks, na building real apps.</p>
           <div class="flex flex-wrap gap-2 mt-auto pt-4">
@@ -506,12 +538,10 @@ tailwind.config = {
             <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">State</span>
             <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Hooks</span>
           </div>
-          <a class="bg-secondary-container text-on-secondary-container px-5 py-2.5 rounded-full font-label-md hover:scale-105 active:scale-95 transition-all text-sm mt-3 inline-block" href="course/react.html">Start Learning</a>
+          <a class="btn-glow primary bg-secondary-container text-on-secondary-container text-sm mt-3" href="course/react.html">Start Learning</a>
         </div>
         <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
-          <div class="p-3 bg-tertiary/10 rounded-lg">
-            <span class="material-symbols-outlined text-tertiary text-3xl">auto_awesome</span>
-          </div>
+          <div class="mockup-img bg-gradient-to-br from-tertiary/30 to-tertiary/10 text-tertiary">auto_awesome</div>
           <h3 class="font-headline-md text-on-surface">Prompt Engineering</h3>
           <p class="text-on-surface-variant">Jifunze kuandika prompts bora kwa AI kama ChatGPT, Claude, na Gemini.</p>
           <div class="flex flex-wrap gap-2 mt-auto pt-4">
@@ -520,11 +550,11 @@ tailwind.config = {
             <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Chain-of-Thought</span>
             <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Projects</span>
           </div>
-          <a class="bg-secondary-container text-on-secondary-container px-5 py-2.5 rounded-full font-label-md hover:scale-105 active:scale-95 transition-all text-sm mt-3 inline-block" href="course/prompt-engineering.html">Start Learning</a>
+          <a class="btn-glow primary bg-secondary-container text-on-secondary-container text-sm mt-3" href="course/prompt-engineering.html">Start Learning</a>
         </div>
       </div>
       <div class="text-center mt-12">
-        <a class="text-secondary font-label-md px-8 py-3 rounded-full border border-secondary hover:bg-secondary/10 transition-all inline-flex items-center gap-2" href="courses.html">View All Courses <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+        <a class="btn-glow secondary text-secondary border-2 border-secondary" href="courses.html">View All Courses <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
       </div>
     </div>
   </section>
@@ -598,7 +628,7 @@ tailwind.config = {
           <input class="bg-surface-dim border border-outline-variant rounded-xl px-4 py-3.5 text-on-surface placeholder-on-surface-variant/50 focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all" type="email" name="email" placeholder="Your Email" required>
           <input class="bg-surface-dim border border-outline-variant rounded-xl px-4 py-3.5 text-on-surface placeholder-on-surface-variant/50 focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all" type="text" name="subject" placeholder="Subject">
           <textarea class="bg-surface-dim border border-outline-variant rounded-xl px-4 py-3.5 text-on-surface placeholder-on-surface-variant/50 focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all resize-none h-32" name="message" placeholder="Tell us about your project..." required></textarea>
-          <button class="bg-secondary-container text-on-secondary-container px-8 py-3.5 rounded-full font-label-md hover:scale-105 active:scale-95 transition-all self-start" type="submit">Send Message</button>
+          <button class="btn-glow primary bg-secondary-container text-on-secondary-container self-start" type="submit">Send Message</button>
         </form>
       </div>
     </div>
@@ -612,7 +642,7 @@ tailwind.config = {
       </div>
       <h2 class="font-headline-xl-mobile md:font-headline-xl text-on-surface mb-6 relative z-10">Ready to Build Something Great?</h2>
       <p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-2xl mx-auto relative z-10">Let's collaborate to bring your vision to life with world-class engineering and innovative design.</p>
-      <a class="relative z-10 bg-on-tertiary-container text-white px-10 py-5 rounded-2xl font-headline-md hover:scale-105 active:opacity-80 transition-all shadow-xl shadow-on-tertiary-container/40 inline-block" href="#contact">Contact Us Today</a>
+      <a class="btn-glow tertiary bg-on-tertiary-container text-white shadow-xl shadow-on-tertiary-container/40" href="#contact">Contact Us Today</a>
     </div>
   </section>
 </main>
@@ -684,6 +714,63 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (el) { e.preventDefault(); window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' }); }
   });
 });
+</script>
+
+<!-- Shader Background -->
+<script>
+(function() {
+  var canvas = document.getElementById('shader-canvas-hero');
+  if (!canvas) return;
+  function syncSize() {
+    var w = canvas.clientWidth || 1280;
+    var h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; }
+  }
+  if (typeof ResizeObserver !== 'undefined') { new ResizeObserver(syncSize).observe(canvas); }
+  syncSize();
+  var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  var vs = 'attribute vec2 a_position;varying vec2 v_texCoord;void main(){v_texCoord=a_position*0.5+0.5;gl_Position=vec4(a_position,0.0,1.0);}';
+  var fs = 'precision highp float;varying vec2 v_texCoord;uniform float u_time;uniform vec2 u_resolution;void main(){vec2 uv=v_texCoord;vec3 c1=vec3(0.039,0.086,0.157);vec3 c2=vec3(0.0,0.831,1.0);float n=sin(uv.x*10.0+u_time)*cos(uv.y*10.0+u_time*0.5);n+=sin(uv.y*15.0-u_time*0.8)*0.5;vec3 fc=mix(c1,c1*1.5,n*0.5+0.5);fc=mix(fc,c2,pow(n*0.5+0.5,8.0)*0.2);gl_FragColor=vec4(fc,1.0);}';
+  function cs(t,s){var sh=gl.createShader(t);gl.shaderSource(sh,s);gl.compileShader(sh);return sh;}
+  var prog=gl.createProgram();gl.attachShader(prog,cs(gl.VERTEX_SHADER,vs));gl.attachShader(prog,cs(gl.FRAGMENT_SHADER,fs));gl.linkProgram(prog);gl.useProgram(prog);
+  var buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+  var pos=gl.getAttribLocation(prog,'a_position');gl.enableVertexAttribArray(pos);gl.vertexAttribPointer(pos,2,gl.FLOAT,false,0,0);
+  var uTime=gl.getUniformLocation(prog,'u_time');var uRes=gl.getUniformLocation(prog,'u_resolution');
+  var mouse={x:canvas.width/2,y:canvas.height/2};
+  window.addEventListener('mousemove',function(e){var r=canvas.getBoundingClientRect();if(r.width&&r.height){var nx=(e.clientX-r.left)/r.width;var ny=1.0-(e.clientY-r.top)/r.height;mouse.x=nx*canvas.width;mouse.y=ny*canvas.height;}});
+  function render(t){if(typeof ResizeObserver==='undefined')syncSize();gl.viewport(0,0,canvas.width,canvas.height);if(uTime)gl.uniform1f(uTime,t*0.001);if(uRes)gl.uniform2f(uRes,canvas.width,canvas.height);gl.drawArrays(gl.TRIANGLE_STRIP,0,4);requestAnimationFrame(render);}
+  render(0);
+})();
+</script>
+
+<!-- Three.js Background -->
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<script>
+(function() {
+  var container = document.getElementById('threejs-container-hero');
+  if (!container || typeof THREE === 'undefined') return;
+  var scene = new THREE.Scene();
+  var w = container.clientWidth || window.innerWidth;
+  var h = container.clientHeight || window.innerHeight;
+  var camera = new THREE.PerspectiveCamera(75, w / h, 0.1, 1000);
+  var renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+  renderer.setSize(w, h);
+  renderer.setPixelRatio(window.devicePixelRatio);
+  container.appendChild(renderer.domElement);
+  var geometry = new THREE.IcosahedronGeometry(1.5, 2);
+  var material = new THREE.MeshPhongMaterial({ color: 0x00d4ff, wireframe: true, transparent: true, opacity: 0.4 });
+  var sphere = new THREE.Mesh(geometry, material);
+  scene.add(sphere);
+  var light = new THREE.PointLight(0xffffff, 1, 100);
+  light.position.set(5, 5, 5);
+  scene.add(light);
+  scene.add(new THREE.AmbientLight(0x404040));
+  camera.position.z = 4;
+  function animate() { requestAnimationFrame(animate); sphere.rotation.x += 0.005; sphere.rotation.y += 0.005; renderer.render(scene, camera); }
+  window.addEventListener('resize', function() { var cw = container.clientWidth || window.innerWidth; var ch = container.clientHeight || window.innerHeight; camera.aspect = cw / ch; camera.updateProjectionMatrix(); renderer.setSize(cw, ch); });
+  animate();
+})();
 </script>
 </body>
 </html>

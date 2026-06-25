@@ -1,228 +1,284 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses — JuveLineTech</title>
-    <meta name="description" content="Jifunze programming, web development, computer tech tips, Python, JavaScript, HTML, CSS, na React. Courses kwa Kiswahili na English.">
-    <meta name="theme-color" content="#059669">
-    <meta name="google-adsense-account" content="ca-pub-3977547213503078">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: #1F2937; background: #F0FDF4; line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-
-        .nav {
-            background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.08); padding: 12px 0;
-            position: sticky; top: 0; z-index: 1000;
-        }
-        .nav .container { display: flex; align-items: center; justify-content: space-between; }
-        .nav-logo { font-weight: 900; font-size: 22px; letter-spacing: -1px; text-decoration: none; color: #1F2937; }
-        .nav-logo .j { color: #059669; }
-        .nav-logo .t { color: #D4A843; }
-        .nav-links { display: flex; gap: 24px; align-items: center; }
-        .nav-links a { text-decoration: none; color: #4B5563; font-size: 13px; font-weight: 500; transition: color 0.3s; }
-        .nav-links a:hover { color: #059669; }
-        .nav-cta { padding: 8px 20px; background: #059669; color: #fff !important; border-radius: 50px; font-weight: 700; font-size: 13px; }
-        .nav-cta:hover { background: #047857; }
-
-        .hero {
-            background: linear-gradient(135deg, #059669, #10B981);
-            padding: 60px 20px; text-align: center; color: #fff;
-        }
-        .hero h1 { font-size: clamp(28px, 4vw, 42px); font-weight: 800; margin-bottom: 10px; }
-        .hero p { font-size: 16px; color: rgba(255,255,255,0.85); max-width: 600px; margin: 0 auto; }
-
-        .section { padding: 60px 0; }
-        .section-title { font-size: 28px; font-weight: 700; margin-bottom: 36px; color: #1F2937; }
-
-        .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
-        .course-card {
-            background: #fff; border-radius: 16px; padding: 32px 28px;
-            border: 1px solid #E5E7EB; transition: all 0.3s ease;
-        }
-        .course-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(16,185,129,0.1); }
-        .course-card .icon {
-            width: 52px; height: 52px; background: linear-gradient(135deg, #059669, #10B981);
-            border-radius: 14px; display: flex; align-items: center; justify-content: center;
-            font-size: 26px; color: #fff; margin-bottom: 16px;
-        }
-        .course-card h3 { font-size: 20px; font-weight: 700; color: #1F2937; margin-bottom: 8px; }
-        .course-card .lang { font-size: 12px; color: #10B981; font-weight: 600; margin-bottom: 10px; }
-        .course-card p { font-size: 14px; color: #6B7280; line-height: 1.7; margin-bottom: 12px; }
-        .course-card .topics { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
-        .course-card .topics span {
-            font-size: 11px; padding: 4px 12px; background: #F0FDF4;
-            border-radius: 20px; color: #059669; font-weight: 500;
-        }
-        .course-card .btn-course {
-            display: inline-block; padding: 10px 24px; background: #10B981;
-            color: #fff; border-radius: 50px; font-size: 14px; font-weight: 600;
-            text-decoration: none; transition: background 0.3s;
-        }
-        .course-card .btn-course:hover { background: #059669; }
-
-        footer { background: #065F46; color: rgba(255,255,255,0.7); padding: 40px 0 24px; margin-top: 60px; }
-        footer .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px; }
-        footer .brand { max-width: 260px; }
-        footer .brand .logo-sm { font-weight: 900; font-size: 24px; letter-spacing: -2px; }
-        footer .brand .logo-sm .j { color: #fff; }
-        footer .brand .logo-sm .t { color: #FCD34D; }
-        footer .brand p { font-size: 13px; line-height: 1.7; margin-top: 6px; }
-        footer .links h4 { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 10px; }
-        footer .links a { display: block; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; margin-bottom: 5px; }
-        footer .links a:hover { color: #FCD34D; }
-        .copyright { text-align: center; padding-top: 24px; margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px; color: rgba(255,255,255,0.4); }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .course-grid { grid-template-columns: 1fr; }
-            footer .container { flex-direction: column; }
-        }
-    </style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Courses — JuveLineTech</title>
+<meta name="description" content="Jifunze programming, web development, computer tech tips, Python, JavaScript, HTML, CSS, na React. Courses kwa Kiswahili na English.">
+<meta name="theme-color" content="#0a1628">
+<meta name="google-adsense-account" content="ca-pub-3977547213503078">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "surface": "#101415","surface-dim": "#101415","surface-bright": "#363a3b","surface-container-lowest": "#0b0f10","surface-container-low": "#191c1e","surface-container": "#1d2022","surface-container-high": "#272a2c","surface-container-highest": "#323537","on-surface": "#e0e3e5","on-surface-variant": "#c5c6cd","background": "#101415","on-background": "#e0e3e5","primary": "#bbc7df","primary-container": "#0a1628","on-primary": "#253144","on-primary-container": "#758096","secondary": "#a2e7ff","secondary-container": "#00d2fd","on-secondary": "#003642","on-secondary-container": "#005669","tertiary": "#ffb59d","tertiary-container": "#2f0800","on-tertiary": "#5d1900","on-tertiary-container": "#dc521d","error": "#ffb4ab","surface-variant": "#323537","outline": "#8f9097","outline-variant": "#45474c","surface-glass": "rgba(10, 22, 40, 0.7)","border-glass": "rgba(255, 255, 255, 0.1)","accent-green": "#10B981","warning-yellow": "#FCD34D"
+      },
+      borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", "2xl": "1rem", full: "9999px" },
+      spacing: { "margin-mobile": "1rem", "margin-desktop": "5rem", "container-max": "1280px", gutter: "1.5rem" },
+      fontFamily: { "body-lg": ["Inter"], "body-md": ["Inter"], "headline-xl": ["Inter"], "headline-lg": ["Inter"], "headline-md": ["Inter"], "label-md": ["Inter"] },
+      fontSize: {
+        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+        "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
+        "headline-xl": ["48px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "800" }],
+        "headline-lg": ["32px", { lineHeight: "1.2", fontWeight: "700" }],
+        "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "700" }],
+        "label-md": ["14px", { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "600" }]
+      }
+    }
+  }
+}
+</script>
+<style>
+  body { background-color: #101415; color: #e0e3e5; overflow-x: hidden; }
+  .glass-card {
+    background: rgba(10, 22, 40, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .glass-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    border-color: #a2e7ff;
+    box-shadow: 0 0 30px rgba(162, 231, 255, 0.25);
+  }
+  .glass-card-static {
+    background: rgba(10, 22, 40, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .btn-glow {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    border-radius: 9999px;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-glow::before {
+    content: '';
+    position: absolute;
+    top: -2px; left: -2px; right: -2px; bottom: -2px;
+    border-radius: 9999px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: -1;
+  }
+  .btn-glow:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 40px rgba(0, 210, 253, 0.5), 0 0 80px rgba(0, 210, 253, 0.2);
+  }
+  .btn-glow:active { transform: translateY(0) scale(0.97); }
+  .btn-glow-orange:hover {
+    box-shadow: 0 0 40px rgba(255, 181, 157, 0.5), 0 0 80px rgba(255, 181, 157, 0.2);
+  }
+  .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+  .reveal.active { opacity: 1; transform: translateY(0); }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .nav-blur { backdrop-filter: blur(20px); }
+  html { scroll-behavior: smooth; }
+</style>
 </head>
-<body>
+<body class="font-body-md text-body-md">
 
-    <nav class="nav">
-        <div class="container">
-            <a href="index.html" class="nav-logo"><span class="j">J</span><span class="t">t</span></a>
-            <div class="nav-links">
-                <a href="index.html#services">Services</a>
-                <a href="index.html#portfolio">Portfolio</a>
-                <a href="courses.html"><strong style="color:#059669;">Courses</strong></a>
-                <a href="index.html#about">About</a>
-                <a href="index.html#contact">Contact</a>
-                <a href="index.html#contact" class="nav-cta">Get a Quote</a>
-            </div>
-        </div>
-    </nav>
-
-    <div class="hero">
-        <h1>📚 Our Courses</h1>
-        <p>Jifunze technology na programming kutoka mwanzo. Courses zetu zimeandikwa kwa lugha rahisi — English na Kiswahili — na mifano halisi ya code.</p>
+<header class="fixed top-0 w-full z-50 bg-surface-glass nav-blur border-b border-border-glass shadow-sm h-20">
+  <nav class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-full">
+    <a href="index.html" class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight no-underline">JuveLineTech</a>
+    <div class="hidden md:flex items-center gap-8">
+      <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300 no-underline" href="index.html#services">Services</a>
+      <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300 no-underline" href="index.html#portfolio">Portfolio</a>
+      <a class="font-body-md text-body-md text-secondary border-b-2 border-secondary no-underline" href="courses.html">Courses</a>
+      <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300 no-underline" href="index.html#about">About</a>
+      <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300 no-underline" href="index.html#contact">Contact</a>
+      <a class="bg-secondary-container text-on-secondary-container px-6 py-2 rounded-full font-label-md hover:scale-105 active:scale-95 transition-all no-underline" href="index.html#contact">Quote</a>
     </div>
+  </nav>
+</header>
 
-    <div class="section">
-        <div class="container">
-            <div class="course-grid">
-
-                <div class="course-card">
-                    <div class="icon">💻</div>
-                    <div class="lang">English / Kiswahili</div>
-                    <h3>Computer Tech Tips</h3>
-                    <p>Fundamentals za computers — hardware, software, Internet security, troubleshooting, na zaidi. Inafaa kwa wanaoanza kabisa.</p>
-                    <div class="topics">
-                        <span>Hardware</span><span>Software</span><span>OS</span><span>Security</span>
-                        <span>Internet</span><span>Troubleshoot</span><span>Cloud</span>
-                    </div>
-                    <a href="course/tech-tips.html" class="btn-course">Start Learning →</a>
-                </div>
-
-                <div class="course-card">
-                    <div class="icon">🐍</div>
-                    <div class="lang">English / Kiswahili</div>
-                    <h3>Python Programming</h3>
-                    <p>Kutoka zero hadi kuandika Python programs. Variables, loops, functions, file handling, na mini projects.</p>
-                    <div class="topics">
-                        <span>Variables</span><span>Loops</span><span>Functions</span><span>Lists</span>
-                        <span>OOP</span><span>Modules</span><span>Projects</span>
-                    </div>
-                    <a href="course/python.html" class="btn-course">Start Learning →</a>
-                </div>
-
-                <div class="course-card">
-                    <div class="icon">🌐</div>
-                    <div class="lang">English / Kiswahili</div>
-                    <h3>HTML &amp; CSS</h3>
-                    <p>Jenga websites za kuvutia. Unajifunza HTML structure, CSS styling, responsive design, Flexbox na Grid.</p>
-                    <div class="topics">
-                        <span>HTML5</span><span>CSS3</span><span>Flexbox</span><span>Grid</span>
-                        <span>Responsive</span><span>Forms</span><span>Project</span>
-                    </div>
-                    <a href="course/html-css.html" class="btn-course">Start Learning →</a>
-                </div>
-
-                <div class="course-card">
-                    <div class="icon">⚡</div>
-                    <div class="lang">English / Kiswahili</div>
-                    <h3>JavaScript</h3>
-                    <p>Fanya websites kuwa interactive. DOM manipulation, events, ES6+, na kufanya kazi na APIs.</p>
-                    <div class="topics">
-                        <span>Variables</span><span>Functions</span><span>DOM</span><span>Events</span>
-                        <span>ES6+</span><span>APIs</span><span>Projects</span>
-                    </div>
-                    <a href="course/javascript.html" class="btn-course">Start Learning →</a>
-                </div>
-
-                <div class="course-card">
-                    <div class="icon">⚛️</div>
-                    <div class="lang">English / Kiswahili</div>
-                    <h3>React</h3>
-                    <p>Modern frontend framework. Components, JSX, state management, hooks, na kujenga real-world applications.</p>
-                    <div class="topics">
-                        <span>JSX</span><span>Components</span><span>Props</span><span>State</span>
-                        <span>Hooks</span><span>Router</span><span>Project</span>
-                    </div>
-                    <a href="course/react.html" class="btn-course">Start Learning →</a>
-                </div>
-
-                <div class="course-card">
-                    <div class="icon">🤖</div>
-                    <div class="lang">English / Kiswahili</div>
-                    <h3>Prompt Engineering</h3>
-                    <p>Jifunze kuandika prompts bora kwa ChatGPT, Claude, Gemini na AI zingine. Pata matokeo sahihi kila mara.</p>
-                    <div class="topics">
-                        <span>AI Basics</span><span>Role Prompting</span><span>Chain-of-Thought</span>
-                        <span>Few-Shot</span><span>Iterative</span><span>Projects</span>
-                    </div>
-                    <a href="course/prompt-engineering.html" class="btn-course">Start Learning →</a>
-                </div>
-
-            </div>
-        </div>
+<main class="pt-20">
+  <section class="relative min-h-[40vh] flex items-center justify-center overflow-hidden gradient-mesh">
+    <div class="absolute inset-0 opacity-30" style="background: radial-gradient(circle at 30% 50%, rgba(0,210,253,0.1) 0%, transparent 50%), radial-gradient(circle at 70% 50%, rgba(220,82,29,0.08) 0%, transparent 50%);"></div>
+    <div class="relative z-10 text-center px-margin-mobile max-w-3xl mx-auto py-20">
+      <h1 class="font-headline-lg text-on-surface mb-4">Our Courses</h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto">Jifunze technology na programming kutoka mwanzo. Courses zetu zimeandikwa kwa lugha rahisi — English na Kiswahili — na mifano halisi ya code.</p>
     </div>
+  </section>
 
-    <footer>
-        <div class="container">
-            <div class="brand">
-                <div class="logo-sm"><span class="j">J</span><span class="t">t</span></div>
-                <p>Technology solutions that drive your business forward.</p>
-            </div>
-            <div class="links">
-                <h4>Quick Links</h4>
-                <a href="index.html">Home</a>
-                <a href="index.html#services">Services</a>
-                <a href="index.html#portfolio">Portfolio</a>
-                <a href="courses.html">Courses</a>
-                <a href="privacy.html">Privacy Policy</a>
-            </div>
-            <div class="links">
-                <h4>Courses</h4>
-                <a href="course/python.html">Python</a>
-                <a href="course/html-css.html">HTML &amp; CSS</a>
-                <a href="course/javascript.html">JavaScript</a>
-                <a href="course/react.html">React</a>
-                <a href="course/prompt-engineering.html">Prompt Engineering</a>
-            </div>
-            <div class="links">
-                <h4>Contact</h4>
-                <a href="tel:+255782341709">0782 341 709</a>
-                <a href="mailto:shbnsemeni@gmail.com">shbnsemeni@gmail.com</a>
-                <a>Chanika, Dar es Salaam</a>
-            </div>
+  <section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+
+      <div class="glass-card rounded-2xl overflow-hidden reveal">
+        <div class="h-48 bg-gradient-to-br from-secondary/20 to-primary-container flex items-center justify-center">
+          <span class="material-symbols-outlined text-6xl text-secondary/60">tips_and_updates</span>
         </div>
-        <div class="copyright">&copy; 2026 JuveLineTech. All rights reserved.</div>
-    </footer>
+        <div class="p-8">
+          <span class="text-xs text-secondary font-semibold uppercase tracking-wider">English / Kiswahili</span>
+          <h3 class="font-headline-md text-on-surface mt-2 mb-3">Computer Tech Tips</h3>
+          <p class="text-on-surface-variant text-sm mb-5">Fundamentals za computers — hardware, software, Internet security, troubleshooting, na zaidi. Inafaa kwa wanaoanza kabisa.</p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-full text-on-surface-variant">Hardware</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-full text-on-surface-variant">Software</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-full text-on-surface-variant">Security</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-full text-on-surface-variant">Internet</span>
+          </div>
+          <a class="btn-glow bg-secondary-container text-on-secondary-container" href="course/tech-tips.html">Start Learning <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+        </div>
+      </div>
 
+      <div class="glass-card rounded-2xl overflow-hidden reveal">
+        <div class="h-48 bg-gradient-to-br from-tertiary/20 to-primary-container flex items-center justify-center">
+          <span class="material-symbols-outlined text-6xl text-tertiary/60">code</span>
+        </div>
+        <div class="p-8">
+          <span class="text-xs text-secondary font-semibold uppercase tracking-wider">English / Kiswahili</span>
+          <h3 class="font-headline-md text-on-surface mt-2 mb-3">Python Programming</h3>
+          <p class="text-on-surface-variant text-sm mb-5">Kutoka zero hadi kuandika Python programs. Variables, loops, functions, file handling, na mini projects.</p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-full text-on-surface-variant">Variables</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-full text-on-surface-variant">Loops</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-full text-on-surface-variant">Functions</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-full text-on-surface-variant">OOP</span>
+          </div>
+          <a class="btn-glow bg-secondary-container text-on-secondary-container" href="course/python.html">Start Learning <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+        </div>
+      </div>
+
+      <div class="glass-card rounded-2xl overflow-hidden reveal">
+        <div class="h-48 bg-gradient-to-br from-secondary/20 to-primary-container flex items-center justify-center">
+          <span class="material-symbols-outlined text-6xl text-secondary/60">language</span>
+        </div>
+        <div class="p-8">
+          <span class="text-xs text-secondary font-semibold uppercase tracking-wider">English / Kiswahili</span>
+          <h3 class="font-headline-md text-on-surface mt-2 mb-3">HTML &amp; CSS</h3>
+          <p class="text-on-surface-variant text-sm mb-5">Jenga websites za kuvutia. Unajifunza HTML structure, CSS styling, responsive design, Flexbox na Grid.</p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-full text-on-surface-variant">HTML5</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-full text-on-surface-variant">CSS3</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-full text-on-surface-variant">Flexbox</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-full text-on-surface-variant">Grid</span>
+          </div>
+          <a class="btn-glow bg-secondary-container text-on-secondary-container" href="course/html-css.html">Start Learning <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+        </div>
+      </div>
+
+      <div class="glass-card rounded-2xl overflow-hidden reveal">
+        <div class="h-48 bg-gradient-to-br from-tertiary/20 to-primary-container flex items-center justify-center">
+          <span class="material-symbols-outlined text-6xl text-tertiary/60">javascript</span>
+        </div>
+        <div class="p-8">
+          <span class="text-xs text-secondary font-semibold uppercase tracking-wider">English / Kiswahili</span>
+          <h3 class="font-headline-md text-on-surface mt-2 mb-3">JavaScript</h3>
+          <p class="text-on-surface-variant text-sm mb-5">Fanya websites kuwa interactive. DOM manipulation, events, ES6+, na kufanya kazi na APIs.</p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-full text-on-surface-variant">DOM</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-full text-on-surface-variant">ES6+</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-full text-on-surface-variant">Events</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-full text-on-surface-variant">APIs</span>
+          </div>
+          <a class="btn-glow bg-secondary-container text-on-secondary-container" href="course/javascript.html">Start Learning <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+        </div>
+      </div>
+
+      <div class="glass-card rounded-2xl overflow-hidden reveal">
+        <div class="h-48 bg-gradient-to-br from-secondary/20 to-primary-container flex items-center justify-center">
+          <span class="material-symbols-outlined text-6xl text-secondary/60">view_quilt</span>
+        </div>
+        <div class="p-8">
+          <span class="text-xs text-secondary font-semibold uppercase tracking-wider">English / Kiswahili</span>
+          <h3 class="font-headline-md text-on-surface mt-2 mb-3">React</h3>
+          <p class="text-on-surface-variant text-sm mb-5">Modern frontend framework. Components, JSX, state management, hooks, na kujenga real-world applications.</p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-full text-on-surface-variant">JSX</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-full text-on-surface-variant">Components</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-full text-on-surface-variant">State</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-full text-on-surface-variant">Hooks</span>
+          </div>
+          <a class="btn-glow bg-secondary-container text-on-secondary-container" href="course/react.html">Start Learning <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+        </div>
+      </div>
+
+      <div class="glass-card rounded-2xl overflow-hidden reveal">
+        <div class="h-48 bg-gradient-to-br from-tertiary/20 to-primary-container flex items-center justify-center">
+          <span class="material-symbols-outlined text-6xl text-tertiary/60">auto_awesome</span>
+        </div>
+        <div class="p-8">
+          <span class="text-xs text-secondary font-semibold uppercase tracking-wider">English / Kiswahili</span>
+          <h3 class="font-headline-md text-on-surface mt-2 mb-3">Prompt Engineering</h3>
+          <p class="text-on-surface-variant text-sm mb-5">Jifunze kuandika prompts bora kwa ChatGPT, Claude, Gemini na AI zingine. Pata matokeo sahihi kila mara.</p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-full text-on-surface-variant">AI Basics</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-full text-on-surface-variant">Prompts</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-full text-on-surface-variant">Chain-of-Thought</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-full text-on-surface-variant">Projects</span>
+          </div>
+          <a class="btn-glow bg-secondary-container text-on-secondary-container" href="course/prompt-engineering.html">Start Learning <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="bg-surface-container-lowest py-16 mt-12 border-t border-outline-variant">
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+    <div class="md:col-span-5">
+      <h2 class="font-headline-md font-bold text-on-surface mb-6">JuveLineTech</h2>
+      <p class="text-on-surface-variant font-body-md max-w-sm mb-8">Technology solutions that drive your business forward. Based in Chanika, Dar es Salaam.</p>
+    </div>
+    <div class="md:col-span-2">
+      <h3 class="font-label-md text-tertiary uppercase tracking-widest mb-6">Quick Links</h3>
+      <ul class="space-y-4">
+        <li><a class="text-on-surface-variant hover:text-secondary transition-all no-underline" href="index.html">Home</a></li>
+        <li><a class="text-on-surface-variant hover:text-secondary transition-all no-underline" href="index.html#services">Services</a></li>
+        <li><a class="text-on-surface-variant hover:text-secondary transition-all no-underline" href="index.html#portfolio">Portfolio</a></li>
+        <li><a class="text-on-surface-variant hover:text-secondary transition-all no-underline" href="courses.html">Courses</a></li>
+        <li><a class="text-on-surface-variant hover:text-secondary transition-all no-underline" href="privacy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="md:col-span-2">
+      <h3 class="font-label-md text-tertiary uppercase tracking-widest mb-6">Courses</h3>
+      <ul class="space-y-4">
+        <li><a class="text-on-surface-variant hover:text-secondary transition-all no-underline" href="course/python.html">Python</a></li>
+        <li><a class="text-on-surface-variant hover:text-secondary transition-all no-underline" href="course/html-css.html">HTML &amp; CSS</a></li>
+        <li><a class="text-on-surface-variant hover:text-secondary transition-all no-underline" href="course/javascript.html">JavaScript</a></li>
+        <li><a class="text-on-surface-variant hover:text-secondary transition-all no-underline" href="course/react.html">React</a></li>
+        <li><a class="text-on-surface-variant hover:text-secondary transition-all no-underline" href="course/prompt-engineering.html">Prompt Engineering</a></li>
+      </ul>
+    </div>
+    <div class="md:col-span-3">
+      <h3 class="font-label-md text-tertiary uppercase tracking-widest mb-6">Contact</h3>
+      <ul class="space-y-4">
+        <li><a class="text-on-surface-variant hover:text-secondary transition-all no-underline" href="tel:+255782341709">0782 341 709</a></li>
+        <li><a class="text-on-surface-variant hover:text-secondary transition-all no-underline" href="mailto:shbnsemeni@gmail.com">shbnsemeni@gmail.com</a></li>
+        <li class="text-on-surface-variant">Chanika, Dar es Salaam</li>
+      </ul>
+    </div>
+    <div class="md:col-span-12 pt-12 mt-12 border-t border-outline-variant/30 flex flex-col md:flex-row justify-between gap-6 text-sm text-on-surface-variant">
+      <p>&copy; 2026 JuveLineTech. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const observerOptions = { threshold: 0.1 };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+}, observerOptions);
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
