@@ -1,568 +1,652 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>JuveLineTech — Technology Solutions</title>
-<meta name="description" content="JuveLineTech: Website design, Web & mobile app development, Software systems, IT infrastructure, and Cybersecurity solutions in Dar es Salaam, Tanzania.">
-<meta name="keywords" content="juvelinetech, web design tanzania, software development, mobile apps, IT solutions dar es salaam">
-<meta name="theme-color" content="#0c0c0f">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<meta name="google-site-verification" content="48DZu66VdfTKRG8WXMP84WZRVvjVbNqPa4yJdxj0PNY" />
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<style>
-  body { font-family: 'Inter', sans-serif; background: #0c0c0f; color: #e8eaed; overflow-x: hidden; }
-  html { scroll-behavior: smooth; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JuveLineTech — Technology Solutions</title>
+    <meta name="description" content="JuveLineTech: Website design, Web & mobile app development, Software systems, IT infrastructure, and Cybersecurity solutions in Dar es Salaam, Tanzania.">
+    <meta name="keywords" content="juvelinetech, web design tanzania, software development, mobile apps, IT solutions dar es salaam">
+    <meta name="theme-color" content="#059669">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #1F2937;
+            background: #F0FDF4;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-  /* ── Layout ── */
-  .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-  @media (min-width: 768px) { .section-inner { padding: 0 48px; } }
-  .section { padding: 80px 0; }
-  .section-sm { padding: 56px 0; }
-  .section-label {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(251, 191, 36, 0.6);
-    margin-bottom: 8px;
-  }
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #059669 0%, #10B981 40%, #34D399 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.08) 0%, transparent 50%);
+            animation: heroGlow 8s ease-in-out infinite alternate;
+        }
+        @keyframes heroGlow {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-5%, 5%); }
+        }
+        .hero-content { position: relative; z-index: 1; }
+        .logo-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            font-size: 72px;
+            letter-spacing: -4px;
+            color: #fff;
+            display: inline-block;
+            margin-bottom: 8px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        .logo-text .j { color: #fff; }
+        .logo-text .t { color: #FCD34D; }
+        .hero-tagline {
+            font-size: 18px;
+            color: rgba(255,255,255,0.9);
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            margin-bottom: 28px;
+        }
+        .hero h1 {
+            font-size: clamp(28px, 5vw, 52px);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+        .hero p {
+            font-size: clamp(15px, 2vw, 18px);
+            color: rgba(255,255,255,0.85);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+        .btn-primary {
+            display: inline-block;
+            padding: 14px 40px;
+            background: #fff;
+            color: #059669;
+            font-weight: 700;
+            font-size: 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.2); }
+        .btn-outline {
+            display: inline-block;
+            padding: 13px 36px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            border: 2px solid rgba(255,255,255,0.4);
+            margin-left: 12px;
+            transition: all 0.3s ease;
+        }
+        .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
 
-  /* ── Card ── */
-  .card {
-    background: #131316;
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 16px;
-    padding: 28px;
-    transition: all 0.35s ease;
-  }
-  .card:hover {
-    border-color: rgba(251, 191, 36, 0.15);
-    background: #18181b;
-    transform: translateY(-2px);
-  }
-  .card-portfolio {
-    background: #131316;
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 16px;
-    overflow: hidden;
-    transition: all 0.35s ease;
-  }
-  .card-portfolio:hover {
-    border-color: rgba(251, 191, 36, 0.15);
-    transform: translateY(-2px);
-  }
+        /* ===== NAV ===== */
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            transition: all 0.4s ease;
+        }
+        .nav.scrolled { background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); box-shadow: 0 2px 20px rgba(0,0,0,0.08); padding: 10px 0; }
+        .nav .container { display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo {
+            font-weight: 900;
+            font-size: 22px;
+            letter-spacing: -1px;
+            text-decoration: none;
+            color: #1F2937;
+        }
+        .nav-logo .j { color: #059669; }
+        .nav-logo .t { color: #D4A843; }
+        .nav.scrolled .nav-logo { color: #1F2937; }
+        .nav-links { display: flex; gap: 28px; align-items: center; }
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.85);
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav.scrolled .nav-links a { color: #4B5563; }
+        .nav-links a:hover { color: #10B981; }
+        .nav.scrolled .nav-links a:hover { color: #059669; }
+        .nav-cta {
+            padding: 8px 20px;
+            background: #fff;
+            color: #059669 !important;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 13px;
+        }
+        .nav.scrolled .nav-cta { background: #059669; color: #fff !important; }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+        .hamburger span { width: 24px; height: 2.5px; background: rgba(255,255,255,0.9); border-radius: 2px; transition: all 0.3s; }
+        .nav.scrolled .hamburger span { background: #1F2937; }
 
-  /* ── Buttons ── */
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 28px;
-    border-radius: 100px;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: none;
-  }
-  .btn-primary {
-    background: linear-gradient(135deg, #f59e0b, #d97706);
-    color: #1c1917;
-  }
-  .btn-primary:hover {
-    box-shadow: 0 0 30px rgba(251,191,36,0.3);
-    transform: translateY(-1px) scale(1.02);
-  }
-  .btn-outline {
-    background: transparent;
-    color: #fbbf24;
-    border: 1px solid rgba(251, 191, 36, 0.25);
-  }
-  .btn-outline:hover {
-    border-color: rgba(251, 191, 36, 0.5);
-    background: rgba(251, 191, 36, 0.04);
-    transform: translateY(-1px);
-  }
-  .btn-ghost {
-    background: transparent;
-    color: #fbbf24;
-  }
-  .btn-ghost:hover {
-    background: rgba(251, 191, 36, 0.06);
-  }
+        /* ===== SECTIONS ===== */
+        section { padding: 80px 0; }
+        .section-tag {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #10B981;
+            margin-bottom: 8px;
+        }
+        .section-title {
+            font-size: clamp(26px, 4vw, 38px);
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 44px;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, #10B981, #FCD34D);
+            margin-top: 10px;
+            border-radius: 3px;
+        }
 
-  /* ── Hero ── */
-  .hero-gradient {
-    background:
-      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(251,191,36,0.06) 0%, transparent 60%),
-      radial-gradient(ellipse 50% 40% at 80% 100%, rgba(45,212,191,0.04) 0%, transparent 50%);
-  }
-  .hero-glow {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(100px);
-    pointer-events: none;
-  }
+        /* ===== SERVICES ===== */
+        #services { background: #fff; }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            padding: 28px 24px;
+            border-radius: 16px;
+            background: #F0FDF4;
+            border: 1px solid #D1FAE5;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+        .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(16,185,129,0.12); }
+        .service-card .icon {
+            width: 48px; height: 48px;
+            background: linear-gradient(135deg, #059669, #10B981);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        .service-card h3 { font-size: 17px; font-weight: 700; color: #1F2937; margin-bottom: 8px; }
+        .service-card p { font-size: 14px; color: #6B7280; line-height: 1.7; }
+        .service-card .skills { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+        .service-card .skills span {
+            font-size: 11px;
+            padding: 4px 12px;
+            background: #fff;
+            border-radius: 20px;
+            color: #059669;
+            font-weight: 500;
+            border: 1px solid #D1FAE5;
+        }
 
-  /* ── Reveal ── */
-  .reveal { opacity: 0; transform: translateY(24px); transition: all 0.7s cubic-bezier(0.16,1,0.3,1); }
-  .reveal.active { opacity: 1; transform: translateY(0); }
-  .reveal-d1 { transition-delay: 0.05s; }
-  .reveal-d2 { transition-delay: 0.1s; }
-  .reveal-d3 { transition-delay: 0.15s; }
-  .reveal-d4 { transition-delay: 0.2s; }
-  .reveal-d5 { transition-delay: 0.25s; }
+        /* ===== PORTFOLIO ===== */
+        #portfolio { background: #F0FDF4; }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .portfolio-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #E5E7EB;
+            transition: all 0.3s ease;
+        }
+        .portfolio-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+        .portfolio-card .thumb {
+            height: 200px;
+            background: linear-gradient(135deg, #059669, #34D399);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: rgba(255,255,255,0.3);
+            font-weight: 900;
+        }
+        .portfolio-card .body { padding: 24px; }
+        .portfolio-card .body h3 { font-size: 18px; font-weight: 700; color: #1F2937; margin-bottom: 6px; }
+        .portfolio-card .body p { font-size: 14px; color: #6B7280; margin-bottom: 12px; line-height: 1.7; }
+        .portfolio-card .body .tech {
+            display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px;
+        }
+        .portfolio-card .body .tech span {
+            font-size: 11px; padding: 3px 10px; background: #F0FDF4;
+            border-radius: 12px; color: #059669; font-weight: 500;
+        }
+        .portfolio-card .body a {
+            color: #10B981; font-weight: 600; font-size: 14px; text-decoration: none;
+        }
+        .portfolio-card .body a:hover { text-decoration: underline; }
 
-  /* ── Stagger grid ── */
-  .stagger > * { opacity: 0; transform: translateY(20px); transition: all 0.5s cubic-bezier(0.16,1,0.3,1); }
-  .stagger.active > *:nth-child(1) { transition-delay: 0s; opacity: 1; transform: translateY(0); }
-  .stagger.active > *:nth-child(2) { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
-  .stagger.active > *:nth-child(3) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
-  .stagger.active > *:nth-child(4) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
-  .stagger.active > *:nth-child(5) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
-  .stagger.active > *:nth-child(6) { transition-delay: 0.25s; opacity: 1; transform: translateY(0); }
+        /* ===== ABOUT ===== */
+        #about { background: #fff; }
+        .about-wrap { display: flex; gap: 60px; align-items: center; flex-wrap: wrap; }
+        .about-text { flex: 1; min-width: 280px; }
+        .about-text p { font-size: 15px; color: #6B7280; line-height: 1.8; margin-bottom: 16px; }
+        .about-text strong { color: #1F2937; }
+        .about-stats { display: flex; gap: 40px; margin-top: 28px; }
+        .about-stats div { text-align: center; }
+        .about-stats .num { font-size: 32px; font-weight: 800; color: #059669; }
+        .about-stats .label { font-size: 13px; color: #6B7280; }
 
-  /* ── Mobile Menu ── */
-  .mobile-menu {
-    position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
-    z-index: 2000; padding: 80px 28px 28px;
-    transition: right 0.4s cubic-bezier(0.16,1,0.3,1);
-    background: rgba(12, 12, 15, 0.98);
-    backdrop-filter: blur(24px);
-    border-left: 1px solid rgba(255,255,255,0.06);
-  }
-  .mobile-menu.open { right: 0; }
-  .mobile-menu a {
-    display: block; padding: 16px 0; font-size: 16px; font-weight: 500;
-    color: rgba(232, 234, 237, 0.7); text-decoration: none;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-    transition: color 0.3s;
-  }
-  .mobile-menu a:hover { color: #fbbf24; }
-  .mobile-overlay {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.7); z-index: 1999; opacity: 0;
-    pointer-events: none; transition: opacity 0.4s;
-  }
-  .mobile-overlay.show { opacity: 1; pointer-events: auto; }
+        /* ===== CONTACT ===== */
+        #contact { background: #F0FDF4; }
+        .contact-wrap { display: flex; gap: 40px; flex-wrap: wrap; }
+        .contact-info { flex: 1; min-width: 260px; }
+        .contact-info .item { display: flex; gap: 14px; margin-bottom: 20px; }
+        .contact-info .item .ic {
+            width: 44px; height: 44px; background: #10B981; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px; color: #fff; flex-shrink: 0;
+        }
+        .contact-info .item h4 { font-size: 14px; font-weight: 600; color: #1F2937; }
+        .contact-info .item p { font-size: 14px; color: #6B7280; }
+        .contact-form { flex: 1; min-width: 300px; }
+        .contact-form input, .contact-form textarea {
+            width: 100%; padding: 14px 16px; border: 1px solid #D1FAE5;
+            border-radius: 10px; font-size: 14px; font-family: inherit;
+            color: #1F2937; background: #fff; margin-bottom: 14px;
+            transition: border-color 0.3s;
+        }
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none; border-color: #10B981; box-shadow: 0 0 0 3px rgba(16,185,129,0.1);
+        }
+        .contact-form textarea { height: 120px; resize: vertical; }
+        .contact-form button {
+            padding: 14px 32px; background: linear-gradient(135deg, #059669, #10B981);
+            color: #fff; border: none; border-radius: 10px; font-size: 15px;
+            font-weight: 600; cursor: pointer; transition: all 0.3s;
+        }
+        .contact-form button:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(16,185,129,0.3); }
 
-  /* ── Form ── */
-  .input-field {
-    background: #111113;
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 12px;
-    padding: 14px 18px;
-    color: #e8eaed;
-    outline: none;
-    transition: border-color 0.3s;
-    width: 100%;
-  }
-  .input-field:focus { border-color: rgba(251, 191, 36, 0.3); }
-  .input-field::placeholder { color: rgba(232, 234, 237, 0.3); }
+        /* ===== FOOTER ===== */
+        footer {
+            background: #065F46; color: rgba(255,255,255,0.7); padding: 48px 0 32px;
+        }
+        footer .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 32px; }
+        footer .brand { max-width: 280px; }
+        footer .brand .logo-text-sm {
+            font-weight: 900; font-size: 28px; letter-spacing: -2px;
+        }
+        footer .brand .logo-text-sm .j { color: #fff; }
+        footer .brand .logo-text-sm .t { color: #FCD34D; }
+        footer .brand p { font-size: 13px; line-height: 1.7; margin-top: 8px; }
+        footer .links h4 { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+        footer .links a {
+            display: block; color: rgba(255,255,255,0.6); text-decoration: none;
+            font-size: 13px; margin-bottom: 6px; transition: color 0.3s;
+        }
+        footer .links a:hover { color: #FCD34D; }
+        .copyright {
+            text-align: center; padding-top: 28px; margin-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px;
+            color: rgba(255,255,255,0.4);
+        }
 
-  /* ── Tracked ── */
-  .tracked { letter-spacing: 0.1em; }
+        /* ===== MOBILE MENU ===== */
+        .mobile-menu {
+            position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
+            background: #fff; z-index: 2000; padding: 80px 28px 28px;
+            transition: right 0.4s ease; box-shadow: -4px 0 30px rgba(0,0,0,0.1);
+        }
+        .mobile-menu.open { right: 0; }
+        .mobile-menu a {
+            display: block; padding: 12px 0; font-size: 16px; font-weight: 500;
+            color: #1F2937; text-decoration: none; border-bottom: 1px solid #F3F4F6;
+        }
+        .mobile-menu a:hover { color: #10B981; }
+        .mobile-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.4); z-index: 1999; opacity: 0;
+            pointer-events: none; transition: opacity 0.4s;
+        }
+        .mobile-overlay.show { opacity: 1; pointer-events: auto; }
+        .close-menu {
+            position: absolute; top: 20px; right: 20px;
+            background: none; border: none; font-size: 28px; color: #9CA3AF; cursor: pointer;
+        }
 
-  @media (max-width: 768px) {
-    .section { padding: 48px 0; }
-    .section-sm { padding: 36px 0; }
-    .card { padding: 20px; }
-  }
-</style>
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .hero { min-height: 90vh; }
+            .btn-outline { margin-left: 0; margin-top: 12px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .about-wrap { flex-direction: column; gap: 30px; }
+            .about-stats { justify-content: space-around; }
+            .contact-wrap { flex-direction: column; }
+            footer .container { flex-direction: column; gap: 24px; }
+        }
+        @media (max-width: 480px) {
+            section { padding: 48px 0; }
+            .hero-buttons { display: flex; flex-direction: column; align-items: center; }
+        }
+    </style>
 </head>
 <body>
 
-<!-- Mobile -->
-<div class="mobile-overlay" id="overlay" onclick="closeMenu()"></div>
-<div class="mobile-menu" id="mobileMenu">
-  <button class="close-menu absolute top-5 right-5 text-3xl text-on-surface-variant hover:text-secondary bg-transparent border-none cursor-pointer" onclick="closeMenu()">&times;</button>
-  <a href="#services" onclick="closeMenu()">Services</a>
-  <a href="#design" onclick="closeMenu()">Design</a>
-  <a href="#portfolio" onclick="closeMenu()">Portfolio</a>
-  <a href="courses.html" onclick="closeMenu()">Courses</a>
-  <a href="#about" onclick="closeMenu()">About</a>
-  <a href="#contact" onclick="closeMenu()">Contact</a>
-</div>
+    <!-- Mobile Overlay -->
+    <div class="mobile-overlay" id="overlay" onclick="closeMenu()"></div>
 
-<!-- Nav -->
-<header class="fixed top-0 w-full z-50" style="background:rgba(12,12,15,0.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.04);height:64px">
-  <nav class="section-inner flex items-center justify-between h-full">
-    <a href="#" style="font-size:22px;font-weight:900;letter-spacing:-0.04em;text-decoration:none">
-      <span style="color:#fbbf24">j</span><span style="color:#e8eaed">t</span>
-    </a>
-    <div class="hidden md:flex items-center gap-8">
-      <a class="text-sm font-medium" style="color:rgba(232,234,237,0.6);text-decoration:none;transition:color 0.3s" href="#services" onmouseover="this.style.color='#fbbf24'" onmouseout="this.style.color='rgba(232,234,237,0.6)'">Services</a>
-      <a class="text-sm font-medium" style="color:rgba(232,234,237,0.6);text-decoration:none;transition:color 0.3s" href="#design" onmouseover="this.style.color='#fbbf24'" onmouseout="this.style.color='rgba(232,234,237,0.6)'">Design</a>
-      <a class="text-sm font-medium" style="color:rgba(232,234,237,0.6);text-decoration:none;transition:color 0.3s" href="#portfolio" onmouseover="this.style.color='#fbbf24'" onmouseout="this.style.color='rgba(232,234,237,0.6)'">Portfolio</a>
-      <a class="text-sm font-medium" style="color:rgba(232,234,237,0.6);text-decoration:none;transition:color 0.3s" href="courses.html" onmouseover="this.style.color='#fbbf24'" onmouseout="this.style.color='rgba(232,234,237,0.6)'">Courses</a>
-      <a class="text-sm font-medium" style="color:rgba(232,234,237,0.6);text-decoration:none;transition:color 0.3s" href="#about" onmouseover="this.style.color='#fbbf24'" onmouseout="this.style.color='rgba(232,234,237,0.6)'">About</a>
-      <a style="color:rgba(232,234,237,0.6);text-decoration:none;transition:color 0.3s" href="#contact" onmouseover="this.style.color='#fbbf24'" onmouseout="this.style.color='rgba(232,234,237,0.6)'">
-        <span class="btn btn-primary" style="padding:8px 20px;font-size:12px">Get a Quote</span>
-      </a>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-menu" onclick="closeMenu()">✕</button>
+        <a href="#services" onclick="closeMenu()">Services</a>
+        <a href="#portfolio" onclick="closeMenu()">Portfolio</a>
+        <a href="#about" onclick="closeMenu()">About</a>
+        <a href="#contact" onclick="closeMenu()">Contact</a>
     </div>
-    <button class="md:hidden bg-transparent border-none cursor-pointer p-2" onclick="openMenu()">
-      <span class="block w-6 h-[2px] mb-1.5" style="background:#e8eaed;border-radius:1px"></span>
-      <span class="block w-6 h-[2px] mb-1.5" style="background:#e8eaed;border-radius:1px"></span>
-      <span class="block w-6 h-[2px]" style="background:#e8eaed;border-radius:1px"></span>
-    </button>
-  </nav>
-</header>
 
-<main style="padding-top:64px">
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="container">
+            <a href="#" class="nav-logo"><span class="j">J</span><span class="t">t</span></a>
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#contact" class="nav-cta">Get a Quote</a>
+            </div>
+            <button class="hamburger" onclick="openMenu()">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
 
-<!-- ─── HERO ─── -->
-<section class="hero-gradient" style="min-height:85vh;display:flex;align-items:center;position:relative;overflow:hidden">
-  <div class="hero-glow" style="width:500px;height:500px;background:rgba(251,191,36,0.04);top:-100px;right:-100px"></div>
-  <div class="hero-glow" style="width:400px;height:400px;background:rgba(45,212,191,0.03);bottom:-80px;left:-80px"></div>
-  <div class="section-inner w-full" style="padding-top:40px;padding-bottom:40px">
-    <div class="max-w-3xl">
-      <div class="reveal active">
-        <span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:rgba(251,191,36,0.7);letter-spacing:0.08em;margin-bottom:20px">
-          <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#fbbf24"></span>
-          Dar es Salaam &middot; Tanzania
-        </span>
-      </div>
-      <h1 class="reveal active reveal-d1" style="font-size:clamp(32px,5vw,56px);font-weight:800;line-height:1.1;letter-spacing:-0.03em;color:#e8eaed;margin-bottom:20px">
-        Technology Solutions That<br>
-        <span style="color:#fbbf24">Drive Your Business Forward</span>
-      </h1>
-      <p class="reveal active reveal-d2" style="font-size:16px;line-height:1.7;color:rgba(232,234,237,0.55);max-width:540px;margin-bottom:32px">
-        From web & mobile apps to enterprise systems and IT infrastructure — we build technology that works for you.
-      </p>
-      <div class="flex flex-wrap gap-3 reveal active reveal-d3">
-        <a href="#services" class="btn btn-primary">Explore Services</a>
-        <a href="#contact" class="btn btn-outline">Contact Us</a>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="logo-text"><span class="j">J</span><span class="t">t</span></div>
+            <div class="hero-tagline">JUVELINETECH</div>
+            <h1>Technology Solutions<br>That Drive Your Business Forward</h1>
+            <p>From web &amp; mobile apps to enterprise systems and IT infrastructure — we build technology that works for you.</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn-primary">Explore Services</a>
+                <a href="#contact" class="btn-outline">Contact Us</a>
+            </div>
+        </div>
+    </section>
 
-<!-- ─── STATS ─── -->
-<section style="border-top:1px solid rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.04);background:#111113">
-  <div class="section-inner section-sm">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="flex items-center gap-4 justify-center reveal">
-        <div style="width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(251,191,36,0.06);flex-shrink:0">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
-          </svg>
-        </div>
-        <div>
-          <div style="font-size:32px;font-weight:800;color:#e8eaed;line-height:1;margin-bottom:2px">20+</div>
-          <div style="font-size:11px;font-weight:600;color:rgba(232,234,237,0.4);letter-spacing:0.12em;text-transform:uppercase">Projects</div>
-        </div>
-      </div>
-      <div class="flex items-center gap-4 justify-center reveal reveal-d1">
-        <div style="width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(45,212,191,0.06);flex-shrink:0">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>
-          </svg>
-        </div>
-        <div>
-          <div style="font-size:32px;font-weight:800;color:#e8eaed;line-height:1;margin-bottom:2px">5+</div>
-          <div style="font-size:11px;font-weight:600;color:rgba(232,234,237,0.4);letter-spacing:0.12em;text-transform:uppercase">Technologies</div>
-        </div>
-      </div>
-      <div class="flex items-center gap-4 justify-center reveal reveal-d2">
-        <div style="width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(251,191,36,0.06);flex-shrink:0">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-          </svg>
-        </div>
-        <div>
-          <div style="font-size:32px;font-weight:800;color:#e8eaed;line-height:1;margin-bottom:2px">3+</div>
-          <div style="font-size:11px;font-weight:600;color:rgba(232,234,237,0.4);letter-spacing:0.12em;text-transform:uppercase">Years Exp</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- Services -->
+    <section id="services">
+        <div class="container">
+            <div class="section-tag">What We Do</div>
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
 
-<!-- ─── SERVICES ─── -->
-<section id="services" class="section reveal">
-  <div class="section-inner">
-    <div class="text-center mb-16">
-      <span class="section-label">What We Do</span>
-      <h2 style="font-size:clamp(24px,3.5vw,36px);font-weight:700;color:#e8eaed;letter-spacing:-0.02em">Our Services</h2>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 stagger">
-      <div class="card">
-        <div style="width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(251,191,36,0.08);margin-bottom:16px">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/><ellipse cx="12" cy="12" rx="4" ry="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10"/><path d="M12 2a15.3 15.3 0 0 0-4 10 15.3 15.3 0 0 0 4 10"/>
-          </svg>
-        </div>
-        <h3 style="font-size:16px;font-weight:700;color:#e8eaed;margin-bottom:8px">Web &amp; Mobile</h3>
-        <p style="font-size:14px;line-height:1.7;color:rgba(232,234,237,0.5)">Modern websites, web applications, and native mobile apps for Android &amp; iOS.</p>
-      </div>
-      <div class="card">
-        <div style="width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(45,212,191,0.08);margin-bottom:16px">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v3c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12v3c0 1.66 4.03 3 9 3s9-1.34 9-3v-3"/><path d="M3 19v3c0 1.66 4.03 3 9 3s9-1.34 9-3v-3"/>
-          </svg>
-        </div>
-        <h3 style="font-size:16px;font-weight:700;color:#e8eaed;margin-bottom:8px">Software Systems</h3>
-        <p style="font-size:14px;line-height:1.7;color:rgba(232,234,237,0.5)">Custom software including school &amp; hospital management, inventory, POS, and more.</p>
-      </div>
-      <div class="card">
-        <div style="width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(251,191,36,0.08);margin-bottom:16px">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
-            <circle cx="6" cy="6" r="1" fill="#fbbf24"/><circle cx="6" cy="18" r="1" fill="#fbbf24"/>
-            <line x1="10" y1="6" x2="18" y2="6"/><line x1="10" y1="18" x2="18" y2="18"/>
-          </svg>
-        </div>
-        <h3 style="font-size:16px;font-weight:700;color:#e8eaed;margin-bottom:8px">IT Infrastructure</h3>
-        <p style="font-size:14px;line-height:1.7;color:rgba(232,234,237,0.5)">Hardware repair, network setup, data recovery, and cybersecurity solutions.</p>
-      </div>
-      <div class="card">
-        <div style="width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(45,212,191,0.08);margin-bottom:16px">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
-            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-          </svg>
-        </div>
-        <h3 style="font-size:16px;font-weight:700;color:#e8eaed;margin-bottom:8px">Consulting</h3>
-        <p style="font-size:14px;line-height:1.7;color:rgba(232,234,237,0.5)">IT consulting, system integration, automation tools, API development &amp; legacy migration.</p>
-      </div>
-    </div>
-  </div>
-</section>
+                <div class="service-card">
+                    <div class="icon">🌐</div>
+                    <h3>Web &amp; Mobile Development</h3>
+                    <p>Modern websites, web applications, and native mobile apps for Android &amp; iOS.</p>
+                    <div class="skills">
+                        <span>Website Design</span>
+                        <span>Web Apps</span>
+                        <span>Android</span>
+                        <span>iOS</span>
+                    </div>
+                </div>
 
-<!-- ─── CREATIVE ─── -->
-<section id="design" class="section" style="background:#111113;border-top:1px solid rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.04)">
-  <div class="section-inner reveal">
-    <div class="text-center mb-16">
-      <span class="section-label" style="color:rgba(45,212,191,0.6)">Design &amp; Branding</span>
-      <h2 style="font-size:clamp(24px,3.5vw,36px);font-weight:700;color:#e8eaed;letter-spacing:-0.02em">Creative &amp; Marketing</h2>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 stagger">
-      <div class="card"><div style="width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(251,191,36,0.08);margin-bottom:16px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg></div><h3 style="font-size:16px;font-weight:700;color:#e8eaed;margin-bottom:8px">Logo Creation</h3><p style="font-size:14px;line-height:1.7;color:rgba(232,234,237,0.5)">Professional logo design and brand identity creation. Custom typography, color palettes, and vector designs.</p><div class="flex flex-wrap gap-2 mt-3"><span class="badge">Brand Identity</span><span class="badge">Custom Logos</span><span class="badge">Typography</span><span class="badge">Vector Art</span></div></div>
-      <div class="card"><div style="width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(45,212,191,0.08);margin-bottom:16px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div><h3 style="font-size:16px;font-weight:700;color:#e8eaed;margin-bottom:8px">Posters Creation</h3><p style="font-size:14px;line-height:1.7;color:rgba(232,234,237,0.5)">Eye-catching posters, flyers, banners, and social media graphics to capture attention.</p><div class="flex flex-wrap gap-2 mt-3"><span class="badge">Flyers</span><span class="badge">Banners</span><span class="badge">Social Media</span><span class="badge">Print Design</span></div></div>
-      <div class="card"><div style="width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(251,191,36,0.08);margin-bottom:16px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div><h3 style="font-size:16px;font-weight:700;color:#e8eaed;margin-bottom:8px">Photo Editing</h3><p style="font-size:14px;line-height:1.7;color:rgba(232,234,237,0.5)">Professional photo retouching, background removal, color correction, and image restoration.</p><div class="flex flex-wrap gap-2 mt-3"><span class="badge">Retouching</span><span class="badge">BG Removal</span><span class="badge">Color Grading</span><span class="badge">Restoration</span></div></div>
-      <div class="card"><div style="width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(45,212,191,0.08);margin-bottom:16px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div><h3 style="font-size:16px;font-weight:700;color:#e8eaed;margin-bottom:8px">Video Editing</h3><p style="font-size:14px;line-height:1.7;color:rgba(232,234,237,0.5)">Engaging video content for promotions, social media, events, and commercials.</p><div class="flex flex-wrap gap-2 mt-3"><span class="badge">Promo Videos</span><span class="badge">Social Media</span><span class="badge">Commercials</span><span class="badge">Montage</span></div></div>
-      <div class="card"><div style="width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(251,191,36,0.08);margin-bottom:16px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></div><h3 style="font-size:16px;font-weight:700;color:#e8eaed;margin-bottom:8px">Motion Graphics</h3><p style="font-size:14px;line-height:1.7;color:rgba(232,234,237,0.5)">Animated intros, explainer videos, kinetic typography, and 2D motion graphics.</p><div class="flex flex-wrap gap-2 mt-3"><span class="badge">Animated Intros</span><span class="badge">Explainer Videos</span><span class="badge">2D Animation</span><span class="badge">Kinetic Type</span></div></div>
-      <div class="card"><div style="width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(45,212,191,0.08);margin-bottom:16px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div><h3 style="font-size:16px;font-weight:700;color:#e8eaed;margin-bottom:8px">SEO</h3><p style="font-size:14px;line-height:1.7;color:rgba(232,234,237,0.5)">Search engine optimization to improve your website's visibility on Google.</p><div class="flex flex-wrap gap-2 mt-3"><span class="badge">Keyword Research</span><span class="badge">On-Page SEO</span><span class="badge">Technical SEO</span><span class="badge">Local SEO</span></div></div>
-    </div>
-  </div>
-</section>
+                <div class="service-card">
+                    <div class="icon">⚙️</div>
+                    <h3>Software Systems</h3>
+                    <p>Custom software including school &amp; hospital management, inventory, POS, and more.</p>
+                    <div class="skills">
+                        <span>School Mgmt</span>
+                        <span>Hospital Mgmt</span>
+                        <span>Inventory</span>
+                        <span>POS</span>
+                    </div>
+                </div>
 
-<!-- ─── PORTFOLIO ─── -->
-<section id="portfolio" class="section reveal">
-  <div class="section-inner">
-    <div class="text-center mb-16">
-      <span class="section-label">Our Work</span>
-      <h2 style="font-size:clamp(24px,3.5vw,36px);font-weight:700;color:#e8eaed;letter-spacing:-0.02em">Featured Projects</h2>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 stagger">
-      <div class="card-portfolio">
-        <div style="aspect-ratio:16/10;overflow:hidden;background:#111113">
-          <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIRitChPg_R6-5H1uwsWPaQqTcFbJpZlPchNPZ_OCIoJe9zR_gGfIsF1eRwf3jxKhSXM2FufIkFe60kX9eNOY39yWC2J5ghRrOwc3DU6zmEph117_LN21_A6ITPiUbJJDo8vkJGPm8vmQEWqNi52zO99U4NXSjtwiT5HjLv4_Xnv9PwfATviaLNijdkNvuqBkXhWZw18Jmsmg8566uY54AYI5Cv5VFj3yVAJTv3YF6vwwB8StSvLXuTl4v7Og4K-VxkqnZwXnIRW1o" alt="Matete Online Store" loading="lazy">
+                <div class="service-card">
+                    <div class="icon">🛡️</div>
+                    <h3>IT Infrastructure &amp; Security</h3>
+                    <p>Hardware repair, network setup, data recovery, and cybersecurity solutions.</p>
+                    <div class="skills">
+                        <span>Hardware Repair</span>
+                        <span>Network Setup</span>
+                        <span>Data Recovery</span>
+                        <span>Cybersecurity</span>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">🔗</div>
+                    <h3>Consulting &amp; Integration</h3>
+                    <p>IT consulting, system integration, automation tools, API development &amp; legacy migration.</p>
+                    <div class="skills">
+                        <span>IT Consulting</span>
+                        <span>API Dev</span>
+                        <span>Automation</span>
+                        <span>Legacy Migration</span>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <div style="padding:20px 24px 24px">
-          <span style="display:inline-block;font-size:11px;font-weight:600;color:rgba(251,191,36,0.8);background:rgba(251,191,36,0.06);padding:4px 12px;border-radius:100px;margin-bottom:12px">Web Platform</span>
-          <h3 style="font-size:17px;font-weight:700;color:#e8eaed;margin-bottom:6px">Matete Online Store</h3>
-          <p style="font-size:13px;line-height:1.7;color:rgba(232,234,237,0.5);margin-bottom:14px">Full e-commerce platform for electronics in Tanzania — product catalog, cart, checkout, payments, admin panel.</p>
-          <div class="flex flex-wrap gap-2 mb-4"><span style="font-size:11px;padding:4px 10px;background:rgba(255,255,255,0.04);border-radius:6px;color:rgba(232,234,237,0.4)">Django</span><span style="font-size:11px;padding:4px 10px;background:rgba(255,255,255,0.04);border-radius:6px;color:rgba(232,234,237,0.4)">Tailwind CSS</span><span style="font-size:11px;padding:4px 10px;background:rgba(255,255,255,0.04);border-radius:6px;color:rgba(232,234,237,0.4)">PostgreSQL</span></div>
-          <a class="btn btn-outline" style="padding:8px 18px;font-size:12px" href="https://mateteonlinestore.com" target="_blank">Visit Website <span class="material-symbols-outlined" style="font-size:14px">open_in_new</span></a>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="section-tag">Our Work</div>
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="portfolio-grid">
+
+                <div class="portfolio-card">
+                    <div class="thumb">🛒</div>
+                    <div class="body">
+                        <h3>Matete Online Store</h3>
+                        <p>Full e-commerce platform for electronics in Tanzania. Features: product catalog, cart, checkout, payments, admin panel, push notifications.</p>
+                        <div class="tech">
+                            <span>Django</span>
+                            <span>Tailwind CSS</span>
+                            <span>PostgreSQL</span>
+                            <span>REST API</span>
+                        </div>
+                        <a href="https://mateteonlinestore.com" target="_blank">Visit Website →</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="thumb">📱</div>
+                    <div class="body">
+                        <h3>Mobile App — Matete Store</h3>
+                        <p>Native Android app wrapping the Matete Online Store website with splash screen, push notifications, and full-screen immersive experience.</p>
+                        <div class="tech">
+                            <span>Capacitor</span>
+                            <span>Android</span>
+                            <span>PWA</span>
+                        </div>
+                        <a href="#" style="color:#9CA3AF;">Coming soon to Play Store</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="thumb">🔧</div>
+                    <div class="body">
+                        <h3>Your Project Here</h3>
+                        <p>Let's build something great together. Contact us to discuss your idea and get a free quote.</p>
+                        <div class="tech">
+                            <span>You Dream It</span>
+                            <span>We Build It</span>
+                        </div>
+                        <a href="#contact">Start a Project →</a>
+                    </div>
+                </div>
+
+            </div>
         </div>
-      </div>
-      <div class="card-portfolio">
-        <div style="aspect-ratio:16/10;overflow:hidden;background:#111113">
-          <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_iOtgYviBLqr62ScA_4-aRur9A68TFnKLRHlro_T54-QeIWOF4Ud2Jaq33An8pyXjr-l2nZR03iQJe5yjdsAkJ_YbGn75ymImLDyzby-MxIV3otoLLd08inxe3MoNccWz5V0lnpl8te9NQ_NS6pn8lH3Ylnq5z7wLe8m7UOqNo6HWGxoLcUs5TkNCzzLaPByLBc2Oydiwz-xyNJgCi71kFgmTCgUPA2wrSU5S_9ihW9T26pTl6NtaHyrZJWAN4b3YN2DyhBKnk-Dk" alt="Matete Mobile App" loading="lazy">
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <div class="container">
+            <div class="section-tag">Who We Are</div>
+            <h2 class="section-title">About JuveLineTech</h2>
+            <div class="about-wrap">
+                <div class="about-text">
+                    <p>JuveLineTech is a technology company based in <strong>Chanika, Dar es Salaam</strong>, dedicated to providing innovative digital solutions for businesses and organizations across Tanzania.</p>
+                    <p>We specialize in <strong>web development, mobile applications, custom software systems, IT infrastructure, and cybersecurity</strong>. Our team combines technical expertise with a deep understanding of local business needs to deliver solutions that make a real impact.</p>
+                    <p>Whether you need a simple business website, a complex enterprise system, or IT consulting — we have the skills and experience to bring your vision to life.</p>
+                    <div class="about-stats">
+                        <div><div class="num">20+</div><div class="label">Projects</div></div>
+                        <div><div class="num">5+</div><div class="label">Technologies</div></div>
+                        <div><div class="num">3+</div><div class="label">Years Exp</div></div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div style="padding:20px 24px 24px">
-          <span style="display:inline-block;font-size:11px;font-weight:600;color:rgba(45,212,191,0.8);background:rgba(45,212,191,0.06);padding:4px 12px;border-radius:100px;margin-bottom:12px">Mobile App</span>
-          <h3 style="font-size:17px;font-weight:700;color:#e8eaed;margin-bottom:6px">Matete Mobile App</h3>
-          <p style="font-size:13px;line-height:1.7;color:rgba(232,234,237,0.5);margin-bottom:14px">Native Android app wrapping the Matete Online Store with splash screen, push notifications, and full-screen experience.</p>
-          <div class="flex flex-wrap gap-2 mb-4"><span style="font-size:11px;padding:4px 10px;background:rgba(255,255,255,0.04);border-radius:6px;color:rgba(232,234,237,0.4)">Capacitor</span><span style="font-size:11px;padding:4px 10px;background:rgba(255,255,255,0.04);border-radius:6px;color:rgba(232,234,237,0.4)">Android</span><span style="font-size:11px;padding:4px 10px;background:rgba(255,255,255,0.04);border-radius:6px;color:rgba(232,234,237,0.4)">PWA</span></div>
-          <span style="font-size:12px;color:rgba(232,234,237,0.25);font-style:italic">Coming soon to Play Store</span>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-tag">Get In Touch</div>
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-wrap">
+                <div class="contact-info">
+                    <div class="item">
+                        <div class="ic">📞</div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p><a href="tel:+255782341709" style="color:#6B7280;text-decoration:none;">0782 341 709</a></p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="ic">✉️</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:shbnsemeni@gmail.com" style="color:#6B7280;text-decoration:none;">shbnsemeni@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="ic">📍</div>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Chanika, Dar es Salaam, Tanzania</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" action="https://formsubmit.co/shbnsemeni@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="JuveLineTech - New Inquiry">
+                    <input type="hidden" name="_next" value="https://juvelinetech.com/thank-you.html">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="text" name="subject" placeholder="Subject">
+                    <textarea name="message" placeholder="Tell us about your project..." required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
         </div>
-      </div>
-      <div class="card-portfolio">
-        <div style="aspect-ratio:16/10;background:linear-gradient(135deg,rgba(251,191,36,0.04),rgba(45,212,191,0.03));display:flex;align-items:center;justify-content:center">
-          <span class="material-symbols-outlined" style="font-size:48px;color:rgba(251,191,36,0.15)">rocket_launch</span>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="brand">
+                <div class="logo-text-sm"><span class="j">J</span><span class="t">t</span></div>
+                <p>Technology solutions that drive your business forward. Based in Chanika, Dar es Salaam.</p>
+            </div>
+            <div class="links">
+                <h4>Quick Links</h4>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="links">
+                <h4>Services</h4>
+                <a href="#services">Web Development</a>
+                <a href="#services">Mobile Apps</a>
+                <a href="#services">Software Systems</a>
+                <a href="#services">IT Infrastructure</a>
+            </div>
+            <div class="links">
+                <h4>Contact</h4>
+                <a href="tel:+255782341709">0782 341 709</a>
+                <a href="mailto:shbnsemeni@gmail.com">shbnsemeni@gmail.com</a>
+                <a>Chanika, Dar es Salaam</a>
+            </div>
         </div>
-        <div style="padding:20px 24px 24px">
-          <span style="display:inline-block;font-size:11px;font-weight:600;color:rgba(251,191,36,0.8);background:rgba(251,191,36,0.06);padding:4px 12px;border-radius:100px;margin-bottom:12px">Your Idea</span>
-          <h3 style="font-size:17px;font-weight:700;color:#e8eaed;margin-bottom:6px">Your Project Here</h3>
-          <p style="font-size:13px;line-height:1.7;color:rgba(232,234,237,0.5);margin-bottom:14px">Let's build something great together. Contact us to discuss your idea and get a free quote.</p>
-          <div class="flex flex-wrap gap-2 mb-4"><span style="font-size:11px;padding:4px 10px;background:rgba(255,255,255,0.04);border-radius:6px;color:rgba(232,234,237,0.4)">You Dream It</span><span style="font-size:11px;padding:4px 10px;background:rgba(255,255,255,0.04);border-radius:6px;color:rgba(232,234,237,0.4)">We Build It</span></div>
-          <a class="btn btn-outline" style="padding:8px 18px;font-size:12px" href="#contact">Start a Project <span class="material-symbols-outlined" style="font-size:14px">arrow_forward</span></a>
+        <div class="copyright">
+            &copy; 2026 JuveLineTech. All rights reserved.
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </footer>
 
-<!-- ─── COURSES ─── -->
-<section id="courses" class="section" style="background:#111113;border-top:1px solid rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.04)">
-  <div class="section-inner reveal">
-    <div class="text-center mb-16">
-      <span class="section-label">Learn &amp; Grow</span>
-      <h2 style="font-size:clamp(24px,3.5vw,36px);font-weight:700;color:#e8eaed;letter-spacing:-0.02em">Our Courses</h2>
-      <p style="font-size:14px;color:rgba(232,234,237,0.5);max-width:480px;margin:12px auto 0">Jifunze technology na programming kutoka mwanzo. Courses zetu zinaelezea kwa lugha rahisi na mifano halisi.</p>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 stagger">
-      <div class="card">
-        <div style="width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(251,191,36,0.08);margin-bottom:14px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-        <h3 style="font-size:16px;font-weight:700;color:#e8eaed;margin-bottom:6px">Tech Tips</h3>
-        <p style="font-size:13px;line-height:1.7;color:rgba(232,234,237,0.5);margin-bottom:12px">Computer basics, troubleshooting, security, na internet skills kwa wanaoanza.</p>
-        <div class="flex flex-wrap gap-2 mb-4"><span class="badge">Hardware</span><span class="badge">Software</span><span class="badge">Security</span><span class="badge">Internet</span></div>
-        <a class="btn btn-primary" style="padding:8px 18px;font-size:12px" href="course/tech-tips.html">Start Learning</a>
-      </div>
-      <div class="card">
-        <div style="width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(45,212,191,0.08);margin-bottom:14px"><img width="20" height="20" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt=""></div>
-        <h3 style="font-size:16px;font-weight:700;color:#e8eaed;margin-bottom:6px">Python</h3>
-        <p style="font-size:13px;line-height:1.7;color:rgba(232,234,237,0.5);margin-bottom:12px">Jifunze Python kutoka mwanzo — variables loops functions hadi simple projects.</p>
-        <div class="flex flex-wrap gap-2 mb-4"><span class="badge">Basics</span><span class="badge">Data Types</span><span class="badge">Functions</span><span class="badge">Projects</span></div>
-        <a class="btn btn-primary" style="padding:8px 18px;font-size:12px" href="course/python.html">Start Learning</a>
-      </div>
-      <div class="card">
-        <div style="width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(251,191,36,0.08);margin-bottom:14px"><img width="20" height="20" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt=""></div>
-        <h3 style="font-size:16px;font-weight:700;color:#e8eaed;margin-bottom:6px">HTML &amp; CSS</h3>
-        <p style="font-size:13px;line-height:1.7;color:rgba(232,234,237,0.5);margin-bottom:12px">Unda websites za kuvutia — structure, styling, responsive design, na zaidi.</p>
-        <div class="flex flex-wrap gap-2 mb-4"><span class="badge">HTML5</span><span class="badge">CSS3</span><span class="badge">Flexbox</span><span class="badge">Grid</span></div>
-        <a class="btn btn-primary" style="padding:8px 18px;font-size:12px" href="course/html-css.html">Start Learning</a>
-      </div>
-      <div class="card">
-        <div style="width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(45,212,191,0.08);margin-bottom:14px"><img width="20" height="20" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt=""></div>
-        <h3 style="font-size:16px;font-weight:700;color:#e8eaed;margin-bottom:6px">JavaScript</h3>
-        <p style="font-size:13px;line-height:1.7;color:rgba(232,234,237,0.5);margin-bottom:12px">Pata uwezo wa kuunda web applications interactive na dynamic.</p>
-        <div class="flex flex-wrap gap-2 mb-4"><span class="badge">DOM</span><span class="badge">ES6+</span><span class="badge">Events</span><span class="badge">APIs</span></div>
-        <a class="btn btn-primary" style="padding:8px 18px;font-size:12px" href="course/javascript.html">Start Learning</a>
-      </div>
-      <div class="card">
-        <div style="width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(251,191,36,0.08);margin-bottom:14px"><img width="20" height="20" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt=""></div>
-        <h3 style="font-size:16px;font-weight:700;color:#e8eaed;margin-bottom:6px">React</h3>
-        <p style="font-size:13px;line-height:1.7;color:rgba(232,234,237,0.5);margin-bottom:12px">Modern app development — components, state, hooks, na building real apps.</p>
-        <div class="flex flex-wrap gap-2 mb-4"><span class="badge">JSX</span><span class="badge">Components</span><span class="badge">State</span><span class="badge">Hooks</span></div>
-        <a class="btn btn-primary" style="padding:8px 18px;font-size:12px" href="course/react.html">Start Learning</a>
-      </div>
-      <div class="card">
-        <div style="width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(45,212,191,0.08);margin-bottom:14px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 1 4 4c0 1.5-.8 2.8-2 3.5V11a2 2 0 0 1-2 2h0a2 2 0 0 1-2-2V9.5C7.8 8.8 7 7.5 7 6a4 4 0 0 1 4-4h1z"/><path d="M12 17v3"/><path d="M8 21h8"/><path d="M18.4 14.6a9 9 0 1 0-12.8 0"/></svg></div>
-        <h3 style="font-size:16px;font-weight:700;color:#e8eaed;margin-bottom:6px">Prompt Engineering</h3>
-        <p style="font-size:13px;line-height:1.7;color:rgba(232,234,237,0.5);margin-bottom:12px">Jifunze kuandika prompts bora kwa AI kama ChatGPT, Claude, na Gemini.</p>
-        <div class="flex flex-wrap gap-2 mb-4"><span class="badge">AI Basics</span><span class="badge">Prompts</span><span class="badge">Chain-of-Thought</span><span class="badge">Projects</span></div>
-        <a class="btn btn-primary" style="padding:8px 18px;font-size:12px" href="course/prompt-engineering.html">Start Learning</a>
-      </div>
-    </div>
-    <div class="text-center mt-10 reveal">
-      <a class="btn btn-outline" href="courses.html">View All Courses <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span></a>
-    </div>
-  </div>
-</section>
+    <script>
+        // Nav scroll
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        });
 
-<!-- ─── ABOUT ─── -->
-<section id="about" class="section reveal">
-  <div class="section-inner">
-    <div class="text-center mb-16">
-      <span class="section-label">Who We Are</span>
-      <h2 style="font-size:clamp(24px,3.5vw,36px);font-weight:700;color:#e8eaed;letter-spacing:-0.02em">About JuveLineTech</h2>
-    </div>
-    <div class="max-w-2xl mx-auto text-center">
-      <p style="font-size:15px;line-height:1.8;color:rgba(232,234,237,0.55);margin-bottom:20px">JuveLineTech is a technology company based in <strong style="color:#e8eaed;font-weight:600">Chanika, Dar es Salaam</strong>, dedicated to providing innovative digital solutions for businesses and organizations across Tanzania.</p>
-      <p style="font-size:14px;line-height:1.8;color:rgba(232,234,237,0.5);margin-bottom:20px">We specialize in <strong style="color:#fbbf24;font-weight:600">web development, mobile applications, custom software systems, IT infrastructure, and cybersecurity</strong>. Our team combines technical expertise with a deep understanding of local business needs to deliver solutions that make a real impact.</p>
-      <p style="font-size:14px;line-height:1.8;color:rgba(232,234,237,0.5);margin-bottom:40px">Whether you need a simple business website, a complex enterprise system, or IT consulting — we have the skills and experience to bring your vision to life.</p>
-      <div style="display:flex;justify-content:center;gap:48px">
-        <div><div style="font-size:32px;font-weight:800;color:#fbbf24;line-height:1">20+</div><div style="font-size:11px;font-weight:600;color:rgba(232,234,237,0.4);letter-spacing:0.12em;text-transform:uppercase;margin-top:4px">Projects</div></div>
-        <div><div style="font-size:32px;font-weight:800;color:#2dd4bf;line-height:1">5+</div><div style="font-size:11px;font-weight:600;color:rgba(232,234,237,0.4);letter-spacing:0.12em;text-transform:uppercase;margin-top:4px">Technologies</div></div>
-        <div><div style="font-size:32px;font-weight:800;color:#fbbf24;line-height:1">3+</div><div style="font-size:11px;font-weight:600;color:rgba(232,234,237,0.4);letter-spacing:0.12em;text-transform:uppercase;margin-top:4px">Years Exp</div></div>
-      </div>
-    </div>
-  </div>
-</section>
+        // Mobile menu
+        function openMenu() {
+            document.getElementById('mobileMenu').classList.add('open');
+            document.getElementById('overlay').classList.add('show');
+        }
+        function closeMenu() {
+            document.getElementById('mobileMenu').classList.remove('open');
+            document.getElementById('overlay').classList.remove('show');
+        }
 
-<!-- ─── CONTACT ─── -->
-<section id="contact" class="section" style="background:#111113;border-top:1px solid rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.04)">
-  <div class="section-inner reveal">
-    <div class="text-center mb-16">
-      <span class="section-label" style="color:rgba(45,212,191,0.6)">Get In Touch</span>
-      <h2 style="font-size:clamp(24px,3.5vw,36px);font-weight:700;color:#e8eaed;letter-spacing:-0.02em">Contact Us</h2>
-    </div>
-    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
-      <div style="display:flex;flex-direction:column;gap:24px">
-        <div style="display:flex;align-items:flex-start;gap:14px">
-          <div style="width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(251,191,36,0.06);flex-shrink:0"><span class="material-symbols-outlined" style="color:#fbbf24;font-size:20px">phone</span></div>
-          <div><div style="font-size:11px;font-weight:600;color:rgba(232,234,237,0.5);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:2px">Phone</div><span style="font-size:14px;color:rgba(232,234,237,0.7)">0782 341 709</span></div>
-        </div>
-        <div style="display:flex;align-items:flex-start;gap:14px">
-          <div style="width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(45,212,191,0.06);flex-shrink:0"><span class="material-symbols-outlined" style="color:#2dd4bf;font-size:20px">mail</span></div>
-          <div><div style="font-size:11px;font-weight:600;color:rgba(232,234,237,0.5);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:2px">Email</div><span style="font-size:14px;color:rgba(232,234,237,0.7)">shbnsemeni@gmail.com</span></div>
-        </div>
-        <div style="display:flex;align-items:flex-start;gap:14px">
-          <div style="width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(251,191,36,0.06);flex-shrink:0"><span class="material-symbols-outlined" style="color:#fbbf24;font-size:20px">location_on</span></div>
-          <div><div style="font-size:11px;font-weight:600;color:rgba(232,234,237,0.5);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:2px">Address</div><span style="font-size:14px;color:rgba(232,234,237,0.7)">Chanika, Dar es Salaam, Tanzania</span></div>
-        </div>
-      </div>
-      <form action="https://formsubmit.co/shbnsemeni@gmail.com" method="POST" style="display:flex;flex-direction:column;gap:14px">
-        <input type="hidden" name="_subject" value="JuveLineTech - New Inquiry">
-        <input type="hidden" name="_next" value="https://juvelinetech.com/thank-you.html">
-        <input class="input-field" type="text" name="name" placeholder="Your Name" required>
-        <input class="input-field" type="email" name="email" placeholder="Your Email" required>
-        <input class="input-field" type="text" name="subject" placeholder="Subject">
-        <textarea class="input-field" name="message" placeholder="Tell us about your project..." style="resize:none;height:120px" required></textarea>
-        <button class="btn btn-primary" type="submit">Send Message</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- ─── CTA ─── -->
-<section class="section reveal">
-  <div class="section-inner">
-    <div style="border-radius:24px;padding:56px 40px;text-align:center;position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(251,191,36,0.03),rgba(45,212,191,0.02));border:1px solid rgba(255,255,255,0.04)">
-      <div style="position:absolute;width:400px;height:400px;border-radius:50%;background:rgba(251,191,36,0.03);filter:blur(80px);top:-150px;right:-100px;pointer-events:none"></div>
-      <div style="position:relative;z-index:1">
-        <h2 style="font-size:clamp(24px,4vw,42px);font-weight:800;color:#e8eaed;line-height:1.15;letter-spacing:-0.03em;margin-bottom:16px">Ready to Build Something Great?</h2>
-        <p style="font-size:15px;color:rgba(232,234,237,0.5);max-width:480px;margin:0 auto 28px">Let's collaborate to bring your vision to life with world-class engineering and innovative design.</p>
-        <a class="btn btn-primary" href="#contact">Contact Us Today</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<!-- ─── FOOTER ─── -->
-<footer style="background:#0c0c0f;border-top:1px solid rgba(255,255,255,0.04);padding:24px 0">
-  <div class="section-inner">
-    <div style="display:flex;flex-direction:column;align-items:center;gap:16px">
-      <div style="display:flex;align-items:center;gap:8px">
-        <span style="font-size:18px;font-weight:900;letter-spacing:-0.03em;color:#fbbf24">j</span><span style="font-size:18px;font-weight:900;letter-spacing:-0.03em;color:#e8eaed">t</span>
-      </div>
-      <div style="display:flex;gap:24px;font-size:13px">
-        <a style="color:rgba(232,234,237,0.4);text-decoration:none;transition:color 0.3s" href="#services" onmouseover="this.style.color='#fbbf24'" onmouseout="this.style.color='rgba(232,234,237,0.4)'">Services</a>
-        <a style="color:rgba(232,234,237,0.4);text-decoration:none;transition:color 0.3s" href="#portfolio" onmouseover="this.style.color='#fbbf24'" onmouseout="this.style.color='rgba(232,234,237,0.4)'">Work</a>
-        <a style="color:rgba(232,234,237,0.4);text-decoration:none;transition:color 0.3s" href="privacy.html" onmouseover="this.style.color='#fbbf24'" onmouseout="this.style.color='rgba(232,234,237,0.4)'">Privacy</a>
-        <a style="color:rgba(232,234,237,0.4);text-decoration:none;transition:color 0.3s" href="mailto:shbnsemeni@gmail.com" onmouseover="this.style.color='#fbbf24'" onmouseout="this.style.color='rgba(232,234,237,0.4)'">Contact</a>
-      </div>
-      <span style="font-size:12px;color:rgba(232,234,237,0.2)">&copy; 2026 JuveLineTech</span>
-    </div>
-  </div>
-</footer>
-
-<!-- Chat -->
-<button style="position:fixed;bottom:24px;right:24px;width:52px;height:52px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#2dd4bf,#0d9488);box-shadow:0 0 20px rgba(45,212,191,0.2);transition:all 0.3s;z-index:100" onclick="window.location.href='#contact'" onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 0 40px rgba(45,212,191,0.35)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 0 20px rgba(45,212,191,0.2)'">
-  <span class="material-symbols-outlined" style="font-size:24px;color:#fff">chat_bubble</span>
-</button>
-
-<style>
-  .badge { font-size:11px;padding:4px 10px;background:rgba(255,255,255,0.04);border-radius:6px;color:rgba(232,234,237,0.4);transition:all 0.3s; }
-  .card:hover .badge { background:rgba(251,191,36,0.06);color:rgba(251,191,36,0.5); }
-</style>
-
-<script>
-const observer = new IntersectionObserver(e => { e.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); }); }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal, .stagger').forEach(el => observer.observe(el));
-function openMenu() { document.getElementById('mobileMenu').classList.add('open'); document.getElementById('overlay').classList.add('show'); }
-function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); document.getElementById('overlay').classList.remove('show'); }
-document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', e => { const id = a.getAttribute('href'); if (id === '#') return; const el = document.querySelector(id); if (el) { e.preventDefault(); window.scrollTo({ top: el.offsetTop - 64, behavior: 'smooth' }); } }); });
-</script>
+        // Smooth scroll offset for fixed nav
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                const id = a.getAttribute('href');
+                if (id === '#') return;
+                const el = document.querySelector(id);
+                if (el) {
+                    e.preventDefault();
+                    const offset = 70;
+                    window.scrollTo({ top: el.offsetTop - offset, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
