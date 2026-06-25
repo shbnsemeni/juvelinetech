@@ -1,895 +1,689 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JuveLineTech — Technology Solutions</title>
-    <meta name="description" content="JuveLineTech: Website design, Web & mobile app development, Software systems, IT infrastructure, and Cybersecurity solutions in Dar es Salaam, Tanzania.">
-    <meta name="keywords" content="juvelinetech, web design tanzania, software development, mobile apps, IT solutions dar es salaam">
-    <meta name="theme-color" content="#059669">
-    <meta name="google-adsense-account" content="ca-pub-3977547213503078">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <meta name="google-site-verification" content="48DZu66VdfTKRG8WXMP84WZRVvjVbNqPa4yJdxj0PNY" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: #1F2937;
-            background: #F0FDF4;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-
-        /* ===== HERO ===== */
-        .hero {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #059669 0%, #10B981 40%, #34D399 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 40px 20px;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%;
-            width: 200%; height: 200%;
-            background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.08) 0%, transparent 50%);
-            animation: heroGlow 8s ease-in-out infinite alternate;
-        }
-        @keyframes heroGlow {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-5%, 5%); }
-        }
-        .hero-content { position: relative; z-index: 1; }
-        .logo-text {
-            font-family: 'Inter', sans-serif;
-            font-weight: 900;
-            font-size: 72px;
-            letter-spacing: -4px;
-            color: #fff;
-            display: inline-block;
-            margin-bottom: 8px;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.15);
-        }
-        .logo-text .j { color: #fff; }
-        .logo-text .t { color: #FCD34D; }
-        .hero-tagline {
-            font-size: 18px;
-            color: rgba(255,255,255,0.9);
-            font-weight: 300;
-            letter-spacing: 0.05em;
-            margin-bottom: 28px;
-        }
-        .hero h1 {
-            font-size: clamp(28px, 5vw, 52px);
-            font-weight: 800;
-            color: #fff;
-            line-height: 1.2;
-            margin-bottom: 16px;
-        }
-        .hero p {
-            font-size: clamp(15px, 2vw, 18px);
-            color: rgba(255,255,255,0.85);
-            max-width: 600px;
-            margin: 0 auto 32px;
-        }
-        .btn-primary {
-            display: inline-block;
-            padding: 14px 40px;
-            background: #fff;
-            color: #059669;
-            font-weight: 700;
-            font-size: 15px;
-            border-radius: 50px;
-            text-decoration: none;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.2); }
-        .btn-outline {
-            display: inline-block;
-            padding: 13px 36px;
-            color: #fff;
-            font-weight: 600;
-            font-size: 15px;
-            border-radius: 50px;
-            text-decoration: none;
-            border: 2px solid rgba(255,255,255,0.4);
-            margin-left: 12px;
-            transition: all 0.3s ease;
-        }
-        .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
-
-        /* ===== NAV ===== */
-        .nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 1000;
-            padding: 16px 0;
-            transition: all 0.4s ease;
-        }
-        .nav.scrolled { background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); box-shadow: 0 2px 20px rgba(0,0,0,0.08); padding: 10px 0; }
-        .nav .container { display: flex; align-items: center; justify-content: space-between; }
-        .nav-logo {
-            font-weight: 900;
-            font-size: 22px;
-            letter-spacing: -1px;
-            text-decoration: none;
-            color: #1F2937;
-        }
-        .nav-logo .j { color: #059669; }
-        .nav-logo .t { color: #D4A843; }
-        .nav.scrolled .nav-logo { color: #1F2937; }
-        .nav-links { display: flex; gap: 28px; align-items: center; }
-        .nav-links a {
-            text-decoration: none;
-            color: rgba(255,255,255,0.85);
-            font-size: 13px;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        .nav.scrolled .nav-links a { color: #4B5563; }
-        .nav-links a:hover { color: #10B981; }
-        .nav.scrolled .nav-links a:hover { color: #059669; }
-        .nav-cta {
-            padding: 8px 20px;
-            background: #fff;
-            color: #059669 !important;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 13px;
-        }
-        .nav.scrolled .nav-cta { background: #059669; color: #fff !important; }
-        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-        .hamburger span { width: 24px; height: 2.5px; background: rgba(255,255,255,0.9); border-radius: 2px; transition: all 0.3s; }
-        .nav.scrolled .hamburger span { background: #1F2937; }
-
-        /* ===== SECTIONS ===== */
-        section { padding: 80px 0; }
-        .section-tag {
-            display: inline-block;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: #10B981;
-            margin-bottom: 8px;
-        }
-        .section-title {
-            font-size: clamp(26px, 4vw, 38px);
-            font-weight: 700;
-            color: #1F2937;
-            margin-bottom: 44px;
-            position: relative;
-        }
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(to right, #10B981, #FCD34D);
-            margin-top: 10px;
-            border-radius: 3px;
-        }
-
-        /* ===== SERVICES ===== */
-        #services { background: #fff; }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-        }
-        .service-card {
-            padding: 28px 24px;
-            border-radius: 16px;
-            background: #F0FDF4;
-            border: 1px solid #D1FAE5;
-            transition: all 0.3s ease;
-            cursor: default;
-        }
-        .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(16,185,129,0.12); }
-        .service-card .icon {
-            width: 48px; height: 48px;
-            background: linear-gradient(135deg, #059669, #10B981);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            color: #fff;
-            margin-bottom: 16px;
-        }
-        .service-card h3 { font-size: 17px; font-weight: 700; color: #1F2937; margin-bottom: 8px; }
-        .service-card p { font-size: 14px; color: #6B7280; line-height: 1.7; }
-        .service-card .skills { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
-        .service-card .skills span {
-            font-size: 11px;
-            padding: 4px 12px;
-            background: #fff;
-            border-radius: 20px;
-            color: #059669;
-            font-weight: 500;
-            border: 1px solid #D1FAE5;
-        }
-
-        /* ===== DESIGN & MARKETING ===== */
-        #design { background: #F0FDF4; }
-        .design-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-        }
-        .design-card {
-            padding: 28px 24px;
-            border-radius: 16px;
-            background: #fff;
-            border: 1px solid #D1FAE5;
-            transition: all 0.3s ease;
-            cursor: default;
-        }
-        .design-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(16,185,129,0.12); }
-        .design-card .icon {
-            width: 48px; height: 48px;
-            background: linear-gradient(135deg, #059669, #10B981);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            color: #fff;
-            margin-bottom: 16px;
-        }
-        .design-card h3 { font-size: 17px; font-weight: 700; color: #1F2937; margin-bottom: 8px; }
-        .design-card p { font-size: 14px; color: #6B7280; line-height: 1.7; }
-        .design-card .skills { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
-        .design-card .skills span {
-            font-size: 11px;
-            padding: 4px 12px;
-            background: #F0FDF4;
-            border-radius: 20px;
-            color: #059669;
-            font-weight: 500;
-            border: 1px solid #D1FAE5;
-        }
-
-        /* ===== PORTFOLIO ===== */
-        #portfolio { background: #F0FDF4; }
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-        }
-        .portfolio-card {
-            background: #fff;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid #E5E7EB;
-            transition: all 0.3s ease;
-        }
-        .portfolio-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
-        .portfolio-card .thumb {
-            height: 200px;
-            background: linear-gradient(135deg, #059669, #34D399);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-            color: rgba(255,255,255,0.3);
-            font-weight: 900;
-        }
-        .portfolio-card .body { padding: 24px; }
-        .portfolio-card .body h3 { font-size: 18px; font-weight: 700; color: #1F2937; margin-bottom: 6px; }
-        .portfolio-card .body p { font-size: 14px; color: #6B7280; margin-bottom: 12px; line-height: 1.7; }
-        .portfolio-card .body .tech {
-            display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px;
-        }
-        .portfolio-card .body .tech span {
-            font-size: 11px; padding: 3px 10px; background: #F0FDF4;
-            border-radius: 12px; color: #059669; font-weight: 500;
-        }
-        .portfolio-card .body a {
-            color: #10B981; font-weight: 600; font-size: 14px; text-decoration: none;
-        }
-        .portfolio-card .body a:hover { text-decoration: underline; }
-
-        /* ===== COURSES ===== */
-        #courses { background: #fff; }
-        .course-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        .course-card {
-            padding: 28px 24px;
-            border-radius: 16px;
-            background: #F0FDF4;
-            border: 1px solid #D1FAE5;
-            transition: all 0.3s ease;
-        }
-        .course-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(16,185,129,0.12); }
-        .course-card .icon {
-            width: 48px; height: 48px;
-            background: linear-gradient(135deg, #059669, #10B981);
-            border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 22px; color: #fff; margin-bottom: 16px;
-        }
-        .course-card h3 { font-size: 17px; font-weight: 700; color: #1F2937; margin-bottom: 6px; }
-        .course-card p { font-size: 14px; color: #6B7280; line-height: 1.7; margin-bottom: 10px; }
-        .course-card .topics {
-            display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 14px;
-        }
-        .course-card .topics span {
-            font-size: 11px; padding: 3px 10px; background: #fff;
-            border-radius: 12px; color: #059669; font-weight: 500; border: 1px solid #D1FAE5;
-        }
-        .course-card .btn-course {
-            display: inline-block; padding: 8px 20px; background: #10B981;
-            color: #fff; border-radius: 50px; font-size: 13px; font-weight: 600;
-            text-decoration: none; transition: background 0.3s;
-        }
-        .course-card .btn-course:hover { background: #059669; }
-        .courses-more {
-            text-align: center; margin-top: 32px;
-        }
-        .courses-more a {
-            display: inline-block; padding: 12px 32px; background: transparent;
-            color: #10B981; border: 2px solid #10B981; border-radius: 50px;
-            font-weight: 600; font-size: 14px; text-decoration: none; transition: all 0.3s;
-        }
-        .courses-more a:hover { background: #10B981; color: #fff; }
-
-        /* ===== ABOUT ===== */
-        #about { background: #fff; }
-        .about-wrap { display: flex; gap: 60px; align-items: center; flex-wrap: wrap; }
-        .about-text { flex: 1; min-width: 280px; }
-        .about-text p { font-size: 15px; color: #6B7280; line-height: 1.8; margin-bottom: 16px; }
-        .about-text strong { color: #1F2937; }
-        .about-stats { display: flex; gap: 40px; margin-top: 28px; }
-        .about-stats div { text-align: center; }
-        .about-stats .num { font-size: 32px; font-weight: 800; color: #059669; }
-        .about-stats .label { font-size: 13px; color: #6B7280; }
-
-        /* ===== CONTACT ===== */
-        #contact { background: #F0FDF4; }
-        .contact-wrap { display: flex; gap: 40px; flex-wrap: wrap; }
-        .contact-info { flex: 1; min-width: 260px; }
-        .contact-info .item { display: flex; gap: 14px; margin-bottom: 20px; }
-        .contact-info .item .ic {
-            width: 44px; height: 44px; background: #10B981; border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 18px; color: #fff; flex-shrink: 0;
-        }
-        .contact-info .item h4 { font-size: 14px; font-weight: 600; color: #1F2937; }
-        .contact-info .item p { font-size: 14px; color: #6B7280; }
-        .contact-form { flex: 1; min-width: 300px; }
-        .contact-form input, .contact-form textarea {
-            width: 100%; padding: 14px 16px; border: 1px solid #D1FAE5;
-            border-radius: 10px; font-size: 14px; font-family: inherit;
-            color: #1F2937; background: #fff; margin-bottom: 14px;
-            transition: border-color 0.3s;
-        }
-        .contact-form input:focus, .contact-form textarea:focus {
-            outline: none; border-color: #10B981; box-shadow: 0 0 0 3px rgba(16,185,129,0.1);
-        }
-        .contact-form textarea { height: 120px; resize: vertical; }
-        .contact-form button {
-            padding: 14px 32px; background: linear-gradient(135deg, #059669, #10B981);
-            color: #fff; border: none; border-radius: 10px; font-size: 15px;
-            font-weight: 600; cursor: pointer; transition: all 0.3s;
-        }
-        .contact-form button:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(16,185,129,0.3); }
-
-        /* ===== FOOTER ===== */
-        footer {
-            background: #065F46; color: rgba(255,255,255,0.7); padding: 48px 0 32px;
-        }
-        footer .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 32px; }
-        footer .brand { max-width: 280px; }
-        footer .brand .logo-text-sm {
-            font-weight: 900; font-size: 28px; letter-spacing: -2px;
-        }
-        footer .brand .logo-text-sm .j { color: #fff; }
-        footer .brand .logo-text-sm .t { color: #FCD34D; }
-        footer .brand p { font-size: 13px; line-height: 1.7; margin-top: 8px; }
-        footer .links h4 { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 12px; }
-        footer .links a {
-            display: block; color: rgba(255,255,255,0.6); text-decoration: none;
-            font-size: 13px; margin-bottom: 6px; transition: color 0.3s;
-        }
-        footer .links a:hover { color: #FCD34D; }
-        .copyright {
-            text-align: center; padding-top: 28px; margin-top: 32px;
-            border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px;
-            color: rgba(255,255,255,0.4);
-        }
-
-        /* ===== MOBILE MENU ===== */
-        .mobile-menu {
-            position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
-            background: #fff; z-index: 2000; padding: 80px 28px 28px;
-            transition: right 0.4s ease; box-shadow: -4px 0 30px rgba(0,0,0,0.1);
-        }
-        .mobile-menu.open { right: 0; }
-        .mobile-menu a {
-            display: block; padding: 12px 0; font-size: 16px; font-weight: 500;
-            color: #1F2937; text-decoration: none; border-bottom: 1px solid #F3F4F6;
-        }
-        .mobile-menu a:hover { color: #10B981; }
-        .mobile-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.4); z-index: 1999; opacity: 0;
-            pointer-events: none; transition: opacity 0.4s;
-        }
-        .mobile-overlay.show { opacity: 1; pointer-events: auto; }
-        .close-menu {
-            position: absolute; top: 20px; right: 20px;
-            background: none; border: none; font-size: 28px; color: #9CA3AF; cursor: pointer;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hamburger { display: flex; }
-            .hero { min-height: 90vh; }
-            .btn-outline { margin-left: 0; margin-top: 12px; }
-            .services-grid { grid-template-columns: 1fr; }
-            .portfolio-grid { grid-template-columns: 1fr; }
-            .about-wrap { flex-direction: column; gap: 30px; }
-            .about-stats { justify-content: space-around; }
-            .contact-wrap { flex-direction: column; }
-            footer .container { flex-direction: column; gap: 24px; }
-        }
-        @media (max-width: 480px) {
-            section { padding: 48px 0; }
-            .hero-buttons { display: flex; flex-direction: column; align-items: center; }
-        }
-    </style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JuveLineTech — Technology Solutions</title>
+<meta name="description" content="JuveLineTech: Website design, Web & mobile app development, Software systems, IT infrastructure, and Cybersecurity solutions in Dar es Salaam, Tanzania.">
+<meta name="keywords" content="juvelinetech, web design tanzania, software development, mobile apps, IT solutions dar es salaam">
+<meta name="theme-color" content="#0a1628">
+<meta name="google-adsense-account" content="ca-pub-3977547213503078">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="google-site-verification" content="48DZu66VdfTKRG8WXMP84WZRVvjVbNqPa4yJdxj0PNY" />
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "surface": "#101415",
+        "surface-dim": "#101415",
+        "surface-bright": "#363a3b",
+        "surface-container-lowest": "#0b0f10",
+        "surface-container-low": "#191c1e",
+        "surface-container": "#1d2022",
+        "surface-container-high": "#272a2c",
+        "surface-container-highest": "#323537",
+        "on-surface": "#e0e3e5",
+        "on-surface-variant": "#c5c6cd",
+        "background": "#101415",
+        "on-background": "#e0e3e5",
+        "primary": "#bbc7df",
+        "primary-container": "#0a1628",
+        "on-primary": "#253144",
+        "on-primary-container": "#758096",
+        "secondary": "#a2e7ff",
+        "secondary-container": "#00d2fd",
+        "on-secondary": "#003642",
+        "on-secondary-container": "#005669",
+        "tertiary": "#ffb59d",
+        "tertiary-container": "#2f0800",
+        "on-tertiary": "#5d1900",
+        "on-tertiary-container": "#dc521d",
+        "error": "#ffb4ab",
+        "error-container": "#93000a",
+        "surface-variant": "#323537",
+        "outline": "#8f9097",
+        "outline-variant": "#45474c",
+        "surface-glass": "rgba(10, 22, 40, 0.7)",
+        "border-glass": "rgba(255, 255, 255, 0.1)",
+        "accent-green": "#10B981",
+        "warning-yellow": "#FCD34D",
+        "inverse-surface": "#e0e3e5",
+        "inverse-on-surface": "#2d3133",
+        "inverse-primary": "#535f74"
+      },
+      borderRadius: {
+        DEFAULT: "0.25rem",
+        lg: "0.5rem",
+        xl: "0.75rem",
+        "2xl": "1rem",
+        full: "9999px"
+      },
+      spacing: {
+        "margin-mobile": "1rem",
+        "margin-desktop": "5rem",
+        "container-max": "1280px",
+        gutter: "1.5rem"
+      },
+      fontFamily: {
+        "body-lg": ["Inter"],
+        "body-md": ["Inter"],
+        "headline-xl": ["Inter"],
+        "headline-xl-mobile": ["Inter"],
+        "headline-lg": ["Inter"],
+        "headline-md": ["Inter"],
+        "label-md": ["Inter"]
+      },
+      fontSize: {
+        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+        "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
+        "headline-xl": ["48px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "800" }],
+        "headline-xl-mobile": ["32px", { lineHeight: "1.2", fontWeight: "800" }],
+        "headline-lg": ["32px", { lineHeight: "1.2", fontWeight: "700" }],
+        "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "700" }],
+        "label-md": ["14px", { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "600" }]
+      }
+    }
+  }
+}
+</script>
+<style>
+  body { background-color: #101415; color: #e0e3e5; overflow-x: hidden; }
+  .glass-card {
+    background: rgba(10, 22, 40, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .glass-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    border-color: #a2e7ff;
+    box-shadow: 0 0 20px rgba(162, 231, 255, 0.2);
+  }
+  .luminous-shadow {
+    box-shadow: 0 10px 40px -10px rgba(220, 82, 29, 0.4);
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+  }
+  .reveal.active { opacity: 1; transform: translateY(0); }
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  .active-indicator::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #a2e7ff;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .floating { animation: float 6s ease-in-out infinite; }
+  .gradient-mesh {
+    background: radial-gradient(circle at 0% 0%, rgba(0, 210, 253, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(220, 82, 29, 0.1) 0%, transparent 50%);
+  }
+  .mobile-menu {
+    position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
+    z-index: 2000; padding: 80px 28px 28px;
+    transition: right 0.4s ease;
+    background: rgba(10, 22, 40, 0.95);
+    backdrop-filter: blur(20px);
+    border-left: 1px solid rgba(255,255,255,0.1);
+  }
+  .mobile-menu.open { right: 0; }
+  .mobile-menu a {
+    display: block; padding: 14px 0; font-size: 16px; font-weight: 500;
+    color: #c5c6cd; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .mobile-menu a:hover { color: #a2e7ff; }
+  .mobile-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6); z-index: 1999; opacity: 0;
+    pointer-events: none; transition: opacity 0.4s;
+  }
+  .mobile-overlay.show { opacity: 1; pointer-events: auto; }
+  .nav-blur { backdrop-filter: blur(20px); }
+  html { scroll-behavior: smooth; }
+</style>
 </head>
-<body>
+<body class="font-body-md text-body-md">
 
-    <!-- Mobile Overlay -->
-    <div class="mobile-overlay" id="overlay" onclick="closeMenu()"></div>
+<div class="mobile-overlay" id="overlay" onclick="closeMenu()"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-menu absolute top-5 right-5 text-3xl text-on-surface-variant hover:text-secondary bg-transparent border-none cursor-pointer" onclick="closeMenu()">&times;</button>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#design" onclick="closeMenu()">Design</a>
+  <a href="#portfolio" onclick="closeMenu()">Portfolio</a>
+  <a href="courses.html" onclick="closeMenu()">Courses</a>
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <button class="close-menu" onclick="closeMenu()">✕</button>
-        <a href="#services" onclick="closeMenu()">Services</a>
-        <a href="#design" onclick="closeMenu()">Design</a>
-        <a href="#portfolio" onclick="closeMenu()">Portfolio</a>
-        <a href="courses.html" onclick="closeMenu()">Courses</a>
-        <a href="#about" onclick="closeMenu()">About</a>
-        <a href="#contact" onclick="closeMenu()">Contact</a>
+<header class="fixed top-0 w-full z-50 bg-surface-glass nav-blur border-b border-border-glass shadow-sm h-20" id="header">
+  <nav class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-full">
+    <div class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">JuveLineTech</div>
+    <div class="hidden md:flex items-center gap-8">
+      <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#services">Services</a>
+      <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#design">Design</a>
+      <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#portfolio">Portfolio</a>
+      <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="courses.html">Courses</a>
+      <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#about">About</a>
+      <a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#contact">Contact</a>
+      <a class="bg-secondary-container text-on-secondary-container px-6 py-2 rounded-full font-label-md hover:scale-105 active:scale-95 transition-all" href="#contact">Quote</a>
     </div>
+    <button class="md:hidden flex flex-col gap-1.5 bg-transparent border-none cursor-pointer p-1" onclick="openMenu()">
+      <span class="block w-6 h-0.5 bg-on-surface rounded"></span>
+      <span class="block w-6 h-0.5 bg-on-surface rounded"></span>
+      <span class="block w-6 h-0.5 bg-on-surface rounded"></span>
+    </button>
+  </nav>
+</header>
 
-    <!-- Navigation -->
-    <nav class="nav" id="nav">
-        <div class="container">
-            <a href="#" class="nav-logo"><span class="j">J</span><span class="t">t</span></a>
-            <div class="nav-links">
-                <a href="#services">Services</a>
-                <a href="#design">Design</a>
-                <a href="#portfolio">Portfolio</a>
-                <a href="courses.html">Courses</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-                <a href="#contact" class="nav-cta">Get a Quote</a>
-            </div>
-            <button class="hamburger" onclick="openMenu()">
-                <span></span><span></span><span></span>
-            </button>
+<main class="pt-20">
+  <section class="relative min-h-screen flex items-center overflow-hidden gradient-mesh">
+    <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full py-20">
+      <div class="max-w-3xl reveal active">
+        <h1 class="font-headline-xl-mobile md:font-headline-xl text-on-surface mb-6" style="text-shadow: 0 0 10px rgba(162, 231, 255, 0.3);">
+          Technology Solutions That <span class="text-secondary">Drive Your Business Forward</span>
+        </h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl">
+          From web &amp; mobile apps to enterprise systems and IT infrastructure — we build technology that works for you.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#services" class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-full font-label-md hover:scale-105 active:scale-95 transition-all inline-flex items-center gap-2">
+            Explore Services
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+          <a href="#contact" class="border-2 border-secondary text-secondary px-8 py-4 rounded-full font-label-md hover:bg-secondary/10 transition-all inline-flex items-center gap-2">
+            Contact Us
+          </a>
         </div>
-    </nav>
+      </div>
+    </div>
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 floating hidden md:block">
+      <span class="material-symbols-outlined text-secondary text-4xl">keyboard_double_arrow_down</span>
+    </div>
+  </section>
 
-    <!-- Hero -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="logo-text"><span class="j">J</span><span class="t">t</span></div>
-            <div class="hero-tagline">JUVELINETECH</div>
-            <h1>Technology Solutions<br>That Drive Your Business Forward</h1>
-            <p>From web &amp; mobile apps to enterprise systems and IT infrastructure — we build technology that works for you.</p>
-            <div class="hero-buttons">
-                <a href="#services" class="btn-primary">Explore Services</a>
-                <a href="#contact" class="btn-outline">Contact Us</a>
-            </div>
+  <section class="bg-surface-container-low py-12 border-y border-outline-variant/30">
+    <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="flex items-center gap-6 justify-center">
+        <div class="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center">
+          <span class="material-symbols-outlined text-secondary text-3xl">terminal</span>
         </div>
-    </section>
-
-    <!-- Services -->
-    <section id="services">
-        <div class="container">
-            <div class="section-tag">What We Do</div>
-            <h2 class="section-title">Our Services</h2>
-            <div class="services-grid">
-
-                <div class="service-card">
-                    <div class="icon">🌐</div>
-                    <h3>Web &amp; Mobile Development</h3>
-                    <p>Modern websites, web applications, and native mobile apps for Android &amp; iOS.</p>
-                    <div class="skills">
-                        <span>Website Design</span>
-                        <span>Web Apps</span>
-                        <span>Android</span>
-                        <span>iOS</span>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="icon">⚙️</div>
-                    <h3>Software Systems</h3>
-                    <p>Custom software including school &amp; hospital management, inventory, POS, and more.</p>
-                    <div class="skills">
-                        <span>School Mgmt</span>
-                        <span>Hospital Mgmt</span>
-                        <span>Inventory</span>
-                        <span>POS</span>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="icon">🛡️</div>
-                    <h3>IT Infrastructure &amp; Security</h3>
-                    <p>Hardware repair, network setup, data recovery, and cybersecurity solutions.</p>
-                    <div class="skills">
-                        <span>Hardware Repair</span>
-                        <span>Network Setup</span>
-                        <span>Data Recovery</span>
-                        <span>Cybersecurity</span>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="icon">🔗</div>
-                    <h3>Consulting &amp; Integration</h3>
-                    <p>IT consulting, system integration, automation tools, API development &amp; legacy migration.</p>
-                    <div class="skills">
-                        <span>IT Consulting</span>
-                        <span>API Dev</span>
-                        <span>Automation</span>
-                        <span>Legacy Migration</span>
-                    </div>
-                </div>
-
-            </div>
+        <div>
+          <div class="font-headline-lg text-on-surface">20+</div>
+          <div class="font-label-md text-on-surface-variant uppercase tracking-widest">Projects</div>
         </div>
-    </section>
-
-    <!-- Design & Marketing -->
-    <section id="design">
-        <div class="container">
-            <div class="section-tag">Design & Marketing</div>
-            <h2 class="section-title">Creative &amp; Marketing Services</h2>
-            <div class="design-grid">
-
-                <div class="design-card">
-                    <div class="icon">🎨</div>
-                    <h3>Logo Creation</h3>
-                    <p>Professional logo design and brand identity creation that makes your business stand out. Custom typography, color palettes, and vector designs.</p>
-                    <div class="skills">
-                        <span>Brand Identity</span>
-                        <span>Custom Logos</span>
-                        <span>Typography</span>
-                        <span>Vector Art</span>
-                    </div>
-                </div>
-
-                <div class="design-card">
-                    <div class="icon">🖼️</div>
-                    <h3>Posters Creation</h3>
-                    <p>Eye-catching posters, flyers, banners, and social media graphics designed to capture attention and communicate your message effectively.</p>
-                    <div class="skills">
-                        <span>Flyers</span>
-                        <span>Banners</span>
-                        <span>Social Media</span>
-                        <span>Print Design</span>
-                    </div>
-                </div>
-
-                <div class="design-card">
-                    <div class="icon">📸</div>
-                    <h3>Photo Editing</h3>
-                    <p>Professional photo retouching, background removal, color correction, and image restoration to make your photos look their best.</p>
-                    <div class="skills">
-                        <span>Retouching</span>
-                        <span>BG Removal</span>
-                        <span>Color Grading</span>
-                        <span>Restoration</span>
-                    </div>
-                </div>
-
-                <div class="design-card">
-                    <div class="icon">🎬</div>
-                    <h3>Video Editing</h3>
-                    <p>Engaging video content for promotions, social media, events, and commercials. From raw footage to polished final cut.</p>
-                    <div class="skills">
-                        <span>Promo Videos</span>
-                        <span>Social Media</span>
-                        <span>Commercials</span>
-                        <span>Montage</span>
-                    </div>
-                </div>
-
-                <div class="design-card">
-                    <div class="icon">✨</div>
-                    <h3>Motion Graphics</h3>
-                    <p>Animated intros, explainer videos, kinetic typography, and 2D motion graphics that bring your brand stories to life.</p>
-                    <div class="skills">
-                        <span>Animated Intros</span>
-                        <span>Explainer Videos</span>
-                        <span>2D Animation</span>
-                        <span>Kinetic Type</span>
-                    </div>
-                </div>
-
-                <div class="design-card">
-                    <div class="icon">📈</div>
-                    <h3>SEO</h3>
-                    <p>Search engine optimization to improve your website's visibility on Google. Keyword research, on-page optimization, and technical SEO.</p>
-                    <div class="skills">
-                        <span>Keyword Research</span>
-                        <span>On-Page SEO</span>
-                        <span>Technical SEO</span>
-                        <span>Local SEO</span>
-                    </div>
-                </div>
-
-            </div>
+      </div>
+      <div class="flex items-center gap-6 justify-center">
+        <div class="w-16 h-16 rounded-full bg-tertiary/10 flex items-center justify-center">
+          <span class="material-symbols-outlined text-tertiary text-3xl">layers</span>
         </div>
-    </section>
-
-    <!-- Portfolio -->
-    <section id="portfolio">
-        <div class="container">
-            <div class="section-tag">Our Work</div>
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="portfolio-grid">
-
-                <div class="portfolio-card">
-                    <div class="thumb">🛒</div>
-                    <div class="body">
-                        <h3>Matete Online Store</h3>
-                        <p>Full e-commerce platform for electronics in Tanzania. Features: product catalog, cart, checkout, payments, admin panel, push notifications.</p>
-                        <div class="tech">
-                            <span>Django</span>
-                            <span>Tailwind CSS</span>
-                            <span>PostgreSQL</span>
-                            <span>REST API</span>
-                        </div>
-                        <a href="https://mateteonlinestore.com" target="_blank">Visit Website →</a>
-                    </div>
-                </div>
-
-                <div class="portfolio-card">
-                    <div class="thumb">📱</div>
-                    <div class="body">
-                        <h3>Mobile App — Matete Store</h3>
-                        <p>Native Android app wrapping the Matete Online Store website with splash screen, push notifications, and full-screen immersive experience.</p>
-                        <div class="tech">
-                            <span>Capacitor</span>
-                            <span>Android</span>
-                            <span>PWA</span>
-                        </div>
-                        <a href="#" style="color:#9CA3AF;">Coming soon to Play Store</a>
-                    </div>
-                </div>
-
-                <div class="portfolio-card">
-                    <div class="thumb">🔧</div>
-                    <div class="body">
-                        <h3>Your Project Here</h3>
-                        <p>Let's build something great together. Contact us to discuss your idea and get a free quote.</p>
-                        <div class="tech">
-                            <span>You Dream It</span>
-                            <span>We Build It</span>
-                        </div>
-                        <a href="#contact">Start a Project →</a>
-                    </div>
-                </div>
-
-            </div>
+        <div>
+          <div class="font-headline-lg text-on-surface">5+</div>
+          <div class="font-label-md text-on-surface-variant uppercase tracking-widest">Technologies</div>
         </div>
-    </section>
-
-    <!-- Courses -->
-    <section id="courses">
-        <div class="container">
-            <div class="section-tag">Learn With Us</div>
-            <h2 class="section-title">Our Courses</h2>
-            <p style="text-align:center;color:#6B7280;font-size:15px;margin-bottom:36px;max-width:600px;margin-left:auto;margin-right:auto;">
-                Jifunze technology na programming kutoka mwanzo. Courses zetu zinaelezea kwa lugha rahisi na mifano halisi.
-            </p>
-            <div class="course-grid">
-
-                <div class="course-card">
-                    <div class="icon">💻</div>
-                    <h3>Tech Tips</h3>
-                    <p>Computer basics, troubleshooting, security, na internet skills kwa wanaoanza.</p>
-                    <div class="topics"><span>Hardware</span><span>Software</span><span>Security</span><span>Internet</span></div>
-                    <a href="course/tech-tips.html" class="btn-course">Start Learning →</a>
-                </div>
-
-                <div class="course-card">
-                    <div class="icon">🐍</div>
-                    <h3>Python</h3>
-                    <p>Jifunze Python kutoka mwanzo — variables loops functions hadi simple projects.</p>
-                    <div class="topics"><span>Basics</span><span>Data Types</span><span>Functions</span><span>Projects</span></div>
-                    <a href="course/python.html" class="btn-course">Start Learning →</a>
-                </div>
-
-                <div class="course-card">
-                    <div class="icon">🌐</div>
-                    <h3>HTML &amp; CSS</h3>
-                    <p>Unda websites za kuvutia — structure, styling, responsive design, na zaidi.</p>
-                    <div class="topics"><span>HTML5</span><span>CSS3</span><span>Flexbox</span><span>Grid</span></div>
-                    <a href="course/html-css.html" class="btn-course">Start Learning →</a>
-                </div>
-
-                <div class="course-card">
-                    <div class="icon">⚡</div>
-                    <h3>JavaScript</h3>
-                    <p>Pata uwezo wa kuunda web applications interactive na dynamic.</p>
-                    <div class="topics"><span>DOM</span><span>ES6+</span><span>Events</span><span>APIs</span></div>
-                    <a href="course/javascript.html" class="btn-course">Start Learning →</a>
-                </div>
-
-                <div class="course-card">
-                    <div class="icon">⚛️</div>
-                    <h3>React</h3>
-                    <p>Modern app development — components, state, hooks, na building real apps.</p>
-                    <div class="topics"><span>JSX</span><span>Components</span><span>State</span><span>Hooks</span></div>
-                    <a href="course/react.html" class="btn-course">Start Learning →</a>
-                </div>
-
-                <div class="course-card">
-                    <div class="icon">🤖</div>
-                    <h3>Prompt Engineering</h3>
-                    <p>Jifunze kuandika prompts bora kwa AI kama ChatGPT, Claude, na Gemini.</p>
-                    <div class="topics"><span>AI Basics</span><span>Prompts</span><span>Chain-of-Thought</span><span>Projects</span></div>
-                    <a href="course/prompt-engineering.html" class="btn-course">Start Learning →</a>
-                </div>
-
-            </div>
-            <div class="courses-more">
-                <a href="courses.html">View All Courses →</a>
-            </div>
+      </div>
+      <div class="flex items-center gap-6 justify-center">
+        <div class="w-16 h-16 rounded-full bg-accent-green/10 flex items-center justify-center">
+          <span class="material-symbols-outlined text-accent-green text-3xl">workspace_premium</span>
         </div>
-    </section>
-
-    <!-- About -->
-    <section id="about">
-        <div class="container">
-            <div class="section-tag">Who We Are</div>
-            <h2 class="section-title">About JuveLineTech</h2>
-            <div class="about-wrap">
-                <div class="about-text">
-                    <p>JuveLineTech is a technology company based in <strong>Chanika, Dar es Salaam</strong>, dedicated to providing innovative digital solutions for businesses and organizations across Tanzania.</p>
-                    <p>We specialize in <strong>web development, mobile applications, custom software systems, IT infrastructure, and cybersecurity</strong>. Our team combines technical expertise with a deep understanding of local business needs to deliver solutions that make a real impact.</p>
-                    <p>Whether you need a simple business website, a complex enterprise system, or IT consulting — we have the skills and experience to bring your vision to life.</p>
-                    <div class="about-stats">
-                        <div><div class="num">20+</div><div class="label">Projects</div></div>
-                        <div><div class="num">5+</div><div class="label">Technologies</div></div>
-                        <div><div class="num">3+</div><div class="label">Years Exp</div></div>
-                    </div>
-                </div>
-            </div>
+        <div>
+          <div class="font-headline-lg text-on-surface">3+</div>
+          <div class="font-label-md text-on-surface-variant uppercase tracking-widest">Years Exp</div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Contact -->
-    <section id="contact">
-        <div class="container">
-            <div class="section-tag">Get In Touch</div>
-            <h2 class="section-title">Contact Us</h2>
-            <div class="contact-wrap">
-                <div class="contact-info">
-                    <div class="item">
-                        <div class="ic">📞</div>
-                        <div>
-                            <h4>Phone</h4>
-                            <p><a href="tel:+255782341709" style="color:#6B7280;text-decoration:none;">0782 341 709</a></p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="ic">✉️</div>
-                        <div>
-                            <h4>Email</h4>
-                            <p><a href="mailto:shbnsemeni@gmail.com" style="color:#6B7280;text-decoration:none;">shbnsemeni@gmail.com</a></p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="ic">📍</div>
-                        <div>
-                            <h4>Address</h4>
-                            <p>Chanika, Dar es Salaam, Tanzania</p>
-                        </div>
-                    </div>
-                </div>
-                <form class="contact-form" action="https://formsubmit.co/shbnsemeni@gmail.com" method="POST">
-                    <input type="hidden" name="_subject" value="JuveLineTech - New Inquiry">
-                    <input type="hidden" name="_next" value="https://juvelinetech.com/thank-you.html">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <input type="text" name="subject" placeholder="Subject">
-                    <textarea name="message" placeholder="Tell us about your project..." required></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
-            </div>
+  <section id="services" class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto reveal">
+    <div class="text-center mb-16">
+      <h2 class="font-headline-lg text-on-surface mb-4">Our Services</h2>
+      <div class="w-20 h-1 bg-secondary mx-auto rounded-full"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+      <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+        <div class="p-3 bg-secondary/10 rounded-lg">
+          <span class="material-symbols-outlined text-secondary text-3xl">devices</span>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="brand">
-                <div class="logo-text-sm"><span class="j">J</span><span class="t">t</span></div>
-                <p>Technology solutions that drive your business forward. Based in Chanika, Dar es Salaam.</p>
-            </div>
-            <div class="links">
-                <h4>Quick Links</h4>
-                <a href="#services">Services</a>
-                <a href="#portfolio">Portfolio</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-                <a href="privacy.html">Privacy Policy</a>
-            </div>
-            <div class="links">
-                <h4>Services</h4>
-                <a href="#services">Web Development</a>
-                <a href="#services">Mobile Apps</a>
-                <a href="#services">Software Systems</a>
-                <a href="#services">IT Infrastructure</a>
-            </div>
-            <div class="links">
-                <h4>Contact</h4>
-                <a href="tel:+255782341709">0782 341 709</a>
-                <a href="mailto:shbnsemeni@gmail.com">shbnsemeni@gmail.com</a>
-                <a>Chanika, Dar es Salaam</a>
-            </div>
+        <h3 class="font-headline-md text-on-surface">Web &amp; Mobile</h3>
+        <p class="text-on-surface-variant">Modern websites, web applications, and native mobile apps for Android &amp; iOS.</p>
+      </div>
+      <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+        <div class="p-3 bg-tertiary/10 rounded-lg">
+          <span class="material-symbols-outlined text-tertiary text-3xl">settings_applications</span>
         </div>
-        <div class="copyright">
-            &copy; 2026 JuveLineTech. All rights reserved.
+        <h3 class="font-headline-md text-on-surface">Software Systems</h3>
+        <p class="text-on-surface-variant">Custom software including school &amp; hospital management, inventory, POS, and more.</p>
+      </div>
+      <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+        <div class="p-3 bg-secondary/10 rounded-lg">
+          <span class="material-symbols-outlined text-secondary text-3xl">dns</span>
         </div>
-    </footer>
+        <h3 class="font-headline-md text-on-surface">IT Infrastructure</h3>
+        <p class="text-on-surface-variant">Hardware repair, network setup, data recovery, and cybersecurity solutions.</p>
+      </div>
+      <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+        <div class="p-3 bg-tertiary/10 rounded-lg">
+          <span class="material-symbols-outlined text-tertiary text-3xl">lightbulb</span>
+        </div>
+        <h3 class="font-headline-md text-on-surface">Consulting</h3>
+        <p class="text-on-surface-variant">IT consulting, system integration, automation tools, API development &amp; legacy migration.</p>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Nav scroll
-        const nav = document.getElementById('nav');
-        window.addEventListener('scroll', () => {
-            nav.classList.toggle('scrolled', window.scrollY > 60);
-        });
+  <section id="design" class="py-24 bg-surface-container reveal">
+    <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="font-headline-lg text-on-surface mb-4">Creative &amp; Marketing</h2>
+        <div class="w-20 h-1 bg-tertiary mx-auto rounded-full"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+        <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+          <div class="p-3 bg-secondary/10 rounded-lg">
+            <span class="material-symbols-outlined text-secondary text-3xl">draw</span>
+          </div>
+          <h3 class="font-headline-md text-on-surface">Logo Creation</h3>
+          <p class="text-on-surface-variant">Professional logo design and brand identity creation. Custom typography, color palettes, and vector designs.</p>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Brand Identity</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Custom Logos</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Typography</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Vector Art</span>
+          </div>
+        </div>
+        <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+          <div class="p-3 bg-tertiary/10 rounded-lg">
+            <span class="material-symbols-outlined text-tertiary text-3xl">post_add</span>
+          </div>
+          <h3 class="font-headline-md text-on-surface">Posters Creation</h3>
+          <p class="text-on-surface-variant">Eye-catching posters, flyers, banners, and social media graphics to capture attention.</p>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Flyers</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Banners</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Social Media</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Print Design</span>
+          </div>
+        </div>
+        <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+          <div class="p-3 bg-secondary/10 rounded-lg">
+            <span class="material-symbols-outlined text-secondary text-3xl">photo_camera</span>
+          </div>
+          <h3 class="font-headline-md text-on-surface">Photo Editing</h3>
+          <p class="text-on-surface-variant">Professional photo retouching, background removal, color correction, and image restoration.</p>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Retouching</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">BG Removal</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Color Grading</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Restoration</span>
+          </div>
+        </div>
+        <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+          <div class="p-3 bg-tertiary/10 rounded-lg">
+            <span class="material-symbols-outlined text-tertiary text-3xl">videocam</span>
+          </div>
+          <h3 class="font-headline-md text-on-surface">Video Editing</h3>
+          <p class="text-on-surface-variant">Engaging video content for promotions, social media, events, and commercials.</p>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Promo Videos</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Social Media</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Commercials</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Montage</span>
+          </div>
+        </div>
+        <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+          <div class="p-3 bg-secondary/10 rounded-lg">
+            <span class="material-symbols-outlined text-secondary text-3xl">animation</span>
+          </div>
+          <h3 class="font-headline-md text-on-surface">Motion Graphics</h3>
+          <p class="text-on-surface-variant">Animated intros, explainer videos, kinetic typography, and 2D motion graphics.</p>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Animated Intros</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Explainer Videos</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">2D Animation</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Kinetic Type</span>
+          </div>
+        </div>
+        <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+          <div class="p-3 bg-tertiary/10 rounded-lg">
+            <span class="material-symbols-outlined text-tertiary text-3xl">travel_explore</span>
+          </div>
+          <h3 class="font-headline-md text-on-surface">SEO</h3>
+          <p class="text-on-surface-variant">Search engine optimization to improve your website's visibility on Google.</p>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Keyword Research</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">On-Page SEO</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Technical SEO</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Local SEO</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        // Mobile menu
-        function openMenu() {
-            document.getElementById('mobileMenu').classList.add('open');
-            document.getElementById('overlay').classList.add('show');
-        }
-        function closeMenu() {
-            document.getElementById('mobileMenu').classList.remove('open');
-            document.getElementById('overlay').classList.remove('show');
-        }
+  <section id="portfolio" class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto reveal">
+    <div class="text-center mb-16">
+      <h2 class="font-headline-lg text-on-surface mb-4">Featured Projects</h2>
+      <div class="w-20 h-1 bg-secondary mx-auto rounded-full"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+      <div class="group relative overflow-hidden rounded-2xl glass-card">
+        <div class="aspect-video relative overflow-hidden bg-primary-container flex items-center justify-center">
+          <span class="material-symbols-outlined text-secondary/40 text-7xl">storefront</span>
+        </div>
+        <div class="p-6">
+          <span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-label-md mb-3 inline-block">Web Platform</span>
+          <h3 class="font-headline-md text-on-surface mb-2">Matete Online Store</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-4">Full e-commerce platform for electronics in Tanzania. Features: product catalog, cart, checkout, payments, admin panel.</p>
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Django</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Tailwind CSS</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">PostgreSQL</span>
+          </div>
+          <a class="text-secondary font-label-md flex items-center gap-1 hover:underline" href="https://mateteonlinestore.com" target="_blank">Visit Website <span class="material-symbols-outlined text-sm">open_in_new</span></a>
+        </div>
+      </div>
+      <div class="group relative overflow-hidden rounded-2xl glass-card">
+        <div class="aspect-video relative overflow-hidden bg-primary-container flex items-center justify-center">
+          <span class="material-symbols-outlined text-tertiary/40 text-7xl">smartphone</span>
+        </div>
+        <div class="p-6">
+          <span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-xs font-label-md mb-3 inline-block">Mobile App</span>
+          <h3 class="font-headline-md text-on-surface mb-2">Matete Mobile App</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-4">Native Android app wrapping the Matete Online Store with splash screen, push notifications, and full-screen experience.</p>
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Capacitor</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Android</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">PWA</span>
+          </div>
+          <span class="text-on-surface-variant font-label-md text-sm opacity-60">Coming soon to Play Store</span>
+        </div>
+      </div>
+      <div class="group relative overflow-hidden rounded-2xl glass-card">
+        <div class="aspect-video relative overflow-hidden bg-primary-container flex items-center justify-center">
+          <span class="material-symbols-outlined text-secondary/40 text-7xl">rocket_launch</span>
+        </div>
+        <div class="p-6">
+          <span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-label-md mb-3 inline-block">Your Idea</span>
+          <h3 class="font-headline-md text-on-surface mb-2">Your Project Here</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-4">Let's build something great together. Contact us to discuss your idea and get a free quote.</p>
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">You Dream It</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">We Build It</span>
+          </div>
+          <a class="text-secondary font-label-md flex items-center gap-1 hover:underline" href="#contact">Start a Project <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        // Smooth scroll offset for fixed nav
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', e => {
-                const id = a.getAttribute('href');
-                if (id === '#') return;
-                const el = document.querySelector(id);
-                if (el) {
-                    e.preventDefault();
-                    const offset = 70;
-                    window.scrollTo({ top: el.offsetTop - offset, behavior: 'smooth' });
-                }
-            });
-        });
-    </script>
+  <section id="courses" class="py-24 bg-surface-container reveal">
+    <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="font-headline-lg text-on-surface mb-4">Our Courses</h2>
+        <p class="font-body-md text-body-md text-on-surface-variant max-w-xl mx-auto">Jifunze technology na programming kutoka mwanzo. Courses zetu zinaelezea kwa lugha rahisi na mifano halisi.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+        <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+          <div class="p-3 bg-secondary/10 rounded-lg">
+            <span class="material-symbols-outlined text-secondary text-3xl">tips_and_updates</span>
+          </div>
+          <h3 class="font-headline-md text-on-surface">Tech Tips</h3>
+          <p class="text-on-surface-variant">Computer basics, troubleshooting, security, na internet skills kwa wanaoanza.</p>
+          <div class="flex flex-wrap gap-2 mt-auto pt-4">
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Hardware</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Software</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Security</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Internet</span>
+          </div>
+          <a class="bg-secondary-container text-on-secondary-container px-5 py-2.5 rounded-full font-label-md hover:scale-105 active:scale-95 transition-all text-sm mt-3 inline-block" href="course/tech-tips.html">Start Learning</a>
+        </div>
+        <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+          <div class="p-3 bg-tertiary/10 rounded-lg">
+            <span class="material-symbols-outlined text-tertiary text-3xl">code</span>
+          </div>
+          <h3 class="font-headline-md text-on-surface">Python</h3>
+          <p class="text-on-surface-variant">Jifunze Python kutoka mwanzo — variables loops functions hadi simple projects.</p>
+          <div class="flex flex-wrap gap-2 mt-auto pt-4">
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Basics</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Data Types</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Functions</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Projects</span>
+          </div>
+          <a class="bg-secondary-container text-on-secondary-container px-5 py-2.5 rounded-full font-label-md hover:scale-105 active:scale-95 transition-all text-sm mt-3 inline-block" href="course/python.html">Start Learning</a>
+        </div>
+        <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+          <div class="p-3 bg-secondary/10 rounded-lg">
+            <span class="material-symbols-outlined text-secondary text-3xl">language</span>
+          </div>
+          <h3 class="font-headline-md text-on-surface">HTML &amp; CSS</h3>
+          <p class="text-on-surface-variant">Unda websites za kuvutia — structure, styling, responsive design, na zaidi.</p>
+          <div class="flex flex-wrap gap-2 mt-auto pt-4">
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">HTML5</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">CSS3</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Flexbox</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Grid</span>
+          </div>
+          <a class="bg-secondary-container text-on-secondary-container px-5 py-2.5 rounded-full font-label-md hover:scale-105 active:scale-95 transition-all text-sm mt-3 inline-block" href="course/html-css.html">Start Learning</a>
+        </div>
+        <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+          <div class="p-3 bg-tertiary/10 rounded-lg">
+            <span class="material-symbols-outlined text-tertiary text-3xl">javascript</span>
+          </div>
+          <h3 class="font-headline-md text-on-surface">JavaScript</h3>
+          <p class="text-on-surface-variant">Pata uwezo wa kuunda web applications interactive na dynamic.</p>
+          <div class="flex flex-wrap gap-2 mt-auto pt-4">
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">DOM</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">ES6+</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Events</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">APIs</span>
+          </div>
+          <a class="bg-secondary-container text-on-secondary-container px-5 py-2.5 rounded-full font-label-md hover:scale-105 active:scale-95 transition-all text-sm mt-3 inline-block" href="course/javascript.html">Start Learning</a>
+        </div>
+        <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+          <div class="p-3 bg-secondary/10 rounded-lg">
+            <span class="material-symbols-outlined text-secondary text-3xl">view_quilt</span>
+          </div>
+          <h3 class="font-headline-md text-on-surface">React</h3>
+          <p class="text-on-surface-variant">Modern app development — components, state, hooks, na building real apps.</p>
+          <div class="flex flex-wrap gap-2 mt-auto pt-4">
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">JSX</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Components</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">State</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Hooks</span>
+          </div>
+          <a class="bg-secondary-container text-on-secondary-container px-5 py-2.5 rounded-full font-label-md hover:scale-105 active:scale-95 transition-all text-sm mt-3 inline-block" href="course/react.html">Start Learning</a>
+        </div>
+        <div class="glass-card p-8 rounded-2xl flex flex-col items-start gap-4">
+          <div class="p-3 bg-tertiary/10 rounded-lg">
+            <span class="material-symbols-outlined text-tertiary text-3xl">auto_awesome</span>
+          </div>
+          <h3 class="font-headline-md text-on-surface">Prompt Engineering</h3>
+          <p class="text-on-surface-variant">Jifunze kuandika prompts bora kwa AI kama ChatGPT, Claude, na Gemini.</p>
+          <div class="flex flex-wrap gap-2 mt-auto pt-4">
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">AI Basics</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Prompts</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Chain-of-Thought</span>
+            <span class="text-xs px-3 py-1 bg-surface-variant rounded-md text-on-surface-variant">Projects</span>
+          </div>
+          <a class="bg-secondary-container text-on-secondary-container px-5 py-2.5 rounded-full font-label-md hover:scale-105 active:scale-95 transition-all text-sm mt-3 inline-block" href="course/prompt-engineering.html">Start Learning</a>
+        </div>
+      </div>
+      <div class="text-center mt-12">
+        <a class="text-secondary font-label-md px-8 py-3 rounded-full border border-secondary hover:bg-secondary/10 transition-all inline-flex items-center gap-2" href="courses.html">View All Courses <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto reveal">
+    <div class="text-center mb-16">
+      <h2 class="font-headline-lg text-on-surface mb-4">About JuveLineTech</h2>
+      <div class="w-20 h-1 bg-secondary mx-auto rounded-full"></div>
+    </div>
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="font-body-lg text-body-lg text-on-surface-variant mb-6">JuveLineTech is a technology company based in <strong class="text-on-surface">Chanika, Dar es Salaam</strong>, dedicated to providing innovative digital solutions for businesses and organizations across Tanzania.</p>
+      <p class="font-body-md text-body-md text-on-surface-variant mb-6">We specialize in <strong class="text-secondary">web development, mobile applications, custom software systems, IT infrastructure, and cybersecurity</strong>. Our team combines technical expertise with a deep understanding of local business needs to deliver solutions that make a real impact.</p>
+      <p class="font-body-md text-body-md text-on-surface-variant mb-10">Whether you need a simple business website, a complex enterprise system, or IT consulting — we have the skills and experience to bring your vision to life.</p>
+      <div class="flex justify-center gap-16">
+        <div>
+          <div class="font-headline-lg text-secondary">20+</div>
+          <div class="font-label-md text-on-surface-variant uppercase tracking-widest">Projects</div>
+        </div>
+        <div>
+          <div class="font-headline-lg text-tertiary">5+</div>
+          <div class="font-label-md text-on-surface-variant uppercase tracking-widest">Technologies</div>
+        </div>
+        <div>
+          <div class="font-headline-lg text-accent-green">3+</div>
+          <div class="font-label-md text-on-surface-variant uppercase tracking-widest">Years Exp</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-24 bg-surface-container reveal">
+    <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="font-headline-lg text-on-surface mb-4">Contact Us</h2>
+        <div class="w-20 h-1 bg-tertiary mx-auto rounded-full"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div class="space-y-8">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-secondary">phone</span>
+            </div>
+            <div>
+              <h4 class="font-label-md text-on-surface mb-1">Phone</h4>
+              <a class="text-on-surface-variant hover:text-secondary transition-colors" href="tel:+255782341709">0782 341 709</a>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-tertiary">mail</span>
+            </div>
+            <div>
+              <h4 class="font-label-md text-on-surface mb-1">Email</h4>
+              <a class="text-on-surface-variant hover:text-secondary transition-colors" href="mailto:shbnsemeni@gmail.com">shbnsemeni@gmail.com</a>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-accent-green/10 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-accent-green">location_on</span>
+            </div>
+            <div>
+              <h4 class="font-label-md text-on-surface mb-1">Address</h4>
+              <p class="text-on-surface-variant">Chanika, Dar es Salaam, Tanzania</p>
+            </div>
+          </div>
+        </div>
+        <form class="flex flex-col gap-4" action="https://formsubmit.co/shbnsemeni@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="JuveLineTech - New Inquiry">
+          <input type="hidden" name="_next" value="https://juvelinetech.com/thank-you.html">
+          <input class="bg-surface-dim border border-outline-variant rounded-xl px-4 py-3.5 text-on-surface placeholder-on-surface-variant/50 focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all" type="text" name="name" placeholder="Your Name" required>
+          <input class="bg-surface-dim border border-outline-variant rounded-xl px-4 py-3.5 text-on-surface placeholder-on-surface-variant/50 focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all" type="email" name="email" placeholder="Your Email" required>
+          <input class="bg-surface-dim border border-outline-variant rounded-xl px-4 py-3.5 text-on-surface placeholder-on-surface-variant/50 focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all" type="text" name="subject" placeholder="Subject">
+          <textarea class="bg-surface-dim border border-outline-variant rounded-xl px-4 py-3.5 text-on-surface placeholder-on-surface-variant/50 focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all resize-none h-32" name="message" placeholder="Tell us about your project..." required></textarea>
+          <button class="bg-secondary-container text-on-secondary-container px-8 py-3.5 rounded-full font-label-md hover:scale-105 active:scale-95 transition-all self-start" type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto reveal">
+    <div class="bg-gradient-to-br from-primary-container to-surface-dim rounded-[2rem] p-12 md:p-20 text-center relative overflow-hidden border border-border-glass luminous-shadow">
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-on-tertiary-container rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-secondary-container rounded-full blur-3xl"></div>
+      </div>
+      <h2 class="font-headline-xl-mobile md:font-headline-xl text-on-surface mb-6 relative z-10">Ready to Build Something Great?</h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-2xl mx-auto relative z-10">Let's collaborate to bring your vision to life with world-class engineering and innovative design.</p>
+      <a class="relative z-10 bg-on-tertiary-container text-white px-10 py-5 rounded-2xl font-headline-md hover:scale-105 active:opacity-80 transition-all shadow-xl shadow-on-tertiary-container/40 inline-block" href="#contact">Contact Us Today</a>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-surface-container-lowest py-16 mt-12 border-t border-outline-variant">
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+    <div class="md:col-span-5">
+      <h2 class="font-headline-md font-bold text-on-surface mb-6">JuveLineTech</h2>
+      <p class="text-on-surface-variant font-body-md max-w-sm mb-8">Technology solutions that drive your business forward. Based in Chanika, Dar es Salaam.</p>
+    </div>
+    <div class="md:col-span-2">
+      <h3 class="font-label-md text-tertiary uppercase tracking-widest mb-6">Company</h3>
+      <ul class="space-y-4">
+        <li><a class="text-on-surface-variant hover:text-secondary transition-all" href="#services">Services</a></li>
+        <li><a class="text-on-surface-variant hover:text-secondary transition-all" href="#portfolio">Portfolio</a></li>
+        <li><a class="text-on-surface-variant hover:text-secondary transition-all" href="#about">About</a></li>
+        <li><a class="text-on-surface-variant hover:text-secondary transition-all" href="#contact">Contact</a></li>
+        <li><a class="text-on-surface-variant hover:text-secondary transition-all" href="privacy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="md:col-span-2">
+      <h3 class="font-label-md text-tertiary uppercase tracking-widest mb-6">Services</h3>
+      <ul class="space-y-4">
+        <li><a class="text-on-surface-variant hover:text-secondary transition-all" href="#services">Web Development</a></li>
+        <li><a class="text-on-surface-variant hover:text-secondary transition-all" href="#services">Mobile Apps</a></li>
+        <li><a class="text-on-surface-variant hover:text-secondary transition-all" href="#services">Software Systems</a></li>
+        <li><a class="text-on-surface-variant hover:text-secondary transition-all" href="#services">IT Infrastructure</a></li>
+      </ul>
+    </div>
+    <div class="md:col-span-3">
+      <h3 class="font-label-md text-tertiary uppercase tracking-widest mb-6">Contact</h3>
+      <ul class="space-y-4">
+        <li><a class="text-on-surface-variant hover:text-secondary transition-all" href="tel:+255782341709">0782 341 709</a></li>
+        <li><a class="text-on-surface-variant hover:text-secondary transition-all" href="mailto:shbnsemeni@gmail.com">shbnsemeni@gmail.com</a></li>
+        <li class="text-on-surface-variant">Chanika, Dar es Salaam</li>
+      </ul>
+    </div>
+    <div class="md:col-span-12 pt-12 mt-12 border-t border-outline-variant/30 flex flex-col md:flex-row justify-between gap-6 text-sm text-on-surface-variant">
+      <p>&copy; 2026 JuveLineTech. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<button class="fixed bottom-8 right-8 w-16 h-16 bg-tertiary text-on-tertiary-fixed rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(255,181,157,0.4)] hover:scale-110 transition-all z-[100] group" onclick="window.location.href='#contact'">
+  <span class="material-symbols-outlined text-3xl group-hover:rotate-12 transition-transform">chat_bubble</span>
+</button>
+
+<script>
+const observerOptions = { threshold: 0.1 };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+}, observerOptions);
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+window.addEventListener('scroll', () => {
+  const header = document.getElementById('header');
+  if (window.scrollY > 50) { header.classList.add('bg-primary-container/90', 'shadow-lg'); }
+  else { header.classList.remove('bg-primary-container/90', 'shadow-lg'); }
+});
+
+function openMenu() { document.getElementById('mobileMenu').classList.add('open'); document.getElementById('overlay').classList.add('show'); }
+function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); document.getElementById('overlay').classList.remove('show'); }
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href');
+    if (id === '#') return;
+    const el = document.querySelector(id);
+    if (el) { e.preventDefault(); window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' }); }
+  });
+});
+</script>
 </body>
 </html>
