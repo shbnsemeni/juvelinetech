@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python — JuveLineTech Courses</title>
+    <meta name="description" content="Jifunze Python programming kutoka mwanzo. Variables, loops, functions, OOP, na projects. Course ya JuveLineTech kwa Kiswahili na English.">
+    <meta name="theme-color" content="#059669">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #1F2937; background: #F0FDF4; line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+        .nav {
+            background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08); padding: 12px 0;
+            position: sticky; top: 0; z-index: 1000;
+        }
+        .nav .container { display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo { font-weight: 900; font-size: 22px; letter-spacing: -1px; text-decoration: none; color: #1F2937; }
+        .nav-logo .j { color: #059669; }
+        .nav-logo .t { color: #D4A843; }
+        .nav-links a { text-decoration: none; color: #4B5563; font-size: 13px; font-weight: 500; margin-left: 20px; }
+        .nav-links a:hover { color: #059669; }
+
+        .hero {
+            background: linear-gradient(135deg, #2E7D32, #43A047);
+            padding: 50px 20px; text-align: center; color: #fff;
+        }
+        .hero h1 { font-size: clamp(26px, 4vw, 38px); font-weight: 800; }
+        .hero p { font-size: 16px; color: rgba(255,255,255,0.85); max-width: 700px; margin: 10px auto 0; }
+        .hero .meta { font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 8px; }
+
+        .toc { background: #fff; border-radius: 16px; padding: 28px 32px; margin: 32px 0; border: 1px solid #D1FAE5; }
+        .toc h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #059669; }
+        .toc ol { padding-left: 20px; }
+
+        .lesson {
+            background: #fff; border-radius: 16px; padding: 32px;
+            margin-bottom: 24px; border: 1px solid #E5E7EB;
+        }
+        .lesson h2 { font-size: 24px; font-weight: 700; color: #2E7D32; margin-bottom: 6px; }
+        .lesson .sub { font-size: 14px; color: #6B7280; margin-bottom: 16px; font-style: italic; }
+        .lesson h3 { font-size: 18px; font-weight: 700; color: #1F2937; margin: 20px 0 8px; }
+        .lesson p { font-size: 15px; color: #4B5563; margin-bottom: 12px; }
+        .lesson ul, .lesson ol { padding-left: 20px; margin-bottom: 12px; }
+        .lesson li { font-size: 14px; color: #4B5563; margin-bottom: 6px; }
+        .lesson .note { background: #F0FDF4; border-left: 4px solid #10B981; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 14px; color: #065F46; }
+        .lesson .tip { background: #FFFBEB; border-left: 4px solid #F59E0B; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 14px; color: #92400E; }
+        .lesson code { background: #F3F4F6; padding: 2px 8px; border-radius: 4px; font-size: 13px; color: #DC2626; font-family: monospace; }
+        .lesson pre {
+            background: #1F2937; color: #D1FAE5; padding: 16px 20px;
+            border-radius: 10px; overflow-x: auto; margin: 12px 0;
+            font-size: 13px; line-height: 1.6; font-family: monospace;
+        }
+        .lesson .sw { color: #2E7D32; font-weight: 600; }
+        .toc ol li { margin-bottom: 6px; font-size: 14px; }
+        .toc ol li a { color: #1F2937; text-decoration: none; }
+        .toc ol li a:hover { color: #2E7D32; }
+
+        .back-link { display: inline-block; margin: 24px 0; padding: 10px 24px; background: #10B981; color: #fff; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 14px; }
+        .back-link:hover { background: #059669; }
+
+        footer { background: #065F46; color: rgba(255,255,255,0.7); padding: 40px 0 24px; margin-top: 48px; }
+        footer .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px; }
+        footer .brand { font-weight: 900; font-size: 20px; letter-spacing: -2px; }
+        footer .brand .j { color: #fff; } footer .brand .t { color: #FCD34D; }
+        footer .links h4 { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 10px; }
+        footer .links a { display: block; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; margin-bottom: 5px; }
+        .copyright { text-align: center; padding-top: 24px; margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px; }
+
+        @media (max-width: 768px) {
+            .nav-links a { margin-left: 12px; font-size: 12px; }
+            .lesson { padding: 20px; }
+            footer .container { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="container">
+            <a href="../index.html" class="nav-logo"><span class="j">J</span><span class="t">t</span></a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../courses.html">Courses</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>🐍 Python Programming</h1>
+        <p>Jifunze Python kutoka mwanzo kabisa. Hakuna experience inayohitajika. Code + maelezo kwa Kiswahili na English.</p>
+        <div class="meta">English / Kiswahili • Beginner to Intermediate • Text + Code Examples</div>
+    </div>
+
+    <div class="container">
+
+        <div class="toc">
+            <h3>📋 Yaliyomo — Table of Contents</h3>
+            <ol>
+                <li><a href="#lesson1">Python ni nini? / What is Python?</a></li>
+                <li><a href="#lesson2">Kuweka Python / Installing Python</a></li>
+                <li><a href="#lesson3">Variables na Data Types</a></li>
+                <li><a href="#lesson4">Strings (Nyuzi za Maandishi)</a></li>
+                <li><a href="#lesson5">Numbers na Operations</a></li>
+                <li><a href="#lesson6">Lists (Orodha)</a></li>
+                <li><a href="#lesson7">Tuples na Dictionaries</a></li>
+                <li><a href="#lesson8">Conditionals (if/elif/else)</a></li>
+                <li><a href="#lesson9">Loops (for, while)</a></li>
+                <li><a href="#lesson10">Functions (Vitendakazi)</a></li>
+                <li><a href="#lesson11">Modules na Import</a></li>
+                <li><a href="#lesson12">File Handling / Kusoma na Kuandika Faili</a></li>
+                <li><a href="#lesson13">OOP / Programming yenye Vitu</a></li>
+                <li><a href="#lesson14">Simple Projects</a></li>
+            </ol>
+        </div>
+
+        <!-- Lesson 1 -->
+        <div class="lesson" id="lesson1">
+            <h2>1. Python ni nini? / What is Python?</h2>
+            <p class="sub">Kuanzia mwanzo — Starting from scratch</p>
+
+            <p><span class="sw">🇹🇿 Kiswahili:</span> Python ni lugha ya programming maarufu duniani. Ilianzishwa na Guido van Rossum mwaka 1991. Python inajulikana kwa urahisi wake — syntax yake ni rahisi kusoma na kuandika, inafanana na Kiingereza cha kawaida.</p>
+
+            <p><span class="sw">🇬🇧 English:</span> Python is one of the most popular programming languages in the world. Created by Guido van Rossum in 1991, Python is known for its simplicity — its syntax is easy to read and write, similar to plain English.</p>
+
+            <h3>Kwa nini Python? / Why Python?</h3>
+            <ul>
+                <li>✅ Rahisi kujifunza — inafaa kwa wanaoanza</li>
+                <li>✅ Inatumika sana — web development, data science, AI, automation, desktop apps</li>
+                <li>✅ Free na open source</li>
+                <li>✅ Community kubwa — msaada mwingi mtandaoni</li>
+                <li>✅ Ina libraries nyingi — code iliyotengenezwa tayari</li>
+            </ul>
+
+            <pre># Hii ndio Python code yako ya kwanza!
+print("Hello, World!")
+print("Karibu kwenye Python!")</pre>
+
+            <div class="note">
+                <strong>💡 Output:</strong> Unapoendesha code hii, utaona <code>Hello, World!</code> na <code>Karibu kwenye Python!</code> kwenye screen.
+            </div>
+        </div>
+
+        <!-- Lesson 2 -->
+        <div class="lesson" id="lesson2">
+            <h2>2. Kuweka Python / Installing Python</h2>
+            <p class="sub">Pata Python kwenye computer yako</p>
+
+            <p><span class="sw">🇹🇿 Kiswahili:</span> Kabla ya kuanza kuandika Python, unahitaji kuiweka kwenye computer yako.</p>
+
+            <h3>Hatua / Steps</h3>
+            <ol>
+                <li>Nenda kwenye <strong>python.org</strong> na upakuwe Python toleo la mwisho</li>
+                <li>Endesha installer</li>
+                <li><strong>Muhimu:</strong> Tiki "Add Python to PATH" kabla ya kubonyeza Install</li>
+                <li>Bonyeza "Install Now" na subiri ikamilike</li>
+            </ol>
+
+            <p>Kuhakikisha Python imewekwa, fungua Command Prompt (Windows) au Terminal (Mac/Linux) na uandike:</p>
+            <pre>python --version</pre>
+            <p>Ukiona kitu kama <code>Python 3.12.0</code>, basi Python imewekwa vizuri.</p>
+
+            <div class="tip">
+                <strong>⚡ Tip:</strong> Unaweza pia kutumia <strong>Google Colab</strong> (colab.research.google.com) kuandika Python moja kwa moja kwenye browser — hakuna haja ya kusakinisha chochote!
+            </div>
+        </div>
+
+        <!-- Lesson 3 -->
+        <div class="lesson" id="lesson3">
+            <h2>3. Variables na Data Types</h2>
+            <p class="sub">Kuhifadhi taarifa kwenye kumbukumbu — Storing data in memory</p>
+
+            <p><span class="sw">🇹🇿 Kiswahili:</span> Variable ni kama sanduku lenye jina unaloweka data. Unaweza kubadilisha yaliyomo kwenye sanduku wakati wowote.</p>
+
+            <p><span class="sw">🇬🇧 English:</span> A variable is like a named box where you store data. You can change its content anytime.</p>
+
+            <h3>Kutengeneza Variables / Creating Variables</h3>
+            <pre># Python inaelewa aina ya data moja kwa moja
+jina = "Juma"          # String (maneno)
+umri = 25              # Integer (namba kamili)
+urefu = 1.75           # Float (namba yenye desimali)
+ni_mwanafunzi = True   # Boolean (True/False)
+
+print(jina)
+print(umri)
+print(urefu)
+print(ni_mwanafunzi)</pre>
+
+            <h3>Aina za Data / Data Types</h3>
+            <ul>
+                <li><code>str</code> — String (maneno, k.m. <code>"Hello"</code>)</li>
+                <li><code>int</code> — Integer (namba kamili, k.m. <code>25</code>)</li>
+                <li><code>float</code> — Float (namba yenye desimali, k.m. <code>3.14</code>)</li>
+                <li><code>bool</code> — Boolean (True au False)</li>
+                <li><code>list</code> — Orodha (k.m. <code>[1, 2, 3]</code>)</li>
+                <li><code>dict</code> — Dictionary (k.m. <code>{"jina": "Juma"}</code>)</li>
+            </ul>
+
+            <div class="note">
+                <strong>💡 Note:</strong> Huna haja ya kutaja aina ya data kwenye Python — inajiamulia yenyewe (dynamically typed).
+            </div>
+        </div>
+
+        <!-- Lesson 4 -->
+        <div class="lesson" id="lesson4">
+            <h2>4. Strings (Nyuzi za Maandishi)</h2>
+            <p class="sub">Kufanya kazi na maneno na sentensi</p>
+
+            <p><span class="sw">🇹🇿 Kiswahili:</span> String ni mfuatano wa herufi. Unaweza kutumia single quotes (<code>'...'</code>) au double quotes (<code>"..."</code>).</p>
+
+            <h3>Shughuli za Strings / String Operations</h3>
+            <pre># Kutengeneza strings
+jina = "Juma"
+salutation = 'Habari yako?'
+
+# Kuunganisha strings (concatenation)
+kamili = jina + "! " + salutation
+print(kamili)  # Juma! Habari yako?
+
+# String interpolation (f-string)
+umri = 25
+habari = f"Jina langu ni {jina}, nina umri wa miaka {umri}"
+print(habari)
+
+# String methods
+text = "   Python ni nzuri!   "
+print(text.upper())        # PYTHON NI NZURI!
+print(text.lower())        # python ni nzuri!
+print(text.strip())        # inaondoa spaces mwanzoni na mwishoni
+print(len(text))           # urefu wa string (herufi ngapi)
+print(text.replace("nzuri", "razuri"))  # Kubadilisha maneno</pre>
+
+            <div class="tip">
+                <strong>⚡ Tip:</strong> Tumia <code>f"..."</code> (f-strings) kuweka variables ndani ya strings — ni rahisi na inasomeka vizuri!
+            </div>
+        </div>
+
+        <!-- Lesson 5 -->
+        <div class="lesson" id="lesson5">
+            <h2>5. Numbers na Operations</h2>
+            <p class="sub">Hesabu kwenye Python</p>
+
+            <h3>Aina za Namba / Number Types</h3>
+            <ul>
+                <li><strong>int</strong> — namba kamili (1, 100, -5, 0)</li>
+                <li><strong>float</strong> — namba yenye desimali (3.14, 2.5, -0.5)</li>
+                <li><strong>complex</strong> — namba changamano (1+2j) — advanced</li>
+            </ul>
+
+            <h3>Shughuli za Kihisabati</h3>
+            <pre># Operations za msingi
+a = 10
+b = 3
+
+print(a + b)   # 13  (jumla)
+print(a - b)   # 7   (toa)
+print(a * b)   # 30  (zidisha)
+print(a / b)   # 3.333... (gawanya)
+print(a // b)  # 3   (gawanya, toa desimali)
+print(a % b)   # 1   (baki ya mgawanyiko / modulus)
+print(a ** b)  # 1000 (nguvu / exponent)
+
+# Rounding
+pi = 3.14159
+print(round(pi, 2))  # 3.14</pre>
+
+            <div class="note">
+                <strong>💡 Note:</strong> <code>//</code> inaitwa "floor division" — inagawanya na kurudisha namba kamili tu. <code>%</code> inarudisha baki.
+            </div>
+        </div>
+
+        <!-- Lesson 6 -->
+        <div class="lesson" id="lesson6">
+            <h2>6. Lists (Orodha)</h2>
+            <p class="sub">Kuhifadhi vitu vingi kwenye variable moja</p>
+
+            <p><span class="sw">🇹🇿 Kiswahili:</span> List ni mkusanyo wa vitu vilivyopangwa kwa mpangilio. Vitu vinaweza kuwa za aina tofauti.</p>
+
+            <pre># Kutengeneza list
+majina = ["Juma", "Aisha", "Baraka", "Zainabu"]
+namba = [1, 2, 3, 4, 5]
+mchanganyiko = ["Juma", 25, True, 3.14]
+
+# Kupata kitu kwenye list (index inaanza 0)
+print(majina[0])   # Juma
+print(majina[2])   # Baraka
+print(majina[-1])  # Zainabu (ya mwisho)
+
+# Kubadilisha kitu
+majina[1] = "Mwanahamisi"
+print(majina)  # ["Juma", "Mwanahamisi", "Baraka", "Zainabu"]
+
+# Kuongeza na kuondoa
+majina.append("Halima")    # Ongeza mwishoni
+majina.insert(1, "Suleiman")  # Ongeza kwenye index 1
+majina.remove("Baraka")    # Ondoa "Baraka"
+majina.pop()               # Ondoa la mwisho
+print(len(majina))         # Idadi ya vitu kwenye list
+
+# Kuchambua (slicing)
+namba = [10, 20, 30, 40, 50]
+print(namba[1:4])  # [20, 30, 40] (kutoka index 1 hadi 3)
+print(namba[:3])   # [10, 20, 30] (mwanzo hadi index 2)
+print(namba[::2])  # [10, 30, 50] (kila hatua 2)</pre>
+
+            <div class="tip">
+                <strong>⚡ Tip:</strong> List inaweza kubadilishwa (mutable). Kwenye Python, pia kuna <strong>Tuple</strong> ambayo haiwezi kubadilishwa (immutable).
+            </div>
+        </div>
+
+        <!-- Lesson 7 -->
+        <div class="lesson" id="lesson7">
+            <h2>7. Tuples na Dictionaries</h2>
+            <p class="sub">Aina nyingine za kuhifadhi data</p>
+
+            <h3>Tuple</h3>
+            <p>Tuple ni kama list, lakini <strong>haiwezi kubadilishwa</strong> (immutable). Inatumia mabano <code>()</code>.</p>
+            <pre># Tuple
+siku = ("Jumatatu", "Jumanne", "Jumatano")
+print(siku[0])  # Jumatatu
+# siku[0] = "Jumapili"  # Hii itatoa ERROR (tuple haiwezi kubadilishwa)</pre>
+
+            <h3>Dictionary (Kamusi)</h3>
+            <p>Dictionary inahifadhi data kwa jozi za <strong>key: value</strong>. Inatumia mabano ya kawaida <code>{}</code>.</p>
+            <pre># Dictionary
+mtu = {
+    "jina": "Juma",
+    "umri": 25,
+    "kazi": "Programmer",
+    "ndoa": False
+}
+
+print(mtu["jina"])    # Juma
+print(mtu.get("umri"))  # 25 (njia salama zaidi)
+
+# Kubadilisha na kuongeza
+mtu["umri"] = 26
+mtu["mji"] = "Dar es Salaam"
+
+# Kupata keys na values zote
+print(mtu.keys())    # dict_keys(['jina', 'umri', 'kazi', ...])
+print(mtu.values())  # dict_values(['Juma', 26, ...])
+
+# Loop kwenye dictionary
+for key, value in mtu.items():
+    print(f"{key}: {value}")</pre>
+        </div>
+
+        <!-- Lesson 8 -->
+        <div class="lesson" id="lesson8">
+            <h2>8. Conditionals (if/elif/else)</h2>
+            <p class="sub">Kufanya maamuzi kwenye code yako</p>
+
+            <p><span class="sw">🇹🇿 Kiswahili:</span> Mara nyingi unataka code yako ifanye kitu tofauti kulingana na hali. Hapa ndipo <code>if</code> inapoingia.</p>
+
+            <pre># if statement rahisi
+umri = 18
+
+if umri >= 18:
+    print("Unaweza kupiga kura")
+else:
+    print("Bado ni mdogo")
+
+# if/elif/else
+alama = 85
+
+if alama >= 80:
+    daraja = "A"
+elif alama >= 70:
+    daraja = "B"
+elif alama >= 60:
+    daraja = "C"
+elif alama >= 50:
+    daraja = "D"
+else:
+    daraja = "F"
+
+print(f"Daraja lako ni {daraja}")
+
+# Logical operators (and, or, not)
+joto = 30
+ni_jua = True
+
+if joto > 25 and ni_jua:
+    print("Hali ya hewa ni nzuri!")
+
+if joto > 35 or ni_jua:
+    print("Angalau jua lipo")
+
+# Comparison operators
+x = 10
+print(x == 10)   # True (sawa na)
+print(x != 5)    # True (si sawa na)
+print(x > 5)     # True (kubwa kuliko)
+print(x < 20)    # True (ndogo kuliko)</pre>
+
+            <div class="note">
+                <strong>💡 Note:</strong> <code>==</code> ni kuangalia usawa, <code>=</code> ni kutoa thamani kwa variable. Usichanganye!
+            </div>
+        </div>
+
+        <!-- Lesson 9 -->
+        <div class="lesson" id="lesson9">
+            <h2>9. Loops (for, while)</h2>
+            <p class="sub">Kurudia jambo tena na tena</p>
+
+            <p><span class="sw">🇹🇿 Kiswahili:</span> Loop inakuwezesha kurudia code mara nyingi bila kuiandika mara nyingi.</p>
+
+            <h3>For Loop</h3>
+            <pre># For loop kwenye list
+majina = ["Juma", "Aisha", "Baraka"]
+for jina in majina:
+    print(f"Habari, {jina}!")
+
+# For loop kwa namba (range)
+for n in range(5):
+    print(n)  # 0, 1, 2, 3, 4
+
+for n in range(1, 6):
+    print(n)  # 1, 2, 3, 4, 5
+
+for n in range(0, 10, 2):
+    print(n)  # 0, 2, 4, 6, 8</pre>
+
+            <h3>While Loop</h3>
+            <pre># While loop — endelea mpaka hali ibadilike
+hesabu = 0
+while hesabu < 5:
+    print(f"Kukimbia mara {hesabu + 1}")
+    hesabu += 1  # Sawa na hesabu = hesabu + 1
+
+# Break na Continue
+for n in range(10):
+    if n == 5:
+        break      # Acha loop kabisa
+    if n % 2 == 0:
+        continue   # Ruka namba hii, endelea na inayofuata
+    print(n)</pre>
+
+            <div class="tip">
+                <strong>⚡ Tip:</strong> <code>range(start, stop, step)</code> ina parameters tatu. Kumbuka <code>stop</code> haijumuishwi.
+            </div>
+        </div>
+
+        <!-- Lesson 10 -->
+        <div class="lesson" id="lesson10">
+            <h2>10. Functions (Vitendakazi)</h2>
+            <p class="sub">Panga code yako katika vitengo vinavyoweza kutumika tena</p>
+
+            <p><span class="sw">🇹🇿 Kiswahili:</span> Function ni kipande cha code kinachofanya kazi maalum. Unaweza kukitumia tena na tena.</p>
+
+            <pre># Function rahisi
+def salamu():
+    print("Habari! Karibu kwenye Python!")
+
+salamu()  # Piga / call function
+salamu()  # Tena
+
+# Function yenye parameter
+def salamu_jina(jina):
+    print(f"Habari {jina}! Karibu sana!")
+
+salamu_jina("Juma")
+salamu_jina("Aisha")
+
+# Function yenye return value
+def jumla(a, b):
+    matokeo = a + b
+    return matokeo
+
+x = jumla(10, 5)
+print(x)  # 15
+
+# Function yenye default parameter
+def power(namba, nguvu=2):
+    return namba ** nguvu
+
+print(power(4))     # 16 (4^2)
+print(power(4, 3))  # 64 (4^3)
+
+# Variable scope
+x = 10  # Global variable
+
+def ongeza():
+    y = 5  # Local variable
+    print(x + y)  # Inaweza kutumia x (global)
+
+ongezza()
+# print(y)  # Hii itatoa ERROR — y haipo nje ya function</pre>
+
+            <div class="note">
+                <strong>💡 Note:</strong> <code>return</code> inarudisha thamani kutoka kwenye function. Bila <code>return</code>, function inarudisha <code>None</code>.
+            </div>
+        </div>
+
+        <!-- Lesson 11 -->
+        <div class="lesson" id="lesson11">
+            <h2>11. Modules na Import</h2>
+            <p class="sub">Tumia code iliyotengenezwa na wengine</p>
+
+            <p><span class="sw">🇹🇿 Kiswahili:</span> Module ni faili la Python lenye functions, classes, na variables tayari kutumika.</p>
+
+            <pre># Import module yote
+import math
+print(math.pi)       # 3.141592653589793
+print(math.sqrt(16))  # 4.0
+
+# Import specific functions
+from random import randint, choice
+namba = randint(1, 100)  # Namba random kati ya 1 na 100
+print(f"Namba yako: {namba}")
+
+# Import na rename
+import datetime as dt
+sasa = dt.datetime.now()
+print(sasa)  # 2026-06-15 14:30:00.123456
+
+# Modules maarufu kwa beginners
+import random  # Random namba na choices
+import math    # Hesabu za kisayansi
+import os      # Kufanya kazi na operating system
+import json    # Kufanya kazi na JSON data</pre>
+
+            <div class="tip">
+                <strong>⚡ Tip:</strong> Unaweza pia kuunda modules zako mwenyewe — andika functions kwenye faili moja, kisha import kwenye faili nyingine!
+            </div>
+        </div>
+
+        <!-- Lesson 12 -->
+        <div class="lesson" id="lesson12">
+            <h2>12. File Handling / Kusoma na Kuandika Faili</h2>
+            <p class="sub">Hifadhi na soma data kutoka kwenye files</p>
+
+            <pre># Kuandika kwenye faili (writing)
+with open("notes.txt", "w") as f:
+    f.write("Hii ni note yangu ya kwanza!\n")
+    f.write("Python ni nzuri sana.\n")
+
+# Kusoma faili nzima (reading)
+with open("notes.txt", "r") as f:
+    content = f.read()
+    print(content)
+
+# Kusoma mstari kwa mstari
+with open("notes.txt", "r") as f:
+    for line in f:
+        print(f"Line: {line.strip()}")
+
+# Kuongeza kwenye faili (append)
+with open("notes.txt", "a") as f:
+    f.write("Hii ni note nyingine.\n")
+
+# Error handling — kama faili haipo
+try:
+    with open("faili_haipo.txt", "r") as f:
+        print(f.read())
+except FileNotFoundError:
+    print("Faili haipo! Unda kwanza.")
+except Exception as e:
+    print(f"Kuna error: {e}")</pre>
+
+            <div class="note">
+                <strong>💡 Note:</strong> <code>with open(...) as f:</code> inafunga faili moja kwa moja baada ya kumaliza. Hii ni njia salama zaidi.
+            </div>
+        </div>
+
+        <!-- Lesson 13 -->
+        <div class="lesson" id="lesson13">
+            <h2>13. OOP — Object-Oriented Programming</h2>
+            <p class="sub">Programming yenye vitu / Classes na Objects</p>
+
+            <p><span class="sw">🇹🇿 Kiswahili:</span> OOP ni mtindo wa programming unaotumia "vitu" (objects). Kila kitu kina sifa (attributes) na vitendo (methods).</p>
+
+            <pre># Kuunda Class
+class Mwanafunzi:
+    # Constructor — inaitwa object inapoundwa
+    def __init__(self, jina, umri, darasa):
+        self.jina = jina
+        self.umri = umri
+        self.darasa = darasa
+
+    # Method
+    def introduce(self):
+        return f"Jina langu ni {self.jina}, nina miaka {self.umri}, darasa la {self.darasa}"
+
+    def celebrate_birthday(self):
+        self.umri += 1
+        print(f"Hongera {self.jina}! Sasa una miaka {self.umri}")
+
+# Kuunda object
+mwanafunzi1 = Mwanafunzi("Juma", 20, "Form 4")
+print(mwanafunzi1.introduce())
+mwanafunzi1.celebrate_birthday()
+
+# Inheritance (kurithi)
+class Mwalimu(Mwanafunzi):
+    def __init__(self, jina, umri, darasa, somo):
+        super().__init__(jina, umri, darasa)
+        self.somo = somo
+
+    def introduce(self):
+        return f"Mwalimu {self.jina}, ninafundisha {self.somo}"
+
+mwalimu1 = Mwalimu("Baraka", 35, "Form 6", "Physics")
+print(mwalimu1.introduce())</pre>
+
+            <div class="tip">
+                <strong>⚡ Tip:</strong> <code>self</code> inarejelea object yenyewe. Inatumika kupata attributes na methods za object hiyo.
+            </div>
+        </div>
+
+        <!-- Lesson 14 -->
+        <div class="lesson" id="lesson14">
+            <h2>14. Simple Projects / Miradi Midogo</h2>
+            <p class="sub">Weka maarifa yako kwenye majaribio</p>
+
+            <h3>Project 1: Calculator rahisi</h3>
+            <pre>def calculator():
+    print("=== CALCULATOR RAHISI ===")
+    a = float(input("Ingiza namba ya kwanza: "))
+    b = float(input("Ingiza namba ya pili: "))
+    op = input("Chagua operation (+, -, *, /): ")
+
+    if op == "+":
+        print(f"Jumla: {a + b}")
+    elif op == "-":
+        print(f"Tofauti: {a - b}")
+    elif op == "*":
+        print(f"Zao: {a * b}")
+    elif op == "/":
+        if b != 0:
+            print(f"Mgawo: {a / b}")
+        else:
+            print("Error: Kugawanya kwa 0 hairuhusiwi")
+    else:
+        print("Operation si sahihi")
+
+calculator()</pre>
+
+            <h3>Project 2: Guess the Number</h3>
+            <pre>import random
+
+def guess_game():
+    secret = random.randint(1, 100)
+    attempts = 0
+    print("Nimechagua namba kati ya 1 na 100. Nadhani!")
+
+    while True:
+        guess = int(input("Nadhani: "))
+        attempts += 1
+
+        if guess < secret:
+            print("Panda juu!")
+        elif guess > secret:
+            print("Shuka chini!")
+        else:
+            print(f"Hongera! Umeipata kwa majaribio {attempts}")
+            break
+
+guess_game()</pre>
+
+            <h3>Project 3: Todo List</h3>
+            <pre>def todo_app():
+    tasks = []
+    while True:
+        print("\n1. Ongeza task")
+        print("2. Onyesha tasks")
+        print("3. Futa task")
+        print("4. Exit")
+        choice = input("Chagua: ")
+
+        if choice == "1":
+            task = input("Task gani? ")
+            tasks.append(task)
+            print("Task imeongezwa!")
+        elif choice == "2":
+            if tasks:
+                for i, t in enumerate(tasks, 1):
+                    print(f"{i}. {t}")
+            else:
+                print("Hakuna tasks")
+        elif choice == "3":
+            num = int(input("Namba ya task ya kufuta? "))
+            if 1 <= num <= len(tasks):
+                removed = tasks.pop(num - 1)
+                print(f"'{removed}' imefutwa")
+        elif choice == "4":
+            break
+
+todo_app()</pre>
+
+            <div class="note">
+                <strong>💡 Next Steps:</strong> Baada ya kumaliza hizi basics, endelea na: OOP advanced, modules (requests, pandas), web development (Django/Flask), au data science.
+            </div>
+        </div>
+
+        <a href="../courses.html" class="back-link">← Back to All Courses</a>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="brand"><span class="j">J</span><span class="t">t</span> JuveLineTech</div>
+            <div class="links">
+                <h4>Courses</h4>
+                <a href="tech-tips.html">Tech Tips</a>
+                <a href="html-css.html">HTML &amp; CSS</a>
+                <a href="javascript.html">JavaScript</a>
+                <a href="react.html">React</a>
+            </div>
+            <div class="links">
+                <h4>Contact</h4>
+                <a href="tel:+255782341709">0782 341 709</a>
+                <a href="mailto:shbnsemeni@gmail.com">shbnsemeni@gmail.com</a>
+            </div>
+        </div>
+        <div class="copyright">&copy; 2026 JuveLineTech. All rights reserved.</div>
+    </footer>
+
+</body>
+</html>
